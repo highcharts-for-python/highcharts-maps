@@ -11,7 +11,6 @@ from highcharts_maps.options.series.series_generator import create_series_obj
 
 from highcharts_maps.options.accessibility import Accessibility
 from highcharts_maps.options.annotations import Annotation
-from highcharts_maps.options.boost import Boost
 from highcharts_maps.options.caption import Caption
 from highcharts_maps.options.chart import ChartOptions
 from highcharts_maps.options.axes.color_axis import ColorAxis
@@ -24,8 +23,6 @@ from highcharts_maps.global_options.language import Language
 from highcharts_maps.options.legend import Legend
 from highcharts_maps.options.loading import Loading
 from highcharts_maps.options.navigation import Navigation
-from highcharts_maps.options.no_data import NoData
-from highcharts_maps.options.pane import Pane
 from highcharts_maps.options.plot_options import PlotOptions
 from highcharts_maps.options.plot_options.generic import GenericTypeOptions
 from highcharts_maps.options.responsive import Responsive
@@ -82,7 +79,7 @@ class HighchartsMapsOptions(HighchartsOptions):
         self._accessibility = value
 
     @property
-    def annotations(self) -> Optional[Annotation]:
+    def annotations(self) -> Optional[List[Annotation]]:
         """A basic type of an annotation. It allows adding custom labels or shapes. The
         items can be tied to points, axis coordinates or chart pixel coordinates.
 

@@ -26,8 +26,6 @@ class ChartOptions(ChartOptionsBase):
         self.map_transforms = kwargs.get('map_transforms', None)
         self.proj4 = kwargs.get('proj4', None)
 
-        super().__init__(**kwargs)
-
     @property
     def map(self) -> Optional[int | str | List[MapDataOptions] | GeoJSON | TopoJSON]:
         """Default :term:`map data` for all series, expressed either as:
@@ -114,24 +112,11 @@ class ChartOptions(ChartOptionsBase):
     def proj4(self, value):
         self._proj4 = value
 
-    @property
-    def type(self) -> Optional[str]:
-        """The default series type for the chart. Defaults to ``'map'``.
-
-        Can be any of the chart types listed under :class:`PlotOptions` and
-        :class:`Series`, or can be a series provided by an additional module.
-
-        :rtype: :class:`str <python:str>` or :obj:`None <python:None>`
-        """
-        return self._type
-
-    @type.setter
-    def type(self, value):
-        self._type = validators.string(value, allow_empty = True)
-
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):
         kwargs = {
+            'align_thresholds': as_dict.get('alignThresholds', None),
+            'align_ticks': as_dict.get('alignTicks', None),
             'allow_mutating_data': as_dict.get('allowMutatingData', None),
             'animation': as_dict.get('animation', None),
             'background_color': as_dict.get('backgroundColor', None),
@@ -143,26 +128,31 @@ class ChartOptions(ChartOptionsBase):
             'display_errors': as_dict.get('displayErrors', None),
             'events': as_dict.get('events', None),
             'height': as_dict.get('height', None),
-            'map': as_dict.get('map', None),
-            'map_transforms': as_dict.get('mapTransforms', None),
+            'ignore_hidden_series': as_dict.get('ignoreHiddenSeries', None),
+            'inverted': as_dict.get('inverted', None),
             'margin': as_dict.get('margin', None),
             'margin_bottom': as_dict.get('marginBottom', None),
             'margin_left': as_dict.get('marginLeft', None),
             'margin_right': as_dict.get('marginRight', None),
             'margin_top': as_dict.get('marginTop', None),
             'number_formatter': as_dict.get('numberFormatter', None),
+            'options_3d': as_dict.get('options3d', None),
             'pan_key': as_dict.get('panKey', None),
             'panning': as_dict.get('panning', None),
+            'parallel_axes': as_dict.get('parallelAxes', None),
+            'parallel_coordinates': as_dict.get('parallelCoordinates', None),
             'plot_background_color': as_dict.get('plotBackgroundColor', None),
             'plot_background_image': as_dict.get('plotBackgroundImage', None),
             'plot_border_color': as_dict.get('plotBorderColor', None),
             'plot_border_width': as_dict.get('plotBorderWidth', None),
             'plot_shadow': as_dict.get('plotShadow', None),
-            'proj4': as_dict.get('proj4', None),
+            'polar': as_dict.get('polar', None),
             'reflow': as_dict.get('reflow', None),
             'render_to': as_dict.get('renderTo', None),
+            'scrollable_plot_area': as_dict.get('scrollablePlotArea', None),
             'selection_marker_fill': as_dict.get('selectionMarkerFill', None),
             'shadow': as_dict.get('shadow', None),
+            'show_axes': as_dict.get('showAxes', None),
             'spacing': as_dict.get('spacing', None),
             'spacing_bottom': as_dict.get('spacingBottom', None),
             'spacing_left': as_dict.get('spacingLeft', None),
@@ -173,53 +163,24 @@ class ChartOptions(ChartOptionsBase):
             'type': as_dict.get('type', None),
             'width': as_dict.get('width', None),
             'zooming': as_dict.get('zooming', None),
+
+            'map': as_dict.get('map', None),
+            'map_transforms': as_dict.get('mapTransforms', None),
+            'proj4': as_dict.get('proj4', None),
         }
 
         return kwargs
 
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
         untrimmed = {
-            'allowMutatingData': self.allow_mutating_data,
-            'animation': self.animation,
-            'backgroundColor': self.background_color,
-            'borderColor': self.border_color,
-            'borderRadius': self.border_radius,
-            'borderWidth': self.border_width,
-            'className': self.class_name,
-            'colorCount': self.color_count,
-            'displayErrors': self.display_errors,
-            'events': self.events,
-            'height': self.height,
             'map': self.map,
             'mapTransforms': self.map_transforms,
-            'margin': self.margin,
-            'marginBottom': self.margin_bottom,
-            'marginLeft': self.margin_left,
-            'marginRight': self.margin_right,
-            'marginTop': self.margin_top,
-            'numberFormatter': self.number_formatter,
-            'panKey': self.pan_key,
-            'panning': self.panning,
-            'plotBackgroundColor': self.plot_background_color,
-            'plotBackgroundImage': self.plot_background_image,
-            'plotBorderColor': self.plot_border_color,
-            'plotBorderWidth': self.plot_border_width,
-            'plotShadow': self.plot_shadow,
-            'proj4': self.proj4,
-            'reflow': self.reflow,
-            'renderTo': self.render_to,
-            'selectionMarkerFill': self.selection_marker_fill,
-            'shadow': self.shadow,
-            'spacing': self.spacing,
-            'spacingBottom': self.spacing_bottom,
-            'spacingLeft': self.spacing_left,
-            'spacingRight': self.spacing_right,
-            'spacingTop': self.spacing_top,
-            'style': self.style,
-            'styledMode': self.styled_mode,
-            'type': self.type,
-            'width': self.width,
-            'zooming': self.zooming,
+            'proj4': self.proj4
         }
+
+        parent_as_dict = super()._to_untrimmed_dict(in_cls = in_cls)
+
+        for key in parent_as_dict:
+            untrimmed[key] = parent_as_dict[key]
 
         return untrimmed

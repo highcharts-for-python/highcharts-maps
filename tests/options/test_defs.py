@@ -5,11 +5,11 @@ import pytest
 from json.decoder import JSONDecodeError
 from copy import deepcopy
 
-from highcharts_stock.options.defs import MarkerAttributeObject as cls
-from highcharts_stock.options.defs import MarkerASTNode as cls2
-from highcharts_stock.options.defs import MarkerDefinition as cls3
+from highcharts_maps.options.defs import MarkerAttributeObject as cls
+from highcharts_maps.options.defs import MarkerASTNode as cls2
+from highcharts_maps.options.defs import MarkerDefinition as cls3
 
-from highcharts_stock import errors
+from highcharts_maps import errors
 from tests.fixtures import input_files, check_input_file, to_camelCase, to_js_dict, \
     Class__init__, Class__to_untrimmed_dict, Class_from_dict, Class_to_dict, \
     Class_from_js_literal

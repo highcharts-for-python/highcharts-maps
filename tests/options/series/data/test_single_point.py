@@ -4,13 +4,13 @@ import pytest
 
 from json.decoder import JSONDecodeError
 
-from highcharts_stock.options.series.data.single_point import SinglePointBase as cls
-from highcharts_stock.options.series.data.single_point import SinglePointData as cls2
-from highcharts_stock.options.series.data.single_point import SingleValueData as cls3
-from highcharts_stock.options.series.data.single_point import SingleXData as cls4
-from highcharts_stock.options.series.data.single_point import LabeledSingleXData as cls5
-from highcharts_stock.options.series.data.single_point import ConnectedSingleXData as cls6
-from highcharts_stock import errors
+from highcharts_maps.options.series.data.single_point import SinglePointBase as cls
+from highcharts_maps.options.series.data.single_point import SinglePointData as cls2
+from highcharts_maps.options.series.data.single_point import SingleValueData as cls3
+from highcharts_maps.options.series.data.single_point import SingleXData as cls4
+from highcharts_maps.options.series.data.single_point import LabeledSingleXData as cls5
+from highcharts_maps.options.series.data.single_point import ConnectedSingleXData as cls6
+from highcharts_maps import errors
 from tests.fixtures import input_files, check_input_file, to_camelCase, to_js_dict, \
     Class__init__, Class__to_untrimmed_dict, Class_from_dict, Class_to_dict, \
     Class_from_js_literal

@@ -4,4 +4,4 @@ import pytest
 
 from abc import ABC, abstractmethod
 
-from highcharts_stock import utility_functions
+from highcharts_maps import utility_functions

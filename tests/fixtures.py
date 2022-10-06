@@ -15,7 +15,7 @@ from collections import UserDict
 import pytest
 
 from validator_collection import checkers, validators
-from highcharts_stock import constants
+from highcharts_maps import constants
 
 
 class State(object):

@@ -14,7 +14,7 @@ from highcharts_maps.options.plot_options.generic import GenericTypeOptions
 
 # Highcharts Maps Classes
 from highcharts_maps.options.map_navigation import MapNavigationOptions
-from highcharts_maps.options.map_view import MapViewOptions
+from highcharts_maps.options.map_views import MapViewOptions
 
 from highcharts_python.options import Options, HighchartsOptions
 

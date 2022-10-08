@@ -171,6 +171,9 @@ class MapBubbleOptions(MapBaseOptions, BubbleOptions):
             'z_min': as_dict.get('zMin', None),
             'z_threshold': as_dict.get('zThreshold', None),
 
+            'all_areas': as_dict.get('allAreas', None),
+            'join_by': as_dict.get('joinBy', None),
+
             'border_color': as_dict.get('borderColor', None),
             'border_width': as_dict.get('borderWidth', None),
             'data_as_columns': as_dict.get('dataAsColumns', None),

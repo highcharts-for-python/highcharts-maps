@@ -335,6 +335,9 @@ class MapPointOptions(MapBaseOptions, GenericTypeOptions):
             'find_nearest_point_by': as_dict.get('findNearestPointBy', None),
             'negative_color': as_dict.get('negativeColor', None),
 
+            'all_areas': as_dict.get('allAreas', None),
+            'join_by': as_dict.get('joinBy', None),
+
             'cluster': as_dict.get('cluster', None),
             'data_as_columns': as_dict.get('dataAsColumns', None),
         }

@@ -1,0 +1,231 @@
+from typing import Optional, List
+
+from validator_collection import checkers
+
+from highcharts_python.options.series.base import SeriesBase
+
+from highcharts_maps import errors
+from highcharts_maps.options.series.map_data import AsyncMapData, MapData
+from highcharts_maps.utility_functions import mro__to_untrimmed_dict
+
+
+class MapSeriesBase(SeriesBase):
+    """Generic base class for map series configurations."""
+
+    def __init__(self, **kwargs):
+        self._map_data = None
+
+        self.map_data = kwargs.get('map_data', None)
+
+        super().__init__(**kwargs)
+
+    @property
+    def map_data(self) -> Optional[MapData | AsyncMapData | List[MapData | AsyncMapData]]:
+        """Map :term:`geometries` that provide instructions on how to render the map
+        itself, along with relevant properties used to join each map area to its
+        corresponding values in the
+        :meth:`.data <highcharts_maps.options.series.base.MapSeriesBase.data>`.
+
+        Accepts (either in object representation or as coercable objects):
+
+          * :class:`MapData <highcharts_maps.options.series.map_data.MapData>`
+          * :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+          * :class:`GeoJSON <highcharts_maps.utility_classes.geojson.GeoJSON>`
+          * :class:`TopoJSON <highcharts_maps.utility_classes.topojson.TopoJSON>`
+          * a :class:`str <python:str>` URL, which will be coerced to
+            :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+
+        :rtype: :class:`MapData <highcharts_maps.options.series.map_data.MapData>` or
+          :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+          or :obj:`None <python:None>`
+        """
+        return self._map_data
+
+    @map_data.setter
+    def map_data(self, value):
+        if not value:
+            self._map_data = None
+        elif checkers.is_iterable(value, forbid_literals = (str, bytes, dict)):
+            cleaned_value = []
+            for item in value:
+                if isinstance(item, (MapData, AsyncMapData)):
+                    item = item
+                elif checkers.is_url(item):
+                    item = AsyncMapData(url = item)
+                elif isinstance(item, dict) and 'url' in item:
+                    item = AsyncMapData.from_dict(item)
+                elif isinstance(item, str) and 'url:' in item:
+                    item = AsyncMapData.from_json(item)
+                else:
+                    try:
+                        item = MapData.from_topojson(item)
+                    except (ValueError, TypeError):
+                        try:
+                            item = MapData.from_geojson(item)
+                        except (ValueError, TypeError):
+                            raise errors.HighchartsValueError(
+                                f'map_data expects a value '
+                                f'that is TopoJSON, '
+                                f'GeoJSON, a MapData '
+                                f'object, an AsyncMapData '
+                                f'object, or coercable to '
+                                f'one. Received: '
+                                f'{item.__class__.__name__}'
+                            )
+                cleaned_value.append(item)
+            value = [x for x in cleaned_value]
+        elif isinstance(value, (MapData, AsyncMapData)):
+            value = value
+        elif checkers.is_url(value):
+            value = AsyncMapData(url = value)
+        elif isinstance(value, dict) and 'url' in value:
+            value = AsyncMapData.from_dict(value)
+        elif isinstance(value, str) and 'url:' in value:
+            value = AsyncMapData.from_json(value)
+        else:
+            try:
+                value = MapData.from_topojson(value)
+            except (ValueError, TypeError):
+                try:
+                    value = MapData.from_geojson(value)
+                except (ValueError, TypeError):
+                    raise errors.HighchartsValueError(
+                        f'map_data expects a value '
+                        f'that is TopoJSON, '
+                        f'GeoJSON, a MapData '
+                        f'object, an AsyncMapData '
+                        f'object, or coercable to '
+                        f'one. Received: '
+                        f'{value.__class__.__name__}'
+                    )
+
+        self._map_data = value
+
+    def set_async_map_data(self,
+                           url,
+                           selector = None,
+                           fetch_config = None):
+        """Configures the asynchronous loading of :term:`map data` for the series,
+        including a download of the raw map data itself in :term:`TopoJSON` or
+        :term:`GeoJSON` format and the incorporation of an (optional) custom JavaScript
+        function to select a portion of the downloaded data for rendering.
+
+        :param url: The URL from which to retrieve the :term:`map data` asynchronously via
+          a JavaScript ``fetch()`` call.
+        :type url: :class:`str <python:str>`
+
+        :param selector: A JavaScript callback function that the :term:`map data`
+          retrieved from ``url`` will be supplied to, and which will then return a subset
+          or mutated form of the resulting data. Defaults to :obj:`None <python:None>`.
+
+          .. caution::
+
+            The function *must* expect a single argument named ``originalMapData``.
+
+        :type selector: :class:`CallbackFunction <highcharts_maps.utility_classes.javascript_functions.CallbackFunction>`
+
+        :param fetch_config: Additional (optional) configuration settings to use for the
+          JavaScript ``fetch()`` function call. Defaults to :obj:`None <python:None>`.
+
+          .. note::
+
+            If ``fetch_config`` contains an already-set URL, that URL will be
+            overwritten by the value supplied in ``url``.
+
+        :type fetch_config: :class:`FetchConfiguration <highcharts_maps.utility_classes.fetch_configuration.FetchConfiguration>`
+          or :obj:`None <python:None>`
+        """
+        async_map_data = AsyncMapData(url = url,
+                                      selector = selector,
+                                      fetch_config = fetch_config)
+        self.map_data = async_map_data
+
+    @classmethod
+    def _get_kwargs_from_dict(cls, as_dict):
+        kwargs = {
+            'accessibility': as_dict.get('accessibility', None),
+            'allow_point_select': as_dict.get('allowPointSelect', None),
+            'animation': as_dict.get('animation', None),
+            'class_name': as_dict.get('className', None),
+            'clip': as_dict.get('clip', None),
+            'color': as_dict.get('color', None),
+            'cursor': as_dict.get('cursor', None),
+            'custom': as_dict.get('custom', None),
+            'dash_style': as_dict.get('dashStyle', None),
+            'data_labels': as_dict.get('dataLabels', None),
+            'description': as_dict.get('description', None),
+            'enable_mouse_tracking': as_dict.get('enableMouseTracking', None),
+            'events': as_dict.get('events', None),
+            'include_in_data_export': as_dict.get('includeInDataExport', None),
+            'keys': as_dict.get('keys', None),
+            'label': as_dict.get('label', None),
+            'linked_to': as_dict.get('linkedTo', None),
+            'marker': as_dict.get('marker', None),
+            'on_point': as_dict.get('onPoint', None),
+            'opacity': as_dict.get('opacity', None),
+            'point': as_dict.get('point', None),
+            'point_description_formatter': as_dict.get('pointDescriptionFormatter', None),
+            'selected': as_dict.get('selected', None),
+            'show_checkbox': as_dict.get('showCheckbox', None),
+            'show_in_legend': as_dict.get('showInLegend', None),
+            'skip_keyboard_navigation': as_dict.get('skipKeyboardNavigation', None),
+            'states': as_dict.get('states', None),
+            'sticky_tracking': as_dict.get('stickyTracking', None),
+            'threshold': as_dict.get('threshold', None),
+            'tooltip': as_dict.get('tooltip', None),
+            'turbo_threshold': as_dict.get('turboThreshold', None),
+            'visible': as_dict.get('visible', None),
+
+            'animation_limit': as_dict.get('animationLimit', None),
+            'boost_blending': as_dict.get('boostBlending', None),
+            'boost_threshold': as_dict.get('boostThreshold', None),
+            'color_axis': as_dict.get('colorAxis', None),
+            'color_index': as_dict.get('colorIndex', None),
+            'color_key': as_dict.get('colorKey', None),
+            'connect_ends': as_dict.get('connectEnds', None),
+            'connect_nulls': as_dict.get('connectNulls', None),
+            'crisp': as_dict.get('crisp', None),
+            'crop_threshold': as_dict.get('cropThreshold', None),
+            'data_sorting': as_dict.get('dataSorting', None),
+            'drag_drop': as_dict.get('dragDrop', None),
+            'find_nearest_point_by': as_dict.get('findNearestPointBy', None),
+            'get_extremes_from_all': as_dict.get('getExtremesFromAll', None),
+            'linecap': as_dict.get('linecap', None),
+            'line_width': as_dict.get('lineWidth', None),
+            'negative_color': as_dict.get('negativeColor', None),
+            'point_interval': as_dict.get('pointInterval', None),
+            'point_interval_unit': as_dict.get('pointIntervalUnit', None),
+            'point_placement': as_dict.get('pointPlacement', None),
+            'point_start': as_dict.get('pointStart', None),
+            'relative_x_value': as_dict.get('relativeXValue', None),
+            'shadow': as_dict.get('shadow', None),
+            'soft_threshold': as_dict.get('softThreshold', None),
+            'stacking': as_dict.get('stacking', None),
+            'step': as_dict.get('step', None),
+            'zone_axis': as_dict.get('zoneAxis', None),
+            'zones': as_dict.get('zones', None),
+
+            'id': as_dict.get('id', None),
+            'index': as_dict.get('index', None),
+            'legend_index': as_dict.get('legendIndex', None),
+            'name': as_dict.get('name', None),
+            'stack': as_dict.get('stack', None),
+            'x_axis': as_dict.get('xAxis', None),
+            'y_axis': as_dict.get('yAxis', None),
+            'z_index': as_dict.get('zIndex', None),
+
+            'map_data': as_dict.get('mapData', None),
+        }
+
+        return kwargs
+
+    def _to_untrimmed_dict(self, in_cls = None) -> dict:
+        untrimmed = {
+            'mapData': self.map_data,
+        }
+        parent_as_dict = mro__to_untrimmed_dict(self, in_cls = in_cls) or {}
+
+        for key in parent_as_dict:
+            untrimmed[key] = parent_as_dict[key]
+
+        return untrimmed

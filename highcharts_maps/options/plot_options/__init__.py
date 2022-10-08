@@ -98,8 +98,8 @@ class PlotOptions(PlotOptionsBase):
 
     @property
     def map(self) -> Optional[MapOptions]:
-        """Map series are simple :term:`choropleth` visualizations where each area of the
-        map is given a color based on its value.
+        """:term:`Map series` are simple :term:`choropleth` visualizations where each area
+        of the map is given a color based on its value.
 
         .. figure:: ../../../_static/map-example.png
           :alt: Map Example Chart
@@ -113,6 +113,69 @@ class PlotOptions(PlotOptionsBase):
     @class_sensitive(MapOptions)
     def map(self, value):
         self._map = value
+
+    @property
+    def mapbubble(self) -> Optional[MapBubbleOptions]:
+        """Map bubble series are :term:`bubble series` laid out on top of a
+        :term:`map series`, where each bubble shown is tied to a specific area of the map.
+
+        .. figure:: ../../../_static/mapbubble-exapmle.png
+          :alt: Map Bubble Example chart
+          :align: center
+
+        :rtype: :class:`MapBubbleOptions` or :obj:`None <python:None>`
+        """
+        return self._mapbubble
+
+    @mapbubble.setter
+    @class_sensitive(MapBubbleOptions)
+    def mapbubble(self, value):
+        self._mapbubble = value
+
+    @property
+    def mapline(self) -> Optional[MapLineOptions]:
+        """:term:`Mapline series` are a special version of a :term:`map series` where the
+        value colors are applied to the strokes (borders) shown on the map, rather than
+        the area fills.
+
+        .. figure:: ../../../_static/mapline-example.png
+          :alt: Mapline Example chart
+          :align: center
+
+        .. tip::
+
+          **Best practice!**
+
+          This can be useful for applying free-form drawing within a map, or for rendering
+          geometric features like rivers or mountains in your map.
+
+        :rtype: :class:`MapLineOptions` or :obj:`None <python:None>`
+        """
+        return self._mapline
+
+    @mapline.setter
+    @class_sensitive(MapLineOptions)
+    def mapline(self, value):
+        self._mapline = value
+
+    @property
+    def mappoint(self) -> Optional[MapPointOptions]:
+        """:term:`MapPoint series` are a special version of a :term:`scatter series` where
+        the points are placed according to geographic coordinates within a map.
+
+        .. figure:: ../../../_static/mappoint-example.png
+          :alt: Map Point Example chart
+          :align: center
+
+        .. tip::
+
+          **Best practice!**
+
+          This can be very useful for rendering cities or other locations on your map.
+
+        :rtype: :class:`MapPointOptions` or :obj:`None <python:None>`
+        """
+        return self._mappoint
 
     # Highcharts Properties
 
@@ -1421,120 +1484,20 @@ class PlotOptions(PlotOptionsBase):
             'wordcloud': as_dict.get('wordcloud', None),
             'xrange': as_dict.get('xrange', None),
 
-            'abands': as_dict.get('abands', None),
-            'ad': as_dict.get('ad', None),
-            'ao': as_dict.get('ao', None),
-            'apo': as_dict.get('apo', None),
-            'aroon': as_dict.get('aroon', None),
-            'aroonoscillator': as_dict.get('aroonoscillator', None),
-            'atr': as_dict.get('atr', None),
-            'bb': as_dict.get('bb', None),
-            'candlestick': as_dict.get('candlestick', None),
-            'cci': as_dict.get('cci', None),
-            'chaikin': as_dict.get('chaikin', None),
-            'cmf': as_dict.get('cmf', None),
-            'cmo': as_dict.get('cmo', None),
-            'dema': as_dict.get('dema', None),
-            'disparityindex': as_dict.get('disparityindex', None),
-            'dmi': as_dict.get('dmi', None),
-            'dpo': as_dict.get('dpo', None),
-            'ema': as_dict.get('ema', None),
-            'flags': as_dict.get('flags', None),
-            'heikinashi': as_dict.get('heikinashi', None),
-            'hlc': as_dict.get('hlc', None),
-            'hollowcandlestick': as_dict.get('hollowcandlestick', None),
-            'ikh': as_dict.get('ikh', None),
-            'keltnerchannels': as_dict.get('keltnerchannels', None),
-            'klinger': as_dict.get('klinger', None),
-            'linearregression': as_dict.get('linearregression', None),
-            'linearregressionangle': as_dict.get('linearregressionangle', None),
-            'linearregressionintercept': as_dict.get('linearregressionintercept', None),
-            'linearregressionslope': as_dict.get('linearregressionslope', None),
-            'macd': as_dict.get('macd', None),
-            'mfi': as_dict.get('mfi', None),
-            'momentum': as_dict.get('momentum', None),
-            'natr': as_dict.get('natr', None),
-            'obv': as_dict.get('obv', None),
-            'ohlc': as_dict.get('ohlc', None),
-            'pc': as_dict.get('pc', None),
-            'pivotpoints': as_dict.get('pivotpoints', None),
-            'ppo': as_dict.get('ppo', None),
-            'priceenvelopes': as_dict.get('priceenvelopes', None),
-            'psar': as_dict.get('psar', None),
-            'roc': as_dict.get('roc', None),
-            'rsi': as_dict.get('rsi', None),
-            'slowstochastic': as_dict.get('slowstochastic', None),
-            'sma': as_dict.get('sma', None),
-            'stochastic': as_dict.get('stochastic', None),
-            'supertrend': as_dict.get('supertrend', None),
-            'tema': as_dict.get('tema', None),
-            'trendline': as_dict.get('trendline', None),
-            'trix': as_dict.get('trix', None),
-            'vbp': as_dict.get('vbp', None),
-            'vwap': as_dict.get('vwap', None),
-            'williamsr': as_dict.get('williamsr', None),
-            'wma': as_dict.get('wma', None),
-            'zigzag': as_dict.get('zigzag', None),
+            'map': as_dict.get('map', None),
+            'mapbubble': as_dict.get('mapbubble', None),
+            'mapline': as_dict.get('mapline', None),
+            'mappoint': as_dict.get('mappoint', None),
         }
 
         return kwargs
 
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
         untrimmed = {
-            'abands': self.abands,
-            'ad': self.ad,
-            'ao': self.ao,
-            'apo': self.apo,
-            'aroon': self.aroon,
-            'aroonoscillator': self.aroonoscillator,
-            'atr': self.atr,
-            'bb': self.bb,
-            'candlestick': self.candlestick,
-            'cci': self.cci,
-            'chaikin': self.chaikin,
-            'cmf': self.cmf,
-            'cmo': self.cmo,
-            'dema': self.dema,
-            'disparityindex': self.disparityindex,
-            'dmi': self.dmi,
-            'dpo': self.dpo,
-            'ema': self.ema,
-            'flags': self.flags,
-            'heikinashi': self.heikinashi,
-            'hlc': self.hlc,
-            'hollowcandlestick': self.hollowcandlestick,
-            'ikh': self.ikh,
-            'keltnerchannels': self.keltnerchannels,
-            'klinger': self.klinger,
-            'linearregression': self.linearregression,
-            'linearregressionangle': self.linearregressionangle,
-            'linearregressionintercept': self.linearregressionintercept,
-            'linearregressionslope': self.linearregressionslope,
-            'macd': self.macd,
-            'mfi': self.mfi,
-            'momentum': self.momentum,
-            'natr': self.natr,
-            'obv': self.obv,
-            'ohlc': self.ohlc,
-            'pc': self.pc,
-            'pivotpoints': self.pivotpoints,
-            'ppo': self.ppo,
-            'priceenvelopes': self.priceenvelopes,
-            'psar': self.psar,
-            'roc': self.roc,
-            'rsi': self.rsi,
-            'slowstochastic': self.slowstochastic,
-            'sma': self.sma,
-            'stochastic': self.stochastic,
-            'supertrend': self.supertrend,
-            'tema': self.tema,
-            'trendline': self.trendline,
-            'trix': self.trix,
-            'vbp': self.vbp,
-            'vwap': self.vwap,
-            'williamsr': self.williamsr,
-            'wma': self.wma,
-            'zigzag': self.zigzag,
+            'map': self.map,
+            'mapbubble': self.mapbubble,
+            'mapline': self.mapline,
+            'mappoint': self.mappoint,
 
             'arcdiagram': self.arcdiagram,
             'area': self.area,

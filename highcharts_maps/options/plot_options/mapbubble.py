@@ -1,14 +1,17 @@
 from typing import Optional
+from decimal import Decimal
+
+from validator_collection import validators
 
 from highcharts_python.options.plot_options.bubble import BubbleOptions
 
-from highcharts_maps.options.plot_options.map import MapOptions
+from highcharts_maps.options.plot_options.base import MapBaseOptions
 from highcharts_maps.utility_functions import validate_color, mro__to_untrimmed_dict
 from highcharts_maps.utility_classes.gradients import Gradient
 from highcharts_maps.utility_classes.patterns import Pattern
 
 
-class MapBubbleOptions(MapOptions, BubbleOptions):
+class MapBubbleOptions(MapBaseOptions, BubbleOptions):
     """Map bubble series are :term:`bubble series` laid out on top of a
     :term:`map series`, where each bubble shown is tied to a specific area of the map.
 
@@ -19,11 +22,63 @@ class MapBubbleOptions(MapOptions, BubbleOptions):
     """
 
     def __init__(self, **kwargs):
+        self._border_color = None
+        self._border_width = None
+        self._data_as_columns = None
         self._line_color = None
 
+        self.border_color = kwargs.get('border_color', None)
+        self.border_width = kwargs.get('border_width', None)
+        self.data_as_columns = kwargs.get('data_as_columns', None)
         self.line_color = kwargs.get('line_color', None)
 
         super().__init__(**kwargs)
+
+    @property
+    def border_color(self) -> Optional[str | Gradient | Pattern]:
+        """The color of the border surrounding each area of the map. Defaults to
+        ``'#cccccc'``.
+
+        :rtype: :class:`str <python:str>` or
+          :class:`Gradient <highcharts_maps.utility_classes.gradients.Gradient>` or
+          :class:`Pattern <highcharts_maps.utility_classes.patterns.Pattern>` or
+          :obj:`None <python:None>`
+        """
+        return self._border_color
+
+    @border_color.setter
+    def border_color(self, value):
+        self._border_color = validate_color(value)
+
+    @property
+    def border_width(self) -> Optional[int | float | Decimal]:
+        """The width of the border surrounding each area of the map. Defaults to ``1``.
+
+        :rtype: numeric or :obj:`None <python:None>`
+        """
+        return self._border_width
+
+    @border_width.setter
+    def border_width(self, value):
+        self._border_width = validators.numeric(value,
+                                                allow_empty = True,
+                                                minimum = 0)
+
+    @property
+    def data_as_columns(self) -> Optional[bool]:
+        """If ``True``, indicates that the data is structured as columns instead of as
+        rows. Defaults to :obj:`None <python:None>`, which behaves as ``False``.
+
+        :rtype: :class:`bool <python:bool>` or :obj:`None <python:None>`
+        """
+        return self._data_as_columns
+
+    @data_as_columns.setter
+    def data_as_columns(self, value):
+        if value is None:
+            self._data_as_columns = None
+        else:
+            self._data_as_columns = bool(value)
 
     @property
     def line_color(self) -> Optional[str | Gradient | Pattern]:
@@ -83,16 +138,42 @@ class MapBubbleOptions(MapOptions, BubbleOptions):
             'color_axis': as_dict.get('colorAxis', None),
             'color_index': as_dict.get('colorIndex', None),
             'color_key': as_dict.get('colorKey', None),
+            'connect_ends': as_dict.get('connectEnds', None),
+            'connect_nulls': as_dict.get('connectNulls', None),
+            'crisp': as_dict.get('crisp', None),
+            'crop_threshold': as_dict.get('cropThreshold', None),
+            'data_sorting': as_dict.get('dataSorting', None),
             'drag_drop': as_dict.get('dragDrop', None),
             'find_nearest_point_by': as_dict.get('findNearestPointBy', None),
+            'get_extremes_from_all': as_dict.get('getExtremesFromAll', None),
+            'linecap': as_dict.get('linecap', None),
+            'line_width': as_dict.get('lineWidth', None),
             'negative_color': as_dict.get('negativeColor', None),
+            'point_interval': as_dict.get('pointInterval', None),
+            'point_interval_unit': as_dict.get('pointIntervalUnit', None),
+            'point_placement': as_dict.get('pointPlacement', None),
+            'point_start': as_dict.get('pointStart', None),
+            'relative_x_value': as_dict.get('relativeXValue', None),
+            'shadow': as_dict.get('shadow', None),
+            'soft_threshold': as_dict.get('softThreshold', None),
+            'stacking': as_dict.get('stacking', None),
+            'step': as_dict.get('step', None),
+            'zone_axis': as_dict.get('zoneAxis', None),
+            'zones': as_dict.get('zones', None),
+
+            'display_negative': as_dict.get('displayNegative', None),
+            'jitter': as_dict.get('jitter', None),
+            'max_size': as_dict.get('maxSize', None),
+            'min_size': as_dict.get('minSize', None),
+            'size_by': as_dict.get('sizeBy', None),
+            'size_by_absolute_value': as_dict.get('sizeByAbsoluteValue', None),
+            'z_max': as_dict.get('zMax', None),
+            'z_min': as_dict.get('zMin', None),
+            'z_threshold': as_dict.get('zThreshold', None),
 
             'border_color': as_dict.get('borderColor', None),
             'border_width': as_dict.get('borderWidth', None),
             'data_as_columns': as_dict.get('dataAsColumns', None),
-            'null_color': as_dict.get('nulLColor', None),
-            'null_interaction': as_dict.get('nullInteraction', None),
-
             'line_color': as_dict.get('lineColor', None),
         }
 
@@ -100,6 +181,9 @@ class MapBubbleOptions(MapOptions, BubbleOptions):
 
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
         untrimmed = {
+            'borderColor': self.border_color,
+            'borderWidth': self.border_width,
+            'dataAsColumns': self.data_as_columns,
             'lineColor': self.line_color,
         }
         parent_as_dict = mro__to_untrimmed_dict(self, in_cls = in_cls)

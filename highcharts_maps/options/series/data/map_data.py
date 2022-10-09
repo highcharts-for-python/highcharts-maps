@@ -1,84 +1,43 @@
 from typing import Optional, List
 from collections import UserDict
 
+try:
+    import orjson as json
+except ImportError:
+    try:
+        import rapidjson as json
+    except ImportError:
+        try:
+            import simplejson as json
+        except ImportError:
+            import json
+
+import geojson
 from validator_collection import validators, checkers
 
-from highcharts_maps import errors
-from highcharts_maps.decorators import validate_types
+from highcharts_maps import errors, utility_functions
+from highcharts_maps.decorators import class_sensitive
 from highcharts_maps.metaclasses import HighchartsMeta
-from highcharts_maps.utility_classes.geojson import GeoJSON
-from highcharts_maps.utility_classes.topojson import TopoJSON
+from highcharts_maps.utility_classes.topojson import Topology
+from highcharts_maps.utility_classes.javascript_functions import CallbackFunction
+from highcharts_maps.utility_classes.fetch_configuration import FetchConfiguration
 
 
 class MapData(HighchartsMeta):
-    """Map :term:`geometries` that provide instructions on how to render the map
-    itself, along with relevant properties used to join each map area to its
-    corresponding values in the series
-    :meth:`.data <highcharts_maps.options.series.base.MapSeriesBase.data>`.
-
-    .. warning::
-
-      To minimize data transferred on the wire, all geometries supplied in :term:`GeoJSON`
-      will be automatically converted to :term:`TopoJSON` (which is a significantly more
-      efficient/compact format). If your JavaScript code *needs* to have the data
-      delivered in JSON, set
-      :meth:`.force_geojson <highcharts_maps.options.series.data.map_data.MapData.force_geojson>`
-      to ``True``.
-
-    .. tip::
-
-      **Best practice!**
-
-      Because :iabbr:`GIS (Geograhical Information System)` :term:`geometries` can be
-      verbose and large, we strongly recommend fetching geometry data asynchronously from
-      the client-side. **Highcharts for Maps** supports asynchronously-fetched map data
-      using the
-      :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
-      class instead of the
-      :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`.
-
-    """
+    """The map :term:`geometry` data which defines the areas and features of the map
+    itself."""
 
     def __init__(self, **kwargs):
-        self._as_geojson = None
-        self._as_topojson = None
-        self._defer_conversion = None
         self._force_geojson = None
+        self._topology = None
 
-        self.defer_conversion = kwargs.get('defer_conversion', False)
-        self.force_geojson = kwargs.get('force_geojson', False)
-        self.geometries = kwargs.get('geometries', None)
-
-    def _validate_geometry(self, value):
-        """Validate that ``value`` is a valid geometry, returning the :term:`GeoJSON`
-        and :term:`TopoJSON` representation.
-
-        :param value: the value to validate as a valid :term:`geometry <geometries>`.
-
-        :rtype: 2-member :class:`tuple <python:tuple>` where the first is
-          :class:`GeoJSON <highcharts_maps.utility_classes.geojson.GeoJSON>` and the
-          second is :class:`TopoJSON <highcharts_maps.utility_classes.topojson.TopoJSON>`
-        """
-        as_geojson = None
-        as_topojson = None
-        try:
-            as_geojson = validate_types(value, GeoJSON)
-            if not self.defer_conversion:
-                as_topojson = TopoJSON.from_geojson(as_geojson)
-        except (ValueError, TypeError):
-            as_topojson = validate_types(value, TopoJSON)
-            if self.force_geojson and not self.defer_conversion:
-                as_geojson = as_topojson.to_geojson()
-            else:
-                as_geojson = None
-
-        return as_geojson, as_topojson
+        self.force_geojson = kwargs.get('force_geojsons', False)
+        self.topology = kwargs.get('topology', None)
 
     @property
     def force_geojson(self) -> Optional[bool]:
-        """If ``True``, will always serialize the instance to :term:`GeoJSON`. If
-        ``False``, will serialize the instance to :term:`TopoJSON` to minimize the amount
-        of data transferred on the wire. Defaults to ``False``.
+        """If ``True``, will serialize as :term:`GeoJSON`. If ``False``, will serialize
+        as :term:`TopoJSON` which sends less data over the wire. Defaults to ``False``.
 
         :rtype: :class:`bool <python:bool>`
         """
@@ -89,215 +48,197 @@ class MapData(HighchartsMeta):
         self._force_geojson = bool(value)
 
     @property
-    def defer_conversion(self) -> Optional[bool]:
-        """If ``True``, will defer converting :term:`GeoJSON` :term:`geometries` to
-        :term:`TopoJSON` until the moment geometries are requested. This has the effect
-        of avoiding an "expensive" action (in terms of performance) until it is absolutely
-        necessary and only performing that action once. Defaults to ``False``.
+    def topology(self) -> Optional[Topology]:
+        """The :term:`topology` that defines the map areas that should be rendered in the
+        map.
 
-        :rtype: :class:`bool <python:bool>`
+        :rtype: :class:`Topology <highcharts_maps.utility_classes.topojson.Topology>`
         """
-        return self._defer_conversion
+        return self._topology
 
-    @defer_conversion.setter
-    def defer_conversion(self, value):
-        self._defer_conversion = bool(value)
-
-    @property
-    def geometries(self) -> Optional[TopoJSON | List[TopoJSON]]:
-        """Collection of the :term:`TopoJSON` :term:`geometries` supplied in the map data.
-        Defaults to :obj:`None <python:None>`.
-
-        :rtype: :class:`TopoJSON <highcharts_maps.utility_classes.topojson.TopoJSON>` or
-          :class:`list <python:list>` of
-          :class:`TopoJSON <highcharts_maps.utility_classes.topojson.TopoJSON>`, or
-          :obj:`None <python:None>`
-        """
-        if self._as_geojson and not self._as_topojson:
-            self._as_topojson = TopoJSON.from_geojson(self._as_geojson)
-
-        return self._as_topojson
-
-    @geometries.setter
-    def geometries(self, value):
+    @topology.setter
+    def topology(self, value):
         if not value:
-            self._as_geojson = None
-            self._as_topojson = None
+            self._topology = None
+        elif isinstance(value, Topology):
+            self._topology = value
+        elif checkers.is_type(value, 'GeoDataFrame'):
+            self._topology = Topology(value, prequantize = False)
+        elif isinstance(value, (str, bytes)):
+            as_dict = json.loads(value)
+            if 'data' in as_dict:
+                self._topology = Topology(as_dict, object_name = 'data')
+            else:
+                self._topology = Topology(as_dict)
+        elif isinstance(value, (dict, UserDict)):
+            if 'data' in as_dict:
+                self._topology = Topology(as_dict, object_name = 'data')
+            else:
+                self._topology = Topology(as_dict)
         elif checkers.is_iterable(value, forbid_literals = (str, bytes, dict)):
-            as_geojson = []
-            as_topojson = []
-            for item in value:
-                item_as_geojson, item_as_topojson = self._validate_geometry(item)
-                if item_as_geojson:
-                    as_geojson.append(item)
-                if item_as_topojson:
-                    as_topojson.append(item)
-            if as_geojson:
-                self._as_geojson = [x for x in as_geojson]
-            if as_topojson:
-                self._as_topojson = [x for x in as_topojson]
+            data = []
+            object_names = []
+            is_GeoDataFrame = False
+            for count, item in enumerate(value):
+                data.append(item)
+                object_names.append(f'obj_{count}')
+                if checkers.is_type(item, 'GeoDataFrame'):
+                    is_GeoDataFrame = True
+            if is_GeoDataFrame:
+                self._topology = Topology(data = data,
+                                          object_name = object_names,
+                                          prequantize = False)
+            else:
+                self._topology = Topology(data = data,
+                                          object_name = object_names)
         else:
-            self._as_geojson, self._as_topojson = self._validate_geometry(value)
+            try:
+                self._topology = Topology(value)
+            except (json.JSONDecodeError, ValueError, TypeError):
+                raise errors.HighchartsValueError(f'Unable to deserialize a topology from'
+                                                  f' the value supplied: {value}')
 
     @classmethod
-    def from_geojson(cls,
-                     as_geojson_or_file: str | bytes,
-                     force_geojson: bool = False,
-                     defer_conversion: bool = False):
-        """Construct an instance of the :class:`MapData` from a GeoJSON string.
+    def _get_kwargs_from_dict(cls, as_dict):
+        if ('forceGeoJSON' in as_dict
+            or 'force_geojson' in as_dict
+            or 'topology' in as_dict):
+            kwargs = {
+                'force_geojson': as_dict.get('force_geojson',
+                                             as_dict.get('forceGeoJSON', False)),
+                'topology': as_dict.get('topology', None),
+            }
+        else:
+            kwargs = {
+                'topology': as_dict
+            }
 
-        :param as_geojson_or_file: The :term:`GeoJSON` string for the object or the
-          filename of a file that contains the GeoJSON string.
-        :type as_geojson_or_file: :class:`str <python:str>` or
-          :class:`bytes <python:bytes>`
-
-        :param force_geojson: If ``True``, will force the :class:`MapData` instance to be
-          serialized back to :term:`GeoJSON`. If ``False``, the :term:`GeoJSON` will be
-          automatically converted to :term:`TopoJSON` to limit data on the wire. Defaults
-          to ``False``.
-        :type force_geojson: :class:`bool <python:bool>`
-
-        :param defer_conversion: If ``True``, will defer converting from :term:`GeoJSON`
-          to :term:`TopoJSON` until the last moment before serialization. This can provide
-          performance benefits and is particularly useful if you will not need to
-          manipulate the map data within Python. Defaults to ``False``.
-        :type defer_conversion: :class:`bool <python:bool>`
-
-        :rtype: :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
-        """
-        as_geojson = GeoJSON.from_json(as_geojson_or_file)
-
-        return cls(force_geojson = force_geojson,
-                   defer_conversion = defer_conversion,
-                   geometries = as_geojson)
-
-    def to_geojson(self,
-                   filename = None,
-                   encoding = 'utf-8'):
-        """Generate a :term:`GeoJSON` string/byte string representation of the object.
-
-        :param filename: The name of a file to which the JSON string should be persisted.
-          Defaults to :obj:`None <python:None>`
-        :type filename: Path-like
-
-        :param encoding: The character encoding to apply to the resulting object. Defaults
-          to ``'utf-8'``.
-        :type encoding: :class:`str <python:str>`
-
-        :returns: A :term:`GeoJSON` representation of the object.
-        :rtype: :class:`GeoJSON <highcharts_maps.utility_classes.geojson.GeoJSON>` or
-          :obj:`None <python:None>`
-        """
-        if not self._as_geojson and not self._as_topojson:
-            return None
-
-        if not self._as_geojson and self._as_topojson:
-            self._as_geojson = self._as_topojson.to_geojson()
-
-        as_json = self._as_geojson.to_json(encoding = encoding)
-
-        if filename:
-            if isinstance(as_json, bytes):
-                write_type = 'wb'
-            else:
-                write_type = 'w'
-
-            with open(filename, write_type, encoding = encoding) as file_:
-                file_.write(as_json)
-
-        return self._as_geojson
+        return kwargs
 
     @classmethod
-    def from_topojson(cls,
-                      as_topojson_or_file: str | bytes,
-                      force_geojson: bool = False,
-                      defer_conversion: bool = False):
-        """Construct an instance of the :class:`MapData` from a :term:`TopoJSON` string.
+    def from_dict(cls,
+                  as_dict: dict,
+                  allow_snake_case: bool = True):
+        """Construct an instance of the class from a :class:`dict <python:dict>` object.
 
-        :param as_topojson_or_file: The :term:`TopoJSON` string for the object or the
-          filename of a file that contains the TopoJSON string.
-        :type as_topojson_or_file: :class:`str <python:str>` or
-          :class:`bytes <python:bytes>`
+        :param as_dict: A :class:`dict <python:dict>` representation of the object.
+        :type as_dict: :class:`dict <python:dict>`
 
-        :param force_geojson: If ``True``, will force the :class:`MapData` instance to be
-          serialized back to :term:`GeoJSON`. Data wlil be serialized back to
-          :term:`TopoJSON` to limit data on the wire. Defaults to ``False``.
-        :type force_geojson: :class:`bool <python:bool>`
+        :param allow_snake_case: If ``True``, interprets ``snake_case`` keys as equivalent
+          to ``camelCase`` keys. Defaults to ``True``.
+        :type allow_snake_case: :class:`bool <python:bool>`
 
-        :param defer_conversion: If ``True``, will defer converting from :term:`TopoJSON`
-          to :term:`GeoJSON` (if necessary) until the last moment before serialization.
-          This can provide performance benefits and is particularly useful if you will not
-          need to manipulate the map data within Python. Defaults to ``False``.
-        :type defer_conversion: :class:`bool <python:bool>`
-
-        :rtype: :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
+        :returns: A Python object representation of ``as_dict``.
+        :rtype: :class:`HighchartsMeta`
         """
-        as_topojson = TopoJSON.from_json(as_topojson_or_file)
+        as_dict = validators.dict(as_dict, allow_empty = True) or {}
+        if ('forceGeoJSON' in as_dict or 'force_geojson' in as_dict
+            or ('topology' in as_dict and len(as_dict) == 1)):
+            clean_as_dict = {}
+            for key in as_dict:
+                if allow_snake_case:
+                    clean_key = utility_functions.to_camelCase(key)
+                else:
+                    clean_key = key
 
-        return cls(force_geojson = force_geojson,
-                   defer_conversion = defer_conversion,
-                   geometries = as_topojson)
+                clean_as_dict[clean_key] = as_dict[key]
 
-    def to_topojson(self,
-                    filename = None,
-                    encoding = 'utf-8'):
-        """Generate a :term:`TopoJSON` string/byte string representation of the object.
+            kwargs = cls._get_kwargs_from_dict(clean_as_dict)
+        else:
+            kwargs = {
+                'topology': as_dict
+            }
 
-        :param filename: The name of a file to which the JSON string should be persisted.
-          Defaults to :obj:`None <python:None>`
-        :type filename: Path-like
-
-        :param encoding: The character encoding to apply to the resulting object. Defaults
-          to ``'utf-8'``.
-        :type encoding: :class:`str <python:str>`
-
-        :returns: A :term:`GeoJSON` representation of the object.
-        :rtype: :class:`TopoJSON <highcharts_maps.utility_classes.topojson.TopoJSON>` or
-          :obj:`None <python:None>`
-        """
-        if not self._as_topojson and not self._as_geojson:
-            return None
-
-        if not self._as_topojson and self._as_geojson:
-            self._as_topojson = self._as_geojson.to_topojson()
-
-        as_json = self._as_topojson.to_json(encoding = encoding)
-
-        if filename:
-            if isinstance(as_json, bytes):
-                write_type = 'wb'
-            else:
-                write_type = 'w'
-
-            with open(filename, write_type, encoding = encoding) as file_:
-                file_.write(as_json)
-
-        return self._as_topojson
+        return cls(**kwargs)
 
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
         untrimmed = {
-            'force_geojson': self.force_geojson,
-            'defer_conversion': self.defer_conversion,
-            'geometries': self.geometries
+            'forceGeoJSON': self.force_geojson,
+            'topology': self.topology
         }
 
         return untrimmed
 
-    @classmethod
-    def _get_kwargs_from_dict(cls, as_dict):
-        kwargs = {
-            'force_geojson': as_dict.get('force_geojson', None),
-            'defer_conversion': as_dict.get('defer_conversion', None),
-            'geometries': as_dict.get('geometries', None),
-        }
+    def to_json(self,
+                filename = None,
+                encoding = 'utf-8'):
+        """Generate a JSON string/byte string representation of the object compatible with
+        the Highcharts JavaScript library.
 
-        return kwargs
+        .. note::
+
+          This method will either return a standard :class:`str <python:str>` or a
+          :class:`bytes <python:bytes>` object depending on the JSON serialization library
+          you are using. For example, if your environment has
+          `orjson <https://github.com/ijl/orjson>`_, the result will be a
+          :class:`bytes <python:bytes>` representation of the string.
+
+        :param filename: The name of a file to which the JSON string should be persisted.
+          Defaults to :obj:`None <python:None>`
+        :type filename: Path-like
+
+        :param encoding: The character encoding to apply to the resulting object. Defaults
+          to ``'utf-8'``.
+        :type encoding: :class:`str <python:str>`
+
+        :returns: A JSON representation of the object compatible with the Highcharts
+          library.
+        :rtype: :class:`str <python:str>` or :class:`bytes <python:bytes>`
+        """
+        if filename:
+            filename = validators.path(filename)
+
+        if not self.force_geojson:
+            as_json = self.topology.to_json()
+        else:
+            as_geojson = self.topology.to_geojson()
+            as_json = geojson.dumps(as_geojson)
+
+        if filename:
+            if isinstance(as_json, bytes):
+                write_type = 'wb'
+            else:
+                write_type = 'w'
+
+            with open(filename, write_type, encoding = encoding) as file_:
+                file_.write(as_json)
+
+        return as_json
+
+    @classmethod
+    def from_json(cls,
+                  as_json_or_file: str | bytes,
+                  allow_snake_case: bool = True):
+        """Construct an instance of the class from a JSON string.
+
+        :param as_json_or_file: The JSON string for the object or the filename of a file
+          that contains the JSON string.
+        :type as_jsonor_file: :class:`str <python:str>` or :class:`bytes <python:bytes>`
+
+        :param allow_snake_case: If ``True``, interprets ``snake_case`` keys as equivalent
+          to ``camelCase`` keys. Defaults to ``True``.
+        :type allow_snake_case: :class:`bool <python:bool>`
+
+        :returns: A Python objcet representation of ``as_json``.
+        :rtype: :class:`MapData`
+        """
+        is_file = checkers.is_file(as_json_or_file)
+        if is_file:
+            with open(as_json_or_file, 'r') as file_:
+                as_str = file_.read()
+        else:
+            as_str = as_json_or_file
+
+        as_dict = json.loads(as_str)
+
+        return cls.from_dict(as_dict,
+                             allow_snake_case = allow_snake_case)
 
     def to_js_literal(self,
                       filename = None,
                       encoding = 'utf-8') -> Optional[str]:
-        """Return the object as either a :term:`TopoJSON` JavaScript object or as a
-        :term:`GeoJSON` JavaScript object.
+        """Return the object represented as a :class:`str <python:str>` containing the
+        JavaScript object literal.
 
         :param filename: The name of a file to which the JavaScript object literal should
           be persisted. Defaults to :obj:`None <python:None>`
@@ -307,27 +248,12 @@ class MapData(HighchartsMeta):
           to ``'utf-8'``.
         :type encoding: :class:`str <python:str>`
 
-        .. note::
-
-          If :meth:`.force_geojson <highcharts_maps.options.series.data.map_data.MapData.force_geojson>`
-          is ``True``, will serialize to a :term:`GeoJSON` object. Otherwise, will
-          serialize to a :term:`TopoJSON` object.
-
         :rtype: :class:`str <python:str>` or :obj:`None <python:None>`
         """
         if filename:
             filename = validators.path(filename)
 
-        if self._as_geojson and self.force_geojson:
-            as_str = self._as_geojson.to_js_literal(encoding = encoding)
-        elif self.force_geojson and self._as_topojson:
-            self._as_geojson = self._as_topojson.to_geojson()
-            as_str = self._as_geojson.to_js_literal(encoding = encoding)
-        elif self._as_geojson and not self._as_topojson:
-            self._as_topojson = TopoJSON.from_geojson(self._as_geojson)
-            as_str = self._as_topojson.to_js_literal(encoding = encoding)
-        elif self._as_topojson:
-            as_str = self._as_topojson.to_js_literal(encoding = encoding)
+        as_str = self.to_json(encoding = encoding)
 
         if filename:
             with open(filename, 'w', encoding = encoding) as file_:
@@ -367,104 +293,293 @@ class MapData(HighchartsMeta):
         else:
             as_str = as_str_or_file
 
-        return cls(geometries = as_str)
+        as_dict = json.loads(as_str)
+
+        return cls.from_dict(as_dict,
+                             allow_snake_case = allow_snake_case)
+
+    def to_geojson(self,
+                   filename = None,
+                   encoding = 'utf-8'):
+        """Generate a :term:`GeoJSON` string/byte string representation of the object.
+
+        .. note::
+
+          This method will either return a standard :class:`str <python:str>` or a
+          :class:`bytes <python:bytes>` object depending on the JSON serialization library
+          you are using. For example, if your environment has
+          `orjson <https://github.com/ijl/orjson>`_, the result will be a
+          :class:`bytes <python:bytes>` representation of the string.
+
+        :param filename: The name of a file to which the JSON string should be persisted.
+          Defaults to :obj:`None <python:None>`
+        :type filename: Path-like
+
+        :param encoding: The character encoding to apply to the resulting object. Defaults
+          to ``'utf-8'``.
+        :type encoding: :class:`str <python:str>`
+
+        :returns: A :term:`GeoJSON` representation of the object
+        :rtype: :class:`str <python:str>` or :class:`bytes <python:bytes>`
+        """
+        if filename:
+            filename = validators.path(filename)
+
+        as_geojson = self.topology.to_geojson()
+
+        if filename:
+            if isinstance(as_geojson, bytes):
+                write_type = 'wb'
+            else:
+                write_type = 'w'
+
+            with open(filename, write_type, encoding = encoding) as file_:
+                file_.write(as_geojson)
+
+        return as_geojson
 
     @classmethod
-    def _copy_dict_key(cls,
-                       key,
-                       original,
-                       other,
-                       overwrite = True,
-                       **kwargs):
-        """Copies the value of ``key`` from ``original`` to ``other``.
+    def from_geojson(cls,
+                     as_geojson_or_file: str | bytes,
+                     allow_snake_case: bool = True):
+        """Construct an instance of the class from a JSON string.
 
-        :param key: The key that is to be copied.
-        :type key: :class:`str <python:str>`
+        :param as_geojson_or_file: The :term:`GeoJSON` string for the object or the
+          filename of a file that contains the GeoJSON string.
+        :type as_geojson_or_file: :class:`str <python:str>` or
+          :class:`bytes <python:bytes>`
 
-        :param original: The original :class:`dict <python:dict>` from which it should
-          be copied.
-        :type original: :class:`dict <python:dict>`
+        :param allow_snake_case: If ``True``, interprets ``snake_case`` keys as equivalent
+          to ``camelCase`` keys. Defaults to ``True``.
+        :type allow_snake_case: :class:`bool <python:bool>`
 
-        :param other: The :class:`dict <python:dict>` to which it should be copied.
-        :type other: :class:`dict <python:dict>`
-
-        :returns: The value that should be placed in ``other`` for ``key``.
+        :returns: A Python objcet representation of ``as_geojson_or_file``.
+        :rtype: :class:`MapData`
         """
-        original_value = original[key]
-        other_value = other.get(key, None)
+        return cls.from_json(as_geojson_or_file, allow_snake_case = allow_snake_case)
 
-        if isinstance(original_value, (dict, UserDict)):
-            new_value = {}
-            for subkey in original_value:
-                new_key_value = cls._copy_dict_key(subkey,
-                                                   original_value,
-                                                   other_value,
-                                                   overwrite = overwrite,
-                                                   **kwargs)
-                new_value[subkey] = new_key_value
+    def to_topojson(self,
+                    filename = None,
+                    encoding = 'utf-8'):
+        """Generate a :term:`TopoJSON` string/byte string representation of the object.
 
-            return new_value
+        .. note::
 
-        elif checkers.is_iterable(original_value,
-                                  forbid_literals = (str,
-                                                     bytes,
-                                                     dict,
-                                                     UserDict)):
-            if overwrite:
-                new_value = [x for x in original_value]
+          This method will either return a standard :class:`str <python:str>` or a
+          :class:`bytes <python:bytes>` object depending on the JSON serialization library
+          you are using. For example, if your environment has
+          `orjson <https://github.com/ijl/orjson>`_, the result will be a
+          :class:`bytes <python:bytes>` representation of the string.
 
-                return new_value
+        :param filename: The name of a file to which the JSON string should be persisted.
+          Defaults to :obj:`None <python:None>`
+        :type filename: Path-like
+
+        :param encoding: The character encoding to apply to the resulting object. Defaults
+          to ``'utf-8'``.
+        :type encoding: :class:`str <python:str>`
+
+        :returns: A :term:`TopoJSON` representation of the object
+        :rtype: :class:`str <python:str>` or :class:`bytes <python:bytes>`
+        """
+        if filename:
+            filename = validators.path(filename)
+
+        as_topojson = self.topology.to_json()
+
+        if filename:
+            if isinstance(as_topojson, bytes):
+                write_type = 'wb'
             else:
-                return other_value
+                write_type = 'w'
 
-        elif other_value and not overwrite:
-            return other_value
-        else:
-            return original_value
+            with open(filename, write_type, encoding = encoding) as file_:
+                file_.write(as_topojson)
 
-    def copy(self,
-             other = None,
-             overwrite = True,
-             **kwargs):
-        """Copy the configuration settings from this instance to the ``other`` instance.
+        return as_topojson
 
-        :param other: The target instance to which the properties of this instance should
-          be copied. If :obj:`None <python:None>`, will create a new instance and populate
-          it with properties copied from ``self``. Defaults to :obj:`None <python:None>`.
-        :type other: :class:`HighchartsMeta`
+    @classmethod
+    def from_topojson(cls,
+                      as_topojson_or_file: str | bytes,
+                      allow_snake_case: bool = True):
+        """Construct an instance of the class from a :term:`TopoJSON` string.
 
-        :param overwrite: if ``True``, properties in ``other`` that are already set will
-          be overwritten by their counterparts in ``self``. Defaults to ``True``.
-        :type overwrite: :class:`bool <python:bool>`
+        :param as_topojson_or_file: The :term:`TopoJSON` string for the object or the
+          filename of a file that contains the TopoJSON string.
+        :type as_topojson_or_file: :class:`str <python:str>` or
+          :class:`bytes <python:bytes>`
 
-        :param kwargs: Additional keyword arguments. Some special descendents of
-          :class:`HighchartsMeta` may have special implementations of this method which
-          rely on additional keyword arguments.
+        :param allow_snake_case: If ``True``, interprets ``snake_case`` keys as equivalent
+          to ``camelCase`` keys. Defaults to ``True``.
+        :type allow_snake_case: :class:`bool <python:bool>`
 
-        :returns: A mutated version of ``other`` with new property values
-
+        :returns: A Python objcet representation of ``as_topojson_or_file``.
+        :rtype: :class:`MapData`
         """
-        if not other:
-            other = self.__class__()
+        return cls.from_json(as_topojson_or_file, allow_snake_case = allow_snake_case)
 
-        if not isinstance(other, self.__class__):
-            raise errors.HighchartsValueError(f'other is expected to be a '
-                                              f'{self.__class__.__name__} instance. Was: '
-                                              f'{other.__class__.__name__}')
+    def to_geodataframe(self, obj = None):
+        """Generate a :class:`GeoPandas.GeoDataFrame <geopandas:GeoDataFrame>` instance
+        of the :term:`map data`.
 
-        self_as_dict = self.to_dict()
-        other_as_dict = other.to_dict()
+        :param obj: If the map data contains multiple objects, you can generate
+          serialize a specific object by specifying its name or index. Defaults to
+          :obj:`None <python:None>`, which behaves as an index of 0.
+        :type obj: :class:`str <python:str>` or :class:`int <python:int>` or
+          :obj:`None <python:None>`
 
-        new_dict = {}
-        for key in self_as_dict:
-            new_dict[key] = self._copy_dict_key(key,
-                                                original = self_as_dict,
-                                                other = other_as_dict,
-                                                overwrite = overwrite,
-                                                **kwargs)
+        :rtype: :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`
+        """
+        return self.topology.to_gdf(object_name = obj)
 
-        cls = other.__class__
+    @classmethod
+    def from_geodataframe(cls, as_gdf, prequantize = False):
+        """Create a :class:`MapData` instance from a
+        :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`.
 
-        other = cls.from_dict(new_dict)
+        :param as_gdf: The :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`
+          containing the :term:`map data`.
+        :type as_gdf: :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`
 
-        return other
+        :param prequantize: If ``True``, will perform the TopoJSON optimizations
+          ("quantizing the topology") before generating the :class:`Topology` instance.
+          Defaults to ``False``.
+        :type prequantize: :class:`bool <python:bool>`
+
+        :rtype: :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
+        """
+        topology = Topology(as_gdf, prequantize = prequantize)
+
+        return cls(topology = topology)
+
+
+class AsyncMapData(HighchartsMeta):
+    """Configuration of :term:`map data` which
+    `Highcharts Maps <https://www.highcharts.com/products/maps>`__ should fetch
+    *asynchronously* using client-side JavaScript.
+
+    .. note::
+
+      When serialized to a JS literal will execute an async (JavaScript) ``fetch()`` call
+      to download the map data from
+      :meth:`.url <highcharts_maps.options.series.data.map_data.AsyncMapData.url>`.
+
+    """
+
+    def __init__(self, **kwargs):
+        self._url = None
+        self._selector = None
+        self._fetch_config = None
+
+        self.url = kwargs.get('url', None)
+        self.selector = kwargs.get('selector', None)
+        self.fetch_config = kwargs.get('fetch_config', None)
+
+    @property
+    def url(self) -> Optional[str]:
+        """The URL that the (JavaScript) ``fetch()`` function will be requesting, which
+        should return either :term:`TopoJSON` or :term:`GeoJSON` data. Defaults to
+        :obj:`None <python:None>`.
+
+        .. note::
+
+          This property will *overwrite* any URL configured within
+          :meth:`.fetch_config <highcharts_maps.options.series.data.map_data.AsyncMapData.fetch_config>`.
+
+        :rtype: :class:`str <python:str>` or :obj:`None <python:None>`
+        """
+        return self._url
+
+    @url.setter
+    def url(self, value):
+        self._url = validators.url(value, allow_empty = True)
+
+    @property
+    def selector(self) -> Optional[CallbackFunction]:
+        """An optional (JavaScript) function which receives the :term:`map data`
+        downloaded from
+        :meth:`.url <highcharts_maps.options.series.data.map_data.AsyncMapData.url>`, can
+        perform some (arbitrary - it's up to you!) operation on that data, and returns a
+        new set of :term:`map data` which will be visualized by
+        `Highcharts for Maps <https://www.highcharts.com/products/maps/>`__. Defaults to
+        :obj:`None <python:None>`.
+
+        .. note::
+
+          The ``selector`` function *must* accept a single argument: ``topology`` and
+          *must* return a single value (which will be assigned to the JavaScript variable
+          named ``topology``).
+
+        :rtype: :class:`CallbackFunction <highcharts_maps.utility_classes.javascript_functions.CallbackFunction>`
+          or :obj:`None <python:None>`
+        """
+        return self._selector
+
+    @selector.setter
+    @class_sensitive(CallbackFunction)
+    def selector(self, value):
+        self._selector = value
+
+    @property
+    def fetch_config(self) -> Optional[FetchConfiguration]:
+        """Optional configuration settings to use when executing the (JavaScript)
+        asynchronous ``fetch()`` call to download the :term:`map data`. Defaults to
+        :obj:`None <python:None>`.
+
+        .. note::
+
+          The :meth:`.url <highcharts_maps.options.series.data.map_data.AsyncMapData.url>`.
+          setting will override any URL set in the
+          :class:`FetchConfiguration <highcharts_maps.utility_classes.fetch_configuration.FetchConfiguration>`.
+
+        :rtype: :class:`FetchConfiguration <highcharts_maps.utility_classes.fetch_configuration.FetchConfiguration>`
+          or :obj:`None <python:None>`
+        """
+        return self._fetch_config
+
+    @fetch_config.setter
+    @class_sensitive(FetchConfiguration)
+    def fetch_config(self, value):
+        self._fetch_config = value
+        if self.url:
+            self.fetch_config.url = self.url
+
+    def to_js_literal(self,
+                      filename = None,
+                      encoding = 'utf-8') -> Optional[str]:
+        """Return the object represented as a :class:`str <python:str>` containing the
+        JavaScript object literal.
+
+        :param filename: The name of a file to which the JavaScript object literal should
+          be persisted. Defaults to :obj:`None <python:None>`
+        :type filename: Path-like
+
+        :param encoding: The character encoding to apply to the resulting object. Defaults
+          to ``'utf-8'``.
+        :type encoding: :class:`str <python:str>`
+
+        :rtype: :class:`str <python:str>` or :obj:`None <python:None>`
+        """
+        if filename:
+            filename = validators.path(filename)
+
+        if self.fetch_config:
+            self.fetch_config.url = self.url
+            fetch_config = self.fetch_config
+        else:
+            fetch_config = FetchConfiguration(self.url)
+
+        if self.selector:
+            function = f"""const selector = {str(self.selector)};\n"""
+            fetch = f"""const topology = await {str(fetch_config)}.then(response => selector(response.json()));"""
+        else:
+            function = ''
+            fetch = f"""const topology = await {str(fetch_config)}.then(response => response.json());"""
+
+        as_str = f'{function}{fetch}'
+
+        if filename:
+            with open(filename, 'w', encoding = encoding) as file_:
+                file_.write(as_str)
+
+        return as_str

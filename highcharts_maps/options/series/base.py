@@ -1,12 +1,16 @@
 from typing import Optional, List
 
-from validator_collection import checkers
+from validator_collection import validators, checkers
 
 from highcharts_python.options.series.base import SeriesBase
 
 from highcharts_maps import errors
+from highcharts_maps.decorators import validate_types
 from highcharts_maps.options.series.map_data import AsyncMapData, MapData
+from highcharts_maps.utility_classes.javascript_functions import VariableName
 from highcharts_maps.utility_functions import mro__to_untrimmed_dict
+from highcharts_maps.js_literal_functions import (serialize_to_js_literal,
+                                                  assemble_js_literal)
 
 
 class MapSeriesBase(SeriesBase):
@@ -20,7 +24,7 @@ class MapSeriesBase(SeriesBase):
         super().__init__(**kwargs)
 
     @property
-    def map_data(self) -> Optional[MapData | AsyncMapData | List[MapData | AsyncMapData]]:
+    def map_data(self) -> Optional[MapData | AsyncMapData | VariableName | List[MapData | AsyncMapData]]:
         """Map :term:`geometries` that provide instructions on how to render the map
         itself, along with relevant properties used to join each map area to its
         corresponding values in the
@@ -30,8 +34,10 @@ class MapSeriesBase(SeriesBase):
 
           * :class:`MapData <highcharts_maps.options.series.map_data.MapData>`
           * :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
-          * :class:`GeoJSON <highcharts_maps.utility_classes.geojson.GeoJSON>`
-          * :class:`TopoJSON <highcharts_maps.utility_classes.topojson.TopoJSON>`
+          * :class:`VariableName <highcharts_maps.utility_classes.javascript_functions.VariableName>`
+          * :class:`GeoJSONBase <highcharts_maps.utility_classes.geojson.GeoJSONBase>` or
+            descendant
+          * :class:`Topology <highcharts_maps.utility_classes.topojson.Topology>`
           * a :class:`str <python:str>` URL, which will be coerced to
             :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
 
@@ -48,7 +54,7 @@ class MapSeriesBase(SeriesBase):
         elif checkers.is_iterable(value, forbid_literals = (str, bytes, dict)):
             cleaned_value = []
             for item in value:
-                if isinstance(item, (MapData, AsyncMapData)):
+                if isinstance(item, (MapData, AsyncMapData, VariableName)):
                     item = item
                 elif checkers.is_url(item):
                     item = AsyncMapData(url = item)
@@ -56,6 +62,8 @@ class MapSeriesBase(SeriesBase):
                     item = AsyncMapData.from_dict(item)
                 elif isinstance(item, str) and 'url:' in item:
                     item = AsyncMapData.from_json(item)
+                elif checkers.is_type(item, 'GeoDataFrame'):
+                    item = MapData.from_geodataframe(item)
                 else:
                     try:
                         item = MapData.from_topojson(item)
@@ -82,6 +90,8 @@ class MapSeriesBase(SeriesBase):
             value = AsyncMapData.from_dict(value)
         elif isinstance(value, str) and 'url:' in value:
             value = AsyncMapData.from_json(value)
+        elif checkers.is_type(value, 'GeoDataFrame'):
+            value = MapData.from_geodataframe(value)
         else:
             try:
                 value = MapData.from_topojson(value)
@@ -89,15 +99,18 @@ class MapSeriesBase(SeriesBase):
                 try:
                     value = MapData.from_geojson(value)
                 except (ValueError, TypeError):
-                    raise errors.HighchartsValueError(
-                        f'map_data expects a value '
-                        f'that is TopoJSON, '
-                        f'GeoJSON, a MapData '
-                        f'object, an AsyncMapData '
-                        f'object, or coercable to '
-                        f'one. Received: '
-                        f'{value.__class__.__name__}'
-                    )
+                    try:
+                        value = validate_types(value, VariableName)
+                    except (ValueError, TypeError):
+                        raise errors.HighchartsValueError(
+                            f'map_data expects a value '
+                            f'that is TopoJSON, '
+                            f'GeoJSON, a MapData '
+                            f'object, an AsyncMapData '
+                            f'object, or coercable to '
+                            f'one. Received: '
+                            f'{value.__class__.__name__}'
+                        )
 
         self._map_data = value
 
@@ -139,6 +152,34 @@ class MapSeriesBase(SeriesBase):
                                       selector = selector,
                                       fetch_config = fetch_config)
         self.map_data = async_map_data
+
+    @property
+    def is_async(self) -> bool:
+        """Read-only property, where ``True`` indicates that the map data is loaded
+        asynchronously and ``False`` indicates that it is not.
+
+        :rtype: :class:`bool <python:bool>`
+        """
+        if not self.map_data:
+            return False
+        is_async = isinstance(self.map_data, AsyncMapData)
+        if is_async:
+            return True
+        if isinstance(self.map_data, list):
+            for item in self.map_data:
+                if isinstance(self.map_data, AsyncMapData):
+                    return True
+
+        return False
+
+    @property
+    def is_map_data_independent(self) -> bool:
+        """Read-only property, where ``True`` indicates that the map data is referencing
+        a JavaScript variable defined outside of **Highcharts Maps for Python**.
+
+        :rtype: :class:`bool <python:bool>`
+        """
+        return isinstance(self.map_data, VariableName)
 
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):
@@ -229,3 +270,42 @@ class MapSeriesBase(SeriesBase):
             untrimmed[key] = parent_as_dict[key]
 
         return untrimmed
+
+    def to_js_literal(self,
+                      filename = None,
+                      encoding = 'utf-8') -> Optional[str]:
+        """Return the object represented as a :class:`str <python:str>` containing the
+        JavaScript object literal.
+
+        :param filename: The name of a file to which the JavaScript object literal should
+          be persisted. Defaults to :obj:`None <python:None>`
+        :type filename: Path-like
+
+        :param encoding: The character encoding to apply to the resulting object. Defaults
+          to ``'utf-8'``.
+        :type encoding: :class:`str <python:str>`
+
+        :rtype: :class:`str <python:str>` or :obj:`None <python:None>`
+        """
+        if filename:
+            filename = validators.path(filename)
+
+        untrimmed = self._to_untrimmed_dict()
+        as_dict = {}
+        for key in untrimmed:
+            item = untrimmed[key]
+            if key == 'mapData' and self.is_map_data_independent:
+                item = f'HCP: REPLACE-WITH-{item.variable_name}'
+            elif key == 'mapData' and self.is_async:
+                item = 'HCP: REPLACE-WITH-topology'
+            serialized = serialize_to_js_literal(item, encoding = encoding)
+            if serialized is not None:
+                as_dict[key] = serialized
+
+        as_str = assemble_js_literal(as_dict, keys_as_strings = True)
+
+        if filename:
+            with open(filename, 'w', encoding = encoding) as file_:
+                file_.write(as_str)
+
+        return as_str

@@ -20,7 +20,9 @@ from esprima.error_handler import Error as ParseError
 from validator_collection import validators, checkers
 
 from highcharts_maps import errors, utility_functions
+from highcharts_maps.decorators import validate_types
 from highcharts_maps.metaclasses import HighchartsMeta
+from highcharts_maps.utility_classes.topojson import Topology
 
 
 class GeoJSONBase(HighchartsMeta):
@@ -355,6 +357,35 @@ class GeoJSONBase(HighchartsMeta):
         untrimmed = self._to_untrimmed_dict()
 
         return untrimmed
+
+    def to_topojson(self) -> Topology:
+        """Convert the object into a :term:`TopoJSON`
+        :class:`Topology <highcharts_maps.utility_classes.topojson.Topology>` object.
+
+        :rtype: :class:`Topology <highcharts_maps.utility_classes.topojson.Topology>`
+        """
+        as_json = self.to_json()
+
+        return Topology.from_geojson(as_json)
+
+    @classmethod
+    def from_topojson(cls, as_topojson):
+        """Convert a :class:`Topology <highcharts_maps.utility_classes.topojson.Topology>`
+        instance into a
+        :class:`GeoJSONBase <highcharts_maps.utility_classes.geojson.GeoJSONBase>`
+        instance.
+
+        :param as_topojson: The :term:`TopoJSON` object or collection to convert.
+        :type as_topojson: :class:`Topology <highcharts_maps.utility_classes.topojson.Topology>`
+
+        :rtype: :class:`GeoJSONBase <highcharts_maps.utility_classes.geojson.GeoJSONBase>`
+        """
+        if not isinstance(as_topojson, Topology):
+            as_topojson = validate_types(as_topojson, Topology)
+
+        as_geojson = as_topojson.to_geojson()
+
+        return cls.from_json(as_geojson)
 
 
 class Point(GeoJSONBase, geojson.Point):

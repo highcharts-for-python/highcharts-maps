@@ -246,6 +246,7 @@ class MapSeriesBase(SeriesBase):
             'zone_axis': as_dict.get('zoneAxis', None),
             'zones': as_dict.get('zones', None),
 
+            'data': as_dict.get('data', None),
             'id': as_dict.get('id', None),
             'index': as_dict.get('index', None),
             'legend_index': as_dict.get('legendIndex', None),

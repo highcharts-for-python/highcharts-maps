@@ -4,11 +4,10 @@ from validator_collection import validators, checkers
 
 from highcharts_maps import errors
 from highcharts_maps.decorators import class_sensitive, validate_types
-from highcharts_maps.utility_classes.javascript_functions import CallbackFunction
+from highcharts_maps.utility_classes.javascript_functions import (CallbackFunction,
+                                                                  VariableName)
 
-from highcharts_maps.utility_classes.map_data import MapDataOptions
-from highcharts_maps.utility_classes.geojson import GeoJSON
-from highcharts_maps.utility_classes.topojson import TopoJSON
+from highcharts_maps.options.series.data.map_data import MapData, AsyncMapData
 
 from highcharts_python.options.chart import (PanningOptions,
                                              ChartOptions as ChartOptionsBase)
@@ -27,28 +26,27 @@ class ChartOptions(ChartOptionsBase):
         self.proj4 = kwargs.get('proj4', None)
 
     @property
-    def map(self) -> Optional[int | str | List[MapDataOptions] | GeoJSON | TopoJSON]:
-        """Default :term:`map data` for all series, expressed either as:
+    def map(self) -> Optional[str | MapData | AsyncMapData | VariableName | List[MapData | AsyncMapData]]:
+        """Map :term:`geometries` that provide instructions on how to render the map
+        itself, along with relevant properties used to join each map area to its
+        corresponding values in the
+        :meth:`MapSeriesBase.data <highcharts_maps.options.series.base.MapSeriesBase.data>`.
 
-          * an index to the (JavaScript) ``Highcharts.maps`` array
-          * a collection of :class:`MapDataOptions <highcharts_maps.utility_classes.map_data.MapDataOptions>`
-            instances
-          * a :class:`GeoJSON <highcharts_maps.utility_classes.geojson.GeoJSON>` instance
-          * a :class:`TopoJSON <highcharts_maps.utility_classes.topojson.TopoJSON>`
-            instance
+        Accepts (either in object representation or as coercable objects):
 
-        Defaults to :obj:`None <python:None>`.
+          * :class:`MapData <highcharts_maps.options.series.map_data.MapData>`
+          * :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+          * :class:`VariableName <highcharts_maps.utility_classes.javascript_functions.VariableName>`
+          * :class:`GeoJSONBase <highcharts_maps.utility_classes.geojson.GeoJSONBase>` or
+            descendant
+          * :class:`Topology <highcharts_maps.utility_classes.topojson.Topology>`
+          * a :class:`str <python:str>` URL, which will be coerced to
+            :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+          * a :class:`str <python:str>` number, which will act as an index to the
+            (JavaScript) ``Highcharts.maps`` array
 
-        .. tip::
-
-          For determining individual shapes and geometries to use for each series, please
-          see :meth:`series.map_data <highcharts_maps.options.series.map_data>`.
-
-        :rtype: :class:`int <python:int>` or :class:`str <python:str>` or
-          :class:`GeoJSON <highcharts_maps.utility_classes.geojson.GeoJSON>` or
-          :class:`TopoJSON <highcharts_maps.utility_classes.topjson.TopoJSON>` or
-          :class:`list <python:list>` of
-          :class:`MapDataOptions <highcharts_maps.utility_classes.map_data.MapDataOptions>`
+        :rtype: :class:`MapData <highcharts_maps.options.series.map_data.MapData>` or
+          :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
           or :obj:`None <python:None>`
         """
         return self._map
@@ -56,26 +54,73 @@ class ChartOptions(ChartOptionsBase):
     @map.setter
     def map(self, value):
         if not value:
-            self._map = None
+            self._map_data = None
         elif checkers.is_iterable(value, forbid_literals = (str, bytes, dict)):
-            value = validate_types(MapDataOptions, force_iterable = True)
+            cleaned_value = []
+            for item in value:
+                if isinstance(item, (MapData, AsyncMapData, VariableName)):
+                    item = item
+                elif checkers.is_url(item):
+                    item = AsyncMapData(url = item)
+                elif checkers.is_integer(item, coerce_value = True):
+                    item = item
+                elif isinstance(item, dict) and 'url' in item:
+                    item = AsyncMapData.from_dict(item)
+                elif isinstance(item, str) and 'url:' in item:
+                    item = AsyncMapData.from_json(item)
+                elif checkers.is_type(item, 'GeoDataFrame'):
+                    item = MapData.from_geodataframe(item)
+                else:
+                    try:
+                        item = MapData.from_topojson(item)
+                    except (ValueError, TypeError):
+                        try:
+                            item = MapData.from_geojson(item)
+                        except (ValueError, TypeError):
+                            raise errors.HighchartsValueError(
+                                f'map expects a value '
+                                f'that is str, TopoJSON, '
+                                f'GeoJSON, a MapData '
+                                f'object, an AsyncMapData '
+                                f'object, or coercable to '
+                                f'one. Received: '
+                                f'{item.__class__.__name__}'
+                            )
+                cleaned_value.append(item)
+            value = [x for x in cleaned_value]
+        elif isinstance(value, (MapData, AsyncMapData)):
+            value = value
+        elif checkers.is_url(value):
+            value = AsyncMapData(url = value)
+        elif checkers.is_integer(value, coerce_value = True):
+            value = value
+        elif isinstance(value, dict) and 'url' in value:
+            value = AsyncMapData.from_dict(value)
+        elif isinstance(value, str) and 'url:' in value:
+            value = AsyncMapData.from_json(value)
+        elif checkers.is_type(value, 'GeoDataFrame'):
+            value = MapData.from_geodataframe(value)
         else:
             try:
-                value = validators.integer(value, coerce_value = True)
+                value = MapData.from_topojson(value)
             except (ValueError, TypeError):
                 try:
-                    value = validate_types(value, GeoJSON)
+                    value = MapData.from_geojson(value)
                 except (ValueError, TypeError):
                     try:
-                        value = validate_types(value, TopoJSON)
+                        value = validate_types(value, VariableName)
                     except (ValueError, TypeError):
-                        raise errors.HighchartsValueError(f'map must either be None, an '
-                                                          f'int, GeoJSON, TopoJSON, or a '
-                                                          f'collection of MapDataOptions'
-                                                          f'instances. Was: '
-                                                          f'{value.__class__.__name__}')
+                        raise errors.HighchartsValueError(
+                            f'map expects a value '
+                            f'that is str, TopoJSON, '
+                            f'GeoJSON, a MapData '
+                            f'object, an AsyncMapData '
+                            f'object, or coercable to '
+                            f'one. Received: '
+                            f'{value.__class__.__name__}'
+                        )
 
-            self._map = value
+        self._map = value
 
     @property
     def map_transforms(self) -> Optional[dict]:

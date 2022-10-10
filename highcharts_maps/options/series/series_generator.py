@@ -124,6 +124,17 @@ SERIES_CLASSES = {
     'mappoint': MapPointSeries,
 }
 
+MAPS_SERIES_LIST = [
+    # Highcharts for Maps Series Types
+    'map',
+    'mapbubble',
+    'mapline',
+    'mappoint',
+    'heatmap',
+    'tilemap',
+    'pie'
+]
+
 
 def create_series_obj(value, default_type = None) -> Optional[SeriesBase]:
     """Create an instance descended from :class:`SeriesBase`.

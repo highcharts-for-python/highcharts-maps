@@ -470,10 +470,12 @@ class AsyncMapData(HighchartsMeta):
         self._url = None
         self._selector = None
         self._fetch_config = None
+        self._fetch_counter = None
 
         self.url = kwargs.get('url', None)
         self.selector = kwargs.get('selector', None)
         self.fetch_config = kwargs.get('fetch_config', None)
+        self.fetch_counter = kwargs.get('fetch_counter', 0)
 
     @property
     def url(self) -> Optional[str]:
@@ -544,6 +546,41 @@ class AsyncMapData(HighchartsMeta):
         if self.url:
             self.fetch_config.url = self.url
 
+    @property
+    def fetch_counter(self) -> int:
+        """The number to append to the ``topology`` variable name when serializing the
+        map data. Defaults to ``0``.
+
+        :rtype: :class:`int <python:int>`
+        """
+        return self._fetch_counter
+
+    @fetch_counter.setter
+    def fetch_counter(self, value):
+        self._fetch_counter = validators.integer(value, minimum = 0)
+
+    @classmethod
+    def _get_kwargs_from_dict(cls, as_dict):
+        kwargs = {
+            'url': as_dict.get('url', None),
+            'selector': as_dict.get('selector', None),
+            'fetch_config': as_dict.get('fetchConfig', as_dict.get('fetch_config', None)),
+            'fetch_counter': as_dict.get('fetchCounter',
+                                         as_dict.get('fetch_counter', None)),
+        }
+
+        return kwargs
+
+    def _to_untrimmed_dict(self, in_cls = None) -> dict:
+        untrimmed = {
+            'url': self.url,
+            'selector': self.selector,
+            'fetchConfig': self.fetch_config,
+            'fetchCounter': self.fetch_counter,
+        }
+
+        return untrimmed
+    
     def to_js_literal(self,
                       filename = None,
                       encoding = 'utf-8') -> Optional[str]:
@@ -575,6 +612,9 @@ class AsyncMapData(HighchartsMeta):
         else:
             function = ''
             fetch = f"""const topology = await {str(fetch_config)}.then(response => response.json());"""
+
+        if self.fetch_counter > 0:
+            fetch = fetch.replace('const topology', f'const topology{self.fetch_counter}')
 
         as_str = f'{function}{fetch}'
 

@@ -2,28 +2,27 @@ from typing import Optional
 
 from validator_collection import validators, checkers
 
-from highcharts_python.options import HighchartsOptions
 from highcharts_python.chart import Chart as ChartBase
 
 from highcharts_maps import constants, errors
+from highcharts_maps.options import HighchartsOptions, HighchartsMapsOptions
 from highcharts_maps.decorators import validate_types
 from highcharts_maps.js_literal_functions import serialize_to_js_literal
 from highcharts_maps.headless_export import ExportServer
 from highcharts_maps.options.series.series_generator import (create_series_obj,
-                                                              SERIES_CLASSES,
-                                                              STOCK_SERIES_LIST,
-                                                              INDICATOR_LIST)
-from highcharts_maps.global_options.shared_options import SharedStockOptions
-from highcharts_maps.options import HighchartsStockOptions
+                                                             SERIES_CLASSES,
+                                                             MAPS_SERIES_LIST)
+from highcharts_maps.global_options.shared_options import SharedMapsOptions
+from highcharts_maps.options.chart import ChartOptions
 
 
 class Chart(ChartBase):
     """Python representation of a Highcharts ``Chart`` object."""
 
     def __init__(self, **kwargs):
-        self._is_stock_chart = None
+        self._is_maps_chart = None
 
-        self.is_stock_chart = kwargs.get('is_stock_chart', False)
+        self.is_maps_chart = kwargs.get('is_maps_chart', False)
 
         super().__init__(**kwargs)
 
@@ -33,7 +32,7 @@ class Chart(ChartBase):
         .. note::
 
           Currently includes *all* `Highcharts JS <https://www.highcharts.com/>`__ or
-          `Highcharts Stock <https://www.highcharts.com/products/stock/>`__ modules
+          `Highcharts Maps <https://www.highcharts.com/products/stock/>`__ modules
           in the HTML. This issue will be addressed when roadmap issue :issue:`2` is
           released.
 
@@ -54,28 +53,29 @@ class Chart(ChartBase):
         return html_str
 
     @property
-    def is_stock_chart(self) -> bool:
+    def is_maps_chart(self) -> bool:
         """If ``True``, indicates that the chart should be rendered as a
-        `Highcharts Stock <https://www.highcharts.com/products/stock/>`__ chart. If
+        `Highcharts Maps <https://www.highcharts.com/products/maps/>`__ chart. If
         ``False``, the chart will be rendered using the standard
         `Highcharts JS <https://www.highcharts.com/products/highcharts/>`__ constructor.
         Defaults to ``False``.
 
         :rtype: :class:`bool <python:bool>`
         """
-        return self._is_stock_chart
+        return self._is_maps_chart
 
-    @is_stock_chart.setter
-    def is_stock_chart(self, value):
-        self._is_stock_chart = bool(value)
+    @is_maps_chart.setter
+    def is_maps_chart(self, value):
+        self._is_maps_chart = bool(value)
 
     @property
-    def options(self) -> Optional[HighchartsOptions | HighchartsStockOptions]:
-        """The Python representation of the `Highcharts <https://highcharts.com>`_
-        ``options`` `configuration object <https://api.highcharts.com/highcharts/>`_
+    def options(self) -> Optional[HighchartsOptions | HighchartsMapsOptions]:
+        """The Python representation of the
+        `Highcharts Maps <https://www.highcharts.com/products/maps/>`__
+        ``options`` `configuration object <https://api.highcharts.com/highmaps/>`_
         Defaults to :obj:`None <python:None>`.
 
-        :rtype: :class:`HighchartsOptions` or :class:`HighchartsStockOptions` or
+        :rtype: :class:`HighchartsOptions` or :class:`HighchartsMapsOptions` or
           :obj:`None <python:None>`
         """
         return self._options
@@ -84,23 +84,21 @@ class Chart(ChartBase):
     def options(self, value):
         if not value:
             self._options = None
-        elif self.is_stock_chart:
-            self._options = validate_types(value, HighchartsStockOptions)
-            self.is_stock_chart = True
+        elif self.is_maps_chart:
+            self._options = validate_types(value, HighchartsMapsOptions)
+            self.is_maps_chart = True
         else:
-            if checkers.is_type(value, 'HighchartsStockOptions'):
+            if checkers.is_type(value, 'HighchartsMapsOptions'):
                 self._options = value
-                self.is_stock_chart = True
+                self.is_maps_chart = True
             elif checkers.is_type(value, 'HighchartsOptions'):
                 self._options = value
-            elif ('navigator' in value
-                  or 'scrollbar' in value
-                  or 'rangeSelector' in value
-                  or 'range_selector' in value
-                  or 'stockTools' in value
-                  or 'stock_tools' in value):
-                self._options = validate_types(value, HighchartsStockOptions)
-                self.is_stock_chart = True
+            elif ('mapNavigation' in value
+                  or 'map_navigation' in value
+                  or 'mapView' in value
+                  or 'map_view' in value):
+                self._options = validate_types(value, HighchartsMapsOptions)
+                self.is_maps_chart = True
             else:
                 self._options = validate_types(value, HighchartsOptions)
 
@@ -113,8 +111,8 @@ class Chart(ChartBase):
             'variable_name': as_dict.get('variable_name',
                                          None) or as_dict.get('variableName', None),
 
-            'is_stock_chart': as_dict.get('is_stock_chart',
-                                          None) or as_dict.get('isStockChart', False)
+            'is_maps_chart': as_dict.get('is_maps_chart',
+                                          None) or as_dict.get('isMapsChart', False)
         }
 
         return kwargs
@@ -160,6 +158,26 @@ class Chart(ChartBase):
 
         signature_elements = 0
 
+        fetch_as_str = ''
+        if self.is_async:
+            urls = []
+            topologies = []
+            for index, series in enumerate(self.options.series):
+                if series.is_async:
+                    url = series.map_data.url
+                    if url in urls:
+                        continue
+                    urls.append(url)
+                    if len(urls) > 1:
+                        self.options.series[index].map_data.fetch_counter += 1
+                    map_data_as_str = series.map_data.to_js_literal(encoding = encoding)
+                    topologies.append(map_data_as_str)
+
+            fetch_as_str = ''
+            for topology in topologies:
+                fetch_request = topology.to_js_literal(encoding = encoding)
+                fetch_as_str += f"""{fetch_request}\n"""
+
         container_as_str = ''
         if self.container:
             container_as_str = f"""renderTo = '{self.container}'"""
@@ -178,8 +196,8 @@ class Chart(ChartBase):
             signature_elements += 1
 
         signature = """new Highcharts.chart("""
-        if self.is_stock_chart:
-            signature = """new Highcharts.stockChart("""
+        if self.is_maps_chart:
+            signature = """new Highcharts.mapChart("""
         if container_as_str:
             signature += container_as_str
             if signature_elements > 1:
@@ -198,8 +216,14 @@ class Chart(ChartBase):
 
         as_str = constructor_prefix + signature
 
-        prefix = """document.addEventListener('DOMContentLoaded', function() {\n"""
-        suffix = """});"""
+        if self.is_async:
+            prefix = """document.addEventListener('DOMContentLoaded', function() {\n(async () => """
+            suffix = """})()});"""
+            as_str = fetch_as_str + '\n' + as_str
+        else:
+            prefix = """document.addEventListener('DOMContentLoaded', function() {\n"""
+            suffix = """});"""
+
         as_str = prefix + as_str + '\n' + suffix
 
         if filename:
@@ -254,7 +278,7 @@ class Chart(ChartBase):
           keyword argument).
         :rtype: :class:`bytes <python:bytes>` or :class:`str <python:str>`
         """
-        if self.is_stock_chart:
+        if self.is_maps_chart:
             constructor = 'Stock'
         else:
             constructor = 'Chart'
@@ -308,91 +332,14 @@ class Chart(ChartBase):
             existing_series = []
         else:
             existing_series = []
-            if self.is_stock_chart:
-                self.options = HighchartsStockOptions()
+            if self.is_maps_chart:
+                self.options = HighchartsMapsOptions()
             else:
                 self.options = HighchartsOptions()
 
         updated_series = existing_series + new_series
 
         self.options.series = updated_series
-
-    def add_indicator(self,
-                      indicator_name,
-                      series,
-                      indicator_kwargs = None):
-        """Creates a new :term:`technical indicator` series which calculates the indicator
-        ``indicator_name`` for the series provided in ``series``, and adds it to the
-        chart's
-        :meth:`.options.series <highcharts_maps.options.HighchartsStockOptions.series>`.
-
-        :param indicator_name: The name of the indicator that should be added to the
-          series and chart. For the list of supported indicators, please review the
-          :ref:`Indicator List <indicator_list>`.
-        :type indicator_name: :class:`str <python:str>`
-
-        :param series: The series to which the indicator should be added. Accepts either a
-          series' :meth:`.id <highcharts_maps.options.series.SeriesBase.id>` as a
-          :class:`str <python:str>`, or a
-          :class:`SeriesBase <highcharts_maps.options.series.base.SeriesBase>`
-          (descendant) instance.
-        :type series: :class:`str <python:str>` or
-          :class:`SeriesBase <highcharts_maps.options.series.base.SeriesBase>`
-
-        :param indicator_kwargs: Keyword arguments to apply when instantiating the new
-          indicator series. Defaults to :obj:`None <python:None>`.
-        :type indicator_kwargs: :class:`dict <python:dict>` or :obj:`None <python:None>`
-
-        :returns: Nothing. It simply changes the composition of the chart instance's
-          series to now include a new series with the indicator.
-        """
-        if self.options and self.options.series:
-            series_list = self.options.series
-        elif self.options:
-            self.options.series = []
-            series_list = self.options.series
-        else:
-            self.options = HighchartsStockOptions()
-            self.options.series = []
-            series_list = self.options.series
-
-        series_obj = None
-        if isinstance(series, str):
-            if '}' in series:
-                series_obj = create_series_obj(series)
-                series_id = series_obj.id
-                if not series_id:
-                    raise errors.HighchartsValueError('series does not have an .id '
-                                                      'specified. Cannot add an '
-                                                      'indicator.')
-            else:
-                series_id = validators.string(series)
-                contains_series_id = False
-                for item in series_list:
-                    if item.id == series_id:
-                        contains_series_id = True
-                        series_obj = item
-                        break
-
-                if not contains_series_id:
-                    raise errors.HighchartsValueError(f'chart does not contain a series '
-                                                      f'with an id: "{value}"')
-        else:
-            series_obj = create_series_obj(series)
-            if not series_obj.id:
-                raise errors.HighchartsValueError('series does not have an .id '
-                                                  'specified. Cannot add an '
-                                                  'indicator.')
-            for item in series_list:
-                updated_series_list = [x for x in series_list
-                                       if x.id != series.id]
-                series_list = [x for x in updated_series_list]
-                series_list.append(series_obj)
-
-        indicator = series_obj.get_indicator(indicator_name,
-                                             indicator_kwargs = indicator_kwargs)
-        series_list.append(indicator)
-        self.options.series = series_list
 
     @classmethod
     def from_series(cls, *series, kwargs = None):
@@ -415,13 +362,13 @@ class Chart(ChartBase):
           .. warning::
 
             If ``kwargs`` sets the
-            :meth:`options.series <highcharts_python.options.HighchartsOptions.series>`
+            :meth:`options.series <highcharts_maps.options.HighchartsOptions.series>`
             property, that setting will be *overridden* by the contents of ``series``.
 
         :type kwargs: :class:`dict <python:dict>`
 
-        :returns: A new :class:`Chart <highcharts_python.chart.Chart>` instance
-        :rtype: :class:`Chart <highcharts_python.chart.Chart>`
+        :returns: A new :class:`Chart <highcharts_maps.chart.Chart>` instance
+        :rtype: :class:`Chart <highcharts_maps.chart.Chart>`
         """
         kwargs = validators.dict(kwargs, allow_empty = True) or {}
         instance = cls(**kwargs)
@@ -446,10 +393,10 @@ class Chart(ChartBase):
 
         if global_options is not None:
             global_options = validate_types(global_options,
-                                            types = SharedStockOptions)
+                                            types = SharedMapsOptions)
 
-        if self.is_stock_chart:
-            include_str = constants.STOCK_INCLUDE_STR
+        if self.is_maps_chart:
+            include_str = constants.MAPS_INCLUDE_STR
         else:
             include_str = constants.INCLUDE_STR
 
@@ -480,7 +427,7 @@ class Chart(ChartBase):
         :type options_kwargs: :class:`dict <python:dict>` or :obj:`None <python:None>`
 
         :returns: An :class:`Options` descendent.
-        :rtype: :class:`HighchartsOptions` or :class:`HighchartsStockOptions`
+        :rtype: :class:`HighchartsOptions` or :class:`HighchartsMapsOptions`
         """
         series_type = validators.string(series_type, allow_empty = False)
         series_type = series_type.lower()
@@ -490,10 +437,10 @@ class Chart(ChartBase):
 
         options_kwargs = validators.dict(options_kwargs, allow_empty = True) or {}
 
-        if series_type not in STOCK_SERIES_LIST:
+        if series_type not in MAPS_SERIES_LIST:
             options = HighchartsOptions(**options_kwargs)
         else:
-            options = HighchartsStockOptions(**options_kwargs)
+            options = HighchartsMapsOptions(**options_kwargs)
 
         return options
 
@@ -513,7 +460,7 @@ class Chart(ChartBase):
                  wrap_all_strings = False,
                  double_wrapper_character_when_nested = False,
                  escape_character = "\\",
-                 is_stock_chart = False):
+                 is_maps_chart = False):
         """Create a new :class:`Chart <highcharts_python.chart.Chart>` instance with
         data populated from a CSV string or file.
 
@@ -658,9 +605,9 @@ class Chart(ChartBase):
           which is Python's native escape character).
         :type escape_character: :class:`str <python:str>`
 
-        :param is_stock_chart: If ``True``, indicates that the chart should be
+        :param is_maps_chart: If ``True``, indicates that the chart should be
           instantiated as a **Highcharts Stock for Python** chart. Defaults to ``False``.
-        :type is_stock_chart: :class:`bool <python:bool>`
+        :type is_maps_chart: :class:`bool <python:bool>`
 
         :returns: A :class:`Chart <highcharts_python.chart.Chart>` instance with its
           data populated from the CSV data.
@@ -877,13 +824,15 @@ class Chart(ChartBase):
     def from_options(cls,
                      options,
                      chart_kwargs = None):
-        """Create a :class:`Chart <highcharts_python.chart.Chart>` instance from a
-        :class:`HighchartsOptions <highcharts_python.options.HighchartsOptions>` object.
+        """Create a :class:`Chart <highcharts_maps.chart.Chart>` instance from a
+        :class:`HighchartsOptions <highcharts_maps.options.HighchartsOptions>` or
+        :class:`HighchartsMapsOptions <highcharts_maps.options.HighchartsMapsOptions>`
+        object.
 
         :param options: The configuration options to use to instantiate the chart.
         :type options:
           :class:`HighchartsOptions <highcharts_python.options.HighchartsOptions>` or
-          coercable
+          related or coercable
 
         :param chart_kwargs: An optional :class:`dict <python:dict>` containing keyword
           arguments that should be used when instantiating the instance. Defaults to
@@ -900,21 +849,132 @@ class Chart(ChartBase):
         :rtype: :class:`Chart <highcharts_python.chart.Chart>`
         """
         chart_kwargs = validators.dict(chart_kwargs, allow_empty = True) or {}
-        if checkers.is_type(options, 'HighchartsStockOptions'):
+        if checkers.is_type(options, 'HighchartsMapsOptions'):
             options = options
-            chart_kwargs['is_stock_chart'] = True
+            chart_kwargs['is_maps_chart'] = True
         elif checkers.is_type(options, 'HighchartsOptions'):
             options = options
-        elif ('navigator' in options
-              or 'scrollbar' in options
-              or 'rangeSelector' in options
-              or 'range_selector' in options
-              or 'stockTools' in options
-              or 'stock_tools' in options):
-            options = validate_types(options, HighchartsStockOptions)
-            chart_kwargs['is_stock_chart'] = True
+        elif ('mapNavigation' in options
+              or 'map_navigation' in options
+              or 'mapView' in options
+              or 'map_view' in options):
+            options = validate_types(options, HighchartsMapsOptions)
+            chart_kwargs['is_maps_chart'] = True
         else:
             options = validate_types(options, HighchartsOptions)
+
+        instance = cls(**chart_kwargs)
+        instance.options = options
+
+        return instance
+
+    @property
+    def is_async(self) -> Optional[bool]:
+        """Read-only property which indicates whether the data visualization should be
+        rendered using asynchronous logic.
+
+        .. note::
+
+          This property will only return ``True`` if one or more series rely on
+          :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
+
+        :rtype: :class:`bool <python:bool>`
+        """
+        if not self.options or not self.options.series:
+            return False
+
+        for series in self.options.series:
+            if hasattr(series, 'is_async') and series.is_async:
+                return True
+
+        return False
+
+    def set_map_data(self, map_data):
+        """Sets the default :term:`map data` for the chart.
+
+        :param map_data: The :term:`map data` to set. Accepts:
+
+          * :class:`MapData <highcharts_maps.options.series.map_data.MapData>`
+          * :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+          * :class:`VariableName <highcharts_maps.utility_classes.javascript_functions.VariableName>`
+          * :class:`GeoJSONBase <highcharts_maps.utility_classes.geojson.GeoJSONBase>` or
+            descendant
+          * :class:`Topology <highcharts_maps.utility_classes.topojson.Topology>`
+          * a :class:`str <python:str>` URL, which will be coerced to
+            :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+
+        :type map_data: :class:`MapData <highcharts_maps.options.series.map_data.MapData>` or
+          :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+          or :obj:`None <python:None>`
+        """
+        if self.options.chart:
+            self.options.chart.map = map_data
+        else:
+            chart_options = ChartOptions(map = map_data)
+            if self.options:
+                self.options.chart = chart_options
+            else:
+                self.options = HighchartsMapsOptions(chart = chart_options)
+
+    @classmethod
+    def from_map_data(cls,
+                      map_data,
+                      options_kwargs = None,
+                      chart_kwargs = None):
+        """Create a :class:`Chart <highcharts_maps.chart.Chart>` instance from a
+        :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>` or
+        :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
+        object.
+
+        :param map_data: The :term:`map data` to set. Accepts:
+
+          * :class:`MapData <highcharts_maps.options.series.map_data.MapData>`
+          * :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+          * :class:`VariableName <highcharts_maps.utility_classes.javascript_functions.VariableName>`
+          * :class:`GeoJSONBase <highcharts_maps.utility_classes.geojson.GeoJSONBase>` or
+            descendant
+          * :class:`Topology <highcharts_maps.utility_classes.topojson.Topology>`
+          * a :class:`str <python:str>` URL, which will be coerced to
+            :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+
+        :type map_data: :class:`MapData <highcharts_maps.options.series.map_data.MapData>`
+          or :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+          or :obj:`None <python:None>`
+
+        :param options_kwargs: An optional :class:`dict <python:dict>` containing keyword
+          arguments that should be used when instanting the options for the :class:`Chart`
+          instance. Defaults to :obj:`None <python:None>`
+
+          .. warning::
+
+            If ``options_kwargs`` contains a ``chart.map`` setting, that value will
+            be *overwritten* by the contents of ``map_data``.
+
+        :type options_kwargs: :class:`dict <python:dict>` or :obj:`None <python:None>`
+
+        :param chart_kwargs: An optional :class:`dict <python:dict>` containing keyword
+          arguments that should be used when instantiating the instance. Defaults to
+          :obj:`None <python:None>`.
+
+          .. warning::
+
+            If ``chart_kwargs`` contains an ``options`` setting, that value will
+            be *overwritten* by the options implied by ``options_kwargs``
+
+        :type chart_kwargs: :class:`dict <python:dict>` or :obj:`None <python:None>`
+
+        :returns: The :class:`Chart <highcharts_python.chart.Chart>` instance
+        :rtype: :class:`Chart <highcharts_python.chart.Chart>`
+        """
+        options_kwargs = validators.dict(options_kwargs, allow_empty = True) or {}
+        chart_kwargs = validators.dict(chart_kwargs, allow_empty = True) or {}
+
+        chart_kwargs['is_maps_chart'] = True
+        options = HighchartsMapsOptions(**options_kwargs)
+        if not options.chart:
+            options.chart = ChartOptions()
+
+        options.chart.map_data = map_data
 
         instance = cls(**chart_kwargs)
         instance.options = options

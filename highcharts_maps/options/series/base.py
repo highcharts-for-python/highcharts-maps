@@ -298,7 +298,11 @@ class MapSeriesBase(SeriesBase):
             if key == 'mapData' and self.is_map_data_independent:
                 item = f'HCP: REPLACE-WITH-{item.variable_name}'
             elif key == 'mapData' and self.is_async:
+                fetch_counter = item.fetch_counter
                 item = 'HCP: REPLACE-WITH-topology'
+                if fetch_counter > 0:
+                    item = f'{item}{fetch_counter}'
+
             serialized = serialize_to_js_literal(item, encoding = encoding)
             if serialized is not None:
                 as_dict[key] = serialized

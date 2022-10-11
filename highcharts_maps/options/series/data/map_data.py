@@ -1,4 +1,4 @@
-from typing import Optional, List
+from typing import Optional
 from collections import UserDict
 
 try:
@@ -449,6 +449,57 @@ class MapData(HighchartsMeta):
         :rtype: :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
         """
         topology = Topology(as_gdf, prequantize = prequantize)
+
+        return cls(topology = topology)
+
+    @classmethod
+    def from_shapefile(cls, shp_filename):
+        """Create a :class:`MapData` instance from an :term:`ESRI Shapefile <shapefile>`.
+        :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`.
+
+        :param shp_filename: The full filename of an :term:`ESRI Shapefile <shapefile>`
+          to load.
+
+          .. note::
+
+            :term:`ESRI Shapefiles <shapefile>` are actually composed of three files each,
+            with one file receiving the ``.shp`` extension, one with a ``.dbf`` extension,
+            and one (optional) file with a ``.shx`` extension.
+
+            **Highcharts Maps for Python** will resolve all three files given a single
+            base filename. Thus:
+
+              ``/my-shapefiles-folder/my_shapefile.shp``
+
+            will successfully load data from the three files:
+
+              ``/my-shapefiles-folder/my_shapefile.shp``
+              ``/my-shapefiles-folder/my_shapefile.dbf``
+              ``/my-shapefiles-folder/my_shapefile.shx``
+
+          .. tip::
+
+            **Highcharts for Python** will also correctly load and unpack
+            :term:`shapefiles` that are grouped together within a ZIP file.
+
+        :type shp_filename: :class:`str <python:str>` or
+          :class:`bytes <python:bytes>`
+
+        :rtype: :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
+        """
+        try:
+            import shapefile
+        except ImportError:
+            raise errors.HighchartsDependencyError('MapSeriesBase.from_shapefile() '
+                                                   'requires PyShp be installed. '
+                                                   'However, it was not found in the '
+                                                   'runtime environment.')
+
+        shp_filename = validators.file_exists(shp_filename)
+
+        data = shapefile.Reader(shp_filename)
+
+        topology = Topology(data)
 
         return cls(topology = topology)
 

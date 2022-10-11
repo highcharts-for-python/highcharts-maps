@@ -178,6 +178,11 @@ class Chart(ChartBase):
                 fetch_request = topology.to_js_literal(encoding = encoding)
                 fetch_as_str += f"""{fetch_request}\n"""
 
+        custom_projection_as_str = ''
+        if self.uses_custom_projection:
+            custom_projection_as_str = self.options.map_view.projection.custom.to_js_literal(encoding = encoding)
+            custom_projection_as_str += f"""\nHighcharts.Projection.add('{self.options.map_view.projection.custom.name}', {self.options.map_view.projection.custom.class_name})\n"""
+
         container_as_str = ''
         if self.container:
             container_as_str = f"""renderTo = '{self.container}'"""
@@ -217,11 +222,16 @@ class Chart(ChartBase):
         as_str = constructor_prefix + signature
 
         if self.is_async:
-            prefix = """document.addEventListener('DOMContentLoaded', function() {\n(async () => """
+            prefix = """document.addEventListener('DOMContentLoaded', function() {\n"""
+            if custom_projection_as_str:
+                prefix += custom_projection_as_str
+            prefix += """(async () => """
             suffix = """})()});"""
             as_str = fetch_as_str + '\n' + as_str
         else:
             prefix = """document.addEventListener('DOMContentLoaded', function() {\n"""
+            if custom_projection_as_str:
+                prefix += custom_projection_as_str
             suffix = """});"""
 
         as_str = prefix + as_str + '\n' + suffix
@@ -869,7 +879,7 @@ class Chart(ChartBase):
         return instance
 
     @property
-    def is_async(self) -> Optional[bool]:
+    def is_async(self) -> bool:
         """Read-only property which indicates whether the data visualization should be
         rendered using asynchronous logic.
 
@@ -888,6 +898,26 @@ class Chart(ChartBase):
                 return True
 
         return False
+
+    @property
+    def uses_custom_projection(self) -> bool:
+        """Read-only property which indicates whether the map visualization applies a
+        custom projection.
+
+        .. note::
+
+          This property will only return ``True`` if the
+          ``options.map_views.projection.custom`` property is set.
+
+        :rtype: :class:`bool <python:bool>`
+        """
+        if (not self.options
+            or not hasattr(self.options, 'map_views')
+            or not self.options.map_views
+            or not self.options.map_views.projection):
+            return False
+
+        return self.options.map_views.projection.custom is not None
 
     def set_map_data(self, map_data):
         """Sets the default :term:`map data` for the chart.

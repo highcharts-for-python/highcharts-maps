@@ -42,15 +42,3 @@
         'color': '#000'
     }
   ]
-
-.. warning::
-
-  :term:`Technical indicators <technical indicator>` provided by
-  **Highcharts Stock for Python** do not support the ``.data`` property because
-  their data gets populated dynamically based on the series indicated in their
-  :meth:`.linked_to <highcharts_stock.options.series.base.IndicatorSeriesBase.linked_to>`
-  property.
-
-  .. seealso::
-
-    * :doc:`Using Highcharts Stock for Python </using>` > :ref:`Using Technical Indicators <using_technical_indicators>`

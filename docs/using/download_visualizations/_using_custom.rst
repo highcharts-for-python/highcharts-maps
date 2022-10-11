@@ -1,8 +1,8 @@
 .. code-block:: python
 
-  from highcharts_stock.chart import Chart
-  from highcharts_stock.options.series.area import LineSeries
-  from highcharts_stock.headless_export import ExportServer
+  from highcharts_maps.chart import Chart
+  from highcharts_maps.options.series.area import LineSeries
+  from highcharts_maps.headless_export import ExportServer
 
   custom_server = ExportServer(url = 'https://www.mydomain.dev/some_pathname_goes_here')
 
@@ -13,7 +13,7 @@
                        ]
                    },
                    variable_name = 'myChart',
-                   is_stock_chart = True)
+                   is_maps_chart = True)
 
   # Download a PNG version of the chart in memory within your Python code.
   my_png_image = my_chart.download_chart(format = 'png',
@@ -33,14 +33,14 @@
   If you are using a custom :term:`export server`, it is strongly recommended that you
   supply its configuration (e.g. the URL) via environment variables. For more information,
   please see
-  :class:`headless_export.ExportServer <highcharts_stock.headless_export.ExportServer>`.
+  :class:`headless_export.ExportServer <highcharts_maps.headless_export.ExportServer>`.
 
 .. collapse:: Method Signature
 
   .. seealso::
 
-    * :meth:`Chart.download_chart() <highcharts_stock.chart.Chart.download_chart>`
-    * :class:`headless_export.ExportServer <highcharts_stock.headless_export.ExportServer>`
+    * :meth:`Chart.download_chart() <highcharts_maps.chart.Chart.download_chart>`
+    * :class:`headless_export.ExportServer <highcharts_maps.headless_export.ExportServer>`
 
   .. method:: .download_chart(self, filename = None, format = 'png', server_instance = None, scale = 1, width = None, auth_user = None, auth_password = None, timeout = 0.5, global_options = None, **kwargs)
     :noindex:
@@ -112,8 +112,8 @@
       ``Highcharts.setOptions()`` method, and which will be applied to the exported
       chart. Defaults to :obj:`None <python:None>`.
 
-    :type global_options: :class:`HighchartsStockOptions <highcharts_stock.options.HighchartsStockOptions>`,
-      :class:`HighchartsOptions <highcharts_stock.options.HighchartsOptions>` or
+    :type global_options: :class:`HighchartsStockOptions <highcharts_maps.options.HighchartsStockOptions>`,
+      :class:`HighchartsOptions <highcharts_maps.options.HighchartsOptions>` or
       :obj:`None <python:None>`
 
     .. note::

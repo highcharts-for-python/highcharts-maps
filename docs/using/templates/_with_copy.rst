@@ -1,4 +1,4 @@
-If you have an existing **Highcharts Stock for Python** instance, you can copy its
+If you have an existing **Highcharts Maps for Python** instance, you can copy its
 properties to another object using the ``.copy()`` method. You can therefore set up
 one chart, and then copy its properties to other chart objects with one method call.
 
@@ -9,7 +9,7 @@ one chart, and then copy its properties to other chart objects with one method c
 
   .. tip::
 
-    The :meth:`Chart.copy() <highcharts_stock.chart.Chart.copy>` method supports a
+    The :meth:`Chart.copy() <highcharts_maps.chart.Chart.copy>` method supports a
     special keyword argument, ``preverse_data`` which if set to ``True`` will copy
     properties (unless ``overwrite = False``) but will *not* overwrite any data. This
     can be very useful to replicating the configuration of your chart across multiple

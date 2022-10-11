@@ -3,7 +3,7 @@
   **Best practice!**
 
   We really like to use JS literals written as separate files in our codebase. It
-  makes it super simple to instantiate a **Highcharts Stock for Python** instance with
+  makes it super simple to instantiate a **Highcharts Maps for Python** instance with
   one method call.
 
 Let's say you organize your files like so:
@@ -44,12 +44,12 @@ event functions, or more frequently use different formatting functions to make t
 data look the way we want it to look.
 
 Now with these template files, we can easily create a pair of
-:class:`Chart <highcharts_stock.chart.Chart>` instances by executing:
+:class:`Chart <highcharts_maps.chart.Chart>` instances by executing:
 
   .. code-block:: python
 
-    from highcharts_stock.highcharts import Chart
-    from highcharts_stock.options.series.hlc import HLCSeries
+    from highcharts_maps.highcharts import Chart
+    from highcharts_maps.options.series.hlc import HLCSeries
 
     type_1_chart = Chart.from_js_literal(
         '../../project_resources/highcharts_config/hlc-template-01.js'

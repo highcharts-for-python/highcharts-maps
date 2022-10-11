@@ -1,7 +1,7 @@
 .. code-block:: python
 
-  from highcharts_stock.options.series.area import LineSeries
-  from highcharts_stock.options.series.data import CartesianData
+  from highcharts_maps.options.series.area import LineSeries
+  from highcharts_maps.options.series.data import CartesianData
 
   # A simple array of numerical values which correspond to the Y value of the data
   # point
@@ -68,8 +68,8 @@
     .. note::
 
       An example of how this works for a simple
-      :class:`LineSeries <highcharts_stock.options.series.area.LineSeries>` (which uses
-      :class:`CartesianData <highcharts_stock.options.series.data.cartesian.CartesianData>`
+      :class:`LineSeries <highcharts_maps.options.series.area.LineSeries>` (which uses
+      :class:`CartesianData <highcharts_maps.options.series.data.cartesian.CartesianData>`
       data points) would be:
 
       .. code-block:: python
@@ -128,19 +128,7 @@
     :type value: iterable
 
     :returns: Collection of :term:`data point` instances (descended from
-      :class:`DataBase <highcharts_stock.options.series.data.base.DataBase>`)
+      :class:`DataBase <highcharts_maps.options.series.data.base.DataBase>`)
     :rtype: :class:`list <python:list>` of
-      :class:`DataBase <highcharts_stock.options.series.data.base.DataBase>`-descendant
+      :class:`DataBase <highcharts_maps.options.series.data.base.DataBase>`-descendant
       instances
-
-.. warning::
-
-  :term:`Technical indicators <technical indicator>` provided by
-  **Highcharts Stock for Python** do not support the ``.data`` property because
-  their data gets populated dynamically based on the series indicated in their
-  :meth:`.linked_to <highcharts_stock.options.series.base.IndicatorSeriesBase.linked_to>`
-  property.
-
-  .. seealso::
-
-    * :doc:`Using Highcharts Stock for Python </using>` > :ref:`Using Technical Indicators <using_technical_indicators>`

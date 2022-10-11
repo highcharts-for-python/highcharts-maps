@@ -17,7 +17,7 @@ Installation
 ----------------------
 
 *****************************************************
-Importing Highcharts Stock for Python Objects
+Importing Highcharts Maps for Python Objects
 *****************************************************
 
 .. include:: using/_importing.rst
@@ -68,6 +68,34 @@ Standardizing Your Charts
 Populating Series with Data
 ************************************
 
+Configuring Your Map Data
+================================
+
+.. tabs::
+
+  .. tab:: w/ ``options.chart.map``
+
+    .. include:: using/configuring_map_data/_with_chart_map.rst
+
+  .. tab:: w/ ``AsyncMapData``
+
+    .. include:: using/configuring_map_data/_async_map_data.rst
+
+  .. tab:: w/ TopoJSON
+
+    .. include:: using/configuring_map_data/_topojson.rst
+
+  .. tab:: w/ GeoJSON
+
+    .. include:: using/configuring_map_data/_geojson.rst
+
+  .. tab:: w/ ``.from_geopandas()``
+
+    .. include:: using/configuring_map_data/_geopandas.rst
+
+Populating the Series Data
+================================
+
 .. tabs::
 
   .. tab:: w/ ``.data``
@@ -113,11 +141,6 @@ Populating Series with Data
       .. tab:: Update an Existing Series
 
         .. include:: using/populating_series_data/_load_from_pyspark.rst
-
-Adding Technical Indicators
-================================
-
-.. include:: using/populating_series_data/_adding_technical_indicators.rst
 
 ------------------------
 
@@ -174,7 +197,7 @@ Downloading a Rendered Highcharts Visualization
 ----------------------
 
 ************************************
-Using Highcharts Stock Features
+Using Highcharts Maps Features
 ************************************
 
-.. include:: using/_working_with_stock_features.rst
+.. include:: using/_working_with_maps_features.rst

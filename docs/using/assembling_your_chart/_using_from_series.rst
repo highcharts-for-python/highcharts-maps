@@ -1,8 +1,8 @@
   .. note::
 
     ``.from_series()`` is supported by both the
-    :class:`Chart <highcharts_stock.chart.Chart>` and
-    :class:`HighchartsStockOptions <highcharts_stock.options.HighchartsStockOptions>`
+    :class:`Chart <highcharts_maps.chart.Chart>` and
+    :class:`HighchartsStockOptions <highcharts_maps.options.HighchartsStockOptions>`
     classes
 
 .. code-block:: python
@@ -17,14 +17,14 @@
   .. method:: .from_series(cls, *series, kwargs = None)
     :noindex:
 
-    Creates a new :class:`Chart <highcharts_stock.chart.Chart>` instance populated
+    Creates a new :class:`Chart <highcharts_maps.chart.Chart>` instance populated
     with ``series``.
 
     :param series: One or more :term:`series` instances (descended from
-      :class:`SeriesBase <highcharts_stock.options.series.base.SeriesBase>`) or an
+      :class:`SeriesBase <highcharts_maps.options.series.base.SeriesBase>`) or an
       instance (e.g. :class:`dict <python:dict>`, :class:`str <python:str>`, etc.)
       coercable to one
-    :type series: :class:`SeriesBase <highcharts_stock.options.series.base.SeriesBase>`
+    :type series: :class:`SeriesBase <highcharts_maps.options.series.base.SeriesBase>`
       or coercable
 
     :param kwargs: Other properties to use as keyword arguments for the instance to be
@@ -33,10 +33,10 @@
       .. warning::
 
         If ``kwargs`` sets the
-        :meth:`options.series <highcharts_stock.options.HighchartsStockOptions.series>`
+        :meth:`options.series <highcharts_maps.options.HighchartsStockOptions.series>`
         property, that setting will be *overridden* by the contents of ``series``.
 
     :type kwargs: :class:`dict <python:dict>`
 
-    :returns: A new :class:`Chart <highcharts_stock.chart.Chart>` instance
-    :rtype: :class:`Chart <highcharts_stock.chart.Chart>`
+    :returns: A new :class:`Chart <highcharts_maps.chart.Chart>` instance
+    :rtype: :class:`Chart <highcharts_maps.chart.Chart>`

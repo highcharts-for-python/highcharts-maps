@@ -1,7 +1,7 @@
   *There are only two hard things in Computer Science: cache invalidation and naming
   things.* -- Phil Karlton
 
-Highcharts Stock is a JavaScript library, and as such it adheres to the code conventions
+Highcharts Maps is a JavaScript library, and as such it adheres to the code conventions
 that are popular (practically standard) when working in JavaScript. Chief among these
 conventions is that variables and object properties (keys) are typically written in
 ``camelCase``.
@@ -14,7 +14,7 @@ convention, Python generally skews towards the ``snake_case`` convention.
 
 For most Python developers, using ``snake_case`` is the "default" mindset. Most of your
 Python code will use ``snake_case``. So having to switch into ``camelcase`` to interact
-with Highcharts Stock forces us to context switch, increases cognitive load, and is an
+with Highcharts Maps forces us to context switch, increases cognitive load, and is an
 easy place for us to overlook things and make a mistake that can be quite annoying to
 track down and fix later.
 
@@ -25,7 +25,7 @@ considered design choices when it comes to naming conventions:
    convention.
 #. All **Highcharts for Python** properties and methods follow the Pythonic
    ``snake_case`` property/method/variable/function-naming convention.
-#. All *inputs* to properties and methods support *both* ``snake_case`` and
+#. All *inputs* to properties support *both* ``snake_case`` and
    ``camelCase`` (aka ``mixedCase``) convention by default. This means that you can take
    something directly from Highcharts JavaScript code and supply it to the
    **Highcharts for Python** toolkit without having to convert case or conventions. But if

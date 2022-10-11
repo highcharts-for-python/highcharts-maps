@@ -1,11 +1,11 @@
 .. tabs::
 
-  .. tab:: as a Highcharts Stock Chart
+  .. tab:: as a Highcharts Maps Chart
 
     .. code-block:: python
 
-      from highcharts_stock.chart import Chart
-      from highcharts_stock.options.series.hlc import HLCSeries
+      from highcharts_maps.chart import Chart
+      from highcharts_maps.options.series.hlc import HLCSeries
 
       my_chart = Chart(container = 'target_div',
                        options = {
@@ -18,7 +18,7 @@
                            ]
                        },
                        variable_name = 'myChart',
-                       is_stock_chart = True)
+                       is_maps_chart = True)
 
       as_js_literal = my_chart.to_js_literal()
 
@@ -41,8 +41,8 @@
 
     .. code-block:: python
 
-      from highcharts_stock.chart import Chart
-      from highcharts_stock.options.series.area import LineSeries
+      from highcharts_maps.chart import Chart
+      from highcharts_maps.options.series.area import LineSeries
 
       my_chart = Chart(container = 'target_div',
                        options = {

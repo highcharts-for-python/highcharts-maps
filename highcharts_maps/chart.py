@@ -14,6 +14,8 @@ from highcharts_maps.options.series.series_generator import (create_series_obj,
                                                              MAPS_SERIES_LIST)
 from highcharts_maps.global_options.shared_options import SharedMapsOptions
 from highcharts_maps.options.chart import ChartOptions
+from highcharts_maps.options.map_views import MapViewOptions
+from highcharts_maps.utility_classes.projections import ProjectionOptions, CustomProjection
 
 
 class Chart(ChartBase):
@@ -1010,3 +1012,27 @@ class Chart(ChartBase):
         instance.options = options
 
         return instance
+
+    def set_custom_projection(self, projection):
+        """Applies a custom map projection to the chart.
+
+        :param projection: The custom projection definition to apply.
+        :type projection: :class:`CustomProjection <highcharts_maps.utility_classes.projections.CustomProjection>`
+
+        .. seealso::
+
+          * :ref:`Using Highcharts Maps for Python <using>` > :ref:`Using Custom Projections <custom_projections>`
+
+        """
+        projection = validate_types(projection, CustomProjection)
+
+        if not self.options:
+            self.options = HighchartsMapsOptions()
+
+        if not self.options.map_view:
+            self.options.map_view = MapViewOptions()
+
+        if not self.options.map_view.projection:
+            self.options.map_view.projection = ProjectionOptions()
+
+        self.options.map_view.projection.custom = projection

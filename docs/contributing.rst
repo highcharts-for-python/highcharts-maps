@@ -34,7 +34,7 @@ Contributing to Highcharts for Python
 Design Philosophy
 *************************
 
-**Highcharts Stock for Python** is meant to be a "beautiful" and "usable" library. That
+**Highcharts Maps for Python** is meant to be a "beautiful" and "usable" library. That
 means that it should offer an idiomatic API that:
 
 * works out of the box as intended,
@@ -47,8 +47,9 @@ In other words:
 
   Users should simply be able to drive the car without looking at the engine.
 
-The good news is that `Highcharts JS <https://www.highcharts.com>`__ applies a very similar philosophy, and so that
-makes the job for **Highcharts for Python** that much simpler.
+The good news is that `Highcharts JS <https://www.highcharts.com>`__ applies a very
+similar philosophy, and so that makes the job for **Highcharts for Python** that much
+simpler.
 
 *************************
 Style Guide
@@ -213,9 +214,10 @@ Docstrings
 Design Patterns and Standards
 ***************************************************
 
-`Highcharts JS <https://www.highcharts.com>`__ is a large, robust, and complicated JavaScript library. If in doubt, take
-a look at their extensive `documentation <https://www.highcharts.com/docs/index>`_ and in
-particular their `API reference <https://api.highcharts.com/highcharts>`_. Because
+`Highcharts JS <https://www.highcharts.com>`__ is a large, robust, and complicated
+JavaScript library. If in doubt, take a look at their extensive
+`documentation <https://www.highcharts.com/docs/index>`_ and in particular their
+`API reference <https://api.highcharts.com/highcharts>`_. Because
 **Highcharts for Python** wraps the Highcharts JS API, its design is heavily shaped by
 Highcharts JS' own design - as one should expect.
 
@@ -229,7 +231,7 @@ Code Style: Python vs JavaScript Naming Conventions
 
 .. include:: using/_code_style_naming_conventions.rst
 
-Standard Methods: :class:`HighchartsMeta <highcharts_stock.metaclasses.HighchartsMeta>`
+Standard Methods: :class:`HighchartsMeta <highcharts_maps.metaclasses.HighchartsMeta>`
 ============================================================================================
 
 Every single object supported by the Highcharts JS API corresponds to a Python class in
@@ -281,23 +283,24 @@ When contributing code to the **Highcharts for Python** toolkit, it is important
 understand how we handle multiple inheritance and the :term:`diamond of death` problem.
 
 First, obviously, multiple inheritance is generally considered an anti-pattern. That's
-because it makes debugging code much, much harder - particuarly in Python, which uses a
+because it makes debugging code much, much harder - particularly in Python, which uses a
 bit of a "magic" secret sauce called the MRO (Method Resolution Order) to determine which
 parent class' methods to execute and when.
 
-However, `Highcharts JS <https://www.highcharts.com>`__ - and by consequence, **Highcharts for Python** - is a very
-verbose library. I estimate that the full set of objects in the library has about 15,000
-properties in total. A great many of these properties are identical in terms of their
-syntax, and their meaning (in context). So this is a classic example of where we can apply
-the principle of :iabbr:`DRY (Don't Repeat Yourself)` to good effect. By using class
+However, `Highcharts JS <https://www.highcharts.com>`__ - and by consequence,
+**Highcharts for Python** - is a very verbose library. I estimate that the full set of
+objects in the library has about 15,000 properties in total. A great many of these
+properties are identical in terms of their syntax, and their meaning (in context). So this
+is a classic example of where we can apply the principle of
+:iabbr:`DRY (Don't Repeat Yourself)` to good effect. By using class
 inheritance, we can reduce the number of properties from about 15,000 to about 1,900. Not
 bad!
 
 However, this significant reduction *does* require us to use multiple inheritance in some
-cases, paritcularly in the :mod:`.options.series <highcharts_stock.options.series>`
+cases, particularly in the :mod:`.options.series <highcharts_maps.options.series>`
 classes (which inherit from both the corresponding type-specific options in
-:mod:`.options.plot_options <highcharts_stock.options.plot_options>`) *and* from the
-generic :class:`SeriesBase <highcharts_stock.options.series.base.SeriesBase>` class).
+:mod:`.options.plot_options <highcharts_maps.options.plot_options>`) *and* from the
+generic :class:`SeriesBase <highcharts_maps.options.series.base.SeriesBase>` class).
 
 To solve the :term:`diamond of death` problem, we implemented a number of private
 helper methods to assist in navigating the MRO:
@@ -308,20 +311,20 @@ helper methods to assist in navigating the MRO:
 
   * - Method / Function
     - Purpose
-  * - :func:`.utility_functions.get_remaining_mro() <highcharts_stock.utility_functions.get_remaining_mro>`
+  * - :func:`.utility_functions.get_remaining_mro() <highcharts_maps.utility_functions.get_remaining_mro>`
     - Retrieve the class objects that are still to be traversed for a given class' MRO.
-  * - :func:`.utility_functions.mro__to_untrimmed_dict() <highcharts_stock.utility_functions.mro__to_untrimmed_dict>`
+  * - :func:`.utility_functions.mro__to_untrimmed_dict() <highcharts_maps.utility_functions.mro__to_untrimmed_dict>`
     - Retrieve a consolidated :term:`untrimmed` :class:`dict <python:dict>` representation
       from all ancestors of a given class.
-  * - :meth:`HighchartsMeta._untrimmed_mro_ancestors() <highcharts_stock.metaclasses.HighchartsMeta._untrimmed_mro_ancestors>`
+  * - :meth:`HighchartsMeta._untrimmed_mro_ancestors() <highcharts_maps.metaclasses.HighchartsMeta._untrimmed_mro_ancestors>`
     - Method which consolidates the results of
-      :meth:`_to_untrimmed_dict() <highcharts_stock.metaclasses.HighchartsMeta._to_untrimmed_dict>`
+      :meth:`_to_untrimmed_dict() <highcharts_maps.metaclasses.HighchartsMeta._to_untrimmed_dict>`
       from a given instance's parent class into a single :class:`dict <python:dict>`.
-  * - :meth:`HighchartsMeta._to_untrimmed_dict() <highcharts_stock.metaclasses.HighchartsMeta._to_untrimmed_dict>`
+  * - :meth:`HighchartsMeta._to_untrimmed_dict() <highcharts_maps.metaclasses.HighchartsMeta._to_untrimmed_dict>`
     - Generates an :term:`untrimmed` :class:`dict <python:dict>` representation of the
       instance at its lowest level in the class hierarchy. Think of this as the
-      "botom of the ladder", with other methods (notably
-      :meth:`_untrimmed_mro_ancestors() <highcharts_stock.metaclasses.HighchartsMeta._untrimmed_mro_ancestors>`)
+      "bottom of the ladder", with other methods (notably
+      :meth:`_untrimmed_mro_ancestors() <highcharts_maps.metaclasses.HighchartsMeta._untrimmed_mro_ancestors>`)
       being used to generate corresponding :class:`dict <python:dict>` from other rungs on
       the ladder.
 
@@ -358,21 +361,21 @@ Preparing Your Development Environment
 
 In order to prepare your local development environment, you should:
 
-#. Fork the `Git repository <https://github.com/hcp-llc/highcharts-python>`_.
+#. Fork the `Git repository <https://github.com/hcp-llc/highcharts-maps>`_.
 #. Clone your forked repository.
 #. Set up a virtual environment (optional).
 #. Install development dependencies:
 
   .. code-block:: bash
 
-    highcharts-python/ $ pip install -r requirements.dev.txt
+    highcharts-maps/ $ pip install -r requirements.dev.txt
 
 And you should be good to go!
 
 Ideas and Feature Requests
 ============================
 
-Check for open `issues <https://github.com/insightindustry/highcharts-python/issues>`_
+Check for open `issues <https://github.com/insightindustry/highcharts-maps/issues>`_
 or create a new issue to start a discussion around a bug or feature idea.
 
 Testing
@@ -405,8 +408,8 @@ In order to build documentation locally, you can do so from the command line usi
 
 .. code-block:: bash
 
-  highcharts-python/ $ cd docs
-  highcharts-python/docs $ make html
+  highcharts-maps/ $ cd docs
+  highcharts-maps/docs $ make html
 
 .. caution::
 
@@ -428,7 +431,7 @@ available at:
 
   .. code-block:: bash
 
-    highcharts-python/docs/_build/html/index.html
+    highcharts-maps/docs/_build/html/index.html
 
 .. note::
 
@@ -438,7 +441,7 @@ available at:
 Contributors
 ================
 
-Thanks to everyone who helps make **Highcharts Stock for Python** useful:
+Thanks to everyone who helps make **Highcharts Maps for Python** useful:
 
 .. include:: _contributors.rst
 

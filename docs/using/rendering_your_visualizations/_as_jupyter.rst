@@ -1,8 +1,8 @@
 .. code-block:: python
 
-  from highcharts_stock.chart import Chart
-  from highcharts_stock.options.series.area import LineSeries
-  from highcharts_stock.global_options.shared_options import SharedStockOptions
+  from highcharts_maps.chart import Chart
+  from highcharts_maps.options.series.area import LineSeries
+  from highcharts_maps.global_options.shared_options import SharedStockOptions
 
   my_chart = Chart(container = 'target_div',
                    options = {
@@ -11,7 +11,7 @@
                        ]
                    },
                    variable_name = 'myChart',
-                   is_stock_chart = True)
+                   is_maps_chart = True)
 
   # Now this will render the contents of "my_chart" in your Jupyter Notebook
   my_chart.display()
@@ -33,7 +33,7 @@
 
     :param global_options: The :term:`shared options` to use when rendering the chart.
       Defaults to :obj:`None <python:None>`
-    :type global_options: :class:`SharedOptions <highcharts_stock.global_options.shared_options.SharedOptions>`
+    :type global_options: :class:`SharedOptions <highcharts_maps.global_options.shared_options.SharedOptions>`
       or :obj:`None <python:None>`
 
     :raises HighchartsDependencyError: if

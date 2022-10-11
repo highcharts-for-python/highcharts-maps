@@ -1,5 +1,5 @@
 #######################################
-Testing Highcharts Stock for Python
+Testing Highcharts Maps for Python
 #######################################
 
 .. contents::

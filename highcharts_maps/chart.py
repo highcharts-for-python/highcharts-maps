@@ -15,6 +15,7 @@ from highcharts_maps.options.series.series_generator import (create_series_obj,
 from highcharts_maps.global_options.shared_options import SharedMapsOptions
 from highcharts_maps.options.chart import ChartOptions
 from highcharts_maps.options.map_views import MapViewOptions
+from highcharts_maps.options.series.data.map_data import MapData
 from highcharts_maps.utility_classes.projections import ProjectionOptions, CustomProjection
 
 
@@ -735,6 +736,96 @@ class Chart(ChartBase):
                                         series_kwargs)
 
         options = HighchartsOptions(**options_kwargs)
+        options.series = [series]
+
+        instance = cls(**chart_kwargs)
+        instance.options = options
+
+        return instance
+
+    @classmethod
+    def from_geopandas(cls,
+                       gdf,
+                       property_map,
+                       series_type,
+                       series_kwargs = None,
+                       options_kwargs = None,
+                       chart_kwargs = None):
+        """Create a :class:`Chart <highcharts_python.chart.Chart>` instance whose
+        data is populated from a `geopandas <https://geopandas.org/>`__
+        :class:`GeoDataFrame <geopandas:GeoDataFrame>`.
+
+        :param gdf: The :class:`GeoDataFrame <geopandas:GeoDataFrame>` from which data
+          should be loaded.
+        :type gdf: :class:`GeoDataFrame <geopandas:GeoDataFrame>`
+
+        :param property_map: A :class:`dict <python:dict>` used to indicate which
+          data point property should be set to which column in ``gdf``. The keys in the
+          :class:`dict <python:dict>` should correspond to properties in the data point
+          class, while the value should indicate the label for the
+          :class:`GeoDataFrame <geopandas:GeoDataFrame>` column.
+        :type property_map: :class:`dict <python:dict>`
+
+        :param series_type: Indicates the series type that should be created from the data
+          in ``gdf``.
+        :type series_type: :class:`str <python:str>`
+
+        :param series_kwargs: An optional :class:`dict <python:dict>` containing keyword
+          arguments that should be used when instantiating the series instance. Defaults
+          to :obj:`None <python:None>`.
+
+          .. warning::
+
+            If ``series_kwargs`` contains a ``data`` key, its value will be *overwritten*.
+            The ``data`` value will be created from ``gdf`` instead.
+
+        :type series_kwargs: :class:`dict <python:dict>`
+
+        :param options_kwargs: An optional :class:`dict <python:dict>` containing keyword
+          arguments that should be used when instantiating the :class:`HighchartsOptions`
+          instance. Defaults to :obj:`None <python:None>`.
+
+          .. warning::
+
+            If ``options_kwargs`` contains a ``series`` key, the ``series`` value will be
+            *overwritten*. The ``series`` value will be created from the data in ``gdf``.
+
+        :type options_kwargs: :class:`dict <python:dict>` or :obj:`None <python:None>`
+
+        :param chart_kwargs: An optional :class:`dict <python:dict>` containing keyword
+          arguments that should be used when instantiating the :class:`Chart` instance.
+          Defaults to :obj:`None <python:None>`.
+
+          .. warning::
+
+            If ``chart_kwargs`` contains an ``options`` key, ``options`` will be
+            *overwritten*. The ``options`` value will be created from the
+            ``options_kwargs`` and the data in ``gdf`` instead.
+
+        :type chart_kwargs: :class:`dict <python:dict>` or :obj:`None <python:None>`
+
+        :returns: A :class:`Chart <highcharts_python.chart.Chart>` instance with its
+          data populated from the data in ``gdf``.
+        :rtype: :class:`Chart <highcharts_python.chart.Chart>`
+
+        :raises HighchartsPandasDeserializationError: if ``property_map`` references
+          a column that does not exist in the data frame
+        :raises HighchartsDependencyError: if `pandas <https://pandas.pydata.org/>`_ is
+          not available in the runtime environment
+        """
+        chart_kwargs = validators.dict(chart_kwargs, allow_empty = True) or {}
+
+        options = cls._get_options_obj(series_type, options_kwargs)
+
+        series_cls = SERIES_CLASSES.get(series_type, None)
+
+        series = series_cls.from_pandas(gdf,
+                                        property_map,
+                                        series_kwargs)
+
+        options = HighchartsMapsOptions(**options_kwargs)
+        options.chart = ChartOptions()
+        options.chart.map_data = MapData.from_geodataframe(as_gdf = gdf)
         options.series = [series]
 
         instance = cls(**chart_kwargs)

@@ -314,3 +314,99 @@ class MapSeriesBase(SeriesBase):
                 file_.write(as_str)
 
         return as_str
+
+    def load_from_geopandas(self,
+                            gdf,
+                            property_map):
+        """Replace the contents of the
+        :meth:`.data <highcharts_maps.options.series.base.SeriesBase.data>` property
+        with data points and the
+        :meth:`.map_data <highcharts_maps.options.series.base.MapSeriesBase.map_data>`
+        property with geometries populated from a `geopandas <https://geopandas.org/>`__
+        :class:`GeoDataFrame <geopandas:GeoDataFrame>`.
+
+        :param gdf: The :class:`GeoDataFrame <geopandas:GeoDataFrame>` from which data
+          should be loaded.
+        :type gdf: :class:`GeoDataFrame <geopandas:GeoDataFrame>`
+
+        :param property_map: A :class:`dict <python:dict>` used to indicate which
+          data point property should be set to which column in ``gdf``. The keys in the
+          :class:`dict <python:dict>` should correspond to properties in the data point
+          class, while the value should indicate the label for the
+          :class:`GeoDataFrame <geopandas:GeoDataFrame>` column.
+        :type property_map: :class:`dict <python:dict>`
+
+        :raises HighchartsPandasDeserializationError: if ``property_map`` references
+          a column that does not exist in the data frame
+        :raises HighchartsDependencyError: if `geopandas <https://geopandas.org/>`__ is
+          not available in the runtime environment
+        """
+        self.map_data = MapData.from_geodataframe(as_gdf = gdf)
+
+        try:
+            from geopandas import GeoDataFrame
+        except ImportError:
+            raise errors.HighchartsDependencyError('geopandas is not available in the '
+                                                   'runtime environment. Please install '
+                                                   'using "pip install geopandas"')
+
+        if not checkers.is_type(gdf, ('GeoDataFrame', 'Series')):
+            raise errors.HighchartsValueError(f'gdf is expected to be a geopandas '
+                                              f'GeoDataFrame or Series. Was: '
+                                              f'{gdf.__class__.__name__}')
+
+        self.map_data = MapData.from_geodataframe(as_gdf = gdf)
+        self.load_from_pandas(gdf, property_map)
+
+    @classmethod
+    def from_geopandas(cls,
+                       gdf,
+                       property_map,
+                       series_kwargs = None):
+        """Create a :term:`series` instance whose
+        :meth:`.data <highcharts_maps.options.series.base.SeriesBase.data>` property
+        is populated from a `geopandas <https://geopandas.org/>`_
+        :class:`GeoDataFrame <geopandas:GeoDataFrame>`.
+
+        :param gdf: The :class:`GeoDataFrame <geopandas:GeoDataFrame>` from which data
+          should be loaded.
+        :type gdf: :class:`GeoDataFrame <geopandas:GeoDataFrame>`
+
+        :param property_map: A :class:`dict <python:dict>` used to indicate which
+          data point property should be set to which column in ``gdf``. The keys in the
+          :class:`dict <python:dict>` should correspond to properties in the data point
+          class, while the value should indicate the label for the
+          :class:`GeoDataFrame <geopandas:GeoDataFrame>` column.
+        :type property_map: :class:`dict <python:dict>`
+
+        :param series_kwargs: An optional :class:`dict <python:dict>` containing keyword
+          arguments that should be used when instantiating the series instance. Defaults
+          to :obj:`None <python:None>`.
+
+          .. warning::
+
+            If ``series_kwargs`` contains a ``data`` or ``map_data`` key, their values
+            will be *overwritten*. The ``data`` and ``map_data`` values will be created
+            from ``gdf`` instead.
+
+        :type series_kwargs: :class:`dict <python:dict>`
+
+        :returns: A :term:`series` instance (descended from
+          :class:`MapSeriesBase <highcharts_maps.options.series.base.MapSeriesBase>`) with
+          its :meth:`.data <highcharts_maps.options.series.base.SeriesBase.data>` and
+          :meth:`.map_data <highcharts_maps.options.series.base.MapSeriesBase.map_data>`
+          properties from the data in ``gdf```
+        :rtype: :class:`list <python:list>` of series instances (descended from
+          :class:`MapSeriesBase <highcharts_maps.options.series.base.MapSeriesBase>`)
+
+        :raises HighchartsPandasDeserializationError: if ``property_map`` references
+          a column that does not exist in the data frame
+        :raises HighchartsDependencyError: if `geopandas <https://geopandas.pydata.org/>`_
+          is not available in the runtime environment
+        """
+        series_kwargs = validators.dict(series_kwargs, allow_empty = True) or {}
+
+        instance = cls(**series_kwargs)
+        instance.load_from_geopandas(gdf, property_map)
+
+        return instance

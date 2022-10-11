@@ -419,7 +419,7 @@ class MapData(HighchartsMeta):
         return cls.from_json(as_topojson_or_file, allow_snake_case = allow_snake_case)
 
     def to_geodataframe(self, obj = None):
-        """Generate a :class:`GeoPandas.GeoDataFrame <geopandas:GeoDataFrame>` instance
+        """Generate a :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>` instance
         of the :term:`map data`.
 
         :param obj: If the map data contains multiple objects, you can generate
@@ -580,7 +580,7 @@ class AsyncMapData(HighchartsMeta):
         }
 
         return untrimmed
-    
+
     def to_js_literal(self,
                       filename = None,
                       encoding = 'utf-8') -> Optional[str]:

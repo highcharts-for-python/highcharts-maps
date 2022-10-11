@@ -1,8 +1,8 @@
-Since `Highcharts Stock <https://www.highcharts.com/product/stock/>`_ is one of the most
-popular high-end time-series data visualization libraries for JavaScript, there are a
-variety of alternative ways of working with it in Python. We have an obvious bias towards
-**Highcharts Stock for Python**, but it may be useful to compare it against some
-commonly-used alternatives:
+Since `Highcharts Maps <https://www.highcharts.com/product/stock/>`_ is one of the most
+popular high-end :iabbr:`GIS (Geographic Information System)` data visualization libraries
+for JavaScript, there are a variety of alternative ways of working with it in Python. We
+have an obvious bias towards **Highcharts Maps for Python**, but it may be useful to
+compare it against some commonly-used alternatives:
 
 .. tabs::
 
@@ -61,7 +61,7 @@ commonly-used alternatives:
     to do". So they turn to Highcharts alternatives that are more Python-friendly, like
     `plotly <https://plotly.com/python/>`_.
 
-    **Highcharts for Python** and its **Highcharts Stock for Python** extension are
+    **Highcharts for Python** and its **Highcharts Maps for Python** extension are
     designed to eliminate this pain.
 
     .. tip::
@@ -74,7 +74,7 @@ commonly-used alternatives:
       using Highcharts. But anything more robust than that is going to prove "hacky" and
       incredibly difficult to maintain.
 
-      Which is why I wrote **Highcharts for Python** and **Highcharts Stock for Python**.
+      Which is why I wrote **Highcharts for Python** and **Highcharts Maps for Python**.
 
   .. tab:: panel-highcharts
 
@@ -148,6 +148,8 @@ commonly-used alternatives:
       visualization types, only a limited number of configuration options are available.
       And because the library has not been updated in about seven years, there's an open
       question whether it will even work to produce relevant visualizations.
+    * **No Highcharts Maps Support**. By design, the library does not support any of the
+      map visualizations that Highcharts Maps provides.
 
     .. tip::
 

@@ -7,14 +7,14 @@
 |
 
 ###################################################
-Highcharts Stock for Python
+Highcharts Maps for Python
 ###################################################
 
-**High-end time series data visualization for the Python ecosystem**
+**High-end data and map visualization for the Python ecosystem**
 
 .. sidebar:: Version Compatibility
 
-  **Highcharts Stock for Python** is designed to be compatible with:
+  **Highcharts Maps for Python** is designed to be compatible with:
 
     * Python 3.9 or higher,
     * Highcharts JS 10.2 or higher,
@@ -22,6 +22,9 @@ Highcharts Stock for Python
     * Jupyter Notebook 6.4 or higher,
     * Pandas 1.3 or higher
     * PySpark 3.3 or higher
+    * topojson 1.5 or higher
+    * geojson 2.5 or higher
+    * GeoPandas 0.11 or higher
 
 .. include:: _unit_tests_code_coverage.rst
 
@@ -44,17 +47,17 @@ Highcharts Stock for Python
   Glossary <glossary>
   Licensing <license>
 
-The **Highcharts Stock for Python** is an extension to the
+**Highcharts Maps for Python** is an extension to the
 `Highcharts for Python <https://highcharts-python.readthedocs.io>`__ library, and provides
 a Python wrapper for the fantastic
-`Highcharts Stock <https://www.highcharts.com/products/stock/>`__
-JavaScript data visualization library. **Highcharts Stock for Python** also supports
+`Highcharts Maps <https://www.highcharts.com/products/maps/>`__
+JavaScript data visualization library. **Highcharts Maps for Python** also supports
 
   * **Highcharts JS** - the core Highcharts data visualization library
   * The **Highcharts Export Server** - enabling the programmatic creation of static
     (downloadable) data visualizations
 
-In order to integrate **Highcharts Stock for Python** into the Python ecosystem, the
+In order to integrate **Highcharts Maps for Python** into the Python ecosystem, the
 library features native integration with:
 
   * **Jupyter Labs/Notebook**. You can now produce high-end and interactive plots and
@@ -62,6 +65,10 @@ library features native integration with:
   * **Pandas**. Automatically produce data visualizations from your Pandas dataframes
   * **PySpark**. Automatically produce data visualizations from data in a PySpark
     dataframe.
+  * **GeoPandas**. Automatically incorporate GIS / map visualizations with data from your
+    GeoPandas GeoDataFrames.
+  * **Topojson**. Automatically visualizes :term:`TopoJSON` :term:`map geometries`.
+  * **Geojson**. Automatically visualizes :term:`GeoJSON` :term:`map geometries`.
 
 .. contents::
   :depth: 3
@@ -85,16 +92,16 @@ Why Highcharts for Python?
 *********************************
 
 Odds are you are aware of
-`Highcharts Stock <https://www.highcharts.com/products/stock/>`__. If not, why not?
+`Highcharts Maps <https://www.highcharts.com/products/maps/>`__. If not, why not?
 It is the world's most popular, most powerful, category-defining JavaScript data
-visualization library for time-series data and - in particular - for stock price data.
+visualization library and - in particular - for map/GIS data.
 
 If you are building a web or mobile app/dashboard that will be
-visualizing time series or stock price data in some fashion, you should absolutely take a
+visualizing data in a geographic context, you should absolutely take a
 look at the Highcharts suite of solutions. Just take a look at some of their fantastic
-`Highcharts Stock demo visualizations <https://www.highcharts.com/demo/stock>`__.
+`Highcharts Maps demo visualizations <https://www.highcharts.com/demo/maps>`__.
 
-Highcharts Stock is a JavaScript library, and is an extension of the
+Highcharts Maps is a JavaScript library, and is an extension of the
 `Highcharts JS <https://www.highcharts.com/products/highcharts/>`__ JavaScript library. It
 is written in JavaScript, and is specifically used to configure and render data
 visualizations in a web browser (or other JavaScript-executing, like mobile app)
@@ -109,8 +116,8 @@ using JavaScript and HTML.
 There are numerous Python frameworks (Django, Flask, Tornado, etc.) with specific
 capabilities to simplify integration with Javascript frontend frameworks (React, Angular,
 VueJS, etc.). But facilitating that with Highcharts has historically been very difficult.
-Part of this difficulty is because the Highcharts JavaScript suite - while supporting JSON as a
-serialization/deserialization format - leverages
+Part of this difficulty is because the Highcharts JavaScript suite - while supporting JSON
+as a serialization/deserialization format - leverages
 :term:`JavaScript object literals <JavaScript Object Literal Notation>` to expose the
 full power and interactivity of its data visualizations. And while it's easy to serialize
 JSON from Python, serializing and deserializing to/from JavaScript object literal notation
@@ -119,27 +126,27 @@ Highcharts typically had to either invest a lot of effort, or were only able to 
 a small portion of Highcharts' rich functionality.
 
 So I wrote the **Highcharts for Python** toolkit to bridge that gap, and
-**Highcharts Stock for Python** to provide full support for the
-`Highcharts Stock <https://www.highcharts.com/products/stock/>`__ library extension.
+**Highcharts Maps for Python** to provide full support for the
+`Highcharts Maps <https://www.highcharts.com/products/maps/>`__ library extension.
 
-**Highcharts Stock for Python** provides support for
-the `Highcharts Stock <https://www.highcharts.com/products/stock/>`__ extension, which is
+**Highcharts Maps for Python** provides support for
+the `Highcharts Maps <https://www.highcharts.com/products/maps/>`__ extension, which is
 designed to provide extensive time series data visualization capabilities optimized for
-asset (e.g. stock) price data visualization, with extensive technical indicators and
+:iabbr:`GIS (Geographic Information System)` data visualization, with
 robust interactivity. For ease of use, it also includes the full functionality of
 **Highcharts for Python** as well.
 
-Key Highcharts Stock for Python Features
+Key Highcharts Maps for Python Features
 ==============================================
 
 * **Clean and consistent API**. No reliance on "hacky" code, :class:`dict <python:dict>`
   and JSON serialization, or impossible to maintain / copy-pasted "spaghetti code".
 * **Comprehensive Highcharts support**. Every single Highcharts chart type and every
-  single configuration option is supported in **Highcharts Stock for Python**. This
+  single configuration option is supported in **Highcharts Maps for Python**. This
   includes the over 70 data visualization types supported by
   `Highcharts JS <https://www.highcharts.com/product/highcharts/>`__ and the
-  50+ technical indicator visualizations available in
-  `Highcharts Stock <https://www.highcharts.com/product/stock/>`__, with full support for
+  four core map visualizations available in
+  `Highcharts Maps <https://www.highcharts.com/product/maps/>`__, with full support for
   the rich JavaScript formatter (JS :term:`callback functions <callback function>`)
   capabilities that are often needed to get the most out of Highcharts' visualization and
   interaction capabilities.
@@ -156,8 +163,15 @@ Key Highcharts Stock for Python Features
   static charts using the Highsoft-provided
   :term:`Highcharts Export Server <Export Server>`, or using your own private export
   server as needed.
-* **Integration with Pandas and PySpark**. With two lines of code, produce a high-end
-  interactive visualization of your Pandas or PySpark dataframe.
+* **Asynchronous Map Data Retrieval**. To minimize the amount of data transferred over
+  the wire, **Highcharts Maps for Python** has built-in support for the configuration of
+  asynchronous client-side retrieval of your map data.
+* **Automatic TopoJSON Optimization**. To minimize the amount of data transferred over
+  the wire, **Highcharts Maps for Python** automatically converts your
+  :term:`map geometries` to highly-efficient :term:`TopoJSON` :term:`topologies` while
+  still allowing you to work with :term:`GeoJSON` data if you choose to.
+* **Integration with GeoPandas, Pandas, and PySpark**. With two lines of code, produce a
+  high-end interactive visualization of your GeoPandas, Pandas, or PySpark dataframes.
 * **Consistent Code Style**. For Python developers, switching between Pythonic code
   conventions and JavaScript code conventions can be...annoying. So
   **Highcharts for Python** applies Pythonic syntax with automatic conversion between
@@ -165,7 +179,7 @@ Key Highcharts Stock for Python Features
 
 |
 
-**Highcharts Stock for Python** vs Alternatives
+**Highcharts Maps for Python** vs Alternatives
 =====================================================
 
 .. include:: _versus_alternatives.rst
@@ -176,7 +190,7 @@ Key Highcharts Stock for Python Features
 Hello World, and Basic Usage
 ********************************
 
-1. Import Highcharts Stock for Python
+1. Import Highcharts Maps for Python
 ==========================================
 
 .. include:: using/_importing.rst
@@ -194,6 +208,14 @@ Hello World, and Basic Usage
 
     # from a Python dict
     my_chart = highcharts.Chart.from_dict(my_dict_obj)
+
+    # from a GeoPandas GeoDataFrame
+    my_chart = highcharts.Chart.from_geopandas(gdf,
+                                               property_map = {
+                                                   'z': 'caseCount',
+                                                   'id': 'id',
+                                               },
+                                               series_type = 'mapbubble')
 
     # from a Pandas dataframe
     my_chart = highcharts.Chart.from_pandas(df,
@@ -234,20 +256,20 @@ Hello World, and Basic Usage
 
   .. code-block:: python
 
-    # Import SharedStockOptions
-    from highcharts_stock.global_options.shared_options import SharedStockOptions
+    # Import SharedMapsOptions
+    from highcharts_maps.global_options.shared_options import SharedMapsOptions
 
     # from a JavaScript file
-    my_global_settings = SharedStockOptions.from_js_literal('my_js_literal.js')
+    my_global_settings = SharedMapsOptions.from_js_literal('my_js_literal.js')
 
     # from a JSON file
-    my_global_settings = SharedStockOptions.from_json('my_json.json')
+    my_global_settings = SharedMapsOptions.from_json('my_json.json')
 
     # from a Python dict
-    my_global_settings = SharedStockOptions.from_dict(my_dict_obj)
+    my_global_settings = SharedMapsOptions.from_dict(my_dict_obj)
 
     # from a HighchartsOptions configuration object
-    my_global_settings = SharedStockOptions.from_options(my_options)
+    my_global_settings = SharedMapsOptions.from_options(my_options)
 
 
 4. Configure Your Chart / Global Settings
@@ -255,8 +277,8 @@ Hello World, and Basic Usage
 
   .. code-block:: python
 
-    from highcharts_stock.options.title import Title
-    from highcharts_stock.options.credits import Credits
+    from highcharts_maps.options.title import Title
+    from highcharts_maps.options.credits import Credits
 
     # Using dicts
     my_chart.title = {
@@ -284,8 +306,8 @@ Hello World, and Basic Usage
     }
 
     # Using direct objects
-    from highcharts_stock.options.title import Title
-    from highcharts_stock.options.credits import Credits
+    from highcharts_maps.options.title import Title
+    from highcharts_maps.options.credits import Credits
 
     my_title = Title(text = 'The Title for My Chart', floating = True, align = 'center')
     my_chart.options.title = my_title

@@ -1,5 +1,5 @@
-To install **Highcharts Stock for Python**, just execute:
+To install **Highcharts Maps for Python**, just execute:
 
   .. code-block:: bash
 
-    $ pip install highcharts-stock
+    $ pip install highcharts-maps

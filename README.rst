@@ -4,7 +4,7 @@ Highcharts Maps for Python
 
 **High-end data and map visualizations for the Python ecosystem**
 
-The **Highcharts Maps for Python** is an extension to the
+**Highcharts Maps for Python** is an extension to the
 `Highcharts for Python <https://highcharts-python.readthedocs.io>`__ library, and provides
 a Python wrapper for the fantastic
 `Highcharts Maps <https://www.highcharts.com/products/maps/>`__
@@ -22,6 +22,11 @@ library features native integration with:
   * **Pandas**. Automatically produce data visualizations from your Pandas dataframes
   * **PySpark**. Automatically produce data visualizations from data in a PySpark
     dataframe.
+  * **GeoPandas**. Automatically incorporate GIS / map visualizations with data from your
+    GeoPandas GeoDataFrames.
+  * **Topojson**. Automatically visualizes :term:`TopoJSON` :term:`map geometries`.
+  * **Geojson**. Automatically visualizes :term:`GeoJSON` :term:`map geometries`.
+
 
 **COMPLETE DOCUMENTATION:** http://highcharts-maps.readthedocs.org/en/latest/index.html
 
@@ -45,11 +50,11 @@ Why Highcharts for Python?
 
 Odds are you are aware of
 `Highcharts Maps <https://www.highcharts.com/products/maps/>`__. If not, why not?
-It is one of the world's most popular, most powerful, category-defining JavaScript data
-visualization library for map data.
+It is the world's most popular, most powerful, category-defining JavaScript data
+visualization library and - in particular - for map/GIS data.
 
 If you are building a web or mobile app/dashboard that will be
-visualizing geographic data in some fashion, you should absolutely take a
+visualizing data in a geographic context, you should absolutely take a
 look at the Highcharts suite of solutions. Just take a look at some of their fantastic
 `Highcharts Maps demo visualizations <https://www.highcharts.com/demo/maps>`__.
 
@@ -68,8 +73,8 @@ using JavaScript and HTML.
 There are numerous Python frameworks (Django, Flask, Tornado, etc.) with specific
 capabilities to simplify integration with Javascript frontend frameworks (React, Angular,
 VueJS, etc.). But facilitating that with Highcharts has historically been very difficult.
-Part of this difficulty is because the Highcharts JavaScript suite - while supporting JSON as a
-serialization/deserialization format - leverages
+Part of this difficulty is because the Highcharts JavaScript suite - while supporting JSON
+as a serialization/deserialization format - leverages
 :term:`JavaScript object literals <JavaScript Object Literal Notation>` to expose the
 full power and interactivity of its data visualizations. And while it's easy to serialize
 JSON from Python, serializing and deserializing to/from JavaScript object literal notation
@@ -84,7 +89,7 @@ So I wrote the **Highcharts for Python** toolkit to bridge that gap, and
 **Highcharts Maps for Python** provides support for
 the `Highcharts Maps <https://www.highcharts.com/products/maps/>`__ extension, which is
 designed to provide extensive time series data visualization capabilities optimized for
-asset (e.g. maps) price data visualization, with extensive technical indicators and
+:iabbr:`GIS (Geographic Information System)` data visualization, with
 robust interactivity. For ease of use, it also includes the full functionality of
 **Highcharts for Python** as well.
 
@@ -97,9 +102,9 @@ Key Highcharts Maps for Python Features
   single configuration option is supported in **Highcharts Maps for Python**. This
   includes the over 70 data visualization types supported by
   `Highcharts JS <https://www.highcharts.com/product/highcharts/>`__ and the
-  50+ technical indicator visualizations available in
+  four core map visualizations available in
   `Highcharts Maps <https://www.highcharts.com/product/maps/>`__, with full support for
-  the rich JavaScript formatter (JS :term:`callback functions <callback function>`)
+  the rich JavaScript formatter (JS callback functions)
   capabilities that are often needed to get the most out of Highcharts' visualization and
   interaction capabilities.
 
@@ -115,8 +120,15 @@ Key Highcharts Maps for Python Features
   static charts using the Highsoft-provided
   :term:`Highcharts Export Server <Export Server>`, or using your own private export
   server as needed.
-* **Integration with Pandas and PySpark**. With two lines of code, produce a high-end
-  interactive visualization of your Pandas or PySpark dataframe.
+* **Asynchronous Map Data Retrieval**. To minimize the amount of data transferred over
+  the wire, **Highcharts Maps for Python** has built-in support for the configuration of
+  asynchronous client-side retrieval of your map data.
+* **Automatic TopoJSON Optimization**. To minimize the amount of data transferred over
+  the wire, **Highcharts Maps for Python** automatically converts your
+  map geometries to highly-efficient TopoJSON topologies while
+  still allowing you to work with GeoJSON data if you choose to.
+* **Integration with GeoPandas, Pandas, and PySpark**. With two lines of code, produce a
+  high-end interactive visualization of your GeoPandas, Pandas, or PySpark dataframes.
 * **Consistent Code Style**. For Python developers, switching between Pythonic code
   conventions and JavaScript code conventions can be...annoying. So
   **Highcharts for Python** applies Pythonic syntax with automatic conversion between
@@ -139,7 +151,48 @@ Hello World, and Basic Usage
 1. Import Highcharts Maps for Python
 ==========================================
 
-.. include:: using/_importing.rst
+.. tabs::
+
+  .. tab:: from Precise Location
+
+    .. tip::
+
+      **Best Practice!**
+
+      This method of importing **Highcharts Maps for Python** objects yields the fastest
+      performance for the ``import`` statement. However, it is more verbose and requires
+      you to navigate the extensive :doc:`Highcharts Maps for Python API </api>`.
+
+    .. code-block:: python
+
+      # Import classes using precise module indications. For example:
+      from highcharts_maps.chart import Chart
+      from highcharts_maps.global_options.shared_options import SharedMapsOptions
+      from highcharts_maps.options import HighchartsMapsOptions
+      from highcharts_maps.options.plot_options.map import MapOptions
+      from highcharts_maps.options.series.map import MapSeries
+
+  .. tab:: from ``.highcharts``
+
+    .. caution::
+
+      This method of importing **Highcharts Maps for Python** classes has relatively slow
+      performance because it imports hundreds of different classes from across the entire
+      library. This is also a known anti-pattern, as it obscures the namespace within the
+      library. Both may be acceptable to you in your use-case, but do use at your own risk.
+
+    .. code-block:: python
+
+      # Import objects from the catch-all ".highcharts" module.
+      from highcharts_stock import highcharts
+
+      # You can now access specific classes without individual import statements.
+      highcharts.Chart
+      highcharts.SharedMapsOptions
+      highcharts.HighchartsMapsOptions
+      highcharts.MapOptions
+      highcharts.MapSeries
+
 
 2. Create Your Chart
 ================================
@@ -154,6 +207,14 @@ Hello World, and Basic Usage
 
     # from a Python dict
     my_chart = highcharts.Chart.from_dict(my_dict_obj)
+
+    # from a GeoPandas GeoDataFrame
+    my_chart = highcharts.Chart.from_geopandas(gdf,
+                                               property_map = {
+                                                   'z': 'caseCount',
+                                                   'id': 'id',
+                                               },
+                                               series_type = 'mapbubble')
 
     # from a Pandas dataframe
     my_chart = highcharts.Chart.from_pandas(df,

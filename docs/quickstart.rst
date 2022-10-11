@@ -77,21 +77,17 @@ Configuring Your Map Data
 
     .. include:: using/configuring_map_data/_with_chart_map.rst
 
-  .. tab:: w/ ``AsyncMapData``
+  .. tab:: w/ ``<Series>.map_data``
 
-    .. include:: using/configuring_map_data/_async_map_data.rst
+    .. include:: using/configuring_map_data/_with_series_map_data.rst
 
-  .. tab:: w/ TopoJSON
+  .. tab:: using ``AsyncMapData``
 
-    .. include:: using/configuring_map_data/_topojson.rst
+    .. include:: using/configuring_map_data/_using_async_map_data.rst
 
-  .. tab:: w/ GeoJSON
+  .. tab:: using ``MapData``
 
-    .. include:: using/configuring_map_data/_geojson.rst
-
-  .. tab:: w/ ``.from_geopandas()``
-
-    .. include:: using/configuring_map_data/_geopandas.rst
+    .. include:: using/configuring_map_data/_using_synchronous_map_data.rst
 
 Populating the Series Data
 ================================
@@ -105,6 +101,18 @@ Populating the Series Data
   .. tab:: w/ ``.from_array()``
 
     .. include:: using/populating_series_data/_with_from_array.rst
+
+  .. tab:: from GeoPandas
+
+    .. tabs::
+
+      .. tab:: Create a New Series
+
+        .. include:: using/populating_series_data/_new_from_geopandas.rst
+
+      .. tab:: Update an Existing Series
+
+        .. include:: using/populating_series_data/_load_from_geopandas.rst
 
   .. tab:: from CSV
 
@@ -153,6 +161,10 @@ Assembling Your Chart and Options
   .. tab:: Using ``.add_series()``
 
     .. include:: using/assembling_your_chart/_using_add_series.rst
+
+  .. tab:: Using ``.from_geopandas()``
+
+    .. include:: using/assembling_your_chart/_using_from_geopandas.rst
 
   .. tab:: Using ``.from_series()``
 

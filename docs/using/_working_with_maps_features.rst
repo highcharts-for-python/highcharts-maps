@@ -17,50 +17,11 @@
 
       .. tab:: in ``options.chart.map``
 
-        When configuring your visualization, you can set your chart's basic configuration
-        settings in the :meth:`Chart.options <highcharts_maps.chart.Chart.options>`
-        option, specifically in the
-        :meth:`Chart.options.chart <highcharts_maps.options.chart.ChartOptions>` property.
-        There, you will find the
-        :meth:`ChartOptions.map <highcharts_maps.options.chart.ChartOptions.map>` property
-        which is where you supply your map definition.
-
-        This property accepts either a
-        :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>` instance
-        or an
-        :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
-        instance which contains the :term:`GeoJSON`, :term:`TopoJSON`, or
-        :term:`Shapefile` definition of your :term:`map geometry`.
-
-        The map defined in this property will be the default map used for all series
-        rendered on your chart. Since most map visualizations will be rendering all series
-        on one map, this is the most common use case.
-
-        .. tip::
-
-          **Best practice!**
-
-          It is recommended to use ``options.chart.map`` to configure your visualization's
-          map. This is because laying out a single visualization that has multiple series
-          represented on multiple maps is a very complicated configuration, and is
-          rarely necessary.
+        .. include:: /using/configuring_map_data/_with_chart_map.rst
 
       .. tab:: in the series itself
 
-        When defining a map series (descended from
-        :class:`MapSeriesBase <highcharts_maps.options.series.base.MapSeriesBase>`, e.g.
-        :class:`MapSeries <highcharts_maps.options.series.map.MapSeries>` or
-        :class:`MapBubbleSeries <highcharts_maps.options.series.mapbubble.MapBubbleSeries>`),
-        you can configure the map in the series
-        :meth:`.map_data <highcharts_maps.options.series.base.MapSeriesbase.map_data>`
-        property.
-
-        As with ``options.chart.map``, this property takes either a
-        :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>` instance
-        or an
-        :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
-        instance which contains the :term:`GeoJSON`, :term:`TopoJSON`, or
-        :term:`Shapefile` definition of your :term:`map geometry`.
+        .. include:: /using/configuring_map_data/_with_series_map_data.rst
 
     Your map itself is defined using either :term:`GeoJSON`, :term:`Topojson`, or
     :term:`Shapefiles <Shapefile>` formats. The most important decision you will need to
@@ -81,81 +42,12 @@
 
       .. tab:: Asynchronous Map Data
 
-        You can configure your visualization to load your map data asynchronously by
-        supplying an
-        :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
-        instance to either ``.options.chart.map`` or ``.map_data`` as described above.
-        The
-        :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
-        instance contains a configuration that tells **Highcharts for Maps** how to have
-        your (JavaScript) client download (using JavaScript's ``fetch()``) your map data.
-
-        The
-        :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
-        instance is configured essentially by supplying it with three pieces of
-        information:
-
-          * The ``url`` from where your map data should be downloaded. This should be
-            the URL to a single file which contains either :term:`GeoJSON`,
-            :term:`Topojson`, or :term:`Shapefile` data.
-          * An optional ``selector`` (JavaScript) function which you can use to have your
-            (JavaScript) code modify, change, or sub-select data from your asynchronously
-            fetched map file before rendering your chart.
-          * An optional ``fetch_configuration`` which you can use to configure the details
-            of how your (JavaScript) code will execute the (JavaScript) ``fetch()``
-            request from the ``url`` (typically used to supply credentials against a
-            backend API, for example).
-
-        If you have configured an asynchronous map, **Highcharts for Maps** will
-        automatically serialize it to JavaScript (when calling
-        :meth:`Chart.to_js_literal() <highcharts_maps.chart.Chart.to_js_literal>`)
-        using (JavaScript) ``async/await`` and the ``fetch()`` API.
-
-        .. tip::
-
-          **Best practice!**
-
-          This approach is recommended because - in practice - it minimizes the amount
-          of data transferred over the wire between your Python backend and your
-          (JavaScript) client. This is particularly helpful because map
-          :term:`geometries <map geometry>` can be verbose and occupy a (relatively)
-          large amount of space on the wire.
+        .. include:: /using/configuring_map_data/_using_async_map_data.rst
 
       .. tab:: Synchronous Map Data
 
-        You can supply your map :term:`geometries <map geometry>` directly within Python
-        as well, and that map data will then be serialized to JavaScript along with your
-        chart definition when you call
-        :meth:`Chart.to_js_literal() <highcharts_maps.chart.Chart.to_js_literal>`.
-
-        Synchronous map data is represented as a
-        :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>` instance.
-        This object can most easily be created by calling one of its deserializer methods:
-
-          * :meth:`.from_topojson() <highcharts_maps.options.series.data.map_data.MapData.from_topojson>`
-          * :meth:`.from_geojson() <highcharts_maps.options.series.data.map_data.MapData.from_geojson>`
-          * :meth:`.from_geodataframe() <highcharts_maps.options.series.data.map_data.MapData.from_geodataframe>`
-          * :meth:`.from_shapefile() <highcharts_maps.options.series.data.map_data.MapData.from_shapefile>`
-
-        Each of these class methods will return a
-        :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>` instance
-        whose
-        :meth:`.topology <highcharts_maps.options.series.data.map_data.MapData.topology>`
-        property will now be populated with your :term:`map geometry`.
-
-        .. note::
-
-          The :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
-          instance will *automatically* convert your :term:`map geometry` to
-          :term:`TopoJSON`. This is useful because :term:`TopoJSON` is a much more
-          compact format than :term:`GeoJSON` which minimizes the amount of data
-          transferred over the wire.
-
-          If you absolutely *need* to have GeoJSON delivered to your (JavaScript) client,
-          you can force GeoJSON on serialization by setting the
-          :meth:`MapData.force_geojson <highcharts_maps.options.series.data.map_data.MapData.force_geojson>`
-          property to ``True`` (it defaults to ``False``).
-
+        .. include:: /using/configuring_map_data/_using_synchronous_map_data.rst
+        
   .. tab:: Configuring the Map View
 
     Besides setting up your map itself, you can also configure the map view using the

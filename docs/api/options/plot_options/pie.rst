@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.pie <highcharts_stock.options.plot_options.pie>`
+:mod:`.pie <highcharts_maps.options.plot_options.pie>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.pie
+.. module:: highcharts_maps.options.plot_options.pie
 
 ********************************************************************************************************************
-class: :class:`PieOptions <highcharts_stock.options.plot_options.pie.PieOptions>`
+class: :class:`PieOptions <highcharts_maps.options.plot_options.pie.PieOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: PieOptions
@@ -22,7 +22,7 @@ class: :class:`PieOptions <highcharts_stock.options.plot_options.pie.PieOptions>
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PieOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -31,7 +31,7 @@ class: :class:`PieOptions <highcharts_stock.options.plot_options.pie.PieOptions>
 ------
 
 ********************************************************************************************************************
-class: :class:`VariablePieOptions <highcharts_stock.options.plot_options.pie.VariablePieOptions>`
+class: :class:`VariablePieOptions <highcharts_maps.options.plot_options.pie.VariablePieOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: VariablePieOptions
@@ -41,7 +41,7 @@ class: :class:`VariablePieOptions <highcharts_stock.options.plot_options.pie.Var
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: VariablePieOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

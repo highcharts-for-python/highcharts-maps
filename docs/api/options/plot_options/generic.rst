@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.generic <highcharts_stock.options.plot_options.generic>`
+:mod:`.generic <highcharts_maps.options.plot_options.generic>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.generic
+.. module:: highcharts_maps.options.plot_options.generic
 
 ********************************************************************************************************************
-class: :class:`GenericTypeOptions <highcharts_stock.options.plot_options.generic.GenericTypeOptions>`
+class: :class:`GenericTypeOptions <highcharts_maps.options.plot_options.generic.GenericTypeOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: GenericTypeOptions
@@ -22,7 +22,7 @@ class: :class:`GenericTypeOptions <highcharts_stock.options.plot_options.generic
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: GenericTypeOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

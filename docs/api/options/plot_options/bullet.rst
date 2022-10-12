@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.bullet <highcharts_stock.options.plot_options.bullet>`
+:mod:`.bullet <highcharts_maps.options.plot_options.bullet>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.bullet
+.. module:: highcharts_maps.options.plot_options.bullet
 
 ********************************************************************************************************************
-class: :class:`BulletOptions <highcharts_stock.options.plot_options.bullet.BulletOptions>`
+class: :class:`BulletOptions <highcharts_maps.options.plot_options.bullet.BulletOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: BulletOptions
@@ -22,7 +22,7 @@ class: :class:`BulletOptions <highcharts_stock.options.plot_options.bullet.Bulle
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BulletOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`BulletOptions <highcharts_stock.options.plot_options.bullet.Bulle
 ----------------
 
 ********************************************************************************************************************
-class: :class:`TargetOptions <highcharts_stock.options.plot_options.bullet.TargetOptions>`
+class: :class:`TargetOptions <highcharts_maps.options.plot_options.bullet.TargetOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: TargetOptions
@@ -40,7 +40,7 @@ class: :class:`TargetOptions <highcharts_stock.options.plot_options.bullet.Targe
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: TargetOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

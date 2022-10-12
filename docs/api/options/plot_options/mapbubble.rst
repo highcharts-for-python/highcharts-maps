@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.flags <highcharts_stock.options.plot_options.flags>`
+:mod:`.mapbubble <highcharts_maps.options.plot_options.mapbubble>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,20 +9,20 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.flags
+.. module:: highcharts_maps.options.plot_options.mapbubble
 
 ********************************************************************************************************************
-class: :class:`FlagsOptions <highcharts_stock.options.plot_options.flags.FlagsOptions>`
+class: :class:`MapBubbleOptions <highcharts_maps.options.plot_options.mapbubble.MapBubbleOptions>`
 ********************************************************************************************************************
 
-.. autoclass:: FlagsOptions
+.. autoclass:: MapBubbleOptions
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: FlagsOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: MapBubbleOptions
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

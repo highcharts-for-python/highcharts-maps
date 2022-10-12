@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.gauge <highcharts_stock.options.plot_options.gauge>`
+:mod:`.gauge <highcharts_maps.options.plot_options.gauge>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.gauge
+.. module:: highcharts_maps.options.plot_options.gauge
 
 ********************************************************************************************************************
-class: :class:`GaugeOptions <highcharts_stock.options.plot_options.gauge.GaugeOptions>`
+class: :class:`GaugeOptions <highcharts_maps.options.plot_options.gauge.GaugeOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: GaugeOptions
@@ -22,7 +22,7 @@ class: :class:`GaugeOptions <highcharts_stock.options.plot_options.gauge.GaugeOp
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: GaugeOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`GaugeOptions <highcharts_stock.options.plot_options.gauge.GaugeOp
 --------------
 
 ********************************************************************************************************************
-class: :class:`SolidGaugeOptions <highcharts_stock.options.plot_options.gauge.SolidGaugeOptions>`
+class: :class:`SolidGaugeOptions <highcharts_maps.options.plot_options.gauge.SolidGaugeOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: SolidGaugeOptions
@@ -40,7 +40,7 @@ class: :class:`SolidGaugeOptions <highcharts_stock.options.plot_options.gauge.So
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SolidGaugeOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -48,7 +48,7 @@ class: :class:`SolidGaugeOptions <highcharts_stock.options.plot_options.gauge.So
 ----------------
 
 ********************************************************************************************************************
-class: :class:`PivotOptions <highcharts_stock.options.plot_options.gauge.PivotOptions>`
+class: :class:`PivotOptions <highcharts_maps.options.plot_options.gauge.PivotOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: PivotOptions
@@ -58,7 +58,7 @@ class: :class:`PivotOptions <highcharts_stock.options.plot_options.gauge.PivotOp
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PivotOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -66,7 +66,7 @@ class: :class:`PivotOptions <highcharts_stock.options.plot_options.gauge.PivotOp
 -----------------
 
 ********************************************************************************************************************
-class: :class:`DialOptions <highcharts_stock.options.plot_options.gauge.DialOptions>`
+class: :class:`DialOptions <highcharts_maps.options.plot_options.gauge.DialOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: DialOptions
@@ -76,7 +76,7 @@ class: :class:`DialOptions <highcharts_stock.options.plot_options.gauge.DialOpti
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DialOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

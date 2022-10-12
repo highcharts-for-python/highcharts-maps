@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.packedbubble <highcharts_stock.options.plot_options.packedbubble>`
+:mod:`.packedbubble <highcharts_maps.options.plot_options.packedbubble>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.packedbubble
+.. module:: highcharts_maps.options.plot_options.packedbubble
 
 ********************************************************************************************************************
-class: :class:`PackedBubbleOptions <highcharts_stock.options.plot_options.packedbubble.PackedBubbleOptions>`
+class: :class:`PackedBubbleOptions <highcharts_maps.options.plot_options.packedbubble.PackedBubbleOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: PackedBubbleOptions
@@ -22,7 +22,7 @@ class: :class:`PackedBubbleOptions <highcharts_stock.options.plot_options.packed
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PackedBubbleOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`PackedBubbleOptions <highcharts_stock.options.plot_options.packed
 -------------
 
 ********************************************************************************************************************
-class: :class:`ParentNodeOptions <highcharts_stock.options.plot_options.packedbubble.ParentNodeOptions>`
+class: :class:`ParentNodeOptions <highcharts_maps.options.plot_options.packedbubble.ParentNodeOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: ParentNodeOptions
@@ -40,7 +40,7 @@ class: :class:`ParentNodeOptions <highcharts_stock.options.plot_options.packedbu
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ParentNodeOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

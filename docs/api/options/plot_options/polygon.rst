@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.polygon <highcharts_stock.options.plot_options.polygon>`
+:mod:`.polygon <highcharts_maps.options.plot_options.polygon>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.polygon
+.. module:: highcharts_maps.options.plot_options.polygon
 
 ********************************************************************************************************************
-class: :class:`PolygonOptions <highcharts_stock.options.plot_options.polygon.PolygonOptions>`
+class: :class:`PolygonOptions <highcharts_maps.options.plot_options.polygon.PolygonOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: PolygonOptions
@@ -22,7 +22,7 @@ class: :class:`PolygonOptions <highcharts_stock.options.plot_options.polygon.Pol
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PolygonOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

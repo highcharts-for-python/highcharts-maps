@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.vector <highcharts_stock.options.plot_options.vector>`
+:mod:`.vector <highcharts_maps.options.plot_options.vector>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.vector
+.. module:: highcharts_maps.options.plot_options.vector
 
 ********************************************************************************************************************
-class: :class:`VectorOptions <highcharts_stock.options.plot_options.vector.VectorOptions>`
+class: :class:`VectorOptions <highcharts_maps.options.plot_options.vector.VectorOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: VectorOptions
@@ -22,7 +22,7 @@ class: :class:`VectorOptions <highcharts_stock.options.plot_options.vector.Vecto
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: VectorOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

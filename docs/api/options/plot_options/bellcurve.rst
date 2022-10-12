@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.bellcurve <highcharts_stock.options.plot_options.bellcurve>`
+:mod:`.bellcurve <highcharts_maps.options.plot_options.bellcurve>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.bellcurve
+.. module:: highcharts_maps.options.plot_options.bellcurve
 
 ********************************************************************************************************************
-class: :class:`BellCurveOptions <highcharts_stock.options.plot_options.bellcurve.BellCurveOptions>`
+class: :class:`BellCurveOptions <highcharts_maps.options.plot_options.bellcurve.BellCurveOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: BellCurveOptions
@@ -22,7 +22,7 @@ class: :class:`BellCurveOptions <highcharts_stock.options.plot_options.bellcurve
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BellCurveOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

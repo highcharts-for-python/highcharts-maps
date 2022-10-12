@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.dumbbell <highcharts_stock.options.plot_options.dumbbell>`
+:mod:`.dumbbell <highcharts_maps.options.plot_options.dumbbell>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.dumbbell
+.. module:: highcharts_maps.options.plot_options.dumbbell
 
 ********************************************************************************************************************
-class: :class:`DumbbellOptions <highcharts_stock.options.plot_options.dumbbell.DumbbellOptions>`
+class: :class:`DumbbellOptions <highcharts_maps.options.plot_options.dumbbell.DumbbellOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: DumbbellOptions
@@ -22,7 +22,7 @@ class: :class:`DumbbellOptions <highcharts_stock.options.plot_options.dumbbell.D
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DumbbellOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`DumbbellOptions <highcharts_stock.options.plot_options.dumbbell.D
 ------------------
 
 ********************************************************************************************************************
-class: :class:`LollipopOptions <highcharts_stock.options.plot_options.dumbbell.LollipopOptions>`
+class: :class:`LollipopOptions <highcharts_maps.options.plot_options.dumbbell.LollipopOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: LollipopOptions
@@ -40,7 +40,7 @@ class: :class:`LollipopOptions <highcharts_stock.options.plot_options.dumbbell.L
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: LollipopOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

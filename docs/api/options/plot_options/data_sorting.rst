@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.data_sorting <highcharts_stock.options.plot_options.data_sorting>`
+:mod:`.data_sorting <highcharts_maps.options.plot_options.data_sorting>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.data_sorting
+.. module:: highcharts_maps.options.plot_options.data_sorting
 
 ********************************************************************************************************************
-class: :class:`DataSorting <highcharts_stock.options.plot_options.data_sorting.DataSorting>`
+class: :class:`DataSorting <highcharts_maps.options.plot_options.data_sorting.DataSorting>`
 ********************************************************************************************************************
 
 .. autoclass:: DataSorting
@@ -22,7 +22,7 @@ class: :class:`DataSorting <highcharts_stock.options.plot_options.data_sorting.D
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DataSorting
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

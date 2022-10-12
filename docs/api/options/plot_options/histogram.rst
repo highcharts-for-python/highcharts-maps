@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.histogram <highcharts_stock.options.plot_options.histogram>`
+:mod:`.histogram <highcharts_maps.options.plot_options.histogram>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.histogram
+.. module:: highcharts_maps.options.plot_options.histogram
 
 ********************************************************************************************************************
-class: :class:`HistogramOptions <highcharts_stock.options.plot_options.histogram.HistogramOptions>`
+class: :class:`HistogramOptions <highcharts_maps.options.plot_options.histogram.HistogramOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: HistogramOptions
@@ -22,7 +22,7 @@ class: :class:`HistogramOptions <highcharts_stock.options.plot_options.histogram
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: HistogramOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

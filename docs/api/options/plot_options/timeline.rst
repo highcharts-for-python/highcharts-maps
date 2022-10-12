@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.timeline <highcharts_stock.options.plot_options.timeline>`
+:mod:`.timeline <highcharts_maps.options.plot_options.timeline>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.timeline
+.. module:: highcharts_maps.options.plot_options.timeline
 
 ********************************************************************************************************************
-class: :class:`TimelineOptions <highcharts_stock.options.plot_options.timeline.TimelineOptions>`
+class: :class:`TimelineOptions <highcharts_maps.options.plot_options.timeline.TimelineOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: TimelineOptions
@@ -22,7 +22,7 @@ class: :class:`TimelineOptions <highcharts_stock.options.plot_options.timeline.T
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: TimelineOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

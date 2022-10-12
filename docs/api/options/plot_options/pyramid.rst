@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.pyramid <highcharts_stock.options.plot_options.pyramid>`
+:mod:`.pyramid <highcharts_maps.options.plot_options.pyramid>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.pyramid
+.. module:: highcharts_maps.options.plot_options.pyramid
 
 ********************************************************************************************************************
-class: :class:`PyramidOptions <highcharts_stock.options.plot_options.pyramid.PyramidOptions>`
+class: :class:`PyramidOptions <highcharts_maps.options.plot_options.pyramid.PyramidOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: PyramidOptions
@@ -22,7 +22,7 @@ class: :class:`PyramidOptions <highcharts_stock.options.plot_options.pyramid.Pyr
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PyramidOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`PyramidOptions <highcharts_stock.options.plot_options.pyramid.Pyr
 --------------------
 
 ********************************************************************************************************************
-class: :class:`Pyramid3DOptions <highcharts_stock.options.plot_options.pyramid.Pyramid3DOptions>`
+class: :class:`Pyramid3DOptions <highcharts_maps.options.plot_options.pyramid.Pyramid3DOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: Pyramid3DOptions
@@ -40,7 +40,7 @@ class: :class:`Pyramid3DOptions <highcharts_stock.options.plot_options.pyramid.P
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Pyramid3DOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

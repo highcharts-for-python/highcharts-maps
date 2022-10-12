@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.heatmap <highcharts_stock.options.plot_options.heatmap>`
+:mod:`.heatmap <highcharts_maps.options.plot_options.heatmap>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.heatmap
+.. module:: highcharts_maps.options.plot_options.heatmap
 
 ********************************************************************************************************************
-class: :class:`HeatmapOptions <highcharts_stock.options.plot_options.heatmap.HeatmapOptions>`
+class: :class:`HeatmapOptions <highcharts_maps.options.plot_options.heatmap.HeatmapOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: HeatmapOptions
@@ -22,7 +22,7 @@ class: :class:`HeatmapOptions <highcharts_stock.options.plot_options.heatmap.Hea
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: HeatmapOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`HeatmapOptions <highcharts_stock.options.plot_options.heatmap.Hea
 --------------------
 
 ********************************************************************************************************************
-class: :class:`TilemapOptions <highcharts_stock.options.plot_options.heatmap.TilemapOptions>`
+class: :class:`TilemapOptions <highcharts_maps.options.plot_options.heatmap.TilemapOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: TilemapOptions
@@ -40,7 +40,7 @@ class: :class:`TilemapOptions <highcharts_stock.options.plot_options.heatmap.Til
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: TilemapOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

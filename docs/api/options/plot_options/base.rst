@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.base <highcharts_stock.options.plot_options.base>`
+:mod:`.base <highcharts_maps.options.plot_options.base>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,56 +9,20 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.base
+.. module:: highcharts_maps.options.plot_options.base
 
 ********************************************************************************************************************
-class: :class:`NonIndicatorOptions <highcharts_stock.options.plot_options.base.NonIndicatorOptions>`
+class: :class:`MapBaseOptions <highcharts_maps.options.plot_options.base.MapBaseOptions>`
 ********************************************************************************************************************
 
-.. autoclass:: NonIndicatorOptions
+.. autoclass:: MapBaseOptions
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: NonIndicatorOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
-      :parts: -1
-
-  |
-
--------------------
-
-********************************************************************************************************************
-class: :class:`NavigatorIndicatorOptions <highcharts_stock.options.plot_options.base.NavigatorIndicatorOptions>`
-********************************************************************************************************************
-
-.. autoclass:: NavigatorIndicatorOptions
-  :members:
-  :inherited-members:
-
-  .. collapse:: Class Inheritance
-
-    .. inheritance-diagram:: NavigatorIndicatorOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
-      :parts: -1
-
-  |
-
--------------------
-
-********************************************************************************************************************
-class: :class:`StockBaseOptions <highcharts_stock.options.plot_options.base.StockBaseOptions>`
-********************************************************************************************************************
-
-.. autoclass:: StockBaseOptions
-  :members:
-  :inherited-members:
-
-  .. collapse:: Class Inheritance
-
-    .. inheritance-diagram:: StockBaseOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: MapBaseOptions
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.funnel <highcharts_stock.options.plot_options.funnel>`
+:mod:`.funnel <highcharts_maps.options.plot_options.funnel>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.plot_options.funnel
+.. module:: highcharts_maps.options.plot_options.funnel
 
 ********************************************************************************************************************
-class: :class:`FunnelOptions <highcharts_stock.options.plot_options.funnel.FunnelOptions>`
+class: :class:`FunnelOptions <highcharts_maps.options.plot_options.funnel.FunnelOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: FunnelOptions
@@ -22,7 +22,7 @@ class: :class:`FunnelOptions <highcharts_stock.options.plot_options.funnel.Funne
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: FunnelOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`FunnelOptions <highcharts_stock.options.plot_options.funnel.Funne
 ------------------
 
 ********************************************************************************************************************
-class: :class:`Funnel3DOptions <highcharts_stock.options.plot_options.funnel.Funnel3DOptions>`
+class: :class:`Funnel3DOptions <highcharts_maps.options.plot_options.funnel.Funnel3DOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: Funnel3DOptions
@@ -40,7 +40,7 @@ class: :class:`Funnel3DOptions <highcharts_stock.options.plot_options.funnel.Fun
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Funnel3DOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

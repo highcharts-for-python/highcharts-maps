@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.hlc <highcharts_stock.options.series.data.hlc>`
+:mod:`.map_data <highcharts_maps.options.series.data.map_data>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,38 +9,38 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.data.hlc
+.. module:: highcharts_maps.options.series.data.map_data
 
 ********************************************************************************************************************
-class: :class:`HLCData <highcharts_stock.options.series.data.hlc.HLCData>`
+class: :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
 ********************************************************************************************************************
 
-.. autoclass:: HLCData
+.. autoclass:: MapData
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: HLCData
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: MapData
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
 
------------------
+-------------------------
 
 ********************************************************************************************************************
-class: :class:`OHLCData <highcharts_stock.options.series.data.hlc.OHLCData>`
+class: :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
 ********************************************************************************************************************
 
-.. autoclass:: OHLCData
+.. autoclass:: AsyncMapData
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: OHLCData
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: AsyncMapData
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.sunburst <highcharts_stock.options.series.data.sunburst>`
+:mod:`.sunburst <highcharts_maps.options.series.data.sunburst>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.data.sunburst
+.. module:: highcharts_maps.options.series.data.sunburst
 
 ********************************************************************************************************************
-class: :class:`SunburstData <highcharts_stock.options.series.data.sunburst.SunburstData>`
+class: :class:`SunburstData <highcharts_maps.options.series.data.sunburst.SunburstData>`
 ********************************************************************************************************************
 
 .. autoclass:: SunburstData
@@ -22,7 +22,7 @@ class: :class:`SunburstData <highcharts_stock.options.series.data.sunburst.Sunbu
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SunburstData
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

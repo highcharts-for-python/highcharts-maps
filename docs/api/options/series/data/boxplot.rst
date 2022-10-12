@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.boxplot <highcharts_stock.options.series.data.boxplot>`
+:mod:`.boxplot <highcharts_maps.options.series.data.boxplot>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.data.boxplot
+.. module:: highcharts_maps.options.series.data.boxplot
 
 ********************************************************************************************************************
-class: :class:`BoxPlotData <highcharts_stock.options.series.data.boxplot.BoxPlotData>`
+class: :class:`BoxPlotData <highcharts_maps.options.series.data.boxplot.BoxPlotData>`
 ********************************************************************************************************************
 
 .. autoclass:: BoxPlotData
@@ -22,7 +22,7 @@ class: :class:`BoxPlotData <highcharts_stock.options.series.data.boxplot.BoxPlot
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BoxPlotData
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

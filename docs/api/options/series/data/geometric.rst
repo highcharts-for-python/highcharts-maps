@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.bar <highcharts_maps.options.series.data.bar>`
+:mod:`.geometric <highcharts_maps.options.series.data.geometric>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,73 +9,73 @@
 
 --------------
 
-.. module:: highcharts_maps.options.series.data.bar
+.. module:: highcharts_maps.options.series.data.geometric
 
 ********************************************************************************************************************
-class: :class:`BarData <highcharts_maps.options.series.data.bar.BarData>`
+class: :class:`GeometricData <highcharts_maps.options.series.data.geometric.GeometricData>`
 ********************************************************************************************************************
 
-.. autoclass:: BarData
+.. autoclass:: GeometricData
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: BarData
+    .. inheritance-diagram:: GeometricData
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
 
------------------
+-----------------------
 
 ********************************************************************************************************************
-class: :class:`WaterfallData <highcharts_maps.options.series.data.bar.WaterfallData>`
+class: :class:`GeometricZData <highcharts_maps.options.series.data.geometric.GeometricZData>`
 ********************************************************************************************************************
 
-.. autoclass:: WaterfallData
+.. autoclass:: GeometricZData
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: WaterfallData
+    .. inheritance-diagram:: GeometricZData
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
 
------------------
+--------------------
 
 ********************************************************************************************************************
-class: :class:`WindBarbData <highcharts_maps.options.series.data.bar.WindBarbData>`
+class: :class:`GeometricLatLonData <highcharts_maps.options.series.data.geometric.GeometricLatLonData>`
 ********************************************************************************************************************
 
-.. autoclass:: WindBarbData
+.. autoclass:: GeometricLatLonData
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: WindBarbData
+    .. inheritance-diagram:: GeometricLatLonData
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
 
------------------
+------------------
 
 ********************************************************************************************************************
-class: :class:`XRangeData <highcharts_maps.options.series.data.bar.XRangeData>`
+class: :class:`GeometricDataBase <highcharts_maps.options.series.data.geometric.GeometricDataBase>`
 ********************************************************************************************************************
 
-.. autoclass:: XRangeData
+.. autoclass:: GeometricDataBase
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: XRangeData
+    .. inheritance-diagram:: GeometricDataBase
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 

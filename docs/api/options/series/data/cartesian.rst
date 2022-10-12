@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.cartesian <highcharts_stock.options.series.data.cartesian>`
+:mod:`.cartesian <highcharts_maps.options.series.data.cartesian>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.data.cartesian
+.. module:: highcharts_maps.options.series.data.cartesian
 
 ********************************************************************************************************************
-class: :class:`CartesianData <highcharts_stock.options.series.data.cartesian.CartesianData>`
+class: :class:`CartesianData <highcharts_maps.options.series.data.cartesian.CartesianData>`
 ********************************************************************************************************************
 
 .. autoclass:: CartesianData
@@ -22,7 +22,7 @@ class: :class:`CartesianData <highcharts_stock.options.series.data.cartesian.Car
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: CartesianData
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`CartesianData <highcharts_stock.options.series.data.cartesian.Car
 --------------
 
 ********************************************************************************************************************
-class: :class:`Cartesian3DData <highcharts_stock.options.series.data.cartesian.Cartesian3DData>`
+class: :class:`Cartesian3DData <highcharts_maps.options.series.data.cartesian.Cartesian3DData>`
 ********************************************************************************************************************
 
 .. autoclass:: Cartesian3DData
@@ -40,7 +40,7 @@ class: :class:`Cartesian3DData <highcharts_stock.options.series.data.cartesian.C
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Cartesian3DData
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -48,7 +48,7 @@ class: :class:`Cartesian3DData <highcharts_stock.options.series.data.cartesian.C
 --------------
 
 ********************************************************************************************************************
-class: :class:`CartesianValueData <highcharts_stock.options.series.data.cartesian.CartesianValueData>`
+class: :class:`CartesianValueData <highcharts_maps.options.series.data.cartesian.CartesianValueData>`
 ********************************************************************************************************************
 
 .. autoclass:: CartesianValueData
@@ -58,7 +58,7 @@ class: :class:`CartesianValueData <highcharts_stock.options.series.data.cartesia
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: CartesianValueData
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

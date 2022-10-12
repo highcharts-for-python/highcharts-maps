@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.treemap <highcharts_stock.options.series.data.treemap>`
+:mod:`.treemap <highcharts_maps.options.series.data.treemap>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.data.treemap
+.. module:: highcharts_maps.options.series.data.treemap
 
 ********************************************************************************************************************
-class: :class:`TreemapData <highcharts_stock.options.series.data.treemap.TreemapData>`
+class: :class:`TreemapData <highcharts_maps.options.series.data.treemap.TreemapData>`
 ********************************************************************************************************************
 
 .. autoclass:: TreemapData
@@ -22,7 +22,7 @@ class: :class:`TreemapData <highcharts_stock.options.series.data.treemap.Treemap
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: TreemapData
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

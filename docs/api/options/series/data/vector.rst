@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.vector <highcharts_stock.options.series.data.vector>`
+:mod:`.vector <highcharts_maps.options.series.data.vector>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.data.vector
+.. module:: highcharts_maps.options.series.data.vector
 
 ********************************************************************************************************************
-class: :class:`VectorData <highcharts_stock.options.series.data.vector.VectorData>`
+class: :class:`VectorData <highcharts_maps.options.series.data.vector.VectorData>`
 ********************************************************************************************************************
 
 .. autoclass:: VectorData
@@ -22,7 +22,7 @@ class: :class:`VectorData <highcharts_stock.options.series.data.vector.VectorDat
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: VectorData
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

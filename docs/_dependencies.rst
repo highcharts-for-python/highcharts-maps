@@ -45,12 +45,13 @@
       :exc:`HighchartsDependencyError <errors.HighchartsDependencyError>` exception when
       you try to use functionality that relies on them.
 
-      No error will be thrown until you try to use dependent functionality. So if you call
-      a ``from_pandas()`` method but `pandas <https://pandas.pydata.org/>`_ is not
-      installed, you will get an error.
+      No error will be thrown until you try to use dependent functionality. So for
+      example, if you call a ``from_pandas()`` method but
+      `pandas <https://pandas.pydata.org/>`_ is not installed, you will get an error.
 
     * `geopandas <https://geopandas.org/en/stable/>`_ v. 0.11 or higher
     * `pandas <https://pandas.pydata.org/>`_ v. 1.3 or higher
+    * `PyShp <https://github.com/GeospatialPython/pyshp>`__ v.2.3.1 or higher
     * `pyspark <https://spark.apache.org/docs/latest/api/python/index.html>`_ v.3.3 or
       higher
     * `python-dotenv <https://github.com/theskumar/python-dotenv>`_ v. 0.21 or higher

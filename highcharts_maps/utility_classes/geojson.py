@@ -387,6 +387,48 @@ class GeoJSONBase(HighchartsMeta):
 
         return cls.from_json(as_geojson)
 
+    @classmethod
+    def to_instance(cls, ob, default = None, strict = False):
+        """Encode a GeoJSON :class:`dict <python:dict>` into an :class:`GeoJSONBase`
+        object.
+
+        .. note::
+
+          Assumes the caller knows that the :class:`dict <python:dict>` should satisfy a
+          GeoJSON type.
+
+        :param cls: :class:`dict <python:dict>` containing the elements to be encoded into
+          a GeoJSON object.
+        :type cls: :class:`dict <python:dict>`
+
+        :param ob: GeoJSON object into which to encode the :class:`dict <python:dict>`
+          provided in ``cls``.
+
+        :type ob: :class:`geojson.base.GeoJSON <geojson:geojson.base.GeoJSON>`
+
+        :param default: A default instance to append the content of the
+          :class:`dict <python:dict>`. Defaults to :obj:`None <python:None>`.
+        :type default: :class:`geojson.base.GeoJSON <geojson:geojson.base.GeoJSON>`
+
+        :param strict: Raise error if unable to coerce particular keys or
+          attributes to a valid GeoJSON structure. Defaults to ``False``.
+        :type strict: :class:`bool <python:bool>`
+
+        :return: A GeoJSON object with the dict's elements as its constituents.
+        :rtype: :class:`geojson.base.GeoJSON <geojson:geojson.base.GeoJSON>`
+
+        :raises TypeError: If the input :class:`dict <python:dict>` contains items that
+          are not valid GeoJSON types.
+        :raises UnicodeEncodeError: If the input :class:`dict <python:dict>` contains
+          items of a type that contain non-ASCII characters.
+        :raises AttributeError: If the input :class:`dict <python:dict>` contains items
+          that are not valid GeoJSON types.
+        """
+        return super().to_instance(cls = cls,
+                                   ob = ob,
+                                   default = default,
+                                   strict = strict)
+
 
 class Point(GeoJSONBase, geojson.Point):
     """Represents a GeoJSON ``Point`` as a Python object, inheriting from

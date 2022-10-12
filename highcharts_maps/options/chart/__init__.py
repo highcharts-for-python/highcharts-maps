@@ -34,19 +34,19 @@ class ChartOptions(ChartOptionsBase):
 
         Accepts (either in object representation or as coercable objects):
 
-          * :class:`MapData <highcharts_maps.options.series.map_data.MapData>`
-          * :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+          * :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
+          * :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
           * :class:`VariableName <highcharts_maps.utility_classes.javascript_functions.VariableName>`
           * :class:`GeoJSONBase <highcharts_maps.utility_classes.geojson.GeoJSONBase>` or
             descendant
           * :class:`Topology <highcharts_maps.utility_classes.topojson.Topology>`
           * a :class:`str <python:str>` URL, which will be coerced to
-            :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+            :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
           * a :class:`str <python:str>` number, which will act as an index to the
             (JavaScript) ``Highcharts.maps`` array
 
-        :rtype: :class:`MapData <highcharts_maps.options.series.map_data.MapData>` or
-          :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+        :rtype: :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>` or
+          :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
           or :obj:`None <python:None>`
         """
         return self._map

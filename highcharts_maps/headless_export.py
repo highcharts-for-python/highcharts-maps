@@ -6,8 +6,8 @@ from validator_collection import checkers
 from highcharts_python.headless_export import ExportServer as ExportServerBase
 
 from highcharts_maps.decorators import validate_types
-from highcharts_maps.options import HighchartsOptions, HighchartsStockOptions
-from highcharts_maps.global_options.shared_options import SharedOptions, SharedStockOptions
+from highcharts_maps.options import HighchartsOptions, HighchartsMapsOptions
+from highcharts_maps.global_options.shared_options import SharedOptions, SharedMapsOptions
 
 load_dotenv()
 
@@ -32,7 +32,7 @@ class ExportServer(ExportServerBase):
         super().__init__(**kwargs)
 
     @property
-    def options(self) -> Optional[HighchartsOptions | HighchartsStockOptions]:
+    def options(self) -> Optional[HighchartsOptions | HighchartsMapsOptions]:
         """The :class:`HighchartsOptions` which should be applied to render the exported
         chart. Defaults to :obj:`None <python:None>`.
 
@@ -44,25 +44,23 @@ class ExportServer(ExportServerBase):
     def options(self, value):
         if not value:
             self._options = None
-        elif checkers.is_type(value, ('HighchartsStockOptions', 'HighchartsOptions')):
+        elif checkers.is_type(value, ('HighchartsMapsOptions', 'HighchartsOptions')):
             self._options = value
-        elif ('navigator' in value
-              or 'scrollbar' in value
-              or 'rangeSelector' in value
-              or 'range_selector' in value
-              or 'stockTools' in value
-              or 'stock_tools' in value):
-            self._options = validate_types(value, HighchartsStockOptions)
+        elif ('map_navigation' in value
+              or 'mapNavigation' in value
+              or 'map_view' in value
+              or 'mapView' in value):
+            self._options = validate_types(value, HighchartsMapsOptions)
         else:
             self._options = validate_types(value, HighchartsOptions)
 
     @property
-    def global_options(self) -> Optional[SharedOptions | SharedStockOptions]:
+    def global_options(self) -> Optional[SharedOptions | SharedMapsOptions]:
         """The global options which will be passed to the (JavaScript)
         ``Highcharts.setOptions()`` method, and which will be applied to the exported
         chart. Defaults to :obj:`None <python:None>`.
 
-        :rtype: :class:`SharedOptions` or :class:`SharedStockOptions` or
+        :rtype: :class:`SharedOptions` or :class:`SharedMapsOptions` or
           :obj:`None <python:None>`
         """
         return self._global_options
@@ -72,16 +70,14 @@ class ExportServer(ExportServerBase):
         if not value:
             self._global_options = None
         else:
-            if checkers.is_type(value, 'SharedStockOptions'):
+            if checkers.is_type(value, 'SharedMapsOptions'):
                 self._global_options = value
             elif checkers.is_type(value, 'SharedOptions'):
                 self._global_options = value
-            elif ('navigator' in value
-                  or 'scrollbar' in value
-                  or 'rangeSelector' in value
-                  or 'range_selector' in value
-                  or 'stockTools' in value
-                  or 'stock_tools' in value):
-                self._global_options = validate_types(value, SharedStockOptions)
+            elif ('map_navigation' in value
+                  or 'mapNavigation' in value
+                  or 'map_view' in value
+                  or 'mapView' in value):
+                self._global_options = validate_types(value, SharedMapsOptions)
             else:
                 self._global_options = validate_types(value, SharedOptions)

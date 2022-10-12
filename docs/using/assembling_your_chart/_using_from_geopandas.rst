@@ -1,14 +1,14 @@
 .. code-block:: python
 
-# Given a geoPandas DataFrame instance named "gdf"
-from highcharts_maps.chart import Chart
+  # Given a geoPandas DataFrame instance named "gdf"
+  from highcharts_maps.chart import Chart
 
-my_chart = Chart.from_geopandas(gdf,
-                                property_map = {
-                                    'id': 'state',
-                                    'value': 'value'
-                                },
-                                series_type = 'map')
+  my_chart = Chart.from_geopandas(gdf,
+                                  property_map = {
+                                      'id': 'state',
+                                      'value': 'value'
+                                  },
+                                  series_type = 'map')
 
 
 .. collapse:: Signature of the ``.from_pandas()`` method.
@@ -80,5 +80,5 @@ my_chart = Chart.from_geopandas(gdf,
 
     :raises HighchartsPandasDeserializationError: if ``property_map`` references
       a column that does not exist in the data frame
-    :raises HighchartsDependencyError: if `pandas <https://pandas.pydata.org/>`_ is
+    :raises HighchartsDependencyError: if `pandas <https://pandas.pydata.org/>`__ is
       not available in the runtime environment

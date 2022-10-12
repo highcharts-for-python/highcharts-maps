@@ -6,7 +6,7 @@ from highcharts_python.options.series.base import SeriesBase
 
 from highcharts_maps import errors
 from highcharts_maps.decorators import validate_types
-from highcharts_maps.options.series.map_data import AsyncMapData, MapData
+from highcharts_maps.options.series.data.map_data import AsyncMapData, MapData
 from highcharts_maps.utility_classes.javascript_functions import VariableName
 from highcharts_maps.utility_functions import mro__to_untrimmed_dict
 from highcharts_maps.js_literal_functions import (serialize_to_js_literal,
@@ -32,17 +32,17 @@ class MapSeriesBase(SeriesBase):
 
         Accepts (either in object representation or as coercable objects):
 
-          * :class:`MapData <highcharts_maps.options.series.map_data.MapData>`
-          * :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+          * :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
+          * :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
           * :class:`VariableName <highcharts_maps.utility_classes.javascript_functions.VariableName>`
           * :class:`GeoJSONBase <highcharts_maps.utility_classes.geojson.GeoJSONBase>` or
             descendant
           * :class:`Topology <highcharts_maps.utility_classes.topojson.Topology>`
           * a :class:`str <python:str>` URL, which will be coerced to
-            :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+            :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
 
-        :rtype: :class:`MapData <highcharts_maps.options.series.map_data.MapData>` or
-          :class:`AsyncMapData <highcharts_maps.options.series.map_data.AsyncMapData>`
+        :rtype: :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>` or
+          :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
           or :obj:`None <python:None>`
         """
         return self._map_data
@@ -365,7 +365,7 @@ class MapSeriesBase(SeriesBase):
                        series_kwargs = None):
         """Create a :term:`series` instance whose
         :meth:`.data <highcharts_maps.options.series.base.SeriesBase.data>` property
-        is populated from a `geopandas <https://geopandas.org/>`_
+        is populated from a `geopandas <https://geopandas.org/>`__
         :class:`GeoDataFrame <geopandas:GeoDataFrame>`.
 
         :param gdf: The :class:`GeoDataFrame <geopandas:GeoDataFrame>` from which data
@@ -401,8 +401,9 @@ class MapSeriesBase(SeriesBase):
 
         :raises HighchartsPandasDeserializationError: if ``property_map`` references
           a column that does not exist in the data frame
-        :raises HighchartsDependencyError: if `geopandas <https://geopandas.pydata.org/>`_
-          is not available in the runtime environment
+        :raises HighchartsDependencyError: if
+          `geopandas <https://geopandas.pydata.org/>`__ is not available in the runtime
+          environment
         """
         series_kwargs = validators.dict(series_kwargs, allow_empty = True) or {}
 

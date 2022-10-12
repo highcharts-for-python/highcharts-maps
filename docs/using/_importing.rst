@@ -31,7 +31,7 @@
     .. code-block:: python
 
       # Import objects from the catch-all ".highcharts" module.
-      from highcharts_stock import highcharts
+      from highcharts_maps import highcharts
 
       # You can now access specific classes without individual import statements.
       highcharts.Chart

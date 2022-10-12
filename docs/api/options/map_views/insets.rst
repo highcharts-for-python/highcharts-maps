@@ -7,11 +7,6 @@
   :depth: 3
   :backlinks: entry
 
-.. toctree::
-  :titlesonly:
-
-  insets
-
 -------------------------
 
 .. module:: highcharts_maps.options.map_views.insets

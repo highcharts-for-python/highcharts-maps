@@ -660,7 +660,7 @@ to visualize your data.
           :class:`highcharts_maps.options.plot_options.mapline.MapLineOptions`
 
           :class:`highcharts_maps.options.series.mapline.MapLineSeries`
-      * - **Map* *
+      * - **Map Point**
         - .. figure:: _static/mappoint-example.png
             :alt: Map Point Example Chart
             :width: 100%

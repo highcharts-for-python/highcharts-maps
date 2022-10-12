@@ -27,7 +27,7 @@ class CustomProjection(JavaScriptClass):
 
     .. seealso::
 
-      * :doc:`Using Custom Projections <custom_projections>`
+      * :ref:`Using Custom Projections <custom_projections>`
 
     """
 
@@ -189,7 +189,7 @@ class ProjectionOptions(HighchartsMeta):
 
           Will accept any string, including the name given to a custom :term:`projection`
           that has been registered with the chart. For more information, please see:
-          :doc:`Using a Custom Projection <custom_projections>`.
+          :ref:`Using a Custom Projection <custom_projections>`.
 
         :rtype: :class:`str <python:str>` or :obj:`None <python:None>`
         """

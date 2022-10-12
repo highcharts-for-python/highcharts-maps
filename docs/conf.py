@@ -84,7 +84,7 @@ html_context = {
 }
 
 github_username = 'insightindustry'
-github_repository = 'highcharts-stock'
+github_repository = 'highcharts-maps'
 
 sphinx_tabs_disable_tab_closing = True
 
@@ -95,6 +95,8 @@ intersphinx_mapping = {
     'ipython': ('https://ipython.readthedocs.io/en/stable/', None),
     'pandas': ('https://pandas.pydata.org/pandas-docs/stable/', None),
     'pyspark': ('https://spark.apache.org/docs/latest/api/python/', None),
+    'geopandas': ('https://geopandas.org/en/stable/', None),
+    'topojson': ('https://mattijn.github.io/topojson/', None),
 }
 
 # -- Options for todo extension ----------------------------------------------
@@ -108,7 +110,7 @@ inheritance_graph_attrs = {
 }
 
 suppress_warnings = [
-    'ref.term',
+    #'ref.term',
     'ref.ref',
     'toc.not_readable'
 ]

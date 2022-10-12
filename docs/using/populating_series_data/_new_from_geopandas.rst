@@ -2,6 +2,7 @@
 
   The ``.from_geopandas()`` method is available on all :term:`series` classes which
   support rendering as a map visualization. This includes:
+
     * :class:`MapSeries <highcharts_maps.options.series.map.MapSeries>`
     * :class:`MapBubbleSeries <highcharts_maps.options.series.mapbubble.MapBubbleSeries>`
     * :class:`MapLineSeries <highcharts_maps.options.series.mapline.MapLineSeries>`
@@ -14,24 +15,24 @@
 
 .. code-block:: python
 
-# Given a geoPandas DataFrame instance named "gdf"
-from highcharts_maps.chart import Chart
-from highcharts_maps.options.series.map import MapSeries
+  # Given a geoPandas DataFrame instance named "gdf"
+  from highcharts_maps.chart import Chart
+  from highcharts_maps.options.series.map import MapSeries
 
-# Creating a Series from the GeoDataFrame
-my_series = MapSeries.from_geopandas(gdf,
-                                     property_map = {
-                                         'id': 'state',
-                                         'value': 'value'
-                                     })
+  # Creating a Series from the GeoDataFrame
+  my_series = MapSeries.from_geopandas(gdf,
+                                       property_map = {
+                                           'id': 'state',
+                                           'value': 'value'
+                                       })
 
-# Creating a Chart with a MapSeries from the GeoDataFrame.
-my_chart = Chart.from_geopandas(gdf,
-                                property_map = {
-                                    'id': 'state',
-                                    'value': 'value'
-                                },
-                                series_type = 'map')
+  # Creating a Chart with a MapSeries from the GeoDataFrame.
+  my_chart = Chart.from_geopandas(gdf,
+                                  property_map = {
+                                      'id': 'state',
+                                      'value': 'value'
+                                  },
+                                  series_type = 'map')
 
 
 .. collapse:: Signature of the ``.from_pandas()`` method.
@@ -46,7 +47,7 @@ my_chart = Chart.from_geopandas(gdf,
 
     Create a :term:`series` instance whose
     :meth:`.data <highcharts_maps.options.series.base.SeriesBase.data>` property
-    is populated from a `geopandas <https://geopandas.org/>`_
+    is populated from a `geopandas <https://geopandas.org/>`__
     :class:`GeoDataFrame <geopandas:GeoDataFrame>`.
 
     :param gdf: The :class:`GeoDataFrame <geopandas:GeoDataFrame>` from which data
@@ -82,5 +83,5 @@ my_chart = Chart.from_geopandas(gdf,
 
     :raises HighchartsPandasDeserializationError: if ``property_map`` references
       a column that does not exist in the data frame
-    :raises HighchartsDependencyError: if `geopandas <https://geopandas.pydata.org/>`_
+    :raises HighchartsDependencyError: if `geopandas <https://geopandas.pydata.org/>`__
       is not available in the runtime environment

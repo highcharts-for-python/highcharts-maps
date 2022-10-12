@@ -15,7 +15,7 @@ class MapBubbleOptions(MapBaseOptions, BubbleOptions):
     """Map bubble series are :term:`bubble series` laid out on top of a
     :term:`map series`, where each bubble shown is tied to a specific area of the map.
 
-    .. figure:: ../../../_static/mapbubble-exapmle.png
+    .. figure:: ../../../_static/mapbubble-example.png
       :alt: Map Bubble Example chart
       :align: center
 

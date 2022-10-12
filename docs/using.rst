@@ -420,6 +420,7 @@ property within the series:
           // other Series properties go here
           // to configure styling/behavior
         }
+
     - .. code-block:: python
 
         # Corresponding LineSeries object
@@ -890,7 +891,7 @@ An example of how this might be represented, using (JavaScript) ``d3-geo`` to cr
 
         my_chart.set_custom_projection(robinson_projection)
 
-  * - .. code-block:: javascript
+    - .. code-block:: javascript
 
         class RobinsonProjectionDefinition {
           constructor() {
@@ -921,14 +922,15 @@ An example of how this might be represented, using (JavaScript) ``d3-geo`` to cr
           // .. OTHER PROPERTIES GO HERE ...
         });
 
-  .. warning::
 
-    You may rely on outside libraries (like ``d3-geo``) to compute your custom projections.
-    Be careful to make sure they are imported using appropriate ``<script/>`` tags and
-    initialized appropriately in your client-side JavaScript. **Highcharts Maps for Python**
-    provides *no* introspection of your JavaScript code, so you will have to make sure
-    you've laid appropriate groundwork in the code into which you will be inserting your
-    **Highcharts Maps for Python** serialized JavaScript.
+.. warning::
+
+  You may rely on outside libraries (like ``d3-geo``) to compute your custom projections.
+  Be careful to make sure they are imported using appropriate ``<script/>`` tags and
+  initialized appropriately in your client-side JavaScript. **Highcharts Maps for Python**
+  provides *no* introspection of your JavaScript code, so you will have to make sure
+  you've laid appropriate groundwork in the code into which you will be inserting your
+  **Highcharts Maps for Python** serialized JavaScript.
 
 Once you have defined your
 :class:`CustomProjection <highcharts_maps.utility_classes.projections.CustomProjection>`,
@@ -939,6 +941,7 @@ convenience method or by setting
 directly.
 
 ------------------------------
+
 .. target-notes::
 
 .. include:: links.txt

@@ -1,5 +1,5 @@
 ############################################################
-:mod:`.headless_export <highcharts_stock.headless_export>`
+:mod:`.headless_export <highcharts_maps.headless_export>`
 ############################################################
 
 .. contents:: Module Contents
@@ -9,7 +9,7 @@
 
 -----------------
 
-.. module:: highcharts_stock.headless_export
+.. module:: highcharts_maps.headless_export
 
 *********************************************************************************
 class: :class:`ExportServer <highcharts_maps.headless_export.ExportServer>`
@@ -22,7 +22,7 @@ class: :class:`ExportServer <highcharts_maps.headless_export.ExportServer>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ExportServer
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

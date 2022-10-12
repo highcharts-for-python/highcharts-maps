@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.ad <highcharts_stock.options.series.ad>`
+:mod:`.mapbubble <highcharts_maps.options.series.mapbubble>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,20 +9,20 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.ad
+.. module:: highcharts_maps.options.series.mapbubble
 
 ********************************************************************************************************************
-class: :class:`ADSeries <highcharts_stock.options.series.ad.ADSeries>`
+class: :class:`MapBubbleSeries <highcharts_maps.options.series.mapbubble.MapBubbleSeries>`
 ********************************************************************************************************************
 
-.. autoclass:: ADSeries
+.. autoclass:: MapBubbleSeries
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: ADSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: MapBubbleSeries
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

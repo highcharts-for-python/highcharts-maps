@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.base <highcharts_stock.options.series.base>`
+:mod:`.base <highcharts_maps.options.series.base>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,28 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.base
+.. module:: highcharts_maps.options.series.base
 
 ********************************************************************************************************************
-class: :class:`SeriesBase <highcharts_stock.options.series.base.SeriesBase>`
+class: :class:`MapSeriesBase <highcharts_maps.options.series.base.MapSeriesBase>`
+********************************************************************************************************************
+
+.. autoclass:: MapSeriesBase
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: MapSeriesBase
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |
+
+--------------------
+
+********************************************************************************************************************
+class: :class:`SeriesBase <highcharts_maps.options.series.base.SeriesBase>`
 ********************************************************************************************************************
 
 .. autoclass:: SeriesBase
@@ -22,7 +40,7 @@ class: :class:`SeriesBase <highcharts_stock.options.series.base.SeriesBase>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SeriesBase
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

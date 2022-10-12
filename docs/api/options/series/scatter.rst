@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.scatter <highcharts_stock.options.series.scatter>`
+:mod:`.scatter <highcharts_maps.options.series.scatter>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.scatter
+.. module:: highcharts_maps.options.series.scatter
 
 ********************************************************************************************************************
-class: :class:`ScatterSeries <highcharts_stock.options.series.scatter.ScatterSeries>`
+class: :class:`ScatterSeries <highcharts_maps.options.series.scatter.ScatterSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: ScatterSeries
@@ -22,7 +22,7 @@ class: :class:`ScatterSeries <highcharts_stock.options.series.scatter.ScatterSer
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ScatterSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`ScatterSeries <highcharts_stock.options.series.scatter.ScatterSer
 ---------------
 
 ********************************************************************************************************************
-class: :class:`Scatter3DSeries <highcharts_stock.options.series.scatter.Scatter3DSeries>`
+class: :class:`Scatter3DSeries <highcharts_maps.options.series.scatter.Scatter3DSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: Scatter3DSeries
@@ -40,7 +40,7 @@ class: :class:`Scatter3DSeries <highcharts_stock.options.series.scatter.Scatter3
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Scatter3DSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

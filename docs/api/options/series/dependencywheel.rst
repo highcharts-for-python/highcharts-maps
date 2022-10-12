@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.dependencywheel <highcharts_stock.options.series.dependencywheel>`
+:mod:`.dependencywheel <highcharts_maps.options.series.dependencywheel>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.dependencywheel
+.. module:: highcharts_maps.options.series.dependencywheel
 
 ************************************************************************************************************************
-class: :class:`DependencyWheelSeries <highcharts_stock.options.series.dependencywheel.DependencyWheelSeries>`
+class: :class:`DependencyWheelSeries <highcharts_maps.options.series.dependencywheel.DependencyWheelSeries>`
 ************************************************************************************************************************
 
 .. autoclass:: DependencyWheelSeries
@@ -22,7 +22,7 @@ class: :class:`DependencyWheelSeries <highcharts_stock.options.series.dependency
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DependencyWheelSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

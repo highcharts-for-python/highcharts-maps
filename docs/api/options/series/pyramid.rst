@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.pyramid <highcharts_stock.options.series.pyramid>`
+:mod:`.pyramid <highcharts_maps.options.series.pyramid>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.pyramid
+.. module:: highcharts_maps.options.series.pyramid
 
 ********************************************************************************************************************
-class: :class:`PyramidSeries <highcharts_stock.options.series.pyramid.PyramidSeries>`
+class: :class:`PyramidSeries <highcharts_maps.options.series.pyramid.PyramidSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: PyramidSeries
@@ -22,7 +22,7 @@ class: :class:`PyramidSeries <highcharts_stock.options.series.pyramid.PyramidSer
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PyramidSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`PyramidSeries <highcharts_stock.options.series.pyramid.PyramidSer
 --------------------
 
 ********************************************************************************************************************
-class: :class:`Pyramid3DSeries <highcharts_stock.options.series.pyramid.Pyramid3DSeries>`
+class: :class:`Pyramid3DSeries <highcharts_maps.options.series.pyramid.Pyramid3DSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: Pyramid3DSeries
@@ -40,7 +40,7 @@ class: :class:`Pyramid3DSeries <highcharts_stock.options.series.pyramid.Pyramid3
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Pyramid3DSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

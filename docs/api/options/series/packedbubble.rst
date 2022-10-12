@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.packedbubble <highcharts_stock.options.series.packedbubble>`
+:mod:`.packedbubble <highcharts_maps.options.series.packedbubble>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.packedbubble
+.. module:: highcharts_maps.options.series.packedbubble
 
 ********************************************************************************************************************
-class: :class:`PackedBubbleSeries <highcharts_stock.options.series.packedbubble.PackedBubbleSeries>`
+class: :class:`PackedBubbleSeries <highcharts_maps.options.series.packedbubble.PackedBubbleSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: PackedBubbleSeries
@@ -22,7 +22,7 @@ class: :class:`PackedBubbleSeries <highcharts_stock.options.series.packedbubble.
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PackedBubbleSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

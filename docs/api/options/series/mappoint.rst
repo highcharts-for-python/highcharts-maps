@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.zigzag <highcharts_stock.options.series.zigzag>`
+:mod:`.mappoint <highcharts_maps.options.series.mappoint>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,20 +9,20 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.zigzag
+.. module:: highcharts_maps.options.series.mappoint
 
 ********************************************************************************************************************
-class: :class:`ZigZagSeries <highcharts_stock.options.series.zigzag.ZigZagSeries>`
+class: :class:`MapPointSeries <highcharts_maps.options.series.mappoint.MapPointSeries>`
 ********************************************************************************************************************
 
-.. autoclass:: ZigZagSeries
+.. autoclass:: MapPointSeries
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: ZigZagSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: MapPointSeries
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.series_generator <highcharts_stock.options.series.series_generator>`
+:mod:`.series_generator <highcharts_maps.options.series.series_generator>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.series_generator
+.. module:: highcharts_maps.options.series.series_generator
 
 ********************************************************************************************************************
-function: :func:`create_series_obj() <highcharts_stock.options.series.series_generator.create_series_obj>`
+function: :func:`create_series_obj() <highcharts_maps.options.series.series_generator.create_series_obj>`
 ********************************************************************************************************************
 
 .. autofunction:: create_series_obj

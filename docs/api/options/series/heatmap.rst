@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.Heatmap <highcharts_stock.options.series.heatmap>`
+:mod:`.Heatmap <highcharts_maps.options.series.heatmap>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.heatmap
+.. module:: highcharts_maps.options.series.heatmap
 
 ********************************************************************************************************************
-class: :class:`HeatmapSeries <highcharts_stock.options.series.heatmap.HeatmapSeries>`
+class: :class:`HeatmapSeries <highcharts_maps.options.series.heatmap.HeatmapSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: HeatmapSeries
@@ -22,7 +22,7 @@ class: :class:`HeatmapSeries <highcharts_stock.options.series.heatmap.HeatmapSer
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: HeatmapSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`HeatmapSeries <highcharts_stock.options.series.heatmap.HeatmapSer
 --------------------
 
 ********************************************************************************************************************
-class: :class:`TilemapSeries <highcharts_stock.options.series.heatmap.TilemapSeries>`
+class: :class:`TilemapSeries <highcharts_maps.options.series.heatmap.TilemapSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: TilemapSeries
@@ -40,7 +40,7 @@ class: :class:`TilemapSeries <highcharts_stock.options.series.heatmap.TilemapSer
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: TilemapSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

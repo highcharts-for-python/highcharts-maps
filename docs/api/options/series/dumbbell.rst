@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.dumbbell <highcharts_stock.options.series.dumbbell>`
+:mod:`.dumbbell <highcharts_maps.options.series.dumbbell>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.dumbbell
+.. module:: highcharts_maps.options.series.dumbbell
 
 ********************************************************************************************************************
-class: :class:`DumbbellSeries <highcharts_stock.options.series.dumbbell.DumbbellSeries>`
+class: :class:`DumbbellSeries <highcharts_maps.options.series.dumbbell.DumbbellSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: DumbbellSeries
@@ -22,7 +22,7 @@ class: :class:`DumbbellSeries <highcharts_stock.options.series.dumbbell.Dumbbell
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DumbbellSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`DumbbellSeries <highcharts_stock.options.series.dumbbell.Dumbbell
 ------------------
 
 ********************************************************************************************************************
-class: :class:`LollipopSeries <highcharts_stock.options.series.dumbbell.LollipopSeries>`
+class: :class:`LollipopSeries <highcharts_maps.options.series.dumbbell.LollipopSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: LollipopSeries
@@ -40,7 +40,7 @@ class: :class:`LollipopSeries <highcharts_stock.options.series.dumbbell.Lollipop
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: LollipopSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

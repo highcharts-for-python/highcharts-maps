@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.boxplot <highcharts_stock.options.series.boxplot>`
+:mod:`.boxplot <highcharts_maps.options.series.boxplot>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.boxplot
+.. module:: highcharts_maps.options.series.boxplot
 
 ********************************************************************************************************************
-class: :class:`BoxPlotSeries <highcharts_stock.options.series.boxplot.BoxPlotSeries>`
+class: :class:`BoxPlotSeries <highcharts_maps.options.series.boxplot.BoxPlotSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: BoxPlotSeries
@@ -22,7 +22,7 @@ class: :class:`BoxPlotSeries <highcharts_stock.options.series.boxplot.BoxPlotSer
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BoxPlotSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`BoxPlotSeries <highcharts_stock.options.series.boxplot.BoxPlotSer
 ---------------
 
 ********************************************************************************************************************
-class: :class:`ErrorBarSeries <highcharts_stock.options.series.boxplot.ErrorBarSeries>`
+class: :class:`ErrorBarSeries <highcharts_maps.options.series.boxplot.ErrorBarSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: ErrorBarSeries
@@ -40,7 +40,7 @@ class: :class:`ErrorBarSeries <highcharts_stock.options.series.boxplot.ErrorBarS
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ErrorBarSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

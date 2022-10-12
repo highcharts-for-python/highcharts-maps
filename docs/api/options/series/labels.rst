@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.labels <highcharts_stock.options.series.labels>`
+:mod:`.labels <highcharts_maps.options.series.labels>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.labels
+.. module:: highcharts_maps.options.series.labels
 
 ********************************************************************************************************************
-class: :class:`SeriesLabel <highcharts_stock.options.series.labels.SeriesLabel>`
+class: :class:`SeriesLabel <highcharts_maps.options.series.labels.SeriesLabel>`
 ********************************************************************************************************************
 
 .. autoclass:: SeriesLabel
@@ -22,7 +22,7 @@ class: :class:`SeriesLabel <highcharts_stock.options.series.labels.SeriesLabel>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SeriesLabel
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`SeriesLabel <highcharts_stock.options.series.labels.SeriesLabel>`
 -----------------
 
 ********************************************************************************************************************
-class: :class:`Box <highcharts_stock.options.series.labels.Box>`
+class: :class:`Box <highcharts_maps.options.series.labels.Box>`
 ********************************************************************************************************************
 
 .. autoclass:: Box
@@ -40,7 +40,7 @@ class: :class:`Box <highcharts_stock.options.series.labels.Box>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Box
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

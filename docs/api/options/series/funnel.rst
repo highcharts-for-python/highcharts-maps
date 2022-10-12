@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.funnel <highcharts_stock.options.series.funnel>`
+:mod:`.funnel <highcharts_maps.options.series.funnel>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.funnel
+.. module:: highcharts_maps.options.series.funnel
 
 ********************************************************************************************************************
-class: :class:`FunnelSeries <highcharts_stock.options.series.funnel.FunnelSeries>`
+class: :class:`FunnelSeries <highcharts_maps.options.series.funnel.FunnelSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: FunnelSeries
@@ -22,7 +22,7 @@ class: :class:`FunnelSeries <highcharts_stock.options.series.funnel.FunnelSeries
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: FunnelSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`FunnelSeries <highcharts_stock.options.series.funnel.FunnelSeries
 ------------------
 
 ********************************************************************************************************************
-class: :class:`Funnel3DSeries <highcharts_stock.options.series.funnel.Funnel3DSeries>`
+class: :class:`Funnel3DSeries <highcharts_maps.options.series.funnel.Funnel3DSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: Funnel3DSeries
@@ -40,7 +40,7 @@ class: :class:`Funnel3DSeries <highcharts_stock.options.series.funnel.Funnel3DSe
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Funnel3DSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

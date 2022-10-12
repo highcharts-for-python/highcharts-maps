@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.dmi <highcharts_stock.options.series.dmi>`
+:mod:`.map <highcharts_maps.options.series.map>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,20 +9,20 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.dmi
+.. module:: highcharts_maps.options.series.map
 
 ********************************************************************************************************************
-class: :class:`DMISeries <highcharts_stock.options.series.dmi.DMISeries>`
+class: :class:`MapSeries <highcharts_maps.options.series.map.MapSeries>`
 ********************************************************************************************************************
 
-.. autoclass:: DMISeries
+.. autoclass:: MapSeries
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: DMISeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: MapSeries
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

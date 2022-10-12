@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.wordcloud <highcharts_stock.options.series.wordcloud>`
+:mod:`.wordcloud <highcharts_maps.options.series.wordcloud>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.wordcloud
+.. module:: highcharts_maps.options.series.wordcloud
 
 ********************************************************************************************************************
-class: :class:`WordcloudSeries <highcharts_stock.options.series.wordcloud.WordcloudSeries>`
+class: :class:`WordcloudSeries <highcharts_maps.options.series.wordcloud.WordcloudSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: WordcloudSeries
@@ -22,7 +22,7 @@ class: :class:`WordcloudSeries <highcharts_stock.options.series.wordcloud.Wordcl
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: WordcloudSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.disparity_index <highcharts_stock.options.series.disparity_index>`
+:mod:`.mapline <highcharts_maps.options.series.mapline>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,20 +9,20 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.disparity_index
+.. module:: highcharts_maps.options.series.mapline
 
 ********************************************************************************************************************
-class: :class:`DisparityIndexSeries <highcharts_stock.options.series.disparity_index.DisparityIndexSeries>`
+class: :class:`MapLineSeries <highcharts_maps.options.series.mapline.MapLineSeries>`
 ********************************************************************************************************************
 
-.. autoclass:: DisparityIndexSeries
+.. autoclass:: MapLineSeries
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: DisparityIndexSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: MapLineSeries
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

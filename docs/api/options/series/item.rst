@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.item <highcharts_stock.options.series.item>`
+:mod:`.item <highcharts_maps.options.series.item>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.series.item
+.. module:: highcharts_maps.options.series.item
 
 ********************************************************************************************************************
-class: :class:`ItemSeries <highcharts_stock.options.series.item.ItemSeries>`
+class: :class:`ItemSeries <highcharts_maps.options.series.item.ItemSeries>`
 ********************************************************************************************************************
 
 .. autoclass:: ItemSeries
@@ -22,7 +22,7 @@ class: :class:`ItemSeries <highcharts_stock.options.series.item.ItemSeries>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ItemSeries
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

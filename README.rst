@@ -24,8 +24,8 @@ library features native integration with:
     dataframe.
   * **GeoPandas**. Automatically incorporate GIS / map visualizations with data from your
     GeoPandas GeoDataFrames.
-  * **Topojson**. Automatically visualizes :term:`TopoJSON` :term:`map geometries`.
-  * **Geojson**. Automatically visualizes :term:`GeoJSON` :term:`map geometries`.
+  * **Topojson**. Automatically visualizes :term:`TopoJSON` :term:`map geometries <map geometry>`.
+  * **Geojson**. Automatically visualizes :term:`GeoJSON` :term:`map geometries <map geometry>`.
 
 
 **COMPLETE DOCUMENTATION:** http://highcharts-maps.readthedocs.org/en/latest/index.html

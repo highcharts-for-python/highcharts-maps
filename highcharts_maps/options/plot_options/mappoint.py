@@ -14,8 +14,8 @@ from highcharts_maps.utility_classes.clusters import ClusterOptions
 
 
 class MapPointOptions(MapBaseOptions, GenericTypeOptions):
-    """:term:`MapPoint series` are a special version of a :term:`scatter series` where
-    the points are placed according to geographic coordinates within a map.
+    """:term:`Map Points <Map Point>` are a special version of a :term:`scatter` series
+    where the points are placed according to geographic coordinates within a map.
 
     .. figure:: ../../../_static/mappoint-example.png
       :alt: Map Point Example chart

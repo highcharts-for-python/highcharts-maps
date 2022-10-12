@@ -57,10 +57,10 @@ class GeometricDataBase(DataCore):
 
     @property
     def geometry(self) -> Optional[Feature]:
-        """The :term:`geometry` associated with a data point, expressed as a
-        :term:`GeoJSON`
-        :class:`Feature <highcharts_maps.utility_classes.geojson.Feature>`.
-        Defaults to :obj:`None <python:None>`.
+        """The :term:`geometry <map geometry>` associated with a data point, expressed as
+        a :term:`GeoJSON`
+        :class:`Feature <highcharts_maps.utility_classes.geojson.Feature>`. Defaults to
+        :obj:`None <python:None>`.
 
         .. tip::
 

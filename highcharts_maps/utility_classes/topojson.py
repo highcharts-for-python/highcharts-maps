@@ -255,7 +255,7 @@ class Topology(TopologyBase):
         :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`.
 
         :param as_gdf: The :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`
-          containing the :term:`map data`.
+          containing the relevant :term:`map geometries <map geometry>`.
         :type as_gdf: :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`
 
         :param prequantize: If ``True``, will perform the TopoJSON optimizations

@@ -93,7 +93,7 @@ class HighchartsMapsOptions(HighchartsOptions):
     @property
     def map_view(self) -> Optional[MapViewOptions]:
         """Configuration options for the initial view of a map visualization and for the
-        :term:`projection <map projection>` to be applied to the map.
+        :term:`projection` to be applied to the map.
 
         :rtype: :class:`MapViewOptions <highcharts_maps.options.map_view.MapViewOptions>`
           or :obj:`None <python:None>`

@@ -1013,9 +1013,9 @@ class Chart(ChartBase):
         return self.options.map_views.projection.custom is not None
 
     def set_map_data(self, map_data):
-        """Sets the default :term:`map data` for the chart.
+        """Sets the default :term:`map geometries <map geometry>` for the chart.
 
-        :param map_data: The :term:`map data` to set. Accepts:
+        :param map_data: The :term:`map geometries <map geometry>` to set. Accepts:
 
           * :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
           * :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
@@ -1049,7 +1049,7 @@ class Chart(ChartBase):
         :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
         object.
 
-        :param map_data: The :term:`map data` to set. Accepts:
+        :param map_data: The :term:`map geometries <map geometry>` to set. Accepts:
 
           * :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
           * :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
@@ -1105,9 +1105,9 @@ class Chart(ChartBase):
         return instance
 
     def set_custom_projection(self, projection):
-        """Applies a custom map projection to the chart.
+        """Applies a custom map :term:`projection` to the chart.
 
-        :param projection: The custom projection definition to apply.
+        :param projection: The custom :term:`projection` definition to apply.
         :type projection: :class:`CustomProjection <highcharts_maps.utility_classes.projections.CustomProjection>`
 
         .. seealso::

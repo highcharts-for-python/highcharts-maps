@@ -27,7 +27,7 @@ class ChartOptions(ChartOptionsBase):
 
     @property
     def map(self) -> Optional[str | MapData | AsyncMapData | VariableName | List[MapData | AsyncMapData]]:
-        """Map :term:`geometries` that provide instructions on how to render the map
+        """:term:`Map geometries` that provide instructions on how to render the map
         itself, along with relevant properties used to join each map area to its
         corresponding values in the
         :meth:`MapSeriesBase.data <highcharts_maps.options.series.base.MapSeriesBase.data>`.
@@ -124,7 +124,7 @@ class ChartOptions(ChartOptionsBase):
 
     @property
     def map_transforms(self) -> Optional[dict]:
-        """Set of latitude/longitude :term:`transformation <transformation>` definitions
+        """Set of latitude/longitude transformation definitions
         for the chart. If :obj:`None <python:None>`, will be extracted automatically from
         the underlying :term:`map data`. Defaults to :obj:`None <python:None>`.
 

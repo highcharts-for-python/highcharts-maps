@@ -25,8 +25,8 @@ class MapSeriesBase(SeriesBase):
 
     @property
     def map_data(self) -> Optional[MapData | AsyncMapData | VariableName | List[MapData | AsyncMapData]]:
-        """Map :term:`geometries` that provide instructions on how to render the map
-        itself, along with relevant properties used to join each map area to its
+        """:term:`Map geometries <map geometry>` that provide instructions on how to render
+        the map itself, along with relevant properties used to join each map area to its
         corresponding values in the
         :meth:`.data <highcharts_maps.options.series.base.MapSeriesBase.data>`.
 
@@ -118,10 +118,11 @@ class MapSeriesBase(SeriesBase):
                            url,
                            selector = None,
                            fetch_config = None):
-        """Configures the asynchronous loading of :term:`map data` for the series,
-        including a download of the raw map data itself in :term:`TopoJSON` or
-        :term:`GeoJSON` format and the incorporation of an (optional) custom JavaScript
-        function to select a portion of the downloaded data for rendering.
+        """Configures the asynchronous loading of :term:`map geometries <map geometry>`
+        for the series, including a download of the raw map data itself in
+        :term:`TopoJSON` or :term:`GeoJSON` format and the incorporation of an (optional)
+        custom JavaScript function to select a portion of the downloaded data for
+        rendering.
 
         :param url: The URL from which to retrieve the :term:`map data` asynchronously via
           a JavaScript ``fetch()`` call.

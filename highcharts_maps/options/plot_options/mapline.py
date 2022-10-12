@@ -7,7 +7,7 @@ from highcharts_maps.utility_classes.patterns import Pattern
 
 
 class MapLineOptions(MapOptions):
-    """:term:`Mapline series` are a special version of a :term:`map series` where the
+    """:term:`Map Lines <map line>` are a special version of a :term:`map` series where the
     value colors are applied to the strokes (borders) shown on the map, rather than
     the area fills.
 

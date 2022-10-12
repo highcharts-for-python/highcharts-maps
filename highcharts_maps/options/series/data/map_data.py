@@ -24,7 +24,7 @@ from highcharts_maps.utility_classes.fetch_configuration import FetchConfigurati
 
 
 class MapData(HighchartsMeta):
-    """The map :term:`geometry` data which defines the areas and features of the map
+    """The :term:`map geometry` data which defines the areas and features of the map
     itself."""
 
     def __init__(self, **kwargs):

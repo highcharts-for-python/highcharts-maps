@@ -23,8 +23,8 @@ provides over 60 different visualization types.
 way that `Highcharts Maps <https://www.highcharts.com/products/maps/>`__ is an
 *extension* to `Highcharts JS <https://www.highcharts.com/products/highcharts/>`__. It:
 
-  * adds new features (including a :term:`map navigation` and the rendering of map
-    :term:`geometries>`) to supported charts,
+  * adds new features (including the rendering of map :term:`geometries <map geometry>`)
+    to supported charts,
   * adds new series types, including :term:`map`, :term:`map bubble`, :term:`map line`,
     and :term:`map point`
 

@@ -48,6 +48,10 @@ Glossary
     The visualization of numerical, hierarchical, or sequential data in a somewhat
     graphical representation.
 
+  Choropleth Map
+    A :term:`map` where the values of data is represented as the fill color or pattern
+    applied to map areas. Think of it as a classic "heatmap".
+
   Color Axis
     A color axis is an axis on the visualization that represents a value using its color.
     Typically, :term:`data point` :term:`metric` values are communicated using their
@@ -210,6 +214,25 @@ Glossary
       * :class:`GaugeSeries <highcharts_maps.options.series.gauge.GaugeSeries>`
       * :class:`SolidGaugeSeries <highcharts_maps.options.series.gauge.SolidGaugeSeries>`
 
+  GeoJSON
+    GeoJSON is a format for encoding a variety of geographic data structures. It is itself
+    an extension of :iabbr:`JSON (JavaScript Object Notation)`, and expects each
+    geographic data structure to conform to a standard set of keys (properties).
+
+    GeoJSON supports the following types of :term:`geometry`:
+
+      * ``Point``
+      * ``LineString``
+      * ``Polygon``
+      * ``MultiPoint``
+      * ``MultiLineString``
+      * ``MultiPolygon``
+
+    Geometric objects with additional properties are ``Feature`` objects. Sets of features
+    are contained in ``FeatureCollection`` objects.
+
+    Formally, GeoJSON is defined in :rfc:`7496`.
+
   JavaScript Object Literal Notation
     A way of representing data in JavaScript as native JavaScript objects which is
     necessary to maximize value from `Highcharts JS <http://www.highcharts.com/>`__.
@@ -263,6 +286,113 @@ Glossary
 
       Typically, JSON can be converted to JavaScript object literal notation easily...but
       the opposite does not hold true.
+
+  Map
+    :term:`Map` charts are simple :term:`choropleth` visualizations where each area
+    of the map is given a color based on its value.
+
+    .. figure:: ../../../_static/map-example.png
+      :alt: Map Example Chart
+      :align: center
+
+    .. seealso::
+
+      * :class:`highcharts_maps.options.series.map.MapSeries`
+      * :class:`highcharts_maps.options.plot_options.map.MapOptions`
+
+  Map Bubble
+    Map Bubble charts are :term:`maps <map>` where the numerical value is depicted as a
+    bubble rendered over the corresponding area of the map rather than as a color.
+
+      .. figure:: ../../../_static/mapbubble-example.png
+        :alt: Map Bubble Example chart
+        :align: center
+
+    .. seealso::
+
+      * :class:`highcharts_maps.options.series.mapbubble.MapBubbleSeries`
+      * :class:`highcharts_maps.options.options.plot_options.mapbubble.MapBubbleOptions`
+
+  Map Geometry
+    A map geometry, or more commonly simply a *geometry*, is the definition of a
+    geographic area or feature. It can be composed of points, lines, and polygons and may
+    be accompanied by additional meta-data regarding the geographic area or location.
+
+    Typically, map geometries correspond to the areas drawn on a map. The border of a
+    given country is an example of a map geometry (likely a collection of lines). The
+    seat of government in that country can also be a geometry (in this case, likely a
+    point).
+
+    Map geometries - and the components that comprise a map geometry - are defined in
+    terms of a spatial reference or coordinate system. Latitude and longitude is probably
+    the best-known spatial reference system, but this ensures that all geometric
+    components of a map geometry can be rendered together in a way that most-closely
+    reflects reality because they are using a shared projection system.
+
+    In :iabbr:`GIS (Geographic Information Systems)`, map geometries are typically stored
+    in :term:`ESRI shapefiles <shapefile>`, :term:`GeoJSON`, or :term:`TopoJSON`.
+
+    .. seealso::
+
+      * :term:`GeoJSON`
+      * :term:`TopoJSON`
+      * :term:`Shapefile`
+      * :mod:`highcharts_maps.utility_classes.geojson`
+      * :mod:`highcharts_maps.utility_classes.topojson`
+      * :mod:`highcharts_maps.options.series.data.map_data`
+
+  Map Inset
+    A map inset is a secondary map represented alongside a primary map. It is typically
+    used to depict either non-contiguous areas (e.g. you might have a map of the United
+    States, with the states of Alaska and Hawaii represented as insets on the map) or to
+    depict a more detailed representation of a particular area (e.g. you might have a
+    primary map showing data at a country level, but then you may have an inset that
+    zooms in on a particular province or city with different data depicted).
+
+    .. seealso::
+
+      * :class:`highcharts_maps.options.map_views.insets.Inset`
+      * :class:`highcharts_maps.options.map_views.insets.InsetOptions`
+      * :mod:`highcharts_maps.options.map_views`
+
+  Map Line
+    Map Lines are a special version of a :term:`map` series where the value affects the
+    the strokes (borders) shown on the map, rather than the area fills.
+
+    .. figure:: ../../../_static/mapline-example.png
+      :alt: Mapline Example chart
+      :align: center
+
+    .. tip::
+
+      **Best practice!**
+
+      This can be useful for applying free-form drawing within a map, or for rendering
+      geometric features like rivers or mountains in your map.
+
+    .. seealso::
+
+      * :class:`highcharts_maps.options.series.mapline.MapLineSeries`
+      * :class:`highcharts_maps.options.plot_options.mapline.MapLineOptions`
+
+  Map Point
+    Map Points are a special version of a :term:`scatter` series where the points are
+    positioned according to geographic coordinates within a map.
+
+    .. figure:: ../../../_static/mappoint-example.png
+      :alt: Map Point Example chart
+      :align: center
+
+    .. tip::
+
+      **Best practice!**
+
+      This can be very useful for rendering cities or other locations on your map.
+
+    .. seealso::
+
+      * :class:`highcharts_maps.options.series.mappoint.MapPointSeries`
+      * :class:`highcharts_maps.options.plot_options.mappoint.MapPointOptions`
 
   Metaclass
     A Python class that is used to define properties and methods - including abstract
@@ -365,6 +495,47 @@ Glossary
     :term:`Cartesian charts` (the X-axis is typically wrapped around their perimeter),
     they are usually treated and considered their own category of data visualization.
 
+  Projection
+    All maps are projections of a three-dimensional object (a globe) onto a
+    two-dimensional plane (a map). Any such projection will in some ways distort the
+    proportions of the areas depicted, and you may want to apply a different projection
+    to better communicate insights from your data. Projections are applied and manipulated
+    by recalculating coordinates in one coordinate reference system to a different
+    coordinate reference system.
+
+    The projection that is used when depicting a **Highcharts Maps for Python**
+    visualization are configured using the
+    :meth:`MapViewOptions.projection <highcharts_maps.options.map_views.MapViewOptions.projection>`
+    property, which takes a
+    :class:`ProjectionOptions <highcharts_maps.utility_classes.projections.ProjectionOptions>`
+    instance.
+
+    **Highcharts for Maps** supports both a number of built-in projections as well as
+    providing the ability to apply a fully custom projection. The default projections
+    supported are:
+
+      * ``'EqualEarth'``
+      * ``'LambertConformalConic'``
+      * ``'Miller'``
+      * ``'Orthographic'``
+      * ``'WebMercator'``
+
+    which can be compared using
+    `Highcharts Projection Explorer demo <https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/maps/mapview/projection-explorer>`__
+
+    If you wish to define a custom projection (which is calculated client-side in your
+    JavaScript code), you can do so by supplying a
+    :class:`CustomProjection <highcharts_maps.utility_classes.projections.CustomProjection>`
+    instance to
+    :class:`MapViewOptions.custom <highcharts_maps.options.map_views.MapViewOptions.custom>`.
+
+    .. seealso::
+
+      * :ref:`Using Custom Projections <custom_projections>`
+      * `Highcharts Projection Explorer demo <https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/maps/mapview/projection-explorer>`__
+      * :class:`ProjectionOptions <highcharts_maps.utility_classes.projections.ProjectionOptions>`
+      * :class:`CustomProjection <highcharts_maps.utility_classes.projections.CustomProjection>`
+
   Sankey Chart
     A sankey diagram is a type of flow diagram, in which the width of the link between
     two nodes is shown proportionally to the flow quantity.
@@ -402,6 +573,18 @@ Glossary
     .. tip::
 
       Think of a "series" as one line on a line chart.
+
+  Shapefile
+    Shapefiles are a way of encoding :term:`map geometries <map geometry>` developed by
+    `ESRI <https://www.esri.com/>`__. They are a proprietary format, but with an
+    openly-published standard definition.
+
+    .. seealso::
+
+      * :term:`Map Geometry`
+      * :term:`Topology`
+      * :term:`GeoJSON`
+      * :term:`TopoJSON`
 
   Shared Options
     Shared Options are global configurations that are applied to all Highcharts
@@ -502,6 +685,61 @@ Glossary
       * :meth:`SeriesBase.add_indicator() <highcharts_maps.options.series.SeriesBase.add_indicator>`
       * :meth:`SeriesBase.get_indicator() <highcharts_maps.options.series.SeriesBase.get_indicator>`
       * :meth:`Chart.add_indicator() <highcharts_maps.chart.Chart.add_indicator>`
+
+  TopoJSON
+    TopoJSON is an extension to the :term:`GeoJSON` standard which encodes
+    :term:`topologies <topology>` rather than :term:`geometries <map geometry>`.
+
+    By stitching together line segments into discrete *arcs*, TopoJSON eliminates
+    redundant data that would otherwise be present in a :term:`GeoJSON` representation of
+    a given map geometry.
+
+    A good example of how TopoJSON achieves this is to consider the border between two
+    countries. If represented as a :term:`map geometry`, the border where Country A
+    touches Country B will be represented twice: once in the geometry that defines Country
+    A, and once in the geometry that defines Country B. In TopoJSON, that portion of the
+    border where Country A and Country B touch will be represented *once*, eliminating
+    redundant data.
+
+    :term:`Map geometries <map geometry>` can be converted to TopoJSON, leading to a
+    significant reduction in the size of the geographic data.
+
+    .. note::
+
+      **Highcharts Maps for Python** treats :term:`map geometries <map geometry>` as
+      :term:`TopoJSON` by default, converting to the format as necessary.
+
+    .. seealso::
+
+      * :term:`GeoJSON`
+      * :term:`Map Geometry`
+      * :mod:`highcharts_maps.utility_classes.topojson`
+      * :mod:`highcharts_maps.utility_classes.geojson`
+      * :mod:`highcharts_maps.options.series.data.map_data`
+
+  Topology
+    An optimized set of information which can be used to define and render a collection of
+    map areas or features. While it achieves the same goal as a :term:`map geometry`, it
+    is a representation of coordinate-based data that is far more efficient thanks to the
+    elimination of redundant data.
+
+    A good example of how topologies achieve this can be envisioned when considering two
+    countries: Country A and Country B. Let's imagine a scenario where Country A and
+    Country B are neighbors, and they share a border.
+
+    If represented as a  :term:`map geometry`, the border where Country A touches Country
+    B will be represented  twice: once in the geometry that defines Country A, and once in
+    the geometry that defines Country B. When represented as a topology, that section of
+    border shared between Country A and Country B will only be represented *once* and will
+    be shared by both countries.
+
+    .. seealso::
+
+      * :term:`TopoJSON`
+      * :term:`Map Geometry`
+      * :mod:`highcharts_maps.utility_classes.topojson>`
+      * :mod:`highcharts_maps.utility_classes.geojson>`
+      * :mod:`highcharts_maps.options.series.data.map_data`
 
   Untrimmed
 

@@ -67,8 +67,8 @@ library features native integration with:
     dataframe.
   * **GeoPandas**. Automatically incorporate GIS / map visualizations with data from your
     GeoPandas GeoDataFrames.
-  * **Topojson**. Automatically visualizes :term:`TopoJSON` :term:`map geometries`.
-  * **Geojson**. Automatically visualizes :term:`GeoJSON` :term:`map geometries`.
+  * **Topojson**. Automatically visualizes :term:`TopoJSON` :term:`map geometries <map geometry>`.
+  * **Geojson**. Automatically visualizes :term:`GeoJSON` :term:`map geometries <map geometry>`.
 
 .. contents::
   :depth: 3
@@ -168,7 +168,7 @@ Key Highcharts Maps for Python Features
   asynchronous client-side retrieval of your map data.
 * **Automatic TopoJSON Optimization**. To minimize the amount of data transferred over
   the wire, **Highcharts Maps for Python** automatically converts your
-  :term:`map geometries` to highly-efficient :term:`TopoJSON` :term:`topologies` while
+  :term:`map geometries <map geometry>` to highly-efficient :term:`TopoJSON` :term:`topologies` while
   still allowing you to work with :term:`GeoJSON` data if you choose to.
 * **Integration with GeoPandas, Pandas, and PySpark**. With two lines of code, produce a
   high-end interactive visualization of your GeoPandas, Pandas, or PySpark dataframes.

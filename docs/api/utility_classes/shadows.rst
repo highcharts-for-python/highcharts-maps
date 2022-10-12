@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.shadows <highcharts_stock.utility_classes.shadows>`
+:mod:`.shadows <highcharts_maps.utility_classes.shadows>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.utility_classes.shadows
+.. module:: highcharts_maps.utility_classes.shadows
 
 ********************************************************************************************************************
-class: :class:`ShadowOptions <highcharts_stock.utility_classes.shadows.ShadowOptions>`
+class: :class:`ShadowOptions <highcharts_maps.utility_classes.shadows.ShadowOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: ShadowOptions
@@ -22,7 +22,7 @@ class: :class:`ShadowOptions <highcharts_stock.utility_classes.shadows.ShadowOpt
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ShadowOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

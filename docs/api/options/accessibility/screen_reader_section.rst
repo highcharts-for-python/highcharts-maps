@@ -1,5 +1,5 @@
 #################################################################################################
-:mod:`.screen_reader_section <highcharts_stock.options.accessibility.screen_reader_section>`
+:mod:`.screen_reader_section <highcharts_maps.options.accessibility.screen_reader_section>`
 #################################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.accessibility.screen_reader_section
+.. module:: highcharts_maps.options.accessibility.screen_reader_section
 
 **********************************************************************************************************************************************
-class: :class:`ScreenReaderSection <highcharts_stock.options.accessibility.screen_reader_section.ScreenReaderSection>`
+class: :class:`ScreenReaderSection <highcharts_maps.options.accessibility.screen_reader_section.ScreenReaderSection>`
 **********************************************************************************************************************************************
 
 .. autoclass:: ScreenReaderSection
@@ -22,7 +22,7 @@ class: :class:`ScreenReaderSection <highcharts_stock.options.accessibility.scree
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ScreenReaderSection
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

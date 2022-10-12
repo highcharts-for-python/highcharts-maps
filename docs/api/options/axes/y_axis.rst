@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.y_axis <highcharts_stock.options.axes.y_axis>`
+:mod:`.y_axis <highcharts_maps.options.axes.y_axis>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.axes.y_axis
+.. module:: highcharts_maps.options.axes.y_axis
 
 ********************************************************************************************************************
-class: :class:`YAxis <highcharts_stock.options.axes.y_axis.YAxis>`
+class: :class:`YAxis <highcharts_maps.options.axes.y_axis.YAxis>`
 ********************************************************************************************************************
 
 .. autoclass:: YAxis
@@ -22,7 +22,7 @@ class: :class:`YAxis <highcharts_stock.options.axes.y_axis.YAxis>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: YAxis
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

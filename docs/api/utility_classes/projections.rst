@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.resize <highcharts_stock.options.axes.resize>`
+:mod:`.projections <highcharts_maps.utility_classes.projections>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,38 +9,38 @@
 
 --------------
 
-.. module:: highcharts_stock.options.axes.resize
+.. module:: highcharts_maps.utility_classes.projections
 
 ********************************************************************************************************************
-class: :class:`ResizeOptions <highcharts_stock.options.axes.resize.ResizeOptions>`
+class: :class:`ProjectionOptions <highcharts_maps.utility_classes.projections.ProjectionOptions>`
 ********************************************************************************************************************
 
-.. autoclass:: ResizeOptions
+.. autoclass:: ProjectionOptions
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: ResizeOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: ProjectionOptions
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
 
--------------------------
+----------------------
 
 ********************************************************************************************************************
-class: :class:`ControlledAxis <highcharts_stock.options.axes.resize.ControlledAxis>`
+class: :class:`CustomProjection <highcharts_maps.utility_classes.projections.CustomProjection>`
 ********************************************************************************************************************
 
-.. autoclass:: ControlledAxis
+.. autoclass:: CustomProjection
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: ControlledAxis
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: CustomProjection
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

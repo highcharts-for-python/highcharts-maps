@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.bubble_legend <highcharts_stock.options.legend.bubble_legend>`
+:mod:`.bubble_legend <highcharts_maps.options.legend.bubble_legend>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.legend.bubble_legend
+.. module:: highcharts_maps.options.legend.bubble_legend
 
 ********************************************************************************************************************
-class: :class:`BubbleLegend <highcharts_stock.options.legend.bubble_legend.BubbleLegend>`
+class: :class:`BubbleLegend <highcharts_maps.options.legend.bubble_legend.BubbleLegend>`
 ********************************************************************************************************************
 
 .. autoclass:: BubbleLegend
@@ -22,7 +22,7 @@ class: :class:`BubbleLegend <highcharts_stock.options.legend.bubble_legend.Bubbl
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BubbleLegend
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`BubbleLegend <highcharts_stock.options.legend.bubble_legend.Bubbl
 ------------------
 
 ********************************************************************************************************************
-class: :class:`BubbleLegendRange <highcharts_stock.options.legend.bubble_legend.BubbleLegendRange>`
+class: :class:`BubbleLegendRange <highcharts_maps.options.legend.bubble_legend.BubbleLegendRange>`
 ********************************************************************************************************************
 
 .. autoclass:: BubbleLegendRange
@@ -40,7 +40,7 @@ class: :class:`BubbleLegendRange <highcharts_stock.options.legend.bubble_legend.
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BubbleLegendRange
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -48,7 +48,7 @@ class: :class:`BubbleLegendRange <highcharts_stock.options.legend.bubble_legend.
 -----------------
 
 ********************************************************************************************************************
-class: :class:`BubbleLegendLabelOptions <highcharts_stock.options.legend.bubble_legend.BubbleLegendLabelOptions>`
+class: :class:`BubbleLegendLabelOptions <highcharts_maps.options.legend.bubble_legend.BubbleLegendLabelOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: BubbleLegendLabelOptions
@@ -58,7 +58,7 @@ class: :class:`BubbleLegendLabelOptions <highcharts_stock.options.legend.bubble_
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BubbleLegendLabelOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

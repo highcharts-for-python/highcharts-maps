@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.partial_fill <highcharts_stock.utility_classes.partial_fill>`
+:mod:`.partial_fill <highcharts_maps.utility_classes.partial_fill>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.utility_classes.partial_fill
+.. module:: highcharts_maps.utility_classes.partial_fill
 
 ********************************************************************************************************************
-class: :class:`PartialFillOptions <highcharts_stock.utility_classes.partial_fill.PartialFillOptions>`
+class: :class:`PartialFillOptions <highcharts_maps.utility_classes.partial_fill.PartialFillOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: PartialFillOptions
@@ -22,7 +22,7 @@ class: :class:`PartialFillOptions <highcharts_stock.utility_classes.partial_fill
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PartialFillOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

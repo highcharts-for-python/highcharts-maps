@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.data_classes <highcharts_stock.options.axes.data_classes>`
+:mod:`.data_classes <highcharts_maps.options.axes.data_classes>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.axes.data_classes
+.. module:: highcharts_maps.options.axes.data_classes
 
 ********************************************************************************************************************
-class: :class:`DataClass <highcharts_stock.options.axes.data_classes.DataClass>`
+class: :class:`DataClass <highcharts_maps.options.axes.data_classes.DataClass>`
 ********************************************************************************************************************
 
 .. autoclass:: DataClass
@@ -22,7 +22,7 @@ class: :class:`DataClass <highcharts_stock.options.axes.data_classes.DataClass>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DataClass
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

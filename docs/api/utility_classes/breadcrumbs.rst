@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.breadcrumbs <highcharts_stock.utility_classes.breadcrumbs>`
+:mod:`.breadcrumbs <highcharts_maps.utility_classes.breadcrumbs>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.utility_classes.breadcrumbs
+.. module:: highcharts_maps.utility_classes.breadcrumbs
 
 ********************************************************************************************************************
-class: :class:`BreadcrumbOptions <highcharts_stock.utility_classes.breadcrumbs.BreadcrumbOptions>`
+class: :class:`BreadcrumbOptions <highcharts_maps.utility_classes.breadcrumbs.BreadcrumbOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: BreadcrumbOptions
@@ -22,7 +22,7 @@ class: :class:`BreadcrumbOptions <highcharts_stock.utility_classes.breadcrumbs.B
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BreadcrumbOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`BreadcrumbOptions <highcharts_stock.utility_classes.breadcrumbs.B
 ---------------
 
 ********************************************************************************************************************
-class: :class:`Separator <highcharts_stock.utility_classes.breadcrumbs.Separator>`
+class: :class:`Separator <highcharts_maps.utility_classes.breadcrumbs.Separator>`
 ********************************************************************************************************************
 
 .. autoclass:: Separator
@@ -40,7 +40,7 @@ class: :class:`Separator <highcharts_stock.utility_classes.breadcrumbs.Separator
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Separator
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

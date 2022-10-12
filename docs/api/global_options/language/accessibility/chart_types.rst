@@ -1,5 +1,5 @@
 #########################################################################################################
-:mod:`.chart_types <highcharts_stock.global_options.language.accessibility.chart_types>`
+:mod:`.chart_types <highcharts_maps.global_options.language.accessibility.chart_types>`
 #########################################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.global_options.language.accessibility.chart_types
+.. module:: highcharts_maps.global_options.language.accessibility.chart_types
 
 *************************************************************************************************************************************************************
-class: :class:`ChartTypesLanguageOptions <highcharts_stock.global_options.language.accessibility.chart_types.ChartTypesLanguageOptions>`
+class: :class:`ChartTypesLanguageOptions <highcharts_maps.global_options.language.accessibility.chart_types.ChartTypesLanguageOptions>`
 *************************************************************************************************************************************************************
 
 .. autoclass:: ChartTypesLanguageOptions
@@ -22,7 +22,7 @@ class: :class:`ChartTypesLanguageOptions <highcharts_stock.global_options.langua
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ChartTypesLanguageOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

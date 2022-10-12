@@ -1,7 +1,7 @@
   *Explicit is better than implicit.*
   -- The Zen of Python
 
-`Highcharts Stock <https://www.highcharts.com/products/stock/>`__ has a *lot* of default
+`Highcharts Maps <https://www.highcharts.com/products/maps/>`__ has a *lot* of default
 values. These default values are generally applied if a JavaScript property is
 ``undefined`` (missing or otherwise not specified), which is different from the JavaScript
 value of ``null``.
@@ -16,21 +16,21 @@ While my Pythonic instinct is to:
 doing so would introduce a massive problem: It would bloat data transferred on the wire
 *unnecessarily*.
 
-The way that `Highcharts Stock <https://www.highcharts.com/products/stock/>`__ handles
+The way that `Highcharts Maps <https://www.highcharts.com/products/maps/>`__ handles
 defaults is an elegant compromise between explicitness and the practical reality of making
 your code readable. Why make a property explicit in a configuration string if you don't
 care about it? Purity is only valuable to a point. And with thousands of properties across
 the `Highcharts JS <https://www.highcharts.com/products/highcharts/>`__ and
-`Highcharts Stock <https://www.highcharts.com/products/stock/>`__ libraries, *nobody*
+`Highcharts Maps <https://www.highcharts.com/products/maps/>`__ libraries, *nobody*
 wants to transmit or maintain thousands of property configurations if it can be avoided.
 
 For that reason, the **Highcharts for Python** toolkit explicitly breaks Pythonic
 convention: when an object's property returns :obj:`None <python:None>`, that has the
-equivalent meaning of "Highcharts JS/Stock will apply the Highcharts default for this
+equivalent meaning of "Highcharts JS/Maps will apply the Highcharts default for this
 property". These properties will *not* be serialized, either to a JS literal, nor to a
 :class:`dict <python:dict>`, nor to JSON. This has the advantage of maintaining consistent
 behavior with `Highcharts JS <https://www.highcharts.com/products/highcharts/>`__ and
-`Highcharts Stock <https://www.highcharts.com/products/stock/>`__ while still providing an
+`Highcharts Maps <https://www.highcharts.com/products/maps/>`__ while still providing an
 internally consistent logic to follow.
 
 .. note::

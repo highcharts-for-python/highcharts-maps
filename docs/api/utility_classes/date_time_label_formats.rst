@@ -1,5 +1,5 @@
 ###############################################################################################
-:mod:`.date_time_label_formats <highcharts_stock.utility_classes.date_time_label_formats>`
+:mod:`.date_time_label_formats <highcharts_maps.utility_classes.date_time_label_formats>`
 ###############################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.utility_classes.date_time_label_formats
+.. module:: highcharts_maps.utility_classes.date_time_label_formats
 
 ************************************************************************************************************************
-class: :class:`DateTimeLabelFormats <highcharts_stock.utility_classes.date_time_label_formats.DateTimeLabelFormats>`
+class: :class:`DateTimeLabelFormats <highcharts_maps.utility_classes.date_time_label_formats.DateTimeLabelFormats>`
 ************************************************************************************************************************
 
 .. autoclass:: DateTimeLabelFormats
@@ -22,7 +22,7 @@ class: :class:`DateTimeLabelFormats <highcharts_stock.utility_classes.date_time_
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DateTimeLabelFormats
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

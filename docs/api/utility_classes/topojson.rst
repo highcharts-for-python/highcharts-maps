@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.last_price <highcharts_stock.utility_classes.last_price>`
+:mod:`.topojson <highcharts_maps.utility_classes.topojson>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,20 +9,20 @@
 
 --------------
 
-.. module:: highcharts_stock.utility_classes.last_price
+.. module:: highcharts_maps.utility_classes.topojson
 
 ********************************************************************************************************************
-class: :class:`LastPriceOptions <highcharts_stock.utility_classes.last_price.LastPriceOptions>`
+class: :class:`Topology <highcharts_maps.utility_classes.topojson.Topology>`
 ********************************************************************************************************************
 
-.. autoclass:: LastPriceOptions
+.. autoclass:: Topology
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: LastPriceOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: Topology
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

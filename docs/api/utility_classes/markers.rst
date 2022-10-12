@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.markers <highcharts_stock.utility_classes.markers>`
+:mod:`.markers <highcharts_maps.utility_classes.markers>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.utility_classes.markers
+.. module:: highcharts_maps.utility_classes.markers
 
 ********************************************************************************************************************
-class: :class:`Marker <highcharts_stock.utility_classes.markers.Marker>`
+class: :class:`Marker <highcharts_maps.utility_classes.markers.Marker>`
 ********************************************************************************************************************
 
 .. autoclass:: Marker
@@ -22,7 +22,7 @@ class: :class:`Marker <highcharts_stock.utility_classes.markers.Marker>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Marker
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

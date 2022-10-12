@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.boost <highcharts_stock.options.boost>`
+:mod:`.boost <highcharts_maps.options.boost>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.boost
+.. module:: highcharts_maps.options.boost
 
 ********************************************************************************************************************
-class: :class:`Boost <highcharts_stock.options.boost.Boost>`
+class: :class:`Boost <highcharts_maps.options.boost.Boost>`
 ********************************************************************************************************************
 
 .. autoclass:: Boost
@@ -22,7 +22,7 @@ class: :class:`Boost <highcharts_stock.options.boost.Boost>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Boost
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`Boost <highcharts_stock.options.boost.Boost>`
 ----------------------------
 
 ********************************************************************************************************************
-class: :class:`BoostDebug <highcharts_stock.options.boost.BoostDebug>`
+class: :class:`BoostDebug <highcharts_maps.options.boost.BoostDebug>`
 ********************************************************************************************************************
 
 .. autoclass:: BoostDebug
@@ -40,7 +40,7 @@ class: :class:`BoostDebug <highcharts_stock.options.boost.BoostDebug>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BoostDebug
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

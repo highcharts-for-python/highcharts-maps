@@ -1,5 +1,5 @@
 #########################################################################################################
-:mod:`.table <highcharts_stock.global_options.language.accessibility.table>`
+:mod:`.table <highcharts_maps.global_options.language.accessibility.table>`
 #########################################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.global_options.language.accessibility.table
+.. module:: highcharts_maps.global_options.language.accessibility.table
 
 *************************************************************************************************************************************************************
-class: :class:`TableLanguageOptions <highcharts_stock.global_options.language.accessibility.table.TableLanguageOptions>`
+class: :class:`TableLanguageOptions <highcharts_maps.global_options.language.accessibility.table.TableLanguageOptions>`
 *************************************************************************************************************************************************************
 
 .. autoclass:: TableLanguageOptions
@@ -22,7 +22,7 @@ class: :class:`TableLanguageOptions <highcharts_stock.global_options.language.ac
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: TableLanguageOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

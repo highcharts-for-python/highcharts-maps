@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.data_grouping <highcharts_stock.utility_classes.data_grouping>`
+:mod:`.data_grouping <highcharts_maps.utility_classes.data_grouping>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.utility_classes.data_grouping
+.. module:: highcharts_maps.utility_classes.data_grouping
 
 ********************************************************************************************************************
-class: :class:`DataGroupingOptions <highcharts_stock.utility_classes.data_grouping.DataGroupingOptions>`
+class: :class:`DataGroupingOptions <highcharts_maps.utility_classes.data_grouping.DataGroupingOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: DataGroupingOptions
@@ -22,7 +22,7 @@ class: :class:`DataGroupingOptions <highcharts_stock.utility_classes.data_groupi
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DataGroupingOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

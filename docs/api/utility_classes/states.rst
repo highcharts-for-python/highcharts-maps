@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.states <highcharts_stock.utility_classes.states>`
+:mod:`.states <highcharts_maps.utility_classes.states>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.utility_classes.states
+.. module:: highcharts_maps.utility_classes.states
 
 ********************************************************************************************************************
-class: :class:`States <highcharts_stock.utility_classes.states.States>`
+class: :class:`States <highcharts_maps.utility_classes.states.States>`
 ********************************************************************************************************************
 
 .. autoclass:: States
@@ -22,7 +22,7 @@ class: :class:`States <highcharts_stock.utility_classes.states.States>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: States
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`States <highcharts_stock.utility_classes.states.States>`
 --------------------
 
 ********************************************************************************************************************
-class: :class:`HoverState <highcharts_stock.utility_classes.states.HoverState>`
+class: :class:`HoverState <highcharts_maps.utility_classes.states.HoverState>`
 ********************************************************************************************************************
 
 .. autoclass:: HoverState
@@ -40,7 +40,7 @@ class: :class:`HoverState <highcharts_stock.utility_classes.states.HoverState>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: HoverState
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -48,7 +48,7 @@ class: :class:`HoverState <highcharts_stock.utility_classes.states.HoverState>`
 ----------------
 
 ********************************************************************************************************************
-class: :class:`InactiveState <highcharts_stock.utility_classes.states.InactiveState>`
+class: :class:`InactiveState <highcharts_maps.utility_classes.states.InactiveState>`
 ********************************************************************************************************************
 
 .. autoclass:: InactiveState
@@ -58,7 +58,7 @@ class: :class:`InactiveState <highcharts_stock.utility_classes.states.InactiveSt
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: InactiveState
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -66,7 +66,7 @@ class: :class:`InactiveState <highcharts_stock.utility_classes.states.InactiveSt
 ---------------------
 
 ********************************************************************************************************************
-class: :class:`NormalState <highcharts_stock.utility_classes.states.NormalState>`
+class: :class:`NormalState <highcharts_maps.utility_classes.states.NormalState>`
 ********************************************************************************************************************
 
 .. autoclass:: NormalState
@@ -76,7 +76,7 @@ class: :class:`NormalState <highcharts_stock.utility_classes.states.NormalState>
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: NormalState
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -84,7 +84,7 @@ class: :class:`NormalState <highcharts_stock.utility_classes.states.NormalState>
 ---------------
 
 ********************************************************************************************************************
-class: :class:`SelectState <highcharts_stock.utility_classes.states.SelectState>`
+class: :class:`SelectState <highcharts_maps.utility_classes.states.SelectState>`
 ********************************************************************************************************************
 
 .. autoclass:: SelectState
@@ -94,7 +94,7 @@ class: :class:`SelectState <highcharts_stock.utility_classes.states.SelectState>
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SelectState
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

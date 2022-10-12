@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.position <highcharts_stock.utility_classes.position>`
+:mod:`.position <highcharts_maps.utility_classes.position>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.utility_classes.position
+.. module:: highcharts_maps.utility_classes.position
 
 ********************************************************************************************************************
-class: :class:`Position <highcharts_stock.utility_classes.position.Position>`
+class: :class:`Position <highcharts_maps.utility_classes.position.Position>`
 ********************************************************************************************************************
 
 .. autoclass:: Position
@@ -22,7 +22,7 @@ class: :class:`Position <highcharts_stock.utility_classes.position.Position>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Position
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

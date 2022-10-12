@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.points <highcharts_stock.options.annotations.points>`
+:mod:`.points <highcharts_maps.options.annotations.points>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.annotations.points
+.. module:: highcharts_maps.options.annotations.points
 
 ********************************************************************************************************
-class: :class:`AnnotationPoint <highcharts_stock.options.annotations.points.AnnotationPoint>`
+class: :class:`AnnotationPoint <highcharts_maps.options.annotations.points.AnnotationPoint>`
 ********************************************************************************************************
 
 .. autoclass:: AnnotationPoint
@@ -22,7 +22,7 @@ class: :class:`AnnotationPoint <highcharts_stock.options.annotations.points.Anno
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AnnotationPoint
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

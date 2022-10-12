@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.responsive <highcharts_stock.options.responsive>`
+:mod:`.responsive <highcharts_maps.options.responsive>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.responsive
+.. module:: highcharts_maps.options.responsive
 
 ********************************************************************************************************************
-class: :class:`Responsive <highcharts_stock.options.responsive.Responsive>`
+class: :class:`Responsive <highcharts_maps.options.responsive.Responsive>`
 ********************************************************************************************************************
 
 .. autoclass:: Responsive
@@ -22,7 +22,7 @@ class: :class:`Responsive <highcharts_stock.options.responsive.Responsive>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Responsive
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`Responsive <highcharts_stock.options.responsive.Responsive>`
 -----------------
 
 ********************************************************************************************************************
-class: :class:`ResponsiveRules <highcharts_stock.options.responsive.ResponsiveRules>`
+class: :class:`ResponsiveRules <highcharts_maps.options.responsive.ResponsiveRules>`
 ********************************************************************************************************************
 
 .. autoclass:: ResponsiveRules
@@ -40,7 +40,7 @@ class: :class:`ResponsiveRules <highcharts_stock.options.responsive.ResponsiveRu
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ResponsiveRules
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -48,7 +48,7 @@ class: :class:`ResponsiveRules <highcharts_stock.options.responsive.ResponsiveRu
 --------------------
 
 ********************************************************************************************************************
-class: :class:`Condition <highcharts_stock.options.responsive.Condition>`
+class: :class:`Condition <highcharts_maps.options.responsive.Condition>`
 ********************************************************************************************************************
 
 .. autoclass:: Condition
@@ -58,7 +58,7 @@ class: :class:`Condition <highcharts_stock.options.responsive.Condition>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Condition
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.title <highcharts_stock.options.legend.title>`
+:mod:`.title <highcharts_maps.options.legend.title>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.legend.title
+.. module:: highcharts_maps.options.legend.title
 
 ********************************************************************************************************************
-class: :class:`LegendTitle <highcharts_stock.options.legend.title.LegendTitle>`
+class: :class:`LegendTitle <highcharts_maps.options.legend.title.LegendTitle>`
 ********************************************************************************************************************
 
 .. autoclass:: LegendTitle
@@ -22,7 +22,7 @@ class: :class:`LegendTitle <highcharts_stock.options.legend.title.LegendTitle>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: LegendTitle
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

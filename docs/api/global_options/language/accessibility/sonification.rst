@@ -1,5 +1,5 @@
 #########################################################################################################
-:mod:`.sonification <highcharts_stock.global_options.language.accessibility.sonification>`
+:mod:`.sonification <highcharts_maps.global_options.language.accessibility.sonification>`
 #########################################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.global_options.language.accessibility.sonification
+.. module:: highcharts_maps.global_options.language.accessibility.sonification
 
 *************************************************************************************************************************************************************
-class: :class:`SonificationLanguageOptions <highcharts_stock.global_options.language.accessibility.sonification.SonificationLanguageOptions>`
+class: :class:`SonificationLanguageOptions <highcharts_maps.global_options.language.accessibility.sonification.SonificationLanguageOptions>`
 *************************************************************************************************************************************************************
 
 .. autoclass:: SonificationLanguageOptions
@@ -22,7 +22,7 @@ class: :class:`SonificationLanguageOptions <highcharts_stock.global_options.lang
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SonificationLanguageOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

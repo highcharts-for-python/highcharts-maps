@@ -1,5 +1,5 @@
 ##################################################
-:mod:`.chart <highcharts_stock.chart>`
+:mod:`.chart <highcharts_maps.chart>`
 ##################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.chart
+.. module:: highcharts_maps.chart
 
 ******************************************************
-class: :class:`Chart <highcharts_stock.chart.Chart>`
+class: :class:`Chart <highcharts_maps.chart.Chart>`
 ******************************************************
 
 .. autoclass:: Chart
@@ -22,7 +22,7 @@ class: :class:`Chart <highcharts_stock.chart.Chart>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Chart
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

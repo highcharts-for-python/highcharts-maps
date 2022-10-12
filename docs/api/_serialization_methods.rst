@@ -2,7 +2,7 @@
   .. method:: to_js_literal(self, filename = None, encoding = 'utf-8')
     :noindex:
 
-    Convert the **Highcharts Stock for Python** instance to Highcharts Stock-compatible
+    Convert the **Highcharts Maps for Python** instance to Highcharts Maps-compatible
     JavaScript code using :term:`JavaScript object literal notation`.
 
     :param filename: If supplied, persists the JavaScript code to the file indicated.
@@ -13,7 +13,7 @@
       literal string. Defaults to ``'utf-8'``.
     :type encoding: :class:`str <python:str>`
 
-    :returns: Highcharts Stock-compatible JavaScript code using
+    :returns: Highcharts Maps-compatible JavaScript code using
       :term:`JavaScript object literal notation`.
     :rtype: :class:`str <python:str>`
 
@@ -21,7 +21,7 @@
   .. method:: to_json(self, filename = None, encoding = 'utf-8')
     :noindex:
 
-    Convert the **Highcharts Stock for Python** instance to Highcharts Stock-compatible
+    Convert the **Highcharts Maps for Python** instance to Highcharts Maps-compatible
     JSON.
 
     .. warning::
@@ -30,7 +30,7 @@
       :term:`JavaScript object literal notation`. In particular, it cannot include
       JavaScript functions. This means if you try to convert a Highcharts for Python object
       to JSON, any properties that are
-      :class:`CallbackFunction <highcharts_stock.utility_classes.javascript_functions.CallbackFunction>`
+      :class:`CallbackFunction <highcharts_maps.utility_classes.javascript_functions.CallbackFunction>`
       instances will not be included. If you want to convert those functions, please use
       ``.to_js_literal()`` instead.
 
@@ -42,12 +42,12 @@
       Defaults to ``'utf-8'``.
     :type encoding: :class:`str <python:str>`
 
-    :returns: Highcharts Stock-compatible JSON representation of the object.
+    :returns: Highcharts Maps-compatible JSON representation of the object.
     :rtype: :class:`str <python:str>` or :class:`bytes <python:bytes>`
 
       .. note::
 
-        **Highcharts Stock for Python** works with different JSON encoders. If your
+        **Highcharts Maps for Python** works with different JSON encoders. If your
         environment has `orjson <https://github.com/ijl/orjson>`_, for example, the result
         will be returned as a :class:`bytes <python:bytes>` instance. Otherwise, the
         library will fallback to various other JSON encoders until finally falling back to
@@ -57,8 +57,8 @@
   .. method:: to_dict(self)
     :noindex:
 
-    Convert the **Highcharts Stock for Python** object into a Highcharts Stock-compatible
+    Convert the **Highcharts Maps for Python** object into a Highcharts Maps-compatible
     :class:`dict <python:dict>` object.
 
-    :returns: Highcharts Stock-compatible :class:`dict <python:dict>` object
+    :returns: Highcharts Maps-compatible :class:`dict <python:dict>` object
     :rtype: :class:`dict <python:dict>`

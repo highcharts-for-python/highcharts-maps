@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.accessibility <highcharts_stock.options.axes.accessibility>`
+:mod:`.accessibility <highcharts_maps.options.axes.accessibility>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.axes.accessibility
+.. module:: highcharts_maps.options.axes.accessibility
 
 ********************************************************************************************************************
-class: :class:`AxisAccessibility <highcharts_stock.options.axes.accessibility.AxisAccessibility>`
+class: :class:`AxisAccessibility <highcharts_maps.options.axes.accessibility.AxisAccessibility>`
 ********************************************************************************************************************
 
 .. autoclass:: AxisAccessibility
@@ -22,7 +22,7 @@ class: :class:`AxisAccessibility <highcharts_stock.options.axes.accessibility.Ax
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AxisAccessibility
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

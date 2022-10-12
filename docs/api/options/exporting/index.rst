@@ -1,5 +1,5 @@
 ################################################################
-:mod:`.exporting <highcharts_stock.options.exporting>`
+:mod:`.exporting <highcharts_maps.options.exporting>`
 ################################################################
 
 .. contents:: Module Contents
@@ -15,10 +15,10 @@
 
 -------------------------
 
-.. module:: highcharts_stock.options.exporting
+.. module:: highcharts_maps.options.exporting
 
 ********************************************************************************************************************
-class: :class:`Exporting <highcharts_stock.options.exporting.Exporting>`
+class: :class:`Exporting <highcharts_maps.options.exporting.Exporting>`
 ********************************************************************************************************************
 
 .. autoclass:: Exporting
@@ -28,7 +28,7 @@ class: :class:`Exporting <highcharts_stock.options.exporting.Exporting>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Exporting
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -36,7 +36,7 @@ class: :class:`Exporting <highcharts_stock.options.exporting.Exporting>`
 -------------------------
 
 ********************************************************************************************************************
-class: :class:`ExportingAccessibilityOptions <highcharts_stock.options.exporting.ExportingAccessibilityOptions>`
+class: :class:`ExportingAccessibilityOptions <highcharts_maps.options.exporting.ExportingAccessibilityOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: ExportingAccessibilityOptions
@@ -46,7 +46,7 @@ class: :class:`ExportingAccessibilityOptions <highcharts_stock.options.exporting
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ExportingAccessibilityOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -63,11 +63,11 @@ Sub-components
 
   * - Module
     - Classes / Functions
-  * - :mod:`.options.exporting <highcharts_stock.options.exporting>`
-    - :class:`Exporting <highcharts_stock.options.exporting.Exporting>`
-      :class:`ExportingAccessibilityOptions <highcharts_stock.options.exporting.ExportingAccessibilityOptions>`
-  * - :mod:`.options.exporting.csv <highcharts_stock.options.exporting.csv>`
-    - :class:`ExportingCSV <highcharts_stock.options.exporting.csv.ExportingCSV>`
-      :class:`CSVAnnotationOptions <highcharts_stock.options.exporting.csv.CSVAnnotationOptions>`
-  * - :mod:`.options.exporting.exporting.pdf_font <highcharts_stock.options.exporting.pdf_font>`
-    - :class:`PDFFontOptions <highcharts_stock.options.exporting.pdf_font.PDFFontOptions>`
+  * - :mod:`.options.exporting <highcharts_maps.options.exporting>`
+    - :class:`Exporting <highcharts_maps.options.exporting.Exporting>`
+      :class:`ExportingAccessibilityOptions <highcharts_maps.options.exporting.ExportingAccessibilityOptions>`
+  * - :mod:`.options.exporting.csv <highcharts_maps.options.exporting.csv>`
+    - :class:`ExportingCSV <highcharts_maps.options.exporting.csv.ExportingCSV>`
+      :class:`CSVAnnotationOptions <highcharts_maps.options.exporting.csv.CSVAnnotationOptions>`
+  * - :mod:`.options.exporting.exporting.pdf_font <highcharts_maps.options.exporting.pdf_font>`
+    - :class:`PDFFontOptions <highcharts_maps.options.exporting.pdf_font.PDFFontOptions>`

@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.z_axis <highcharts_stock.options.axes.z_axis>`
+:mod:`.z_axis <highcharts_maps.options.axes.z_axis>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.axes.z_axis
+.. module:: highcharts_maps.options.axes.z_axis
 
 ********************************************************************************************************************
-class: :class:`ZAxis <highcharts_stock.options.axes.z_axis.ZAxis>`
+class: :class:`ZAxis <highcharts_maps.options.axes.z_axis.ZAxis>`
 ********************************************************************************************************************
 
 .. autoclass:: ZAxis
@@ -22,7 +22,7 @@ class: :class:`ZAxis <highcharts_stock.options.axes.z_axis.ZAxis>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ZAxis
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

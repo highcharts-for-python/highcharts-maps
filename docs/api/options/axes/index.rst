@@ -1,5 +1,5 @@
 ################################################################
-:mod:`.axes <highcharts_stock.options.axes>`
+:mod:`.axes <highcharts_maps.options.axes>`
 ################################################################
 
 .. contents:: Module Contents
@@ -21,7 +21,6 @@
   numeric
   parallel_axes
   plot_bands
-  resize
   title
   x_axis
   y_axis
@@ -39,39 +38,36 @@ Sub-components
 
   * - Module
     - Classes / Functions
-  * - :mod:`.options.axes.accessibility <highcharts_stock.options.axes.accessibility>`
-    - :class:`AxisAccessibility <highcharts_stock.options.axes.accessibility.AxisAccessibility>`
-  * - :mod:`.options.axes.breaks <highcharts_stock.options.axes.breaks>`
-    - :class:`AxisBreak <highcharts_stock.options.axes.breaks.AxisBreak>`
-  * - :mod:`.options.axes.color_axis <highcharts_stock.options.axes.color_axis>`
-    - :class:`ColorAxis <highcharts_stock.options.axes.color_axis.ColorAxis>`
-  * - :mod:`.options.axes.crosshair <highcharts_stock.options.axes.crosshair>`
-    - :class:`CrosshairOptions <highcharts_stock.options.axes.crosshair.CrosshairOptions>`
-  * - :mod:`.options.axes.data_classes <highcharts_stock.options.axes.data_classes>`
-    - :class:`DataClass <highcharts_stock.options.axes.data_classes.DataClass>`
-  * - :mod:`.options.axes.generic <highcharts_stock.options.axes.generic>`
-    - :class:`GenericAxis <highcharts_stock.options.axes.generic.GenericAxis>`
-  * - :mod:`.options.axes.labels <highcharts_stock.options.axes.labels>`
-    - :class:`AxisLabelOptions <highcharts_stock.options.axes.labels.AxisLabelOptions>`
-      :class:`PlotBandLabel <highcharts_stock.options.axes.labels.PlotBandLabel>`
-      :class:`PlotLineLabel <highcharts_stock.options.axes.labels.PlotLineLabel>`
-  * - :mod:`.options.axes.markers <highcharts_stock.options.axes.markers>`
-    - :class:`AxisMarker <highcharts_stock.options.axes.markers.AxisMarker>`
-  * - :mod:`.options.axes.numeric <highcharts_stock.options.axes.numeric>`
-    - :class:`NumericAxis <highcharts_stock.options.axes.numeric.NumericAxis>`
-  * - :mod:`.options.axes.parallel_axes <highcharts_stock.options.axes.parallel_axes>`
-    - :class:`ParallelAxesOptions <highcharts_stock.options.axes.parallel_axes.ParallelAxesOptions>`
-  * - :mod:`.options.axes.plot_bands <highcharts_stock.options.axes.plot_bands>`
-    - :class:`PlotBand <highcharts_stock.options.axes.plot_bands.PlotBand>`
-      :class:`PlotLine <highcharts_stock.options.axes.plot_bands.PlotLine>`
-  * - :mod:`.options.axes.resize <highcharts_stock.options.axes.resize>`
-    - :class:`ResizeOptions <highcharts_stock.options.axes.resize.ResizeOptions>`
-      :class:`ControlledAxis <highcharts_stock.options.axes.resize.ControlledAxis>`
-  * - :mod:`.options.axes.title <highcharts_stock.options.axes.title>`
-    - :class:`AxisTitle <highcharts_stock.options.axes.title.AxisTitle>`
-  * - :mod:`.options.axes.x_axis <highcharts_stock.options.axes.x_axis>`
-    - :class:`XAxis <highcharts_stock.options.axes.x_axis.XAxis>`
-  * - :mod:`.options.axes.y_axis <highcharts_stock.options.axes.y_axis>`
-    - :class:`YAxis <highcharts_stock.options.axes.y_axis.YAxis>`
-  * - :mod:`.options.axes.z_axis <highcharts_stock.options.axes.z_axis>`
-    - :class:`ZAxis <highcharts_stock.options.axes.z_axis.ZAxis>`
+  * - :mod:`.options.axes.accessibility <highcharts_maps.options.axes.accessibility>`
+    - :class:`AxisAccessibility <highcharts_maps.options.axes.accessibility.AxisAccessibility>`
+  * - :mod:`.options.axes.breaks <highcharts_maps.options.axes.breaks>`
+    - :class:`AxisBreak <highcharts_maps.options.axes.breaks.AxisBreak>`
+  * - :mod:`.options.axes.color_axis <highcharts_maps.options.axes.color_axis>`
+    - :class:`ColorAxis <highcharts_maps.options.axes.color_axis.ColorAxis>`
+  * - :mod:`.options.axes.crosshair <highcharts_maps.options.axes.crosshair>`
+    - :class:`CrosshairOptions <highcharts_maps.options.axes.crosshair.CrosshairOptions>`
+  * - :mod:`.options.axes.data_classes <highcharts_maps.options.axes.data_classes>`
+    - :class:`DataClass <highcharts_maps.options.axes.data_classes.DataClass>`
+  * - :mod:`.options.axes.generic <highcharts_maps.options.axes.generic>`
+    - :class:`GenericAxis <highcharts_maps.options.axes.generic.GenericAxis>`
+  * - :mod:`.options.axes.labels <highcharts_maps.options.axes.labels>`
+    - :class:`AxisLabelOptions <highcharts_maps.options.axes.labels.AxisLabelOptions>`
+      :class:`PlotBandLabel <highcharts_maps.options.axes.labels.PlotBandLabel>`
+      :class:`PlotLineLabel <highcharts_maps.options.axes.labels.PlotLineLabel>`
+  * - :mod:`.options.axes.markers <highcharts_maps.options.axes.markers>`
+    - :class:`AxisMarker <highcharts_maps.options.axes.markers.AxisMarker>`
+  * - :mod:`.options.axes.numeric <highcharts_maps.options.axes.numeric>`
+    - :class:`NumericAxis <highcharts_maps.options.axes.numeric.NumericAxis>`
+  * - :mod:`.options.axes.parallel_axes <highcharts_maps.options.axes.parallel_axes>`
+    - :class:`ParallelAxesOptions <highcharts_maps.options.axes.parallel_axes.ParallelAxesOptions>`
+  * - :mod:`.options.axes.plot_bands <highcharts_maps.options.axes.plot_bands>`
+    - :class:`PlotBand <highcharts_maps.options.axes.plot_bands.PlotBand>`
+      :class:`PlotLine <highcharts_maps.options.axes.plot_bands.PlotLine>`
+  * - :mod:`.options.axes.title <highcharts_maps.options.axes.title>`
+    - :class:`AxisTitle <highcharts_maps.options.axes.title.AxisTitle>`
+  * - :mod:`.options.axes.x_axis <highcharts_maps.options.axes.x_axis>`
+    - :class:`XAxis <highcharts_maps.options.axes.x_axis.XAxis>`
+  * - :mod:`.options.axes.y_axis <highcharts_maps.options.axes.y_axis>`
+    - :class:`YAxis <highcharts_maps.options.axes.y_axis.YAxis>`
+  * - :mod:`.options.axes.z_axis <highcharts_maps.options.axes.z_axis>`
+    - :class:`ZAxis <highcharts_maps.options.axes.z_axis.ZAxis>`

@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.buttons <highcharts_stock.utility_classes.buttons>`
+:mod:`.buttons <highcharts_maps.utility_classes.buttons>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.utility_classes.buttons
+.. module:: highcharts_maps.utility_classes.buttons
 
 ********************************************************************************************************************
-class: :class:`ExportingButtons <highcharts_stock.utility_classes.buttons.ExportingButtons>`
+class: :class:`ExportingButtons <highcharts_maps.utility_classes.buttons.ExportingButtons>`
 ********************************************************************************************************************
 
 .. autoclass:: ExportingButtons
@@ -22,7 +22,7 @@ class: :class:`ExportingButtons <highcharts_stock.utility_classes.buttons.Export
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ExportingButtons
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`ExportingButtons <highcharts_stock.utility_classes.buttons.Export
 --------------
 
 ********************************************************************************************************************
-class: :class:`ContextButtonConfiguration <highcharts_stock.utility_classes.buttons.ContextButtonConfiguration>`
+class: :class:`ContextButtonConfiguration <highcharts_maps.utility_classes.buttons.ContextButtonConfiguration>`
 ********************************************************************************************************************
 
 .. autoclass:: ContextButtonConfiguration
@@ -40,7 +40,7 @@ class: :class:`ContextButtonConfiguration <highcharts_stock.utility_classes.butt
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ContextButtonConfiguration
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -48,7 +48,7 @@ class: :class:`ContextButtonConfiguration <highcharts_stock.utility_classes.butt
 --------------
 
 ********************************************************************************************************************
-class: :class:`ButtonConfiguration <highcharts_stock.utility_classes.buttons.ButtonConfiguration>`
+class: :class:`ButtonConfiguration <highcharts_maps.utility_classes.buttons.ButtonConfiguration>`
 ********************************************************************************************************************
 
 .. autoclass:: ButtonConfiguration
@@ -58,7 +58,7 @@ class: :class:`ButtonConfiguration <highcharts_stock.utility_classes.buttons.But
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ButtonConfiguration
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -66,7 +66,7 @@ class: :class:`ButtonConfiguration <highcharts_stock.utility_classes.buttons.But
 ---------------------
 
 ********************************************************************************************************************
-class: :class:`ButtonTheme <highcharts_stock.utility_classes.buttons.ButtonTheme>`
+class: :class:`ButtonTheme <highcharts_maps.utility_classes.buttons.ButtonTheme>`
 ********************************************************************************************************************
 
 .. autoclass:: ButtonTheme
@@ -76,7 +76,7 @@ class: :class:`ButtonTheme <highcharts_stock.utility_classes.buttons.ButtonTheme
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ButtonTheme
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

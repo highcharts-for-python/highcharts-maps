@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.csv <highcharts_stock.options.exporting.csv>`
+:mod:`.csv <highcharts_maps.options.exporting.csv>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.exporting.csv
+.. module:: highcharts_maps.options.exporting.csv
 
 ********************************************************************************************************************
-class: :class:`ExportingCSV <highcharts_stock.options.exporting.csv.ExportingCSV>`
+class: :class:`ExportingCSV <highcharts_maps.options.exporting.csv.ExportingCSV>`
 ********************************************************************************************************************
 
 .. autoclass:: ExportingCSV
@@ -22,7 +22,7 @@ class: :class:`ExportingCSV <highcharts_stock.options.exporting.csv.ExportingCSV
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ExportingCSV
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`ExportingCSV <highcharts_stock.options.exporting.csv.ExportingCSV
 ----------
 
 ********************************************************************************************************************
-class: :class:`CSVAnnotationOptions <highcharts_stock.options.exporting.csv.CSVAnnotationOptions>`
+class: :class:`CSVAnnotationOptions <highcharts_maps.options.exporting.csv.CSVAnnotationOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: CSVAnnotationOptions
@@ -40,7 +40,7 @@ class: :class:`CSVAnnotationOptions <highcharts_stock.options.exporting.csv.CSVA
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: CSVAnnotationOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

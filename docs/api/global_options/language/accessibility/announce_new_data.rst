@@ -1,5 +1,5 @@
 #########################################################################################################
-:mod:`.announce_new_data <highcharts_stock.global_options.language.accessibility.announce_new_data>`
+:mod:`.announce_new_data <highcharts_maps.global_options.language.accessibility.announce_new_data>`
 #########################################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.global_options.language.accessibility.announce_new_data
+.. module:: highcharts_maps.global_options.language.accessibility.announce_new_data
 
 *************************************************************************************************************************************************************
-class: :class:`AnnounceNewDataLanguageOptions <highcharts_stock.global_options.language.accessibility.announce_new_data.AnnounceNewDataLanguageOptions>`
+class: :class:`AnnounceNewDataLanguageOptions <highcharts_maps.global_options.language.accessibility.announce_new_data.AnnounceNewDataLanguageOptions>`
 *************************************************************************************************************************************************************
 
 .. autoclass:: AnnounceNewDataLanguageOptions
@@ -22,7 +22,7 @@ class: :class:`AnnounceNewDataLanguageOptions <highcharts_stock.global_options.l
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AnnounceNewDataLanguageOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -12,7 +12,7 @@
 .. module:: highcharts_stock.headless_export
 
 *********************************************************************************
-class: :class:`ExportServer <highcharts_stock.headless_export.ExportServer>`
+class: :class:`ExportServer <highcharts_maps.headless_export.ExportServer>`
 *********************************************************************************
 
 .. autoclass:: ExportServer

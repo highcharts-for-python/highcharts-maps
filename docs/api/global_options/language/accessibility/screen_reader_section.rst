@@ -1,5 +1,5 @@
 ###################################################################################################################
-:mod:`.screen_reader_section <highcharts_stock.global_options.language.accessibility.screen_reader_section>`
+:mod:`.screen_reader_section <highcharts_maps.global_options.language.accessibility.screen_reader_section>`
 ###################################################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.global_options.language.accessibility.screen_reader_section
+.. module:: highcharts_maps.global_options.language.accessibility.screen_reader_section
 
 ************************************************************************************************************************************************************************
-class: :class:`ScreenReaderSectionLanguageOptions <highcharts_stock.global_options.language.accessibility.screen_reader_section.ScreenReaderSectionLanguageOptions>`
+class: :class:`ScreenReaderSectionLanguageOptions <highcharts_maps.global_options.language.accessibility.screen_reader_section.ScreenReaderSectionLanguageOptions>`
 ************************************************************************************************************************************************************************
 
 .. autoclass:: ScreenReaderSectionLanguageOptions
@@ -22,7 +22,7 @@ class: :class:`ScreenReaderSectionLanguageOptions <highcharts_stock.global_optio
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ScreenReaderSectionLanguageOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`ScreenReaderSectionLanguageOptions <highcharts_stock.global_optio
 ---------------
 
 *****************************************************************************************************************************************************************************
-class: :class:`ScreenReaderSectionAnnotationLanguage <highcharts_stock.global_options.language.accessibility.screen_reader_section.ScreenReaderSectionAnnotationLanguage>`
+class: :class:`ScreenReaderSectionAnnotationLanguage <highcharts_maps.global_options.language.accessibility.screen_reader_section.ScreenReaderSectionAnnotationLanguage>`
 *****************************************************************************************************************************************************************************
 
 .. autoclass:: ScreenReaderSectionAnnotationLanguage
@@ -40,7 +40,7 @@ class: :class:`ScreenReaderSectionAnnotationLanguage <highcharts_stock.global_op
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ScreenReaderSectionAnnotationLanguage
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

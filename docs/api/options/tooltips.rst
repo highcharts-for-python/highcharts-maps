@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.tooltips <highcharts_stock.options.tooltips>`
+:mod:`.tooltips <highcharts_maps.options.tooltips>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.tooltips
+.. module:: highcharts_maps.options.tooltips
 
 ********************************************************************************************************************
-class: :class:`Tooltip <highcharts_stock.options.tooltips.Tooltip>`
+class: :class:`Tooltip <highcharts_maps.options.tooltips.Tooltip>`
 ********************************************************************************************************************
 
 .. autoclass:: Tooltip
@@ -22,7 +22,7 @@ class: :class:`Tooltip <highcharts_stock.options.tooltips.Tooltip>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Tooltip
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.color_axis <highcharts_stock.options.axes.color_axis>`
+:mod:`.color_axis <highcharts_maps.options.axes.color_axis>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.axes.color_axis
+.. module:: highcharts_maps.options.axes.color_axis
 
 ********************************************************************************************************************
-class: :class:`ColorAxis <highcharts_stock.options.axes.color_axis.ColorAxis>`
+class: :class:`ColorAxis <highcharts_maps.options.axes.color_axis.ColorAxis>`
 ********************************************************************************************************************
 
 .. autoclass:: ColorAxis
@@ -22,7 +22,7 @@ class: :class:`ColorAxis <highcharts_stock.options.axes.color_axis.ColorAxis>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ColorAxis
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

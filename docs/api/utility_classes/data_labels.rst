@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.data_labels <highcharts_stock.utility_classes.data_labels>`
+:mod:`.data_labels <highcharts_maps.utility_classes.data_labels>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.utility_classes.data_labels
+.. module:: highcharts_maps.utility_classes.data_labels
 
 ********************************************************************************************************************
-class: :class:`DataLabel <highcharts_stock.utility_classes.data_labels.DataLabel>`
+class: :class:`DataLabel <highcharts_maps.utility_classes.data_labels.DataLabel>`
 ********************************************************************************************************************
 
 .. autoclass:: DataLabel
@@ -22,7 +22,7 @@ class: :class:`DataLabel <highcharts_stock.utility_classes.data_labels.DataLabel
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DataLabel
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`DataLabel <highcharts_stock.utility_classes.data_labels.DataLabel
 -----------------
 
 ********************************************************************************************************************
-class: :class:`NodeDataLabel <highcharts_stock.utility_classes.data_labels.NodeDataLabel>`
+class: :class:`NodeDataLabel <highcharts_maps.utility_classes.data_labels.NodeDataLabel>`
 ********************************************************************************************************************
 
 .. autoclass:: NodeDataLabel
@@ -40,7 +40,7 @@ class: :class:`NodeDataLabel <highcharts_stock.utility_classes.data_labels.NodeD
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: NodeDataLabel
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -48,7 +48,7 @@ class: :class:`NodeDataLabel <highcharts_stock.utility_classes.data_labels.NodeD
 --------------------
 
 ********************************************************************************************************************
-class: :class:`Filter <highcharts_stock.utility_classes.data_labels.Filter>`
+class: :class:`Filter <highcharts_maps.utility_classes.data_labels.Filter>`
 ********************************************************************************************************************
 
 .. autoclass:: Filter
@@ -58,7 +58,7 @@ class: :class:`Filter <highcharts_stock.utility_classes.data_labels.Filter>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Filter
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

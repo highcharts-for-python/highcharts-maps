@@ -1,5 +1,5 @@
 #############################################################################
-:mod:`.shared_options <highcharts_stock.global_options.shared_options>`
+:mod:`.shared_options <highcharts_maps.global_options.shared_options>`
 #############################################################################
 
 .. contents:: Module Contents
@@ -9,20 +9,20 @@
 
 --------------
 
-.. module:: highcharts_stock.global_options.shared_options
+.. module:: highcharts_maps.global_options.shared_options
 
 **********************************************************************************************************
-class: :class:`SharedStockOptions <highcharts_stock.global_options.shared_options.SharedStockOptions>`
+class: :class:`SharedMapsOptions <highcharts_maps.global_options.shared_options.SharedMapsOptions>`
 **********************************************************************************************************
 
-.. autoclass:: SharedStockOptions
+.. autoclass:: SharedMapsOptions
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: SharedStockOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: SharedMapsOptions
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`SharedStockOptions <highcharts_stock.global_options.shared_option
 ----------------
 
 **********************************************************************************************
-class: :class:`SharedOptions <highcharts_stock.global_options.shared_options.SharedOptions>`
+class: :class:`SharedOptions <highcharts_maps.global_options.shared_options.SharedOptions>`
 **********************************************************************************************
 
 .. autoclass:: SharedOptions
@@ -40,7 +40,7 @@ class: :class:`SharedOptions <highcharts_stock.global_options.shared_options.Sha
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SharedOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.point <highcharts_stock.options.accessibility.point>`
+:mod:`.point <highcharts_maps.options.accessibility.point>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.accessibility.point
+.. module:: highcharts_maps.options.accessibility.point
 
 ********************************************************************************************************
-class: :class:`AccessibilityPoint <highcharts_stock.options.accessibility.point.AccessibilityPoint>`
+class: :class:`AccessibilityPoint <highcharts_maps.options.accessibility.point.AccessibilityPoint>`
 ********************************************************************************************************
 
 .. autoclass:: AccessibilityPoint
@@ -22,7 +22,7 @@ class: :class:`AccessibilityPoint <highcharts_stock.options.accessibility.point.
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AccessibilityPoint
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

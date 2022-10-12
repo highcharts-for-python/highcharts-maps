@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.no_data <highcharts_stock.options.no_data>`
+:mod:`.fetch_configuration <highcharts_maps.utility_classes.fetch_configuration>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,20 +9,20 @@
 
 --------------
 
-.. module:: highcharts_stock.options.no_data
+.. module:: highcharts_maps.utility_classes.fetch_configuration
 
 ********************************************************************************************************************
-class: :class:`NoData <highcharts_stock.options.no_data.NoData>`
+class: :class:`FetchConfiguration <highcharts_maps.utility_classes.fetch_configuration.FetchConfiguration>`
 ********************************************************************************************************************
 
-.. autoclass:: NoData
+.. autoclass:: FetchConfiguration
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: NoData
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: FetchConfiguration
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

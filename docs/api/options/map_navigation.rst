@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.navigator <highcharts_stock.options.navigator>`
+:mod:`.map_navigation <highcharts_maps.options.map_navigation>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,38 +9,38 @@
 
 --------------
 
-.. module:: highcharts_stock.options.navigator
+.. module:: highcharts_maps.options.map_navigation
 
 ********************************************************************************************************************
-class: :class:`Navigator <highcharts_stock.options.navigator.Navigator>`
+class: :class:`MapNavigationOptions <highcharts_maps.options.map_navigation.MapNavigationOptions>`
 ********************************************************************************************************************
 
-.. autoclass:: Navigator
+.. autoclass:: MapNavigationOptions
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: Navigator
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: MapNavigationOptions
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
 
-------------------
+-----------------
 
 ********************************************************************************************************************
-class: :class:`HandleOptions <highcharts_stock.options.navigator.HandleOptions>`
+class: :class:`MapButtonOptions <highcharts_maps.options.map_navigation.MapButtonOptions>`
 ********************************************************************************************************************
 
-.. autoclass:: HandleOptions
+.. autoclass:: MapButtonOptions
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: HandleOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: MapButtonOptions
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

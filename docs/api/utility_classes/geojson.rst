@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.events <highcharts_maps.utility_classes.events>`
+:mod:`.geojson <highcharts_maps.utility_classes.geojson>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,19 +9,19 @@
 
 --------------
 
-.. module:: highcharts_maps.utility_classes.events
+.. module:: highcharts_maps.utility_classes.geojson
 
 ********************************************************************************************************************
-class: :class:`ChartEvents <highcharts_maps.utility_classes.events.ChartEvents>`
+class: :class:`Point <highcharts_maps.utility_classes.geojson.Point>`
 ********************************************************************************************************************
 
-.. autoclass:: ChartEvents
+.. autoclass:: Point
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: ChartEvents
+    .. inheritance-diagram:: Point
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
@@ -30,16 +30,16 @@ class: :class:`ChartEvents <highcharts_maps.utility_classes.events.ChartEvents>`
 ----------------------
 
 ********************************************************************************************************************
-class: :class:`BreadcrumbEvents <highcharts_maps.utility_classes.events.BreadcrumbEvents>`
+class: :class:`MultiPoint <highcharts_maps.utility_classes.geojson.MultiPoint>`
 ********************************************************************************************************************
 
-.. autoclass:: BreadcrumbEvents
+.. autoclass:: MultiPoint
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: BreadcrumbEvents
+    .. inheritance-diagram:: MultiPoint
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
@@ -48,124 +48,124 @@ class: :class:`BreadcrumbEvents <highcharts_maps.utility_classes.events.Breadcru
 ----------------------
 
 ********************************************************************************************************************
-class: :class:`NavigationEvents <highcharts_maps.utility_classes.events.NavigationEvents>`
+class: :class:`LineString <highcharts_maps.utility_classes.geojson.LineString>`
 ********************************************************************************************************************
 
-.. autoclass:: NavigationEvents
+.. autoclass:: LineString
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: NavigationEvents
+    .. inheritance-diagram:: LineString
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
 
------------------------
+----------------------
 
 ********************************************************************************************************************
-class: :class:`PointEvents <highcharts_maps.utility_classes.events.PointEvents>`
+class: :class:`MultiLineString <highcharts_maps.utility_classes.geojson.MultiLineString>`
 ********************************************************************************************************************
 
-.. autoclass:: PointEvents
+.. autoclass:: MultiLineString
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: PointEvents
+    .. inheritance-diagram:: MultiLineString
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
 
-------------------
+----------------------
 
 ********************************************************************************************************************
-class: :class:`SeriesEvents <highcharts_maps.utility_classes.events.SeriesEvents>`
+class: :class:`Polygon <highcharts_maps.utility_classes.geojson.Polygon>`
 ********************************************************************************************************************
 
-.. autoclass:: SeriesEvents
+.. autoclass:: Polygon
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: SeriesEvents
+    .. inheritance-diagram:: Polygon
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
 
-------------------
+----------------------
 
 ********************************************************************************************************************
-class: :class:`ClusterEvents <highcharts_maps.utility_classes.events.ClusterEvents>`
+class: :class:`MultiPolygon <highcharts_maps.utility_classes.geojson.MultiPolygon>`
 ********************************************************************************************************************
 
-.. autoclass:: ClusterEvents
+.. autoclass:: MultiPolygon
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: ClusterEvents
+    .. inheritance-diagram:: MultiPolygon
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
 
------------------
+----------------------
 
 ********************************************************************************************************************
-class: :class:`AxisEvents <highcharts_maps.utility_classes.events.AxisEvents>`
+class: :class:`GeometryCollection <highcharts_maps.utility_classes.geojson.GeometryCollection>`
 ********************************************************************************************************************
 
-.. autoclass:: AxisEvents
+.. autoclass:: GeometryCollection
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: AxisEvents
+    .. inheritance-diagram:: GeometryCollection
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
 
-----------------
+----------------------
 
 ********************************************************************************************************************
-class: :class:`MouseEvents <highcharts_maps.utility_classes.events.MouseEvents>`
+class: :class:`Feature <highcharts_maps.utility_classes.geojson.Feature>`
 ********************************************************************************************************************
 
-.. autoclass:: MouseEvents
+.. autoclass:: Feature
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: MouseEvents
+    .. inheritance-diagram:: Feature
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
 
-----------------
+----------------------
 
 ********************************************************************************************************************
-class: :class:`RangeSelectorEvents <highcharts_maps.utility_classes.events.RangeSelectorEvents>`
+class: :class:`FeatureCollection <highcharts_maps.utility_classes.geojson.FeatureCollection>`
 ********************************************************************************************************************
 
-.. autoclass:: RangeSelectorEvents
+.. autoclass:: FeatureCollection
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: RangeSelectorEvents
+    .. inheritance-diagram:: FeatureCollection
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 

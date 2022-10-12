@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.scrollable_plot_area <highcharts_stock.options.credits>`
+:mod:`.scrollable_plot_area <highcharts_maps.options.credits>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.credits
+.. module:: highcharts_maps.options.credits
 
 ********************************************************************************************************************
-class: :class:`Credits <highcharts_stock.options.credits.Credits>`
+class: :class:`Credits <highcharts_maps.options.credits.Credits>`
 ********************************************************************************************************************
 
 .. autoclass:: Credits
@@ -22,7 +22,7 @@ class: :class:`Credits <highcharts_stock.options.credits.Credits>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Credits
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`Credits <highcharts_stock.options.credits.Credits>`
 -----------------------
 
 ********************************************************************************************************************
-class: :class:`CreditStyleOptions <highcharts_stock.options.credits.CreditStyleOptions>`
+class: :class:`CreditStyleOptions <highcharts_maps.options.credits.CreditStyleOptions>`
 ********************************************************************************************************************
 
 .. autoclass:: CreditStyleOptions
@@ -40,7 +40,7 @@ class: :class:`CreditStyleOptions <highcharts_stock.options.credits.CreditStyleO
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: CreditStyleOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

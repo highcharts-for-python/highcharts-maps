@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.parallel_axes <highcharts_maps.options.axes.parallel_axes>`
+:mod:`.zooming <highcharts_maps.options.chart.zooming>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,19 +9,19 @@
 
 --------------
 
-.. module:: highcharts_maps.options.axes.parallel_axes
+.. module:: highcharts_maps.options.chart.zooming
 
 ********************************************************************************************************************
-class: :class:`ParallelAxesOptions <highcharts_maps.options.axes.parallel_axes.ParallelAxesOptions>`
+class: :class:`ZoomingOptions <highcharts_maps.options.chart.zooming.ZoomingOptions>`
 ********************************************************************************************************************
 
-.. autoclass:: ParallelAxesOptions
+.. autoclass:: ZoomingOptions
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: ParallelAxesOptions
+    .. inheritance-diagram:: ZoomingOptions
       :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 

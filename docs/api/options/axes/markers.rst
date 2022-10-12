@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.markers <highcharts_stock.options.axes.markers>`
+:mod:`.markers <highcharts_maps.options.axes.markers>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.axes.markers
+.. module:: highcharts_maps.options.axes.markers
 
 ********************************************************************************************************************
-class: :class:`AxisMarker <highcharts_stock.options.axes.markers.AxisMarker>`
+class: :class:`AxisMarker <highcharts_maps.options.axes.markers.AxisMarker>`
 ********************************************************************************************************************
 
 .. autoclass:: AxisMarker
@@ -22,7 +22,7 @@ class: :class:`AxisMarker <highcharts_stock.options.axes.markers.AxisMarker>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AxisMarker
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -1,5 +1,5 @@
 ##########################################################################################
-:mod:`.accessibility <highcharts_stock.options.legend.accessibility>`
+:mod:`.accessibility <highcharts_maps.options.legend.accessibility>`
 ##########################################################################################
 
 .. contents:: Module Contents
@@ -9,10 +9,10 @@
 
 --------------
 
-.. module:: highcharts_stock.options.legend.accessibility
+.. module:: highcharts_maps.options.legend.accessibility
 
 *************************************************************************************************************************
-class: :class:`LegendAccessibilityOptions <highcharts_stock.options.legend.accessibility.LegendAccessibilityOptions>`
+class: :class:`LegendAccessibilityOptions <highcharts_maps.options.legend.accessibility.LegendAccessibilityOptions>`
 *************************************************************************************************************************
 
 .. autoclass:: LegendAccessibilityOptions
@@ -22,7 +22,7 @@ class: :class:`LegendAccessibilityOptions <highcharts_stock.options.legend.acces
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: LegendAccessibilityOptions
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,7 +30,7 @@ class: :class:`LegendAccessibilityOptions <highcharts_stock.options.legend.acces
 ---------------
 
 *************************************************************************************************************************
-class: :class:`LegendKeyboardNavigation <highcharts_stock.options.legend.accessibility.LegendKeyboardNavigation>`
+class: :class:`LegendKeyboardNavigation <highcharts_maps.options.legend.accessibility.LegendKeyboardNavigation>`
 *************************************************************************************************************************
 
 .. autoclass:: LegendKeyboardNavigation
@@ -40,7 +40,7 @@ class: :class:`LegendKeyboardNavigation <highcharts_stock.options.legend.accessi
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: LegendKeyboardNavigation
-      :top-classes: highcharts_stock.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -98,8 +98,8 @@ class PlotOptions(PlotOptionsBase):
 
     @property
     def map(self) -> Optional[MapOptions]:
-        """:term:`Map series` are simple :term:`choropleth` visualizations where each area
-        of the map is given a color based on its value.
+        """:term:`Map` charts are simple :term:`choropleth <choropleth map>` visualizations where
+        each area of the map is given a color based on its value.
 
         .. figure:: ../../../_static/map-example.png
           :alt: Map Example Chart
@@ -116,8 +116,8 @@ class PlotOptions(PlotOptionsBase):
 
     @property
     def mapbubble(self) -> Optional[MapBubbleOptions]:
-        """Map bubble series are :term:`bubble series` laid out on top of a
-        :term:`map series`, where each bubble shown is tied to a specific area of the map.
+        """Map Bubble charts are :term:`maps <map>` where the numerical value is depicted as a
+        bubble rendered over the corresponding area of the map rather than as a color.
 
         .. figure:: ../../../_static/mapbubble-example.png
           :alt: Map Bubble Example chart
@@ -134,9 +134,8 @@ class PlotOptions(PlotOptionsBase):
 
     @property
     def mapline(self) -> Optional[MapLineOptions]:
-        """:term:`Mapline series` are a special version of a :term:`map series` where the
-        value colors are applied to the strokes (borders) shown on the map, rather than
-        the area fills.
+        """Map Lines are a special version of a :term:`map` series where the value affects the
+        the strokes (borders) shown on the map, rather than the area fills.
 
         .. figure:: ../../../_static/mapline-example.png
           :alt: Mapline Example chart
@@ -160,8 +159,8 @@ class PlotOptions(PlotOptionsBase):
 
     @property
     def mappoint(self) -> Optional[MapPointOptions]:
-        """:term:`MapPoint series` are a special version of a :term:`scatter series` where
-        the points are placed according to geographic coordinates within a map.
+        """Map Points are a special version of a scatter series where the points are
+        positioned according to geographic coordinates within a map.
 
         .. figure:: ../../../_static/mappoint-example.png
           :alt: Map Point Example chart
@@ -176,6 +175,11 @@ class PlotOptions(PlotOptionsBase):
         :rtype: :class:`MapPointOptions` or :obj:`None <python:None>`
         """
         return self._mappoint
+
+    @mappoint.setter
+    @class_sensitive(MapPointOptions)
+    def mappoint(self, value):
+        self._mappoint = value
 
     # Highcharts Properties
 

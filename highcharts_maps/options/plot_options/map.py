@@ -13,8 +13,8 @@ from highcharts_maps.utility_classes.patterns import Pattern
 
 
 class MapOptions(MapBaseOptions, GenericTypeOptions):
-    """:term:`Map series` are simple :term:`choropleth` visualizations where each area
-    of the map is given a color based on its value.
+    """:term:`Map` charts are simple :term:`choropleth <choropleth map>` visualizations where
+    each area of the map is given a color based on its value.
 
     .. figure:: ../../../_static/map-example.png
       :alt: Map Example Chart

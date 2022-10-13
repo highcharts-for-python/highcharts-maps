@@ -124,11 +124,11 @@ class MapSeriesBase(SeriesBase):
         custom JavaScript function to select a portion of the downloaded data for
         rendering.
 
-        :param url: The URL from which to retrieve the :term:`map data` asynchronously via
-          a JavaScript ``fetch()`` call.
+        :param url: The URL from which to retrieve the :term:`map geometry` asynchronously
+          via a JavaScript ``fetch()`` call.
         :type url: :class:`str <python:str>`
 
-        :param selector: A JavaScript callback function that the :term:`map data`
+        :param selector: A JavaScript callback function that the :term:`map geometry`
           retrieved from ``url`` will be supplied to, and which will then return a subset
           or mutated form of the resulting data. Defaults to :obj:`None <python:None>`.
 

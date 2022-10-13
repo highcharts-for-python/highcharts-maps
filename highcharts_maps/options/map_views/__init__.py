@@ -14,7 +14,7 @@ from highcharts_maps.utility_classes.projections import ProjectionOptions
 
 class MapViewOptions(HighchartsMeta):
     """Configuration options for the initial view of a map visualization and for the
-    :term:`projection <map projection>` to be applied to the map."""
+    :term:`projection` to be applied to the map."""
 
     def __init__(self, **kwargs):
         self._center = None
@@ -35,8 +35,8 @@ class MapViewOptions(HighchartsMeta):
 
     @property
     def center(self) -> Optional[List[int | float | Decimal]]:
-        """The center of the map, expressed as :term:`longitude` and :term:`latitude`
-        values. Defaults to ``[0, 0]``.
+        """The center of the map, expressed as longitude and latitude values. Defaults to
+        ``[0, 0]``.
 
         .. note::
 

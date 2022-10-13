@@ -8,8 +8,8 @@ from highcharts_maps.utility_functions import mro__to_untrimmed_dict
 
 
 class MapPointSeries(MapSeriesBase, MapPointOptions):
-    """:term:`MapPoint series` are a special version of a :term:`scatter series` where
-    the points are placed according to geographic coordinates within a map.
+    """:term:`Map Points <Map Point>` are a special version of a scatter series where the
+    points are positioned according to geographic coordinates within a map.
 
     .. figure:: ../../../_static/mappoint-example.png
       :alt: Map Point Example chart

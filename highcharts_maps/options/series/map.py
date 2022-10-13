@@ -8,8 +8,8 @@ from highcharts_maps.utility_functions import mro__to_untrimmed_dict
 
 
 class MapSeries(MapSeriesBase, MapOptions):
-    """:term:`Map series` are simple :term:`choropleth` visualizations where each area
-    of the map is given a color based on its value.
+    """:term:`Map` series are simple :term:`choropleth <choropleth map>` visualizations
+    where each area of the map is given a color based on its value.
 
     .. figure:: ../../../_static/map-example.png
       :alt: Map Example Chart

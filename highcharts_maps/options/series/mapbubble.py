@@ -8,8 +8,9 @@ from highcharts_maps.options.series.data.geometric import GeometricZData
 
 
 class MapBubbleSeries(MapSeriesBase, MapBubbleOptions):
-    """Map bubble series are :term:`bubble series` laid out on top of a
-    :term:`map series`, where each bubble shown is tied to a specific area of the map.
+    """:term:`Map Bubble` charts are :term:`maps <map>` where the numerical value is
+    depicted as a bubble rendered over the corresponding area of the map rather than as a
+    color.
 
     .. figure:: ../../../_static/mapbubble-example.png
       :alt: Map Bubble Example chart

@@ -8,9 +8,9 @@ from highcharts_maps.utility_functions import mro__to_untrimmed_dict
 
 
 class MapLineSeries(MapSeriesBase, MapLineOptions):
-    """:term:`Mapline series` are a special version of a :term:`map series` where the
-    value colors are applied to the strokes (borders) shown on the map, rather than
-    the area fills.
+    """:term:`Map Lines <Map Line>` are a special version of a :term:`map` series where
+    the value affects the the strokes (borders) shown on the map, rather than the area
+    fills.
 
     .. figure:: ../../../_static/mapline-example.png
       :alt: Mapline Example chart
@@ -167,5 +167,5 @@ class MapLineSeries(MapSeriesBase, MapLineOptions):
 
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
         untrimmed = mro__to_untrimmed_dict(self, in_cls = in_cls)
-        
+
         return untrimmed

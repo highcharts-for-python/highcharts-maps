@@ -234,7 +234,7 @@ class Topology(TopologyBase):
 
     def to_geodataframe(self, obj = None):
         """Generate a :class:`GeoPandas.GeoDataFrame <geopandas:GeoDataFrame>` instance
-        of the :term:`map data`.
+        of the :term:`topology`.
 
         :param obj: If the map data contains multiple objects, you can generate
           serialize a specific object by specifying its name or index. Defaults to

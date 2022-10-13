@@ -219,7 +219,7 @@ Glossary
     an extension of :iabbr:`JSON (JavaScript Object Notation)`, and expects each
     geographic data structure to conform to a standard set of keys (properties).
 
-    GeoJSON supports the following types of :term:`geometry`:
+    GeoJSON supports the following types of :term:`geometry <map geometry>`:
 
       * ``Point``
       * ``LineString``
@@ -288,10 +288,10 @@ Glossary
       the opposite does not hold true.
 
   Map
-    :term:`Map` charts are simple :term:`choropleth` visualizations where each area
-    of the map is given a color based on its value.
+    :term:`Map` charts are simple :term:`choropleth <choropleth map>` visualizations where
+    each area of the map is given a color based on its value.
 
-    .. figure:: ../../../_static/map-example.png
+    .. figure:: _static/map-example.png
       :alt: Map Example Chart
       :align: center
 
@@ -304,7 +304,7 @@ Glossary
     Map Bubble charts are :term:`maps <map>` where the numerical value is depicted as a
     bubble rendered over the corresponding area of the map rather than as a color.
 
-      .. figure:: ../../../_static/mapbubble-example.png
+      .. figure:: _static/mapbubble-example.png
         :alt: Map Bubble Example chart
         :align: center
 
@@ -359,7 +359,7 @@ Glossary
     Map Lines are a special version of a :term:`map` series where the value affects the
     the strokes (borders) shown on the map, rather than the area fills.
 
-    .. figure:: ../../../_static/mapline-example.png
+    .. figure:: _static/mapline-example.png
       :alt: Mapline Example chart
       :align: center
 
@@ -376,10 +376,10 @@ Glossary
       * :class:`highcharts_maps.options.plot_options.mapline.MapLineOptions`
 
   Map Point
-    Map Points are a special version of a :term:`scatter` series where the points are
+    Map Points are a special version of a scatter series where the points are
     positioned according to geographic coordinates within a map.
 
-    .. figure:: ../../../_static/mappoint-example.png
+    .. figure:: _static/mappoint-example.png
       :alt: Map Point Example chart
       :align: center
 

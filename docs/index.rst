@@ -168,8 +168,9 @@ Key Highcharts Maps for Python Features
   asynchronous client-side retrieval of your map data.
 * **Automatic TopoJSON Optimization**. To minimize the amount of data transferred over
   the wire, **Highcharts Maps for Python** automatically converts your
-  :term:`map geometries <map geometry>` to highly-efficient :term:`TopoJSON` :term:`topologies` while
-  still allowing you to work with :term:`GeoJSON` data if you choose to.
+  :term:`map geometries <map geometry>` to highly-efficient :term:`TopoJSON`
+  :term:`topologies <topology>` while still allowing you to work with :term:`GeoJSON` data
+  if you choose to.
 * **Integration with GeoPandas, Pandas, and PySpark**. With two lines of code, produce a
   high-end interactive visualization of your GeoPandas, Pandas, or PySpark dataframes.
 * **Consistent Code Style**. For Python developers, switching between Pythonic code

@@ -420,7 +420,7 @@ class MapData(HighchartsMeta):
 
     def to_geodataframe(self, obj = None):
         """Generate a :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>` instance
-        of the :term:`map data`.
+        of the :term:`map geometry`.
 
         :param obj: If the map data contains multiple objects, you can generate
           serialize a specific object by specifying its name or index. Defaults to
@@ -438,7 +438,7 @@ class MapData(HighchartsMeta):
         :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`.
 
         :param as_gdf: The :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`
-          containing the :term:`map data`.
+          containing the :term:`map geometry`.
         :type as_gdf: :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`
 
         :param prequantize: If ``True``, will perform the TopoJSON optimizations
@@ -480,7 +480,7 @@ class MapData(HighchartsMeta):
           .. tip::
 
             **Highcharts for Python** will also correctly load and unpack
-            :term:`shapefiles` that are grouped together within a ZIP file.
+            :term:`shapefiles <shapefile>` that are grouped together within a ZIP file.
 
         :type shp_filename: :class:`str <python:str>` or
           :class:`bytes <python:bytes>`
@@ -505,7 +505,7 @@ class MapData(HighchartsMeta):
 
 
 class AsyncMapData(HighchartsMeta):
-    """Configuration of :term:`map data` which
+    """Configuration of :term:`map geometry` which
     `Highcharts Maps <https://www.highcharts.com/products/maps>`__ should fetch
     *asynchronously* using client-side JavaScript.
 
@@ -549,11 +549,11 @@ class AsyncMapData(HighchartsMeta):
 
     @property
     def selector(self) -> Optional[CallbackFunction]:
-        """An optional (JavaScript) function which receives the :term:`map data`
+        """An optional (JavaScript) function which receives the :term:`map geometry`
         downloaded from
         :meth:`.url <highcharts_maps.options.series.data.map_data.AsyncMapData.url>`, can
         perform some (arbitrary - it's up to you!) operation on that data, and returns a
-        new set of :term:`map data` which will be visualized by
+        new set of :term:`map geometries <map geometry>` which will be visualized by
         `Highcharts for Maps <https://www.highcharts.com/products/maps/>`__. Defaults to
         :obj:`None <python:None>`.
 
@@ -576,7 +576,7 @@ class AsyncMapData(HighchartsMeta):
     @property
     def fetch_config(self) -> Optional[FetchConfiguration]:
         """Optional configuration settings to use when executing the (JavaScript)
-        asynchronous ``fetch()`` call to download the :term:`map data`. Defaults to
+        asynchronous ``fetch()`` call to download the :term:`map geometry`. Defaults to
         :obj:`None <python:None>`.
 
         .. note::

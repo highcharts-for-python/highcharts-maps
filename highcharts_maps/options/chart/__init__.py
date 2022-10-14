@@ -25,6 +25,8 @@ class ChartOptions(ChartOptionsBase):
         self.map_transforms = kwargs.get('map_transforms', None)
         self.proj4 = kwargs.get('proj4', None)
 
+        super().__init__(**kwargs)
+
     @property
     def map(self) -> Optional[str | MapData | AsyncMapData | VariableName | List[MapData | AsyncMapData]]:
         """:term:`Map geometries <map geometry>` that provide instructions on how to

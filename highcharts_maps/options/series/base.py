@@ -308,7 +308,7 @@ class MapSeriesBase(SeriesBase):
             if serialized is not None:
                 as_dict[key] = serialized
 
-        as_str = assemble_js_literal(as_dict, keys_as_strings = True)
+        as_str = assemble_js_literal(as_dict)
 
         if filename:
             with open(filename, 'w', encoding = encoding) as file_:

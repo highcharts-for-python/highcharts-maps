@@ -425,7 +425,6 @@ def test_to_dict(kwargs, error):
 @pytest.mark.parametrize('filename, as_file, error', [
     ('axes/y_axis/01.js', False, None),
     ('axes/y_axis/02.js', False, None),
-    ('axes/y_axis/03.js', False, None),
 
     ('axes/y_axis/error-01.js',
      False,
@@ -444,7 +443,6 @@ def test_to_dict(kwargs, error):
 
     ('axes/y_axis/01.js', True, None),
     ('axes/y_axis/02.js', True, None),
-    ('axes/y_axis/03.js', True, None),
 
     ('axes/y_axis/error-01.js',
      True,

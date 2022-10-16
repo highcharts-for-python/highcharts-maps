@@ -1,5 +1,6 @@
 from typing import Optional
 from collections import UserDict
+import requests
 
 try:
     import orjson as json
@@ -31,7 +32,7 @@ class MapData(HighchartsMeta):
         self._force_geojson = None
         self._topology = None
 
-        self.force_geojson = kwargs.get('force_geojsons', False)
+        self.force_geojson = kwargs.get('force_geojsons', None)
         self.topology = kwargs.get('topology', None)
 
     @property
@@ -45,7 +46,10 @@ class MapData(HighchartsMeta):
 
     @force_geojson.setter
     def force_geojson(self, value):
-        self._force_geojson = bool(value)
+        if value is None:
+            self._force_geojson = None
+        else:
+            self._force_geojson = bool(value)
 
     @property
     def topology(self) -> Optional[Topology]:
@@ -60,21 +64,46 @@ class MapData(HighchartsMeta):
     def topology(self, value):
         if not value:
             self._topology = None
+        elif checkers.is_on_filesystem(value):
+            with open(value, 'r') as as_file:
+                as_dict = json.load(as_file)
+
+            if 'data' in as_dict.get('objects', {}):
+                self._topology = Topology(as_dict, object_name = 'data')
+            elif 'default' in as_dict.get('objects', {}):
+                self._topology = Topology(as_dict, object_name = 'default')
+            else:
+                self._topology = Topology(as_dict)
+
+        elif checkers.is_url(value):
+            request = requests.get(value)
+            request.raise_for_status()
+            as_dict = json.loads(request.content)
+
+            if 'data' in as_dict.get('objects', {}):
+                self._topology = Topology(as_dict, object_name = 'data')
+            elif 'default' in as_dict.get('objects', {}):
+                self._topology = Topology(as_dict, object_name = 'default')
+            else:
+                self._topology = Topology(as_dict)
         elif isinstance(value, Topology):
             self._topology = value
         elif checkers.is_type(value, 'GeoDataFrame'):
             self._topology = Topology(value, prequantize = False)
         elif isinstance(value, (str, bytes)):
-            as_dict = json.loads(value)
-            if 'data' in as_dict:
-                self._topology = Topology(as_dict, object_name = 'data')
+            if 'data' in value:
+                self._topology = Topology(value, object_name = 'data')
+            elif 'default' in value:
+                self._topology = Topology(value, object_name = 'default')
             else:
-                self._topology = Topology(as_dict)
+                self._topology = Topology(value)
         elif isinstance(value, (dict, UserDict)):
-            if 'data' in as_dict:
-                self._topology = Topology(as_dict, object_name = 'data')
+            if 'data' in value.get('objects', {}):
+                self._topology = Topology(value, object_name = 'data')
+            elif 'default' in value.get('objects', {}):
+                self._topology = Topology(value, object_name = 'default')
             else:
-                self._topology = Topology(as_dict)
+                self._topology = Topology(value)
         elif checkers.is_iterable(value, forbid_literals = (str, bytes, dict)):
             data = []
             object_names = []
@@ -260,43 +289,6 @@ class MapData(HighchartsMeta):
                 file_.write(as_str)
 
         return as_str
-
-    @classmethod
-    def from_js_literal(cls,
-                        as_str_or_file,
-                        allow_snake_case: bool = True,
-                        _break_loop_on_failure: bool = False):
-        """Return a Python object representation of a Highcharts JavaScript object
-        literal.
-
-        :param as_str_or_file: The JavaScript object literal, represented either as a
-          :class:`str <python:str>` or as a filename which contains the JS object literal.
-        :type as_str_or_file: :class:`str <python:str>`
-
-        :param allow_snake_case: If ``True``, interprets ``snake_case`` keys as equivalent
-          to ``camelCase`` keys. Defaults to ``True``.
-        :type allow_snake_case: :class:`bool <python:bool>`
-
-        :param _break_loop_on_failure: If ``True``, will break any looping operations in
-          the event of a failure. Otherwise, will attempt to repair the failure. Defaults
-          to ``False``.
-        :type _break_loop_on_failure: :class:`bool <python:bool>`
-
-        :returns: A Python object representation of the Highcharts JavaScript object
-          literal.
-        :rtype: :class:`HighchartsMeta`
-        """
-        is_file = checkers.is_file(as_str_or_file)
-        if is_file:
-            with open(as_str_or_file, 'r') as file_:
-                as_str = file_.read()
-        else:
-            as_str = as_str_or_file
-
-        as_dict = json.loads(as_str)
-
-        return cls.from_dict(as_dict,
-                             allow_snake_case = allow_snake_case)
 
     def to_geojson(self,
                    filename = None,
@@ -526,7 +518,7 @@ class AsyncMapData(HighchartsMeta):
         self.url = kwargs.get('url', None)
         self.selector = kwargs.get('selector', None)
         self.fetch_config = kwargs.get('fetch_config', None)
-        self.fetch_counter = kwargs.get('fetch_counter', 0)
+        self.fetch_counter = kwargs.get('fetch_counter', None)
 
     @property
     def url(self) -> Optional[str]:
@@ -594,7 +586,9 @@ class AsyncMapData(HighchartsMeta):
     @class_sensitive(FetchConfiguration)
     def fetch_config(self, value):
         self._fetch_config = value
-        if self.url:
+        if not self._fetch_config and self.url:
+            self._fetch_config = FetchConfiguration(url = self.url)
+        elif self.url:
             self.fetch_config.url = self.url
 
     @property
@@ -608,7 +602,7 @@ class AsyncMapData(HighchartsMeta):
 
     @fetch_counter.setter
     def fetch_counter(self, value):
-        self._fetch_counter = validators.integer(value, minimum = 0)
+        self._fetch_counter = validators.integer(value, allow_empty = True, minimum = 0)
 
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):
@@ -664,7 +658,7 @@ class AsyncMapData(HighchartsMeta):
             function = ''
             fetch = f"""const topology = await {str(fetch_config)}.then(response => response.json());"""
 
-        if self.fetch_counter > 0:
+        if self.fetch_counter and self.fetch_counter > 0:
             fetch = fetch.replace('const topology', f'const topology{self.fetch_counter}')
 
         as_str = f'{function}{fetch}'

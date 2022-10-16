@@ -15,7 +15,7 @@ from collections import UserDict
 import pytest
 
 from validator_collection import checkers, validators
-from highcharts_maps import constants
+from highcharts_maps import constants, errors
 
 
 class State(object):
@@ -284,6 +284,24 @@ def compare_js_literals(original, new):
             print(f'\nMISMATCH FOUND AT ORIGINAL CHARACTER: {counter}')
             print(f'-- ORIGINAL: {original[min_index:max_index]}\n\n')
             print(f'-- NEW: {new[min_index:max_index]}')
+
+            original_fragment = original[min_index:max_index].strip()
+            new_fragment = new[min_index:max_index].strip()
+            if 'raw' in original_fragment and 'raw' in new_fragment:
+                original_fragment = original_fragment.replace('raw: "', '')
+                new_fragment = new_fragment.replace('raw: "', '')
+            if original_fragment.endswith('"') and new_fragment.endswith('"'):
+                original_fragment.replace('"', '')
+                new_fragment.replace('"', '')
+
+            try:
+                original_value = validators.numeric(original_fragment)
+                new_value = validators.numeric(new_fragment)
+                if original_value == new_value:
+                    return True
+            except (ValueError, TypeError):
+                break
+
             break
 
         counter += 1
@@ -744,8 +762,17 @@ def Class_from_js_literal_with_expected(cls,
     if not error:
         # print('-------------------')
         # print('ORIGINAL VALIDATION')
-        parsed_expected, parsed_expected_str = cls._validate_js_literal(expected_string,
-                                                                        range = False)
+        try:
+            parsed_expected, parsed_expected_str = cls._validate_js_literal(expected_string,
+                                                                            range = False)
+        except errors.HighchartsParseError as error:
+            print(f'EXPECTED:\n{expected_string}')
+            if 'await' in expected_string:
+                parsed_expected_str = expected_string.strip()
+                parsed_expected = parsed_expected_str.strip()
+            else:
+                raise error
+
         # print('-------------')
         # print('ORIGINAL CALL')
         # print(as_str)
@@ -760,13 +787,24 @@ def Class_from_js_literal_with_expected(cls,
             as_js_literal = as_js_literal.replace('pattern:', 'patternOptions:')
 
         # print(as_js_literal)
-        parsed_output, output_str = cls._validate_js_literal(as_js_literal, range = False)
+        try:
+            parsed_output, output_str = cls._validate_js_literal(as_js_literal,
+                                                                 range = False)
+        except errors.HighchartsParseError as error:
+            print(f'OUTPUT:\n{as_js_literal}')
+            if 'await' in as_js_literal:
+                parsed_output_str = as_js_literal.strip()
+                parsed_output = as_js_literal.strip()
+            else:
+                raise error
+
         try:
             assert str(parsed_output) == str(parsed_expected)
         except AssertionError as error:
             print('\n')
-            compare_js_literals(str(parsed_expected), str(parsed_output))
-            raise error
+            still_erroring = compare_js_literals(str(parsed_expected), str(parsed_output))
+            if still_erroring:
+                raise error
     else:
         with pytest.raises(error):
             result = cls.from_js_literal(input_string)

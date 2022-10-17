@@ -410,22 +410,22 @@ class MapData(HighchartsMeta):
         """
         return cls.from_json(as_topojson_or_file, allow_snake_case = allow_snake_case)
 
-    def to_geodataframe(self, obj = None):
+    def to_geodataframe(self, object_name = None):
         """Generate a :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>` instance
         of the :term:`map geometry`.
 
-        :param obj: If the map data contains multiple objects, you can generate
+        :param object_name: If the map data contains multiple objects, you can generate
           serialize a specific object by specifying its name or index. Defaults to
           :obj:`None <python:None>`, which behaves as an index of 0.
-        :type obj: :class:`str <python:str>` or :class:`int <python:int>` or
+        :type object_name: :class:`str <python:str>` or :class:`int <python:int>` or
           :obj:`None <python:None>`
 
         :rtype: :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`
         """
-        return self.topology.to_gdf(object_name = obj)
+        return self.topology.to_gdf(object_name = object_name)
 
     @classmethod
-    def from_geodataframe(cls, as_gdf, prequantize = False):
+    def from_geodataframe(cls, as_gdf, prequantize = False, **kwargs):
         """Create a :class:`MapData` instance from a
         :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`.
 
@@ -440,7 +440,7 @@ class MapData(HighchartsMeta):
 
         :rtype: :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
         """
-        topology = Topology(as_gdf, prequantize = prequantize)
+        topology = Topology(as_gdf, prequantize = prequantize, **kwargs)
 
         return cls(topology = topology)
 

@@ -5,12 +5,16 @@ import pytest
 import datetime
 from json.decoder import JSONDecodeError
 
+import geopandas
+
 from highcharts_maps.options.series.data.map_data import (MapData as cls,
                                                           AsyncMapData as cls2)
+from highcharts_maps.utility_classes.topojson import Topology
 from highcharts_maps import errors
 from tests.fixtures import input_files, check_input_file, to_camelCase, to_js_dict, \
     Class__init__, Class__to_untrimmed_dict, Class_from_dict, Class_to_dict, \
     Class_from_js_literal_with_expected, Class_from_js_literal
+
 
 STANDARD_PARAMS = [
     ({}, None),
@@ -74,6 +78,100 @@ def test_MapData_from_js_literal(input_files,
                                         expected_filename,
                                         as_file,
                                         error)
+
+
+@pytest.mark.parametrize('as_str_or_file, error', [
+    ('series/data/map_data/map_data/world.geo.json', None),
+    ('invalid string', JSONDecodeError),
+])
+def test_MapData__from_geojson(input_files, as_str_or_file, error):
+    if not error:
+        input_file = check_input_file(input_files, as_str_or_file)
+        result = cls.from_geojson(input_file)
+        assert isinstance(result, cls) is True
+        assert result.topology is not None
+    else:
+        with pytest.raises(error):
+            result = cls.from_geojson(as_str_or_file)
+
+
+@pytest.mark.parametrize('as_str_or_file, error', [
+    ('series/data/map_data/map_data/world.geo.json', None),
+])
+def test_MapData__to_geojson(input_files, as_str_or_file, error):
+    input_file = check_input_file(input_files, as_str_or_file)
+    as_obj = cls.from_geojson(input_file)
+    if not error:
+        result = as_obj.to_geojson()
+        assert result is not None
+        assert isinstance(result, str) is True
+    else:
+        with pytest.raises(error):
+            result = as_obj.to_geojson()
+
+
+@pytest.mark.parametrize('as_str_or_file, error', [
+    ('series/data/map_data/map_data/world.topo.json', None),
+    ('invalid string', JSONDecodeError),
+])
+def test_MapData_from_topojson(input_files, as_str_or_file, error):
+    if not error:
+        input_file = check_input_file(input_files, as_str_or_file)
+        result = cls.from_topojson(input_file,)
+        assert isinstance(result, cls) is True
+        assert result.topology is not None
+    else:
+        with pytest.raises(error):
+            result = cls.from_topojson(as_str_or_file)
+
+
+@pytest.mark.parametrize('as_str_or_file, error', [
+    ('series/data/map_data/map_data/world.topo.json', None),
+])
+def test_MapData_to_topojson(input_files, as_str_or_file, error):
+    input_file = check_input_file(input_files, as_str_or_file)
+    as_obj = cls.from_topojson(input_file)
+    if not error:
+        result = as_obj.to_topojson()
+        assert result is not None
+        assert isinstance(result, str) is True
+    else:
+        with pytest.raises(error):
+            result = as_obj.to_topojson()
+
+
+@pytest.mark.parametrize('as_str_or_file, object_name, error', [
+    ('series/data/map_data/map_data/world.topo.json', 'default', None),
+])
+def test_MapData_from_geodataframe(input_files, as_str_or_file, object_name, error):
+    if not error:
+        input_file = check_input_file(input_files, as_str_or_file)
+        topology = Topology.from_topojson(input_file, object_name = object_name)
+        gdf = topology.to_gdf(object_name = object_name)
+        result = cls.from_geodataframe(gdf)
+        assert isinstance(result, cls) is True
+        assert result.topology is not None
+    else:
+        with pytest.raises(error):
+            result = cls.from_geodataframe(as_str_or_file)
+
+
+@pytest.mark.parametrize('as_str_or_file, object_name, error', [
+    ('series/data/map_data/map_data/world.topo.json', 'default', None),
+])
+def test_MapData__to_geodataframe(input_files, as_str_or_file, object_name, error):
+    input_file = check_input_file(input_files, as_str_or_file)
+    topology = Topology.from_topojson(input_file, object_name = object_name)
+    gdf = topology.to_gdf(object_name = object_name)
+    as_obj = cls.from_geodataframe(gdf, object_name = object_name)
+    if not error:
+        result = as_obj.to_geodataframe(object_name = object_name)
+        assert result is not None
+        assert isinstance(result, geopandas.GeoDataFrame) is True
+    else:
+        with pytest.raises(error):
+            result = as_obj.to_geodataframe()
+
 
 ###### Next Class
 

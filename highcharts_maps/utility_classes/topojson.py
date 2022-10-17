@@ -1,4 +1,14 @@
 from typing import Optional
+try:
+    import orjson as json
+except ImportError:
+    try:
+        import rapidjson as json
+    except ImportError:
+        try:
+            import simplejson as json
+        except ImportError:
+            import json
 
 from validator_collection import validators, checkers
 
@@ -183,7 +193,14 @@ class Topology(TopologyBase):
         :returns: A Python objcet representation of ``as_geojson_or_file``.
         :rtype: :class:`MapData`
         """
-        return cls(as_geojson_or_file, **kwargs)
+        if checkers.is_file(as_geojson_or_file):
+            with open(as_geojson_or_file, 'r') as file_:
+                as_dict = json.load(file_)
+                obj = cls(as_dict, **kwargs)
+        else:
+            obj = cls(as_geojson_or_file, **kwargs)
+
+        return obj
 
     @classmethod
     def from_topojson(cls,
@@ -204,7 +221,14 @@ class Topology(TopologyBase):
         :returns: A Python objcet representation of ``as_topojson_or_file``.
         :rtype: :class:`MapData`
         """
-        return cls(as_topojson_or_file, **kwargs)
+        if checkers.is_file(as_topojson_or_file):
+            with open(as_topojson_or_file, 'r') as file_:
+                as_dict = json.load(file_)
+                obj = cls(as_dict, **kwargs)
+        else:
+            obj = cls(as_topojson_or_file, **kwargs)
+
+        return obj
 
     def to_topojson(self,
                     filename = None,
@@ -232,19 +256,19 @@ class Topology(TopologyBase):
         """
         return self.to_json(filename = filename, encoding = encoding)
 
-    def to_geodataframe(self, obj = None):
+    def to_geodataframe(self, object_name = None):
         """Generate a :class:`GeoPandas.GeoDataFrame <geopandas:GeoDataFrame>` instance
         of the :term:`topology`.
 
-        :param obj: If the map data contains multiple objects, you can generate
+        :param object_name: If the map data contains multiple objects, you can generate
           serialize a specific object by specifying its name or index. Defaults to
           :obj:`None <python:None>`, which behaves as an index of 0.
-        :type obj: :class:`str <python:str>` or :class:`int <python:int>` or
+        :type object_name: :class:`str <python:str>` or :class:`int <python:int>` or
           :obj:`None <python:None>`
 
         :rtype: :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`
         """
-        return self.to_gdf(object_name = obj)
+        return self.to_gdf(object_name = object_name)
 
     @classmethod
     def from_geodataframe(cls,
@@ -316,8 +340,7 @@ class Topology(TopologyBase):
 
         :rtype: :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`
         """
-        return super().to_gdf(self,
-                              crs = crs,
+        return super().to_gdf(crs = crs,
                               validate = validate,
                               winding_order = winding_order,
                               object_name = object_name)

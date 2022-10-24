@@ -395,10 +395,11 @@ class MapOptions(MapBaseOptions, GenericTypeOptions):
             'all_areas': as_dict.get('allAreas', None),
             'join_by': as_dict.get('joinBy', None),
 
+            'affects_map_view': as_dict.get('affectsMapView', None),
             'border_color': as_dict.get('borderColor', None),
             'border_width': as_dict.get('borderWidth', None),
             'data_as_columns': as_dict.get('dataAsColumns', None),
-            'null_color': as_dict.get('nulLColor', None),
+            'null_color': as_dict.get('nullColor', None),
             'null_interaction': as_dict.get('nullInteraction', None),
         }
 
@@ -406,6 +407,7 @@ class MapOptions(MapBaseOptions, GenericTypeOptions):
 
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
         untrimmed = {
+            'affectsMapView': self.affects_map_view,
             'animationLimit': self.animation_limit,
             'boostBlending': self.boost_blending,
             'boostThreshold': self.boost_threshold,

@@ -40,9 +40,7 @@ class GeoJSONBase(HighchartsMeta):
 
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):
-        kwargs = {
-
-        }
+        kwargs = {}
 
         return kwargs
 
@@ -326,19 +324,7 @@ class GeoJSONBase(HighchartsMeta):
         :returns: A Python object representation of ``as_dict``.
         :rtype: :class:`HighchartsMeta`
         """
-        as_dict = validators.dict(as_dict, allow_empty = True) or {}
-        clean_as_dict = {}
-        for key in as_dict:
-            if allow_snake_case:
-                clean_key = utility_functions.to_camelCase(key)
-            else:
-                clean_key = key
-
-            clean_as_dict[clean_key] = as_dict[key]
-
-        kwargs = cls._get_kwargs_from_dict(as_dict)
-
-        return cls(**kwargs)
+        return cls(**as_dict)
 
     def to_dict(self) -> dict:
         """Generate a :class:`dict <python:dict>` representation of the object compatible

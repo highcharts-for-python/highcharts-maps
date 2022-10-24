@@ -17,11 +17,6 @@ class GeometricDataBase(DataCore):
         self._data_labels = None
         self._drilldown = None
         self._geometry = None
-        self._middle_x = None
-        self._middle_y = None
-        self._path = None
-        self._value = None
-
         self.data_labels = kwargs.get('data_labels', None)
         self.drilldown = kwargs.get('drilldown', None)
         self.geometry = kwargs.get('geometry', None)
@@ -121,7 +116,6 @@ class GeometricDataBase(DataCore):
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
         untrimmed = {
             'dataLabels': self.data_labels,
-            'dragDrop': self.drag_drop,
             'drilldown': self.drilldown,
             'geometry': self.geometry,
         }
@@ -157,7 +151,7 @@ class GeometricData(GeometricDataBase):
 
         :rtype: numeric or :obj:`None <python:None>`
         """
-        return self._x
+        return self._middle_x
 
     @middle_x.setter
     def middle_x(self, value):
@@ -174,7 +168,7 @@ class GeometricData(GeometricDataBase):
 
         :rtype: numeric or :obj:`None <python:None>`
         """
-        return self._x
+        return self._middle_y
 
     @middle_y.setter
     def middle_y(self, value):
@@ -294,6 +288,7 @@ class GeometricData(GeometricDataBase):
             'drag_drop': as_dict.get('dragDrop', None),
             'drilldown': as_dict.get('drilldown', None),
             'geometry': as_dict.get('geometry', None),
+
             'middle_x': as_dict.get('middleX', None),
             'middle_y': as_dict.get('middleY', None),
             'path': as_dict.get('path', None),
@@ -335,7 +330,7 @@ class GeometricZData(GeometricDataBase):
 
         :rtype: numeric or :class:`EnforcedNullType` or :obj:`None <python:None>`
         """
-        return self._value
+        return self._z
 
     @z.setter
     def z(self, value):
@@ -410,21 +405,14 @@ class GeometricZData(GeometricDataBase):
             'drag_drop': as_dict.get('dragDrop', None),
             'drilldown': as_dict.get('drilldown', None),
             'geometry': as_dict.get('geometry', None),
-            'middle_x': as_dict.get('middleX', None),
-            'middle_y': as_dict.get('middleY', None),
-            'path': as_dict.get('path', None),
-            'value': as_dict.get('value', None),
+            'z': as_dict.get('z', None),
         }
 
         return kwargs
 
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
         untrimmed = {
-            'geometry': self.geometry,
-            'middleX': self.middle_x,
-            'middleY': self.middle_y,
-            'path': self.path,
-            'value': self.value,
+            'z': self.z
         }
 
         parent_as_dict = super()._to_untrimmed_dict(in_cls = in_cls)
@@ -520,7 +508,7 @@ class GeometricLatLonData(GeometricDataBase):
 
         :rtype: numeric or :class:`EnforcedNullType` or :obj:`None <python:None>`
         """
-        return self._value
+        return self._y
 
     @y.setter
     def y(self, value):

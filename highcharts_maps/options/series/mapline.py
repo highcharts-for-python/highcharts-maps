@@ -154,10 +154,11 @@ class MapLineSeries(MapSeriesBase, MapLineOptions):
             'all_areas': as_dict.get('allAreas', None),
             'join_by': as_dict.get('joinBy', None),
 
+            'affects_map_view': as_dict.get('affectsMapView', None),
             'border_color': as_dict.get('borderColor', None),
             'border_width': as_dict.get('borderWidth', None),
             'data_as_columns': as_dict.get('dataAsColumns', None),
-            'null_color': as_dict.get('nulLColor', None),
+            'null_color': as_dict.get('nullColor', None),
             'null_interaction': as_dict.get('nullInteraction', None),
 
             'fill_color': as_dict.get('fillColor', None),

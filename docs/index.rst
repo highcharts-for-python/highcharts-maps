@@ -30,7 +30,7 @@ Highcharts Maps for Python
 
 .. toctree::
   :hidden:
-  :maxdepth: 6
+  :maxdepth: 3
   :caption: Contents
 
   Home <self>

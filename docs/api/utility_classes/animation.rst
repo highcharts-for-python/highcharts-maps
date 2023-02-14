@@ -22,7 +22,7 @@ class: :class:`AnimationOptions <highcharts_maps.utility_classes.animation.Anima
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AnimationOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

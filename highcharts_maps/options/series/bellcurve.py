@@ -1,1 +1,1 @@
-from highcharts_python.options.series.bellcurve import *
+from highcharts_core.options.series.bellcurve import *

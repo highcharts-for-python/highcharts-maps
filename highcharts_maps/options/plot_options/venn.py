@@ -1,1 +1,1 @@
-from highcharts_python.options.plot_options.venn import *
+from highcharts_core.options.plot_options.venn import *

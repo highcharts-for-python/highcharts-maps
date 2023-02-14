@@ -22,7 +22,7 @@ class: :class:`NumericAxis <highcharts_maps.options.axes.numeric.NumericAxis>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: NumericAxis
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

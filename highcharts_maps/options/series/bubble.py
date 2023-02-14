@@ -1,1 +1,1 @@
-from highcharts_python.options.series.bubble import *
+from highcharts_core.options.series.bubble import *

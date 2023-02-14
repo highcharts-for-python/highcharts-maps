@@ -22,7 +22,7 @@ class: :class:`GeometricData <highcharts_maps.options.series.data.geometric.Geom
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: GeometricData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`GeometricZData <highcharts_maps.options.series.data.geometric.Geo
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: GeometricZData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,7 @@ class: :class:`GeometricLatLonData <highcharts_maps.options.series.data.geometri
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: GeometricLatLonData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -76,7 +76,7 @@ class: :class:`GeometricDataBase <highcharts_maps.options.series.data.geometric.
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: GeometricDataBase
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

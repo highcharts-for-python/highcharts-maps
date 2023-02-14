@@ -1,1 +1,1 @@
-from highcharts_python.options.series.polygon import *
+from highcharts_core.options.series.polygon import *

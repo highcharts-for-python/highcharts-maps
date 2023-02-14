@@ -1,1 +1,1 @@
-from highcharts_python.options.series.pyramid import *
+from highcharts_core.options.series.pyramid import *

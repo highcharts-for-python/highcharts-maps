@@ -22,7 +22,7 @@ class: :class:`ChartEvents <highcharts_maps.utility_classes.events.ChartEvents>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ChartEvents
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`BreadcrumbEvents <highcharts_maps.utility_classes.events.Breadcru
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BreadcrumbEvents
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,7 @@ class: :class:`NavigationEvents <highcharts_maps.utility_classes.events.Navigati
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: NavigationEvents
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -76,7 +76,7 @@ class: :class:`PointEvents <highcharts_maps.utility_classes.events.PointEvents>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PointEvents
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -94,7 +94,7 @@ class: :class:`SeriesEvents <highcharts_maps.utility_classes.events.SeriesEvents
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SeriesEvents
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -112,7 +112,7 @@ class: :class:`ClusterEvents <highcharts_maps.utility_classes.events.ClusterEven
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ClusterEvents
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -130,7 +130,7 @@ class: :class:`AxisEvents <highcharts_maps.utility_classes.events.AxisEvents>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AxisEvents
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -148,7 +148,7 @@ class: :class:`MouseEvents <highcharts_maps.utility_classes.events.MouseEvents>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: MouseEvents
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -27,7 +27,7 @@ class: :class:`MapViewOptions <highcharts_maps.options.map_views.MapViewOptions>
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: MapViewOptions
-      :top-classes: :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -22,7 +22,7 @@ class: :class:`PackedBubbleOptions <highcharts_maps.options.plot_options.packedb
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PackedBubbleOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`ParentNodeOptions <highcharts_maps.options.plot_options.packedbub
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ParentNodeOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

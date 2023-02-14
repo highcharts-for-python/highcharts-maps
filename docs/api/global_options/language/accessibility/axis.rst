@@ -22,7 +22,7 @@ class: :class:`AxisLanguageOptions <highcharts_maps.global_options.language.acce
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AxisLanguageOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

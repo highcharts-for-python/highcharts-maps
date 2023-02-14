@@ -1,1 +1,1 @@
-from highcharts_python.options.series.scatter import *
+from highcharts_core.options.series.scatter import *

@@ -22,7 +22,7 @@ class: :class:`SplineOptions <highcharts_maps.options.plot_options.spline.Spline
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SplineOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

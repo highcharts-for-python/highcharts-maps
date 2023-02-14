@@ -3,7 +3,7 @@ from typing import Optional
 
 from validator_collection import checkers
 
-from highcharts_python.headless_export import ExportServer as ExportServerBase
+from highcharts_core.headless_export import ExportServer as ExportServerBase
 
 from highcharts_maps.decorators import validate_types
 from highcharts_maps.options import HighchartsOptions, HighchartsMapsOptions

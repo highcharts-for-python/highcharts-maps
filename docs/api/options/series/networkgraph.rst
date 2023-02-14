@@ -22,7 +22,7 @@ class: :class:`NetworkGraphSeries <highcharts_maps.options.series.networkgraph.N
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: NetworkGraphSeries
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

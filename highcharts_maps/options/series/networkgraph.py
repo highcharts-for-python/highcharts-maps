@@ -1,1 +1,1 @@
-from highcharts_python.options.series.networkgraph import *
+from highcharts_core.options.series.networkgraph import *

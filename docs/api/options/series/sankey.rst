@@ -22,7 +22,7 @@ class: :class:`SankeySeries <highcharts_maps.options.series.sankey.SankeySeries>
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SankeySeries
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

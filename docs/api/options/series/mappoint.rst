@@ -22,7 +22,7 @@ class: :class:`MapPointSeries <highcharts_maps.options.series.mappoint.MapPointS
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: MapPointSeries
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

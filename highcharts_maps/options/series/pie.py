@@ -1,6 +1,6 @@
 from typing import Optional, List
 
-from highcharts_python.options.series.pie import VariablePieSeries
+from highcharts_core.options.series.pie import VariablePieSeries
 
 from highcharts_maps.options.series.base import MapSeriesBase
 from highcharts_maps.options.series.data.pie import PieData

@@ -22,7 +22,7 @@ class: :class:`DataGroupingOptions <highcharts_maps.utility_classes.data_groupin
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DataGroupingOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

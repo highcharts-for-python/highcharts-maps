@@ -22,7 +22,7 @@ class: :class:`DataBase <highcharts_maps.options.series.data.base.DataBase>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DataBase
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`DataCore <highcharts_maps.options.series.data.base.DataCore>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DataCore
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -22,7 +22,7 @@ class: :class:`FunnelOptions <highcharts_maps.options.plot_options.funnel.Funnel
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: FunnelOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`Funnel3DOptions <highcharts_maps.options.plot_options.funnel.Funn
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Funnel3DOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

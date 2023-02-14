@@ -22,7 +22,7 @@ class: :class:`BulletOptions <highcharts_maps.options.plot_options.bullet.Bullet
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BulletOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`TargetOptions <highcharts_maps.options.plot_options.bullet.Target
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: TargetOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

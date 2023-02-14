@@ -1,6 +1,6 @@
 from validator_collection import validators
 
-from highcharts_python.utility_functions import *
+from highcharts_core.utility_functions import *
 
 from highcharts_maps import errors
 

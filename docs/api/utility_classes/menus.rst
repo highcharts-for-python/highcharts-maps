@@ -22,7 +22,7 @@ class: :class:`MenuObject <highcharts_maps.utility_classes.menus.MenuObject>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: MenuObject
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`MenuItem <highcharts_maps.utility_classes.menus.MenuItem>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: MenuItem
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

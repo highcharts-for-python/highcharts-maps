@@ -3,7 +3,7 @@ from decimal import Decimal
 
 from validator_collection import validators
 
-from highcharts_python.options.plot_options.bubble import BubbleOptions
+from highcharts_core.options.plot_options.bubble import BubbleOptions
 
 from highcharts_maps.options.plot_options.base import MapBaseOptions
 from highcharts_maps.utility_functions import validate_color, mro__to_untrimmed_dict

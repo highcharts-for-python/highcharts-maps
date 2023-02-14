@@ -1,1 +1,1 @@
-from highcharts_python.options.series.organization import *
+from highcharts_core.options.series.organization import *

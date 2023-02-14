@@ -22,7 +22,7 @@ class: :class:`BubbleSeries <highcharts_maps.options.series.bubble.BubbleSeries>
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BubbleSeries
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

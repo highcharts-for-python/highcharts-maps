@@ -22,7 +22,7 @@ class: :class:`DateTimeLabelFormats <highcharts_maps.utility_classes.date_time_l
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DateTimeLabelFormats
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

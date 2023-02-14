@@ -37,7 +37,7 @@ class: :class:`AccessibilityLanguageOptions <highcharts_maps.global_options.lang
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AccessibilityLanguageOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

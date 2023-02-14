@@ -22,7 +22,7 @@ class: :class:`ConnectionData <highcharts_maps.options.series.data.connections.C
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ConnectionData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`WeightedConnectionData <highcharts_maps.options.series.data.conne
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: WeightedConnectionData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,7 @@ class: :class:`OutgoingWeightedConnectionData <highcharts_maps.options.series.da
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: OutgoingWeightedConnectionData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -76,7 +76,7 @@ class: :class:`ConnectionBase <highcharts_maps.options.series.data.connections.C
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ConnectionBase
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

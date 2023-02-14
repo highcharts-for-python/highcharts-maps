@@ -22,7 +22,7 @@ class: :class:`ProjectionOptions <highcharts_maps.utility_classes.projections.Pr
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ProjectionOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`CustomProjection <highcharts_maps.utility_classes.projections.Cus
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: CustomProjection
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

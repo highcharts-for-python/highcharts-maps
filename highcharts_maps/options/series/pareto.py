@@ -1,1 +1,1 @@
-from highcharts_python.options.series.pareto import *
+from highcharts_core.options.series.pareto import *

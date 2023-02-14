@@ -22,7 +22,7 @@ class: :class:`AnnounceNewData <highcharts_maps.options.accessibility.announce_n
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AnnounceNewData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

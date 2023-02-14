@@ -22,7 +22,7 @@ class: :class:`AxisBreak <highcharts_maps.options.axes.breaks.AxisBreak>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AxisBreak
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

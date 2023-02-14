@@ -22,7 +22,7 @@ class: :class:`RangeSelectorLanguageOptions <highcharts_maps.global_options.lang
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: RangeSelectorLanguageOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

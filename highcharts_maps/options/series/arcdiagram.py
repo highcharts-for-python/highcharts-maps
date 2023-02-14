@@ -1,1 +1,1 @@
-from highcharts_python.options.series.arcdiagram import *
+from highcharts_core.options.series.arcdiagram import *

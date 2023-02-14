@@ -22,7 +22,7 @@ class: :class:`Drilldown <highcharts_maps.options.drilldown.Drilldown>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Drilldown
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

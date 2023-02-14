@@ -1,1 +1,1 @@
-from highcharts_python.options.plot_options.dependencywheel import *
+from highcharts_core.options.plot_options.dependencywheel import *

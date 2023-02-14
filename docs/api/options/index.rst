@@ -49,7 +49,7 @@ class: :class:`HighchartsMaOptions <highcharts_maps.options.HighchartsMapsOption
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: HighchartsMapsOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
 -----------------------
@@ -65,7 +65,7 @@ class: :class:`HighchartsOptions <highcharts_maps.options.HighchartsOptions>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: HighchartsOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
 -----------------------
@@ -81,7 +81,7 @@ class: :class:`Options <highcharts_maps.options.Options>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Options
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
 -----------------------

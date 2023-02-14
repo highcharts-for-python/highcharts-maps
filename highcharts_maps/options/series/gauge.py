@@ -1,1 +1,1 @@
-from highcharts_python.options.series.gauge import *
+from highcharts_core.options.series.gauge import *

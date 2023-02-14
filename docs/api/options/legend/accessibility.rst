@@ -22,7 +22,7 @@ class: :class:`LegendAccessibilityOptions <highcharts_maps.options.legend.access
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: LegendAccessibilityOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`LegendKeyboardNavigation <highcharts_maps.options.legend.accessib
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: LegendKeyboardNavigation
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

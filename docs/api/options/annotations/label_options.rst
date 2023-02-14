@@ -22,7 +22,7 @@ class: :class:`AnnotationLabel <highcharts_maps.options.annotations.label_option
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AnnotationLabel
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`AnnotationLabelOptionAccessibility <highcharts_maps.options.annot
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AnnotationLabelOptionAccessibility
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,7 @@ class: :class:`LabelOptions <highcharts_maps.options.annotations.label_options.L
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: LabelOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

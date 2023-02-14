@@ -22,7 +22,7 @@ class: :class:`ScatterOptions <highcharts_maps.options.plot_options.scatter.Scat
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ScatterOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`Scatter3DOptions <highcharts_maps.options.plot_options.scatter.Sc
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Scatter3DOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

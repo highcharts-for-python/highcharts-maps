@@ -1,1 +1,1 @@
-from highcharts_python.options.series.timeline import *
+from highcharts_core.options.series.timeline import *

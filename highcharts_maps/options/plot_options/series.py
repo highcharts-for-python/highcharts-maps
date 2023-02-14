@@ -3,7 +3,7 @@ from decimal import Decimal
 
 from validator_collection import validators
 
-from highcharts_python.options.plot_options.series import (SeriesBaseOptions,
+from highcharts_core.options.plot_options.series import (SeriesBaseOptions,
                                                            SeriesOptions as SeriesBase)
 
 from highcharts_maps.utility_classes.gradients import Gradient

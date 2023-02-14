@@ -1,1 +1,1 @@
-from highcharts_python.options.axes.color_axis import *
+from highcharts_core.options.axes.color_axis import *

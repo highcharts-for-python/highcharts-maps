@@ -1,1 +1,1 @@
-from highcharts_python.options.series.spline import *
+from highcharts_core.options.series.spline import *

@@ -1,6 +1,6 @@
 from typing import Optional
 
-from highcharts_python.options.plot_options.pie import (VariablePieOptions,
+from highcharts_core.options.plot_options.pie import (VariablePieOptions,
                                                         PieOptions as PieOptionsBase)
 
 from highcharts_maps.utility_functions import mro__to_untrimmed_dict

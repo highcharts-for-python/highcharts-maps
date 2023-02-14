@@ -1,1 +1,1 @@
-from highcharts_python.options.series.item import *
+from highcharts_core.options.series.item import *

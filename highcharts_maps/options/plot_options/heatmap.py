@@ -3,7 +3,7 @@ from decimal import Decimal
 
 from validator_collection import validators
 
-from highcharts_python.options.plot_options.heatmap import (HeatmapOptions as HeatmapBase,
+from highcharts_core.options.plot_options.heatmap import (HeatmapOptions as HeatmapBase,
                                                             TilemapOptions as TilemapBase)
 
 from highcharts_maps.options.plot_options.base import MapBaseOptions

@@ -22,7 +22,7 @@ class: :class:`SonificationLanguageOptions <highcharts_maps.global_options.langu
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SonificationLanguageOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

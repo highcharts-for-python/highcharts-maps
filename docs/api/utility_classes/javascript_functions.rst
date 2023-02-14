@@ -22,7 +22,7 @@ class: :class:`CallbackFunction <highcharts_maps.utility_classes.javascript_func
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: CallbackFunction
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`JavaScriptClass <highcharts_maps.utility_classes.javascript_funct
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: JavaScriptClass
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,7 @@ class: :class:`VariableName <highcharts_maps.utility_classes.javascript_function
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: VariableName
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -22,7 +22,7 @@ class: :class:`Position <highcharts_maps.utility_classes.position.Position>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Position
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

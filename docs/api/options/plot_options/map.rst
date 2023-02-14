@@ -22,7 +22,7 @@ class: :class:`MapOptions <highcharts_maps.options.plot_options.map.MapOptions>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: MapOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

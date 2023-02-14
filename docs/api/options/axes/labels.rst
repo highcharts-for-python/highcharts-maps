@@ -22,7 +22,7 @@ class: :class:`AxisLabelOptions <highcharts_maps.options.axes.labels.AxisLabelOp
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AxisLabelOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`PlotBandLabel <highcharts_maps.options.axes.labels.PlotBandLabel>
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PlotBandLabel
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,7 @@ class: :class:`PlotLineLabel <highcharts_maps.options.axes.labels.PlotLineLabel>
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PlotLineLabel
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

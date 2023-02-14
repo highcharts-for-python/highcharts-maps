@@ -22,7 +22,7 @@ class: :class:`Responsive <highcharts_maps.options.responsive.Responsive>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Responsive
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`ResponsiveRules <highcharts_maps.options.responsive.ResponsiveRul
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ResponsiveRules
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,7 @@ class: :class:`Condition <highcharts_maps.options.responsive.Condition>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Condition
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

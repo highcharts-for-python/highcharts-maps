@@ -22,7 +22,7 @@ class: :class:`FocusBorder <highcharts_maps.options.accessibility.keyboard_navig
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: FocusBorder
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`FocusBorderStyle <highcharts_maps.options.accessibility.keyboard_
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: FocusBorderStyle
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -22,7 +22,7 @@ class: :class:`HeatmapSeries <highcharts_maps.options.series.heatmap.HeatmapSeri
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: HeatmapSeries
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`TilemapSeries <highcharts_maps.options.series.heatmap.TilemapSeri
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: TilemapSeries
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

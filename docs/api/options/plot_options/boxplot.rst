@@ -22,7 +22,7 @@ class: :class:`BoxPlotOptions <highcharts_maps.options.plot_options.boxplot.BoxP
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BoxPlotOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`ErrorBarOptions <highcharts_maps.options.plot_options.boxplot.Err
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ErrorBarOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -3,7 +3,7 @@ from decimal import Decimal
 
 from validator_collection import validators
 
-from highcharts_python.utility_classes.buttons import (ButtonTheme,
+from highcharts_core.utility_classes.buttons import (ButtonTheme,
                                                        ButtonConfiguration,
                                                        ContextButtonConfiguration,
                                                        ExportingButtons)

@@ -22,7 +22,7 @@ class: :class:`LevelOptions <highcharts_maps.options.plot_options.levels.LevelOp
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: LevelOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`SunburstLevelOptions <highcharts_maps.options.plot_options.levels
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SunburstLevelOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,7 @@ class: :class:`TreemapLevelOptions <highcharts_maps.options.plot_options.levels.
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: TreemapLevelOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -76,7 +76,7 @@ class: :class:`LevelSize <highcharts_maps.options.plot_options.levels.LevelSize>
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: LevelSize
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -94,7 +94,7 @@ class: :class:`ColorVariation <highcharts_maps.options.plot_options.levels.Color
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ColorVariation
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -112,7 +112,7 @@ class: :class:`BaseLevelOptions <highcharts_maps.options.plot_options.levels.Bas
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BaseLevelOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -22,7 +22,7 @@ class: :class:`BoxPlotSeries <highcharts_maps.options.series.boxplot.BoxPlotSeri
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BoxPlotSeries
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`ErrorBarSeries <highcharts_maps.options.series.boxplot.ErrorBarSe
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ErrorBarSeries
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -22,7 +22,7 @@ class: :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: MapData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncM
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AsyncMapData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

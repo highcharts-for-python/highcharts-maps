@@ -22,7 +22,7 @@ class: :class:`Inset <highcharts_maps.options.map_views.insets.Inset>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Inset
-      :top-classes: :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`InsetOptions <highcharts_maps.options.map_views.insets.InsetOptio
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: InsetOptions
-      :top-classes: :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

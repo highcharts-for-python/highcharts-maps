@@ -32,7 +32,7 @@ class: :class:`Annotation <highcharts_maps.options.annotations.Annotation>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Annotation
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

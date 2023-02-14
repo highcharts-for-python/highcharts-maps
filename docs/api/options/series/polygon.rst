@@ -22,7 +22,7 @@ class: :class:`PolygonSeries <highcharts_maps.options.series.polygon.PolygonSeri
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: PolygonSeries
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

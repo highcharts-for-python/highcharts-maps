@@ -1,1 +1,1 @@
-from highcharts_python.options.series.dumbbell import *
+from highcharts_core.options.series.dumbbell import *

@@ -22,7 +22,7 @@ class: :class:`RangeData <highcharts_maps.options.series.data.range.RangeData>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: RangeData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`ConnectedRangeData <highcharts_maps.options.series.data.range.Con
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ConnectedRangeData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

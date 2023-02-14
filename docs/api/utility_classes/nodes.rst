@@ -22,7 +22,7 @@ class: :class:`NodeOptions <highcharts_maps.utility_classes.nodes.NodeOptions>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: NodeOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`DependencyWheelNodeOptions <highcharts_maps.utility_classes.nodes
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DependencyWheelNodeOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,7 @@ class: :class:`OrganizationNodeOptions <highcharts_maps.utility_classes.nodes.Or
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: OrganizationNodeOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

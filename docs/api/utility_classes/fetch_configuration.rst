@@ -22,7 +22,7 @@ class: :class:`FetchConfiguration <highcharts_maps.utility_classes.fetch_configu
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: FetchConfiguration
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

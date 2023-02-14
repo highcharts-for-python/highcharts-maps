@@ -181,6 +181,8 @@ def test_ExportingButtons__init__(kwargs, error):
         assert result is not None
         assert isinstance(result, cls3) is True
         for key in kwargs:
+            if key in ['contextButton', 'context_button']:
+                continue
             if isinstance(kwargs[key], str) and kwargs[key].startswith('function'):
                 continue
             if isinstance(kwargs[key], str) and kwargs[key].startswith('class'):

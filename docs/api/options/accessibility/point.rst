@@ -22,7 +22,7 @@ class: :class:`AccessibilityPoint <highcharts_maps.options.accessibility.point.A
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AccessibilityPoint
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

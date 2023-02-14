@@ -1,1 +1,1 @@
-from highcharts_python.options.series.treemap import *
+from highcharts_core.options.series.treemap import *

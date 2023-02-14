@@ -1,1 +1,1 @@
-from highcharts_python.options.series.wordcloud import *
+from highcharts_core.options.series.wordcloud import *

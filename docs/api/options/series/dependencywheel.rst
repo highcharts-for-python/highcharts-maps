@@ -22,7 +22,7 @@ class: :class:`DependencyWheelSeries <highcharts_maps.options.series.dependencyw
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DependencyWheelSeries
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

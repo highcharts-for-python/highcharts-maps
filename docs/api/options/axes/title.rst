@@ -22,7 +22,7 @@ class: :class:`AxisTitle <highcharts_maps.options.axes.title.AxisTitle>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: AxisTitle
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

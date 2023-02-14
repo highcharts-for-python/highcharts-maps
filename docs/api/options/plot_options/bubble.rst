@@ -22,7 +22,7 @@ class: :class:`BubbleOptions <highcharts_maps.options.plot_options.bubble.Bubble
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BubbleOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

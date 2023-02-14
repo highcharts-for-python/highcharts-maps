@@ -22,7 +22,7 @@ class: :class:`MapNavigationOptions <highcharts_maps.options.map_navigation.MapN
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: MapNavigationOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`MapButtonOptions <highcharts_maps.options.map_navigation.MapButto
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: MapButtonOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -6,7 +6,7 @@ from validator_collection import validators
 from highcharts_maps.decorators import class_sensitive
 from highcharts_maps.options.plot_options.base import MapBaseOptions
 from highcharts_maps.options.plot_options.generic import GenericTypeOptions
-from highcharts_python.options.plot_options.drag_drop import DragDropOptions
+from highcharts_core.options.plot_options.drag_drop import DragDropOptions
 from highcharts_maps.utility_functions import validate_color, mro__to_untrimmed_dict
 from highcharts_maps.utility_classes.gradients import Gradient
 from highcharts_maps.utility_classes.patterns import Pattern

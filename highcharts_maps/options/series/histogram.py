@@ -1,1 +1,1 @@
-from highcharts_python.options.series.histogram import *
+from highcharts_core.options.series.histogram import *

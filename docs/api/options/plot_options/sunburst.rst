@@ -22,7 +22,7 @@ class: :class:`SunburstOptions <highcharts_maps.options.plot_options.sunburst.Su
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SunburstOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -1,1 +1,1 @@
-from highcharts_python.options.series.funnel import *
+from highcharts_core.options.series.funnel import *

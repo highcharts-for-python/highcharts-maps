@@ -7,7 +7,7 @@ from highcharts_maps.options import HighchartsMapsOptions
 
 from highcharts_maps import errors
 from highcharts_maps.decorators import validate_types
-from highcharts_python.global_options.shared_options import SharedOptions
+from highcharts_core.global_options.shared_options import SharedOptions
 
 
 class SharedMapsOptions(HighchartsMapsOptions):

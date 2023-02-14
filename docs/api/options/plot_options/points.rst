@@ -22,7 +22,7 @@ class: :class:`Point <highcharts_maps.options.plot_options.points.Point>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: Point
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`OnPointOptions <highcharts_maps.options.plot_options.points.OnPoi
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: OnPointOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,7 @@ class: :class:`ConnectorOptions <highcharts_maps.options.plot_options.points.Con
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ConnectorOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

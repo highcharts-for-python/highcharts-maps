@@ -22,7 +22,7 @@ class: :class:`MapLineSeries <highcharts_maps.options.series.mapline.MapLineSeri
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: MapLineSeries
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

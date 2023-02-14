@@ -2,7 +2,7 @@ from typing import Optional, List
 
 from validator_collection import validators, checkers
 
-from highcharts_python.options.series.base import SeriesBase
+from highcharts_core.options.series.base import SeriesBase
 
 from highcharts_maps import errors
 from highcharts_maps.decorators import validate_types

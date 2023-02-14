@@ -22,7 +22,7 @@ class: :class:`AnnotationShape <highcharts_maps.options.annotations.shape_option
   **Class Inheritance:**
 
     .. inheritance-diagram:: AnnotationShape
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
 -----------------------
@@ -38,5 +38,5 @@ class: :class:`ShapeOptions <highcharts_maps.options.annotations.shape_options.S
   **Class Inheritance:**
 
     .. inheritance-diagram:: ShapeOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1

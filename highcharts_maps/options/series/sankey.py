@@ -1,1 +1,1 @@
-from highcharts_python.options.series.sankey import *
+from highcharts_core.options.series.sankey import *

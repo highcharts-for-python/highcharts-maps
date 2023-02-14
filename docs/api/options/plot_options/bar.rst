@@ -22,7 +22,7 @@ class: :class:`BarOptions <highcharts_maps.options.plot_options.bar.BarOptions>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BarOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`ColumnOptions <highcharts_maps.options.plot_options.bar.ColumnOpt
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ColumnOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,7 @@ class: :class:`ColumnPyramidOptions <highcharts_maps.options.plot_options.bar.Co
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ColumnPyramidOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -76,7 +76,7 @@ class: :class:`ColumnRangeOptions <highcharts_maps.options.plot_options.bar.Colu
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ColumnRangeOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -94,7 +94,7 @@ class: :class:`CylinderOptions <highcharts_maps.options.plot_options.bar.Cylinde
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: CylinderOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -112,7 +112,7 @@ class: :class:`VariwideOptions <highcharts_maps.options.plot_options.bar.Variwid
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: VariwideOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -130,7 +130,7 @@ class: :class:`WaterfallOptions <highcharts_maps.options.plot_options.bar.Waterf
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: WaterfallOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -148,7 +148,7 @@ class: :class:`WindBarbOptions <highcharts_maps.options.plot_options.bar.WindBar
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: WindBarbOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -166,7 +166,7 @@ class: :class:`XRangeOptions <highcharts_maps.options.plot_options.bar.XRangeOpt
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: XRangeOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -184,7 +184,7 @@ class: :class:`BaseBarOptions <highcharts_maps.options.plot_options.bar.BaseBarO
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BaseBarOptions
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -1,1 +1,1 @@
-from highcharts_python.options.plot_options.boxplot import *
+from highcharts_core.options.plot_options.boxplot import *

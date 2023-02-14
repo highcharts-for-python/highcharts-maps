@@ -22,7 +22,7 @@ class: :class:`TypeOptionsAccessibility <highcharts_maps.options.plot_options.ac
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: TypeOptionsAccessibility
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`SeriesKeyboardNavigation <highcharts_maps.options.plot_options.ac
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SeriesKeyboardNavigation
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -22,7 +22,7 @@ class: :class:`DataSorting <highcharts_maps.options.plot_options.data_sorting.Da
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DataSorting
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

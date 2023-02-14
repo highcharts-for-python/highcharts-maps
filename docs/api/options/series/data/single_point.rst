@@ -22,7 +22,7 @@ class: :class:`SinglePointData <highcharts_maps.options.series.data.single_point
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SinglePointData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +40,7 @@ class: :class:`SingleValueData <highcharts_maps.options.series.data.single_point
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SingleValueData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,7 @@ class: :class:`SingleXData <highcharts_maps.options.series.data.single_point.Sin
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SingleXData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -76,7 +76,7 @@ class: :class:`LabeledSingleXData <highcharts_maps.options.series.data.single_po
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: LabeledSingleXData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -94,7 +94,7 @@ class: :class:`ConnectedSingleXData <highcharts_maps.options.series.data.single_
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ConnectedSingleXData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -112,7 +112,7 @@ class: :class:`SinglePointBase <highcharts_maps.options.series.data.single_point
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: SinglePointBase
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_python.metaclasses.HighchartsMeta
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

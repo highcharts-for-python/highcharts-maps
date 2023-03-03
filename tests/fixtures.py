@@ -76,7 +76,7 @@ def create_output_directory(request):
 def check_input_file(input_directory, input_value, create_directory = False):
     inputs = os.path.abspath(input_directory)
     try:
-        input_target = os.path.join(input_directory, input_value)
+        input_target = os.path.join(inputs, input_value)
     except (TypeError, AttributeError):
         input_target = None
 

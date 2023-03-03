@@ -89,7 +89,7 @@ def check_input_file(input_directory, input_value, create_directory = False):
     if not os.path.exists(target_directory) and not create_directory:
         raise AssertionError('target directory (%s) does not exist' % target_directory)
     elif not os.path.exists(target_directory) and create_directory:
-        pathlib.Path(input_target).mkdir(parents = True, exists_ok = True)
+        pathlib.Path(input_target).mkdir(parents = True, exist_ok = True)
     elif not os.path.isdir(target_directory):
         raise AssertionError('target directory (%s) is not a directory' % target_directory)
 

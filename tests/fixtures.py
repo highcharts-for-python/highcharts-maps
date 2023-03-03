@@ -58,6 +58,11 @@ def run_download_tests(request):
 
 
 @pytest.fixture
+def input_files(request):
+    """Return the ``--inputs`` command-line option."""
+    return request.config.getoption("--inputs")
+
+@pytest.fixture
 def create_output_directory(request):
     """Return the ``--create-output-directory`` command-line option."""
     return request.config.getoption("--create-output-directory")

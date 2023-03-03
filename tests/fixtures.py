@@ -65,25 +65,33 @@ def input_files(request):
 @pytest.fixture
 def create_output_directory(request):
     """Return the ``--create-output-directory`` command-line option."""
-    return request.config.getoption("--create-output-directory")
+    value = request.config.getoption("--create-output-directory")
+    value = value.lower()
+    if value in ['false', False, 0, 'no', 'no']:
+        return False
+    else:
+        return True
 
 
 def check_input_file(input_directory, input_value, create_directory = False):
     inputs = os.path.abspath(input_directory)
-    if not os.path.exists(input_directory) and not create_directory:
-        raise AssertionError('input directory (%s) does not exist' % inputs)
-    elif not os.path.exists(input_directory) and create_directory:
-        pathlib.Path(input_directory).mkdir(parents = True, exists_ok = True)
-    elif not os.path.isdir(input_directory):
-        raise AssertionError('input directory (%s) is not a directory' % inputs)
-
     try:
-        input_file = os.path.join(input_directory, input_value)
+        input_target = os.path.join(input_directory, input_value)
     except (TypeError, AttributeError):
-        input_file = None
+        input_target = None
 
-    if input_file is not None:
-        input_value = input_file
+    if input_target is not None:
+        target_directory = os.path.dirname(input_target)
+        input_value = input_target
+    else:
+        target_directory = inputs
+
+    if not os.path.exists(target_directory) and not create_directory:
+        raise AssertionError('target directory (%s) does not exist' % target_directory)
+    elif not os.path.exists(target_directory) and create_directory:
+        pathlib.Path(input_target).mkdir(parents = True, exists_ok = True)
+    elif not os.path.isdir(target_directory):
+        raise AssertionError('target directory (%s) is not a directory' % target_directory)
 
     return input_value
 

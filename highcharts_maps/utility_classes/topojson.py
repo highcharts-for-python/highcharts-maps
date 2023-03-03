@@ -195,7 +195,11 @@ class Topology(TopologyBase):
         """
         if checkers.is_file(as_geojson_or_file):
             with open(as_geojson_or_file, 'r') as file_:
-                as_dict = json.load(file_)
+                try:
+                    as_dict = json.load(file_)
+                except AttributeError:
+                    as_str = file_.read()
+                    as_dict = json.loads(as_str)
                 obj = cls(as_dict, **kwargs)
         else:
             obj = cls(as_geojson_or_file, **kwargs)
@@ -223,7 +227,11 @@ class Topology(TopologyBase):
         """
         if checkers.is_file(as_topojson_or_file):
             with open(as_topojson_or_file, 'r') as file_:
-                as_dict = json.load(file_)
+                try:
+                    as_dict = json.load(file_)
+                except AttributeError:
+                    as_str = file_.read()
+                    as_dict = json.loads(as_str)
                 obj = cls(as_dict, **kwargs)
         else:
             obj = cls(as_topojson_or_file, **kwargs)

@@ -66,7 +66,11 @@ class MapData(HighchartsMeta):
             self._topology = None
         elif checkers.is_on_filesystem(value):
             with open(value, 'r') as as_file:
-                as_dict = json.load(as_file)
+                try:
+                    as_dict = json.load(as_file)
+                except AttributeError:
+                    as_str = as_file.read()
+                    as_dict = json.loads(as_str)
 
             if 'data' in as_dict.get('objects', {}):
                 self._topology = Topology(as_dict, object_name = 'data')

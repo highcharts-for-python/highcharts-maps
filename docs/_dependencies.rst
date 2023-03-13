@@ -16,10 +16,13 @@
     .. warning::
 
       If these hard dependencies are not available in the environment where
-      **Highcharts Maps for Python** is running, then the library will simply not work.
-      Besides `Highcharts Maps <https://www.highcharts.com/products/maps>`__ itself, all
-      of the other hard dependencies are automatically installed when installing
-      **Highcharts Maps for Python**.
+      **Highcharts Maps for Python** is running, then the library will simply not work. Besides
+      Highcharts JS itself, all of the other hard dependencies are automatically installed
+      when installing **Highcharts Maps for Python** using:
+
+      .. code-block:: bash
+
+        $ pip install highcharts-core
 
     * `Highcharts Maps <https://www.highcharts.com/products/maps/>`__ v.10.2 or higher
 
@@ -49,18 +52,19 @@
       example, if you call a ``from_pandas()`` method but
       `pandas <https://pandas.pydata.org/>`_ is not installed, you will get an error.
 
-    * `geopandas <https://geopandas.org/en/stable/>`_ v. 0.11 or higher
+      You can install *all* soft dependencies by executing:
+
+      .. code-block:: bash
+
+        $ pip install highcharts-core[soft]
+
+    * `geopandas <https://geopandas.org/en/stable/>`__ v.0.11 or higher
+    * `IPython <https://ipython.org/>`__ v. 8.10 or higher
+    * `orjson <https://github.com/ijl/orjson>`__ v.3.7.7 or higher
     * `pandas <https://pandas.pydata.org/>`_ v. 1.3 or higher
     * `PyShp <https://github.com/GeospatialPython/pyshp>`__ v.2.3.1 or higher
     * `pyspark <https://spark.apache.org/docs/latest/api/python/index.html>`_ v.3.3 or
       higher
-    * `python-dotenv <https://github.com/theskumar/python-dotenv>`_ v. 0.21 or higher
-
-      .. note::
-
-        `python-dotenv <https://github.com/theskumar/python-dotenv>`_ will fail silently if
-        not available, as it will only leverage natural environment variables rather than
-        a ``.env`` file in the runtime environment.
 
   .. tab:: Developer
 
@@ -72,11 +76,21 @@
 
       .. code-block:: bash
 
-        $ pip install highcharts-maps[develop]
+        $ pip install highcharts-maps[dev]
 
     * `pytest <https://docs.pytest.org/en/7.1.x/>`_ v.7.1 or higher
     * `pytest-cov <https://pytest-cov.readthedocs.io/en/latest/>`_ v.3.0 or higher
     * `pytest-xdist <https://pytest-xdist.readthedocs.io/en/latest/>`_ v.2.5 or higher
+    * `python-dotenv <https://github.com/theskumar/python-dotenv>`_ v. 0.21 or higher
+
+      .. note::
+
+        `python-dotenv <https://github.com/theskumar/python-dotenv>`_ will fail silently if
+        not available, as it will only leverage natural environment variables rather than
+        a ``.env`` file in the runtime environment.
+
+    * `pytz <https://pythonhosted.org/pytz/>`__ v.2022.1 or higher
+    * `tox <https://tox.wiki/en/latest/>`__ v.4.0.0 or higher
 
   .. tab:: Documentation
 
@@ -89,8 +103,8 @@
 
         $ pip install highcharts-maps[docs]
 
-    * `Sphinx <https://www.sphinx-doc.org/en/master/>`_ v.5.1 or higher
-    * `Sphinx RTD Theme <https://sphinx-themes.org/sample-sites/sphinx-rtd-theme/>`_ v.1.0
+    * `Sphinx <https://www.sphinx-doc.org/en/master/>`_ v.6.1.3 or higher
+    * `Sphinx RTD Theme <https://sphinx-themes.org/sample-sites/sphinx-rtd-theme/>`_ v.1.2
       or higher
     * `sphinx-tabs <https://sphinx-tabs.readthedocs.io/>`_ v.3.4.1 or higher
-    * `Sphinx Toolbox <https://sphinx-toolbox.readthedocs.io/en/latest/>`_ v.3.2 or higher
+    * `Sphinx Toolbox <https://sphinx-toolbox.readthedocs.io/en/latest/>`_ v.3.4 or higher

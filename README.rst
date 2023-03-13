@@ -10,7 +10,7 @@ a Python wrapper for the fantastic
 `Highcharts Maps <https://www.highcharts.com/products/maps/>`__
 JavaScript data visualization library. **Highcharts Maps for Python** also supports
 
-  * **Highcharts JS** - the core Highcharts data visualization library
+  * **Highcharts Core (JS)** - the core Highcharts data visualization library
   * The **Highcharts Export Server** - enabling the programmatic creation of static
     (downloadable) data visualizations
 
@@ -24,11 +24,11 @@ library features native integration with:
     dataframe.
   * **GeoPandas**. Automatically incorporate GIS / map visualizations with data from your
     GeoPandas GeoDataFrames.
-  * **Topojson**. Automatically visualizes :term:`TopoJSON` :term:`map geometries <map geometry>`.
-  * **Geojson**. Automatically visualizes :term:`GeoJSON` :term:`map geometries <map geometry>`.
+  * **Topojson**. Automatically visualizes TopoJSON map geometries.
+  * **Geojson**. Automatically visualizes GeoJSON map geometries.
 
 
-**COMPLETE DOCUMENTATION:** http://highcharts-maps.readthedocs.org/en/latest/index.html
+**COMPLETE DOCUMENTATION:** https://highcharts-maps.readthedocs.org/en/latest/index.html
 
 --------------------
 
@@ -117,8 +117,7 @@ Key Highcharts Maps for Python Features
   capabilities.
 * **Easy Chart Download**. With one method call, produce high-end static
   visualizations that can be downloaded or shared as files with your audience. Produce
-  static charts using the Highsoft-provided
-  :term:`Highcharts Export Server <Export Server>`, or using your own private export
+  static charts using the Highsoft-provided **Highcharts Export Server**, or using your own private export
   server as needed.
 * **Asynchronous Map Data Retrieval**. To minimize the amount of data transferred over
   the wire, **Highcharts Maps for Python** has built-in support for the configuration of
@@ -140,7 +139,7 @@ Key Highcharts Maps for Python Features
 ===================================================
 
 For a discussion of **Highcharts Maps for Python** in comparison to alternatives, please see
-the **COMPLETE DOCUMENTATION:** http://highcharts-maps.readthedocs.org/en/latest/index.html
+the **COMPLETE DOCUMENTATION:** https://highcharts-maps.readthedocs.org/en/latest/index.html
 
 ---------------------
 
@@ -151,47 +150,35 @@ Hello World, and Basic Usage
 1. Import Highcharts Maps for Python
 ==========================================
 
-.. tabs::
+.. code-block:: python
 
-  .. tab:: from Precise Location
+  # PRECISE IMPORT PATTERN  
+  # This method of importing Highcharts Maps for Python objects yields the fastest
+  # performance for the import statement. However, it is more verbose and requires
+  # you to navigate the extensive Highcharts Maps for Python API.
 
-    .. tip::
+  # Import classes using precise module indications. For example:
+  from highcharts_maps.chart import Chart
+  from highcharts_maps.global_options.shared_options import SharedMapsOptions
+  from highcharts_maps.options import HighchartsMapsOptions
+  from highcharts_maps.options.plot_options.map import MapOptions
+  from highcharts_maps.options.series.map import MapSeries
 
-      **Best Practice!**
+  # CATCH-ALL IMPORT PATTERN
+  # This method of importing Highcharts Maps for Python classes has relatively slow
+  # performance because it imports hundreds of different classes from across the entire
+  # library. This is also a known anti-pattern, as it obscures the namespace within the
+  # library. Both may be acceptable to you in your use-case, but do use at your own risk.
 
-      This method of importing **Highcharts Maps for Python** objects yields the fastest
-      performance for the ``import`` statement. However, it is more verbose and requires
-      you to navigate the extensive :doc:`Highcharts Maps for Python API </api>`.
+  # Import objects from the catch-all ".highcharts" module.
+  from highcharts_maps import highcharts
 
-    .. code-block:: python
-
-      # Import classes using precise module indications. For example:
-      from highcharts_maps.chart import Chart
-      from highcharts_maps.global_options.shared_options import SharedMapsOptions
-      from highcharts_maps.options import HighchartsMapsOptions
-      from highcharts_maps.options.plot_options.map import MapOptions
-      from highcharts_maps.options.series.map import MapSeries
-
-  .. tab:: from ``.highcharts``
-
-    .. caution::
-
-      This method of importing **Highcharts Maps for Python** classes has relatively slow
-      performance because it imports hundreds of different classes from across the entire
-      library. This is also a known anti-pattern, as it obscures the namespace within the
-      library. Both may be acceptable to you in your use-case, but do use at your own risk.
-
-    .. code-block:: python
-
-      # Import objects from the catch-all ".highcharts" module.
-      from highcharts_stock import highcharts
-
-      # You can now access specific classes without individual import statements.
-      highcharts.Chart
-      highcharts.SharedMapsOptions
-      highcharts.HighchartsMapsOptions
-      highcharts.MapOptions
-      highcharts.MapSeries
+  # You can now access specific classes without individual import statements.
+  highcharts.Chart
+  highcharts.SharedMapsOptions
+  highcharts.HighchartsMapsOptions
+  highcharts.MapOptions
+  highcharts.MapSeries
 
 
 2. Create Your Chart
@@ -381,9 +368,7 @@ Contributing
 *********************
 
 We welcome contributions and pull requests! For more information, please see the
-`Contributor Guide <https://highcharts-maps.readthedocs.io/en/latest/contributing.html>`. And thanks to all those who've already contributed:
-
-.. include:: _contributors.rst
+`Contributor Guide <https://highcharts-maps.readthedocs.io/en/latest/contributing.html>`__. And thanks to all those who've already contributed!
 
 -------------------
 
@@ -391,7 +376,7 @@ We welcome contributions and pull requests! For more information, please see the
 Testing
 *********************
 
-We use `TravisCI <http://travisci.org>`_ for our build automation and
+We use `TravisCI <https://travisci.org>`_ for our build automation and
 `ReadTheDocs <https://readthedocs.org>`_ for our documentation.
 
 Detailed information about our test suite and how to run tests locally can be

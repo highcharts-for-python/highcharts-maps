@@ -714,7 +714,7 @@ def append_plot_options_type(cls, as_str):
 def Class_from_js_literal(cls, input_files, filename, as_file, error):
     input_file = check_input_file(input_files, filename)
 
-    with open(input_file, 'r') as file_:
+    with open(input_file, 'rt', encoding = 'UTF-8') as file_:
         as_str = file_.read()
 
     if as_file:

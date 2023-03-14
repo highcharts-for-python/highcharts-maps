@@ -52,7 +52,7 @@ Highcharts Maps for Python
     * PyShp 2.3.1 or higher
 
 **Highcharts Maps for Python** is an extension to the
-`Highcharts for Python <https://highcharts-core.readthedocs.io>`__ library, and provides
+`Highcharts for Python <https://core-docs.highchartspython.com>`__ library, and provides
 a Python wrapper for the fantastic
 `Highcharts Maps <https://www.highcharts.com/products/maps/>`__
 JavaScript data visualization library. **Highcharts Maps for Python** also supports

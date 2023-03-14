@@ -5,7 +5,7 @@ Highcharts Maps for Python
 **High-end data and map visualizations for the Python ecosystem**
 
 **Highcharts Maps for Python** is an extension to the
-`Highcharts Core for Python <https://highcharts-core.readthedocs.io>`__ library, and provides
+`Highcharts Core for Python <https://core-docs.highchartspython.com>`__ library, and provides
 a Python wrapper for the fantastic
 `Highcharts Maps <https://www.highcharts.com/products/maps/>`__
 JavaScript data visualization library. **Highcharts Maps for Python** also supports
@@ -28,7 +28,7 @@ library features native integration with:
   * **Geojson**. Automatically visualizes GeoJSON map geometries.
 
 
-**COMPLETE DOCUMENTATION:** https://highcharts-maps.readthedocs.org/en/latest/index.html
+**COMPLETE DOCUMENTATION:** https://maps-docs.highchartspython.com/en/latest/index.html
 
 --------------------
 
@@ -110,7 +110,7 @@ Key Highcharts Maps for Python Features
 
   .. seealso::
 
-    * `Supported Visualizations <https://highcharts-maps.readthedocs.io/en/latest/visualizations.html>`__
+    * `Supported Visualizations <https://maps-docs.highchartspython.com/en/latest/visualizations.html>`__
 
 * **Simple JavaScript Code Generation**. With one method call, produce production-ready
   JavaScript code to render your interactive visualizations using Highcharts' rich
@@ -139,7 +139,7 @@ Key Highcharts Maps for Python Features
 ===================================================
 
 For a discussion of **Highcharts Maps for Python** in comparison to alternatives, please see
-the **COMPLETE DOCUMENTATION:** https://highcharts-maps.readthedocs.org/en/latest/index.html
+the **COMPLETE DOCUMENTATION:** https://maps-docs.highchartspython.com/en/latest/index.html
 
 ---------------------
 
@@ -368,7 +368,7 @@ Contributing
 *********************
 
 We welcome contributions and pull requests! For more information, please see the
-`Contributor Guide <https://highcharts-maps.readthedocs.io/en/latest/contributing.html>`__. And thanks to all those who've already contributed!
+`Contributor Guide <https://maps-docs.highchartspython.com/en/latest/contributing.html>`__. And thanks to all those who've already contributed!
 
 -------------------
 

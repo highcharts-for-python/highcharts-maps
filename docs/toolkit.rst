@@ -26,17 +26,17 @@ The **Highcharts for Python** toolkit includes two categories of tools:
       functionality in the
       `Highcharts JS <https://www.highcharts.com/blog/products/#highcharts>`_ JavaScript
       library. For more details, please see the relevant
-      `Highcharts for Python documentation <https://highcharts-core.readthedocs.io>`__.
+      `Highcharts for Python documentation <https://core-docs.highchartspython.com>`__.
     * **Highcharts Stock for Python**: This is the Python wrapper for the
       `Highcharts Stock <https://www.highcharts.com/blog/products/#highcharts-stock>`_
       JavaScript library, which provides extensive visualizations for time series and
       stock price visualizations. For more details, please see the relevant
-      `Highcharts Stock for Python documentation <https://highcharts-stock.readthedocs.io>`_
+      `Highcharts Stock for Python documentation <https://stock-docs.highchartspython.com>`_
     * **Highcharts Maps for Python**: This is the Python wrapper for the
       `Highcharts Maps <https://www.highcharts.com/blog/products/#highcharts-maps>`_
       JavaScript library, which provides extensive geographic data visualization options
       with rich interactive maps. For more details, please see the relevant
-      `Highcharts Maps for Python documentation <https://highcharts-maps.readthedocs.io>`_
+      `Highcharts Maps for Python documentation <https://maps-docs.highchartspython.com>`_
 
   .. tab:: Extensions
 
@@ -52,7 +52,7 @@ The **Highcharts for Python** toolkit includes two categories of tools:
       `Highcharts Gantt <https://www.highcharts.com/blog/products/#highcharts>`_
       JavaScript library, which provides rich visualizations for resource allocation over
       time. For more details, please see the relevant
-      `Highcharts Gantt for Python documentation <https://highcharts-gantt.readthedocs.io>`_
+      `Highcharts Gantt for Python documentation <https://gantt-docs.highchartspython.com>`_
     * **Highcharts for Dash**: This is a set of components for the
       `Dash <https://dash.plotly.com/>`_ data visualization framework which makes it easy
       to use Highcharts visualizations in your Dash dashboards. For more details, please

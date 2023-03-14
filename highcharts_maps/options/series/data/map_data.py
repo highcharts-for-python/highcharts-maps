@@ -100,7 +100,17 @@ class MapData(HighchartsMeta):
             elif '"default"' in value:
                 self._topology = Topology(value, object_name = 'default')
             else:
-                self._topology = Topology(value)
+                try:
+                    as_dict = json.load(value)
+                except AttributeError:
+                    as_dict = json.loads(value)
+
+            if 'data' in as_dict.get('objects', {}):
+                self._topology = Topology(as_dict, object_name = 'data')
+            elif 'default' in as_dict.get('objects', {}):
+                self._topology = Topology(as_dict, object_name = 'default')
+            else:
+                self._topology = Topology(as_dict)
         elif isinstance(value, (dict, UserDict)):
             if 'data' in value.get('objects', {}):
                 self._topology = Topology(value, object_name = 'data')

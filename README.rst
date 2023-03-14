@@ -108,8 +108,10 @@ Key Highcharts Maps for Python Features
   capabilities that are often needed to get the most out of Highcharts' visualization and
   interaction capabilities.
 
-  .. seealso::
+  .. note::
 
+    **See also:**
+    
     * `Supported Visualizations <https://maps-docs.highchartspython.com/en/latest/visualizations.html>`__
 
 * **Simple JavaScript Code Generation**. With one method call, produce production-ready

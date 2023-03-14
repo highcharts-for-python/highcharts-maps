@@ -768,10 +768,12 @@ def Class_from_js_literal_with_expected(cls,
                                         expected_filename,
                                         as_file,
                                         error):
-    logger.log(logging.DEBUG, f'Expected file: {expected_filename}')
+    logger.log(logging.DEBUG, f'INPUT: {filename}')
+    logger.log(logging.DEBUG, f'EXPECTED: {expected_filename}')
     input_file = check_input_file(input_files, filename)
     expected_file = check_input_file(input_files, expected_filename)
-    logger.log(logging.DEBUG, f'After checking: {expected_file}')
+    logger.log(logging.DEBUG, f'Input after checking: {input_file}')
+    logger.log(logging.DEBUG, f'Expected after checking: {expected_file}')
 
     with open(input_file, 'r') as file_:
         as_str = file_.read()
@@ -780,20 +782,22 @@ def Class_from_js_literal_with_expected(cls,
         expected_as_str = file_.read()
 
     if as_file:
+        logger.log(logging.DEBUG, 'Processing AS FILE')
         input_string = input_file
         expected_string = expected_file
     else:
-        logger.log(logging.DEBUG, 'Processing AS STR')
+        logger.log(logging.DEBUG, 'Processing AS STRING')
         input_string = as_str
+        logger.log(logging.DEBUG, f'input_string before Processing: {input_string}')
         wrapped_expected_filename = f"'{expected_filename}'"
         if wrapped_expected_filename in input_string:
             input_string = input_string.replace(expected_filename, expected_file)
         elif 'topology' in input_string and 'world.topo.json' in input_string and 'world.geo.json' in expected_filename:
+            logger.log(logging.DEBUG, 'Handling special file edge case.')
             input_string = input_string.replace('input_files/series/data/map_data/map_data/world.topo.json',
                                                 '/home/travis/build/highcharts-for-python/highcharts-maps/input_files/series/data/map_data/map_data/world.topo.json')
         expected_string = expected_as_str
-        logger.log(logging.DEBUG, f'- input_string: {input_string}')
-        logger.log(logging.DEBUG, f'- input_string type: {input_string.__class__.__name__}')
+        logger.log(logging.DEBUG, f'input_string after Processing: {input_string}')
 
     as_str = append_plot_options_type(cls, as_str)
 

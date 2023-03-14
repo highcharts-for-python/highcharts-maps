@@ -79,7 +79,7 @@ class MapData(HighchartsMeta):
             except TypeError:
                 is_file = False
 
-        logger.log(logging.DEBUG, f'- value: {value}')
+        logger.log(logging.DEBUG, f'is_file: {is_file}')
         if not value:
             self._topology = None
         elif is_file:

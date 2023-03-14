@@ -790,7 +790,7 @@ def Class_from_js_literal_with_expected(cls,
             input_string = input_string.replace(expected_filename, expected_file)
         elif 'topology:' in input_string:
             original_target = input_string[input_string.find("topology: '") + len("topology: '"):]
-            original_target = original_target[:topology_target.find("'")]
+            original_target = original_target[:original_target.find("'")]
             new_target = os.path.abspath(original_target)
             logger.log(logging.DEBUG, f'New File Target: {new_target}')
             if not os.path.isfile(new_target):

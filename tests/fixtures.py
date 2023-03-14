@@ -718,8 +718,10 @@ def Class_from_js_literal(cls, input_files, filename, as_file, error):
         as_str = file_.read()
 
     if as_file:
+        print('!! USING INPUT FILE !!')
         input_string = input_file
     else:
+        print('!! USING FILE CONTENTS !!')
         input_string = as_str
 
     as_str = append_plot_options_type(cls, as_str)
@@ -731,6 +733,7 @@ def Class_from_js_literal(cls, input_files, filename, as_file, error):
         #print('-------------')
         #print('ORIGINAL CALL')
         #print(as_str)
+        print(input_string)
         result = cls.from_js_literal(input_string)
         assert result is not None
         assert isinstance(result, cls) is True

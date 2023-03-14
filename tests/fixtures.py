@@ -795,7 +795,11 @@ def Class_from_js_literal_with_expected(cls,
         elif 'topology' in input_string and 'world.topo.json' in input_string and 'world.geo.json' in expected_filename:
             logger.log(logging.DEBUG, 'Handling special file edge case.')
             input_string = input_string.replace('input_files/series/data/map_data/map_data/world.topo.json',
-                                                '/home/travis/build/highcharts-for-python/highcharts-maps/input_files/series/data/map_data/map_data/world.topo.json')
+                                                '/home/travis/build/highcharts-for-python/highcharts-maps/tests/input_files/series/data/map_data/map_data/world.topo.json')
+        elif ('topology' in input_string
+              and "'input_files/series/data/map_data/map_data/world.topo.json'" in input_string):
+            input_string = input_string.replace('input_files/series/data/map_data/map_data/world.topo.json',
+                                                '/home/travis/build/highcharts-for-python/highcharts-maps/tests/input_files/series/data/map_data/map_data/world.topo.json')
         expected_string = expected_as_str
         logger.log(logging.DEBUG, f'input_string after Processing: {input_string}')
 

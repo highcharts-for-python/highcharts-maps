@@ -1,6 +1,7 @@
 from typing import Optional
 from collections import UserDict
 import requests
+import os
 
 try:
     import orjson as json
@@ -62,11 +63,25 @@ class MapData(HighchartsMeta):
 
     @topology.setter
     def topology(self, value):
+        is_file = checkers.is_file(value)
+        if not is_file and isinstance(value, (str, bytes)):
+            try:
+                value_as_path = os.path.abspath(value)
+                is_file = os.path.isfile(value_as_path)
+                if is_file:
+                    value = value_as_path
+            except TypeError:
+                is_file = False
+
         if not value:
             self._topology = None
-        elif checkers.is_on_filesystem(value):
+        elif is_file:
             with open(value, 'r') as as_file:
-                as_dict = json.load(as_file)
+                try:
+                    as_dict = json.load(as_file)
+                except AttributeError:
+                    as_str = as_file.read()
+                    as_dict = json.loads(as_str)
 
             if 'data' in as_dict.get('objects', {}):
                 self._topology = Topology(as_dict, object_name = 'data')
@@ -91,12 +106,22 @@ class MapData(HighchartsMeta):
         elif checkers.is_type(value, 'GeoDataFrame'):
             self._topology = Topology(value, prequantize = False)
         elif isinstance(value, (str, bytes)):
-            if 'data' in value:
+            if '"data"' in value:
                 self._topology = Topology(value, object_name = 'data')
-            elif 'default' in value:
+            elif '"default"' in value:
                 self._topology = Topology(value, object_name = 'default')
             else:
-                self._topology = Topology(value)
+                try:
+                    as_dict = json.load(value)
+                except AttributeError:
+                    as_dict = json.loads(value)
+
+            if 'data' in as_dict.get('objects', {}):
+                self._topology = Topology(as_dict, object_name = 'data')
+            elif 'default' in as_dict.get('objects', {}):
+                self._topology = Topology(as_dict, object_name = 'default')
+            else:
+                self._topology = Topology(as_dict)
         elif isinstance(value, (dict, UserDict)):
             if 'data' in value.get('objects', {}):
                 self._topology = Topology(value, object_name = 'data')

@@ -8,14 +8,23 @@ tests._fixtures
 Fixtures used by the SQLAthanor test suite.
 
 """
+import logging
 import os
+import pathlib
 from copy import deepcopy
 from collections import UserDict
+
 
 import pytest
 
 from validator_collection import checkers, validators
 from highcharts_maps import constants, errors
+
+logger = logging.getLogger('highcharts_maps')
+logger.setLevel(logging.DEBUG)
+
+
+TOXENV = os.environ.get('TOXENV', None)
 
 
 class State(object):
@@ -61,21 +70,36 @@ def input_files(request):
     """Return the ``--inputs`` command-line option."""
     return request.config.getoption("--inputs")
 
+@pytest.fixture
+def create_output_directory(request):
+    """Return the ``--create-output-directory`` command-line option."""
+    value = request.config.getoption("--create-output-directory")
+    value = value.lower()
+    if value in ['false', False, 0, 'no', 'no']:
+        return False
+    else:
+        return True
 
-def check_input_file(input_directory, input_value):
+
+def check_input_file(input_directory, input_value, create_directory = False):
     inputs = os.path.abspath(input_directory)
-    if not os.path.exists(input_directory):
-        raise AssertionError('input directory (%s) does not exist' % inputs)
-    elif not os.path.isdir(input_directory):
-        raise AssertionError('input directory (%s) is not a directory' % inputs)
-
     try:
-        input_file = os.path.join(input_directory, input_value)
+        input_target = os.path.join(inputs, input_value)
     except (TypeError, AttributeError):
-        input_file = None
+        input_target = None
 
-    if input_file is not None:
-        input_value = input_file
+    if input_target is not None:
+        target_directory = os.path.dirname(input_target)
+        input_value = input_target
+    else:
+        target_directory = inputs
+
+    if not os.path.exists(target_directory) and not create_directory:
+        raise AssertionError('target directory (%s) does not exist' % target_directory)
+    elif not os.path.exists(target_directory) and create_directory:
+        pathlib.Path(input_target).mkdir(parents = True, exist_ok = True)
+    elif not os.path.isdir(target_directory):
+        raise AssertionError('target directory (%s) is not a directory' % target_directory)
 
     return input_value
 
@@ -702,8 +726,10 @@ def Class_from_js_literal(cls, input_files, filename, as_file, error):
         as_str = file_.read()
 
     if as_file:
+        print('!! USING INPUT FILE !!')
         input_string = input_file
     else:
+        print('!! USING FILE CONTENTS !!')
         input_string = as_str
 
     as_str = append_plot_options_type(cls, as_str)
@@ -715,6 +741,7 @@ def Class_from_js_literal(cls, input_files, filename, as_file, error):
         #print('-------------')
         #print('ORIGINAL CALL')
         #print(as_str)
+        print(input_string)
         result = cls.from_js_literal(input_string)
         assert result is not None
         assert isinstance(result, cls) is True
@@ -744,8 +771,12 @@ def Class_from_js_literal_with_expected(cls,
                                         expected_filename,
                                         as_file,
                                         error):
+    logger.log(logging.DEBUG, f'INPUT: {filename}')
+    logger.log(logging.DEBUG, f'EXPECTED: {expected_filename}')
     input_file = check_input_file(input_files, filename)
     expected_file = check_input_file(input_files, expected_filename)
+    logger.log(logging.DEBUG, f'Input after checking: {input_file}')
+    logger.log(logging.DEBUG, f'Expected after checking: {expected_file}')
 
     with open(input_file, 'r') as file_:
         as_str = file_.read()
@@ -754,11 +785,23 @@ def Class_from_js_literal_with_expected(cls,
         expected_as_str = file_.read()
 
     if as_file:
+        logger.log(logging.DEBUG, 'Processing AS FILE')
         input_string = input_file
         expected_string = expected_file
     else:
+        logger.log(logging.DEBUG, 'Processing AS STRING')
         input_string = as_str
+        logger.log(logging.DEBUG, f'input_string before Processing: {input_string}')
+        wrapped_expected_filename = f"'{expected_filename}'"
+        if wrapped_expected_filename in input_string:
+            input_string = input_string.replace(expected_filename, expected_file)
+        elif ('topology' in input_string 
+              and TOXENV is not None
+              and "'input_files/series/data/map_data/map_data/world.topo.json'" in input_string):
+            input_string = input_string.replace('input_files/series/data/map_data/map_data/world.topo.json',
+                                                '/home/travis/build/highcharts-for-python/highcharts-maps/tests/input_files/series/data/map_data/map_data/world.topo.json')
         expected_string = expected_as_str
+        logger.log(logging.DEBUG, f'input_string after Processing: {input_string}')
 
     as_str = append_plot_options_type(cls, as_str)
 

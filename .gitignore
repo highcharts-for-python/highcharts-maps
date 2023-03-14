@@ -50,6 +50,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+tests/pytest.ini
 
 # Translations
 *.mo
@@ -133,4 +134,4 @@ dmypy.json
 
 # temp files
 ~$*.*
-tests/input_files/headless_export/output/
+# tests/input_files/headless_export/output/

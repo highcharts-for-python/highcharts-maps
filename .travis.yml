@@ -31,6 +31,6 @@ install:
 before_script:
   - curl -Os --retry 5 https://uploader.codecov.io/latest/linux/codecov
   - chmod +x codecov
-script: tox -- -v -nauto 
+script: tox -- -v -nauto tests/options/series/data/map_data/test_map_data.py
 after_success:
   - if [[ -e .coverage ]]; then ./codecov -t $CODECOV_TOKEN; fi

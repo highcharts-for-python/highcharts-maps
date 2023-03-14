@@ -1,6 +1,7 @@
 from typing import Optional
 from collections import UserDict
 import requests
+import os
 
 try:
     import orjson as json
@@ -62,9 +63,17 @@ class MapData(HighchartsMeta):
 
     @topology.setter
     def topology(self, value):
+        is_file = checkers.is_file(value)
+        if not is_file and isinstance(value, (str, bytes)):
+            try:
+                value_as_path = os.path.abspath(value)
+                is_file = os.path.isfile(value_as_path)
+            except TypeError:
+                is_file = False
+
         if not value:
             self._topology = None
-        elif checkers.is_file(value):
+        elif is_file:
             with open(value, 'r') as as_file:
                 try:
                     as_dict = json.load(as_file)

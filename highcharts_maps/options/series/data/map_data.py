@@ -1,4 +1,3 @@
-import logging
 from typing import Optional
 from collections import UserDict
 import requests
@@ -24,10 +23,6 @@ from highcharts_maps.metaclasses import HighchartsMeta
 from highcharts_maps.utility_classes.topojson import Topology
 from highcharts_maps.utility_classes.javascript_functions import CallbackFunction
 from highcharts_maps.utility_classes.fetch_configuration import FetchConfiguration
-
-
-logger = logging.getLogger('highcharts_maps')
-logger.setLevel(logging.DEBUG)
 
 
 class MapData(HighchartsMeta):
@@ -68,7 +63,6 @@ class MapData(HighchartsMeta):
 
     @topology.setter
     def topology(self, value):
-        logger.log(logging.DEBUG, f'CALLED MapData.topology = {value}')
         is_file = checkers.is_file(value)
         if not is_file and isinstance(value, (str, bytes)):
             try:
@@ -79,7 +73,6 @@ class MapData(HighchartsMeta):
             except TypeError:
                 is_file = False
 
-        logger.log(logging.DEBUG, f'is_file: {is_file}')
         if not value:
             self._topology = None
         elif is_file:

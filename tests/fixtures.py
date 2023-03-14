@@ -24,6 +24,9 @@ logger = logging.getLogger('highcharts_maps')
 logger.setLevel(logging.DEBUG)
 
 
+TOXENV = os.environ.get('TOXENV', None)
+
+
 class State(object):
     """Class to hold incremental test state."""
     # pylint: disable=too-few-public-methods
@@ -792,11 +795,8 @@ def Class_from_js_literal_with_expected(cls,
         wrapped_expected_filename = f"'{expected_filename}'"
         if wrapped_expected_filename in input_string:
             input_string = input_string.replace(expected_filename, expected_file)
-        elif 'topology' in input_string and 'world.topo.json' in input_string and 'world.geo.json' in expected_filename:
-            logger.log(logging.DEBUG, 'Handling special file edge case.')
-            input_string = input_string.replace('input_files/series/data/map_data/map_data/world.topo.json',
-                                                '/home/travis/build/highcharts-for-python/highcharts-maps/tests/input_files/series/data/map_data/map_data/world.topo.json')
-        elif ('topology' in input_string
+        elif ('topology' in input_string 
+              and TOXENV is not None
               and "'input_files/series/data/map_data/map_data/world.topo.json'" in input_string):
             input_string = input_string.replace('input_files/series/data/map_data/map_data/world.topo.json',
                                                 '/home/travis/build/highcharts-for-python/highcharts-maps/tests/input_files/series/data/map_data/map_data/world.topo.json')

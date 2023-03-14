@@ -1,4 +1,3 @@
-import logging
 from typing import Optional
 try:
     import orjson as json
@@ -14,10 +13,6 @@ except ImportError:
 from validator_collection import validators, checkers
 
 from topojson import Topology as TopologyBase
-
-
-logger = logging.getLogger('highcharts_maps')
-logger.setLevel(logging.DEBUG)
 
 
 class Topology(TopologyBase):

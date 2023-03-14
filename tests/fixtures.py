@@ -788,14 +788,9 @@ def Class_from_js_literal_with_expected(cls,
         wrapped_expected_filename = f"'{expected_filename}'"
         if wrapped_expected_filename in input_string:
             input_string = input_string.replace(expected_filename, expected_file)
-        elif 'topology:' in input_string:
-            original_target = input_string[input_string.find("topology: '") + len("topology: '"):]
-            original_target = original_target[:original_target.find("'")]
-            new_target = os.path.abspath(original_target)
-            logger.log(logging.DEBUG, f'New File Target: {new_target}')
-            if not os.path.isfile(new_target):
-                logger.log(logging.DEBUG, f'- is not a file')
-            input_string = input_string.replace(original_target, new_target)
+        elif 'topology' in input_string and 'world.topo.json' in input_string and 'world.geo.json' in expected_filename:
+            input_string = input_string.replace('input_files/series/data/map_data/map_data/world.topo.json',
+                                                '/home/travis/build/highcharts-for-python/highcharts-maps/input_files/series/data/map_data/map_data/world.topo.json')
         expected_string = expected_as_str
         logger.log(logging.DEBUG, f'- input_string: {input_string}')
         logger.log(logging.DEBUG, f'- input_string type: {input_string.__class__.__name__}')

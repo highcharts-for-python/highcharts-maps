@@ -8,15 +8,20 @@ tests._fixtures
 Fixtures used by the SQLAthanor test suite.
 
 """
+import logging
 import os
 import pathlib
 from copy import deepcopy
 from collections import UserDict
 
+
 import pytest
 
 from validator_collection import checkers, validators
 from highcharts_maps import constants, errors
+
+logger = logging.getLogger('highcharts_maps')
+logger.setLevel(logging.DEBUG)
 
 
 class State(object):
@@ -763,8 +768,10 @@ def Class_from_js_literal_with_expected(cls,
                                         expected_filename,
                                         as_file,
                                         error):
+    logger.log(logging.DEBUG, f'Expected file: {expected_filename}')
     input_file = check_input_file(input_files, filename)
     expected_file = check_input_file(input_files, expected_filename)
+    logger.log(logging.DEBUG, f'After checking: {expected_file}')
 
     with open(input_file, 'r') as file_:
         as_str = file_.read()
@@ -776,8 +783,11 @@ def Class_from_js_literal_with_expected(cls,
         input_string = input_file
         expected_string = expected_file
     else:
+        logger.log(logging.DEBUG, 'Processing AS STR')
         input_string = as_str
         expected_string = expected_as_str
+        logger.log(logging.DEBUG, f'- input_string: {input_string}')
+        logger.log(logging.DEBUG, f'- input_string type: {input_string.__class__.__name__}')
 
     as_str = append_plot_options_type(cls, as_str)
 

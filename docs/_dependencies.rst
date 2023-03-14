@@ -37,7 +37,7 @@
     * `validator-collection <https://validator-collection.readthedocs.io/en/latest/>`_
       v.1.5 or higher
     * `topojson <https://mattijn.github.io/topojson/>`_ v.1.5 or higher
-    * `geojson <https://github.com/jazzband/geojson/>`_ v.2.5 or higher
+    * `geojson <https://github.com/jazzband/geojson/>`_ v.3.0 or higher
 
   .. tab:: Soft
 

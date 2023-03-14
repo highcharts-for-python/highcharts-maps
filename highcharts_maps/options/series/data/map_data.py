@@ -95,9 +95,9 @@ class MapData(HighchartsMeta):
         elif checkers.is_type(value, 'GeoDataFrame'):
             self._topology = Topology(value, prequantize = False)
         elif isinstance(value, (str, bytes)):
-            if 'data' in value:
+            if '"data"' in value:
                 self._topology = Topology(value, object_name = 'data')
-            elif 'default' in value:
+            elif '"default"' in value:
                 self._topology = Topology(value, object_name = 'default')
             else:
                 self._topology = Topology(value)

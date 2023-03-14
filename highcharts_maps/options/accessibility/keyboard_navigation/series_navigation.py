@@ -1,0 +1,1 @@
+from highcharts_core.options.accessibility.keyboard_navigation.series_navigation import *

@@ -785,6 +785,9 @@ def Class_from_js_literal_with_expected(cls,
     else:
         logger.log(logging.DEBUG, 'Processing AS STR')
         input_string = as_str
+        wrapped_expected_filename = f"'{expected_filename}'"
+        if wrapped_expected_filename in input_string:
+            input_string = input_string.replace(expected_filename, expected_file)
         expected_string = expected_as_str
         logger.log(logging.DEBUG, f'- input_string: {input_string}')
         logger.log(logging.DEBUG, f'- input_string type: {input_string.__class__.__name__}')

@@ -53,10 +53,10 @@ which together provides comprehensive support across the entire
   * - `Highcharts Core for Python <https://core-docs.highchartspython.com/>`__
     - `Highcharts Core (JS) <https://www.highcharts.com/products/highcharts/>`__
     - (this library) the core Highcharts data visualization library
-  * - **Highcharts Stock for Python**
+  * - `Highcharts Stock for Python <https://stock-docs.highchartspython.com/>`__
     - `Highcharts Stock (JS) <https://www.highcharts.com/products/stock/>`__
     - the time series visualization extension to Highcharts Core
-  * - `Highcharts Maps for Python <https://maps-docs.highchartspython.com/>`__ 
+  * - **Highcharts Maps for Python**
     - `Highcharts Maps (JS) <https://www.highcharts.com/products/maps/>`__
     - the map visualization extension to Highcharts Core
   * - `Highcharts Gantt for Python <https://gantt-docs.highchartspython.com/>`__

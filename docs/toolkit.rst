@@ -12,12 +12,12 @@ Toolkit Components and Product Roadmap
 The Toolkit's Contents
 ****************************
 
-The **Highcharts for Python** toolkit features a number of separate Python
+The **Highcharts for Python Toolkit** features a number of separate Python
 libraries which extend the core **Highcharts Core for Python** (``highcharts-core``) library.
-This pattern maps quite naturally to the Highcharts JS design, where multiple
-other modules extend the core Highcharts JS library.
+This pattern maps quite naturally to the Highcharts (JS) design, where multiple
+other modules extend the core Highcharts (JS) library.
 
-The **Highcharts for Python** toolkit includes two categories of tools:
+The **Highcharts for Python Toolkit** includes two categories of tools:
 
 .. tabs::
 
@@ -107,5 +107,5 @@ Additional Tools Needed?
 ********************************
 
 Are you looking for additional tools that are not already part of the
-**Highcharts for Python** toolkit? Drop us a note with a feature request in our
-`Github Issues Page <https://github.com/highcharts-for-python/highcharts-core/issues>`_.
+**Highcharts for Python Toolkit**? Drop us a note with a feature request in our
+`Github Issues Page <https://github.com/highcharts-for-python/highcharts-maps/issues>`_.

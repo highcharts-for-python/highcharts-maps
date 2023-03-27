@@ -4,14 +4,14 @@ Contributing to Highcharts for Python
 
 .. note::
 
-  As a general rule of thumb, the **Highcharts for Python** toolkit applies
+  As a general rule of thumb, the **Highcharts for Python Toolkit** applies
   :pep:`PEP 8 <8>` styling, with some important differences.
 
 .. include:: _unit_tests_code_coverage.rst
 
 .. sidebar:: What makes an API idiomatic?
 
-  One of my favorite ways of thinking about idiomatic design comes from a `talk
+  One of our favorite ways of thinking about idiomatic design comes from a `talk
   given by Luciano Ramalho at Pycon 2016`_ where he listed traits of a Pythonic
   API as being:
 
@@ -47,7 +47,7 @@ In other words:
 
   Users should simply be able to drive the car without looking at the engine.
 
-The good news is that `Highcharts JS <https://www.highcharts.com>`__ applies a very
+The good news is that `Highcharts (JS) <https://www.highcharts.com>`__ applies a very
 similar philosophy, and so that makes the job for **Highcharts for Python** that much
 simpler.
 
@@ -151,9 +151,10 @@ Basic Design Conventions
 
 * Separate a function or method's final (or default) ``return`` from the rest of
   the code with a blank line (except for single-line functions/methods).
-* Because `Highcharts JS <https://www.highcharts.com>`__ repeats many of the same properties and groups of properties,
-  be sure to practice :iabbr:`DRY (Do Not Repeat Yourself)`. Use inheritance to your
-  advantage, and don't be afraid of the :term:`diamond of death` inheritance problem.
+* Because `Highcharts (JS) <https://www.highcharts.com>`__ repeats many of the same 
+  properties and groups of properties, be sure to practice :iabbr:`DRY (Do Not Repeat Yourself)`. 
+  Use inheritance to your advantage, and don't be afraid of the :term:`diamond of death` 
+  inheritance problem.
 
   .. seealso::
 
@@ -214,9 +215,9 @@ Docstrings
 Design Patterns and Standards
 ***************************************************
 
-`Highcharts JS <https://www.highcharts.com>`__ is a large, robust, and complicated
-JavaScript library. If in doubt, take a look at their extensive
-`documentation <https://www.highcharts.com/docs/index>`_ and in particular their
+`Highcharts (JS) <https://www.highcharts.com>`__ is a large, robust, and complicated
+JavaScript library. If in doubt, take a look at the extensive
+`documentation <https://www.highcharts.com/docs/index>`_ and in particular the
 `API reference <https://api.highcharts.com/highcharts>`_. Because
 **Highcharts for Python** wraps the Highcharts JS API, its design is heavily shaped by
 Highcharts JS' own design - as one should expect.
@@ -236,7 +237,7 @@ Standard Methods: :class:`HighchartsMeta <highcharts_maps.metaclasses.Highcharts
 
 Every single object supported by the Highcharts JS API corresponds to a Python class in
 **Highcharts for Python**. You can find the complete list in our comprehensive
-:doc:`Highcharts for Python API Reference <api>`.
+:doc:`Highcharts Maps for Python API Reference <api>`.
 
 These classes generally inherit from the :class:`HighchartsMeta` metaclass, which provides
 each class with a number of standard methods. These methods are the "workhorses" of
@@ -279,25 +280,24 @@ Multiple Inheritance, DRY and the Diamond of Death
   *Everything in moderation, including moderation.*
   -- Oscar Wilde
 
-When contributing code to the **Highcharts for Python** toolkit, it is important to
+When contributing code to the **Highcharts for Python Toolkit**, it is important to
 understand how we handle multiple inheritance and the :term:`diamond of death` problem.
 
 First, obviously, multiple inheritance is generally considered an anti-pattern. That's
-because it makes debugging code much, much harder - particularly in Python, which uses a
+because it makes debugging code much, much harder - particuarly in Python, which uses a
 bit of a "magic" secret sauce called the MRO (Method Resolution Order) to determine which
 parent class' methods to execute and when.
 
-However, `Highcharts JS <https://www.highcharts.com>`__ - and by consequence,
-**Highcharts for Python** - is a very verbose library. I estimate that the full set of
-objects in the library has about 15,000 properties in total. A great many of these
-properties are identical in terms of their syntax, and their meaning (in context). So this
-is a classic example of where we can apply the principle of
-:iabbr:`DRY (Don't Repeat Yourself)` to good effect. By using class
-inheritance, we can reduce the number of properties from about 15,000 to about 1,900. Not
-bad!
+However, `Highcharts <https://www.highcharts.com>`__ - and by consequence, 
+**Highcharts for Python** - is very verbose. We estimate that the full set of 
+objects across the full Python toolkit has about 15,000 properties in total. A great many 
+of these properties are identical in terms of their syntax, and their meaning (in context). 
+So this is a classic example of where we can apply the principle of 
+:iabbr:`DRY (Don't Repeat Yourself)` to good effect. By using class inheritance, we can 
+reduce the number of properties from about 15,000 to about 1,900. Not bad!
 
 However, this significant reduction *does* require us to use multiple inheritance in some
-cases, particularly in the :mod:`.options.series <highcharts_maps.options.series>`
+cases, paritcularly in the :mod:`.options.series <highcharts_maps.options.series>`
 classes (which inherit from both the corresponding type-specific options in
 :mod:`.options.plot_options <highcharts_maps.options.plot_options>`) *and* from the
 generic :class:`SeriesBase <highcharts_maps.options.series.base.SeriesBase>` class).
@@ -361,7 +361,7 @@ Preparing Your Development Environment
 
 In order to prepare your local development environment, you should:
 
-#. Fork the `Git repository <https://github.com/hcp-llc/highcharts-maps>`_.
+#. Fork the `Git repository <https://github.com/highcharts-for-python/highcharts-maps>`_.
 #. Clone your forked repository.
 #. Set up a virtual environment (optional).
 #. Install development dependencies:
@@ -375,7 +375,7 @@ And you should be good to go!
 Ideas and Feature Requests
 ============================
 
-Check for open `issues <https://github.com/insightindustry/highcharts-maps/issues>`_
+Check for open `issues <https://github.com/highcharts-for-python/highcharts-maps/issues>`_
 or create a new issue to start a discussion around a bug or feature idea.
 
 Testing

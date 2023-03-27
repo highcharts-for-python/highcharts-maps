@@ -19,7 +19,7 @@ one chart, and then copy its properties to other chart objects with one method c
 
         other_chart = Chart()
         other_chart.add_series(
-          HLCSeries.from_csv('../../project_resources/data_files/data-file-02.csv')
+          MapSeries.from_csv('../../project_resources/data_files/data-file-02.csv')
         )
 
         other_chart = type_1_chart.copy(other_chart,

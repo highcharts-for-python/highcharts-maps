@@ -15,7 +15,7 @@ Highcharts Core for Python vs Highcharts Maps for Python
 **What is the difference between Highcharts Core for Python and Highcharts Maps for Python?**
 
 The `Highcharts Core for Python <https://core-docs.highchartspython.com/>`__ library supports
-`Highcharts JS <https://www.highcharts.com/products/highcharts/>`__, which is the core
+`Highcharts Core <https://www.highcharts.com/products/highcharts/>`__, which is the core
 data visualization library developed by `Highsoft <https://www.highcharts.com/>`__. It
 provides over 60 different visualization types.
 
@@ -31,9 +31,9 @@ way that `Highcharts Maps <https://www.highcharts.com/products/maps/>`__ is an
 .. tip::
 
   **Highcharts Maps for Python** *includes* all of the functionality from
-  **Highcharts Core for Python** using the exact same API. As a result, the best practice is
-  that if your application needs any of the features included in
-  **Highcharts Maps for Python**, just use that library.
+  `Highcharts Core for Python <https://core-docs.highchartspython.com/>`__ using the exact same 
+  API. As a result, the best practice is that if your application needs any of the features 
+  included in **Highcharts Maps for Python**, just use that library.
 
 ---------------
 
@@ -41,7 +41,7 @@ way that `Highcharts Maps <https://www.highcharts.com/products/maps/>`__ is an
 Getting Help
 ***********************
 
-**Where can I get help using Highcharts for Python?**
+**Where can I get help using Highcharts Maps for Python?**
 
 This documentation is a great place to start, but we're here to help!
 
@@ -55,20 +55,27 @@ Licensing
 
 **Is the Highcharts for Python toolkit free?**
 
-If you are evaluating the **Highcharts for Python** toolkit, you are welcome to install and use it free of charge. 
-However, if you are using it for professional purposes - either to use Highcharts for your work, or to build
-an application that integrates the library - then you have to pay for both Highcharts JS
-itself *and* for **Highcharts for Python**. 
+If you are evaluating the **Highcharts for Python Toolkit**, you are welcome 
+to install this library and use it free of charge. 
 
-You can purchase licenses for both from Highsoft A/S at: `https://shop.highcharts.com/ <https://shop.highcharts.com>`__.
+However, if you are using it for professional purposes - either to use 
+Highcharts for your work, or to build an application that integrates the library - 
+then you have to pay for both Highcharts Maps (JS) itself *and* for your right 
+to use the **Highcharts for Python Toolkit**. 
+
+You can purchase licenses for both from Highsoft A/S at: 
+`https://shop.highcharts.com/ <https://shop.highcharts.com>`__.
 
 **How much does Highcharts for Python cost?**
 
-As a paid add-on to the Highcharts JavaScript libraries, the **Highcharts for Python** toolkit is priced at 30% of the price you pay for your **Highcharts** JavaScript license/support contract.
+As a paid add-on to the Highcharts JavaScript libraries, the 
+**Highcharts for Python Toolkit** toolkit is priced at 30% of the price you pay 
+for your Highcharts JavaScript license/support contract.
 
 **How do I license the Highcharts for Python toolkit?**
 
-Licensing is super easy! You can go to `https://shop.highcharts.com <https://shop.highcharts.com>`__ and fill out the 
+Licensing is super easy! You can go to 
+`https://shop.highcharts.com <https://shop.highcharts.com>`__ and fill out the 
 form, and that's it!
 
 ----------------------
@@ -79,8 +86,12 @@ Open Source
 
 **Is Highcharts for Python open source?**
 
-Yes. The **Highcharts for Python** toolkit is open source (but not free - see :ref:`licensing <faq_licensing>` above).
-You are welcome to review the source code on `Github <https://github.com/highcharts-for-python>`__.
+Yes. The **Highcharts for Python Toolkit** toolkit is open source (but not free - 
+see :ref:`licensing <faq_licensing>` above). 
+
+You are welcome to review the source code for any library in the toolkit on 
+`Github <https://github.com/highcharts-for-python>`__, including for 
+`Highcharts Maps for Python <https://github.com/highcharts-for-python/highcharts-maps>`__.
 
 **Can I fork the toolkit?**
 

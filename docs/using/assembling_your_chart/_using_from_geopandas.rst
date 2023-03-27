@@ -11,7 +11,7 @@
                                   series_type = 'map')
 
 
-.. collapse:: Signature of the ``.from_pandas()`` method.
+.. collapse:: Method Signature
 
   .. seealso::
 

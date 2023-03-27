@@ -2,11 +2,11 @@
 
   **Highcharts Maps for Python** has several types of dependencies:
 
-    * "hard" dependencies, without which you will not be able to use the library at all,
-    * "soft" dependencies, which will not produce errors but which may limit the value you
+    * *hard* dependencies, without which you will not be able to use the library at all,
+    * *soft* dependencies, which will not produce errors but which may limit the value you
       get from the library,
-    * "developer" dependencies that contributors will need in their local environment, and
-    * "documentation" dependencies that are necessary if you wish to generate (this)
+    * *developer* dependencies that contributors will need in their local environment, and
+    * *documentation* dependencies that are necessary if you wish to generate (this)
       documentation
 
 .. tabs::
@@ -16,13 +16,14 @@
     .. warning::
 
       If these hard dependencies are not available in the environment where
-      **Highcharts Maps for Python** is running, then the library will simply not work. Besides
-      Highcharts JS itself, all of the other hard dependencies are automatically installed
-      when installing **Highcharts Maps for Python** using:
+      **Highcharts Maps for Python** is running, then the library will simply not work.
+      Besides `Highcharts Maps <https://www.highcharts.com/products/maps>`__ itself, all
+      of the other hard dependencies are automatically installed when installing
+      **Highcharts Stock for Python** using:
 
       .. code-block:: bash
 
-        $ pip install highcharts-core
+        $ pip install highcharts-maps
 
     * `Highcharts Maps <https://www.highcharts.com/products/maps/>`__ v.10.2 or higher
 
@@ -56,7 +57,7 @@
 
       .. code-block:: bash
 
-        $ pip install highcharts-core[soft]
+        $ pip install highcharts-maps[soft]
 
     * `geopandas <https://geopandas.org/en/stable/>`__ v.0.11 or higher
     * `IPython <https://ipython.org/>`__ v. 8.10 or higher
@@ -71,7 +72,7 @@
     .. warning::
 
       You will not be able to run unit tests without the Pytest test framework and a
-      number of necessary extensions. To install the developer (and documentation)
+      number of necessary extensions. To install the developer (and soft, and documentation)
       dependencies, execute:
 
       .. code-block:: bash

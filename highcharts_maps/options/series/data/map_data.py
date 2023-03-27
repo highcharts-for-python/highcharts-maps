@@ -462,6 +462,10 @@ class MapData(HighchartsMeta):
           ("quantizing the topology") before generating the :class:`Topology` instance.
           Defaults to ``False``.
         :type prequantize: :class:`bool <python:bool>`
+        
+        :param kwargs: additional keyword arguments which are passed to the
+          :class:`Topology` constructor
+        :type kwargs: :class:`dict <python:dict>`
 
         :rtype: :class:`MapData <highcharts_maps.options.series.data.map_data.MapData>`
         """
@@ -472,7 +476,6 @@ class MapData(HighchartsMeta):
     @classmethod
     def from_shapefile(cls, shp_filename):
         """Create a :class:`MapData` instance from an :term:`ESRI Shapefile <shapefile>`.
-        :class:`geopandas.GeoDataFrame <geopandas:GeoDataFrame>`.
 
         :param shp_filename: The full filename of an :term:`ESRI Shapefile <shapefile>`
           to load.

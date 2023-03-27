@@ -21,8 +21,8 @@ Let's say you organize your files like so:
     | ------------ data-file-03.csv
     | --------- **highcharts_config/**
     | ------------ shared_options.js
-    | ------------ **hlc-template-01.js**
-    | ------------ **hlc-template-02.js**
+    | ------------ **map-template-01.js**
+    | ------------ **map-template-02.js**
     | ------------ line-template.js
     | ------------ packed-bubble-template.js
     | ------ some_package/
@@ -36,8 +36,8 @@ Let's say you organize your files like so:
     | --- .gitignore
     | --- requirements.txt
 
-As you can see, there are two JS literal files named ``hlc-template-01.js`` and
-``hlc-template-02.js`` respectively. These template files can be used to significantly
+As you can see, there are two JS literal files named ``map-template-01.js`` and
+``map-template-02.js`` respectively. These template files can be used to significantly
 accelerate the configuration of our bar charts. Each template corresponds to one
 sub-type of bar chart that we know we will need. These sub-types may have different
 event functions, or more frequently use different formatting functions to make the
@@ -49,13 +49,13 @@ Now with these template files, we can easily create a pair of
   .. code-block:: python
 
     from highcharts_maps.highcharts import Chart
-    from highcharts_maps.options.series.hlc import HLCSeries
+    from highcharts_maps.options.series.map import MapSeries
 
     type_1_chart = Chart.from_js_literal(
-        '../../project_resources/highcharts_config/hlc-template-01.js'
+        '../../project_resources/highcharts_config/map-template-01.js'
     )
     type_2_chart = Chart.from_js_literal(
-        '../../project_resources/highcharts_config/hlc-template-02.js'
+        '../../project_resources/highcharts_config/map-template-02.js'
     )
 
 And that's it! Now you have two chart instances which you can further modify. For
@@ -66,8 +66,8 @@ example, you can add data to them by calling:
     type_1_chart.container = 'chart1_div'
     type_2_chart.container = 'chart2_div'
 
-    type_1_chart.add_series(HLCSeries.from_csv('../../project_resources/data_files/data-file-01.csv'))
-    type_2_chart.add_series(HLCSeries.from_csv('../../project_resources/data_files/data-file-02.csv'))
+    type_1_chart.add_series(MapSeries.from_csv('../../project_resources/data_files/data-file-01.csv'))
+    type_2_chart.add_series(MapSeries.from_csv('../../project_resources/data_files/data-file-02.csv'))
 
 And then you can create the relevant JavaScript code to render the chart using:
 

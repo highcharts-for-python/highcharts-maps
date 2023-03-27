@@ -2,15 +2,15 @@ You can configure your visualization to load your map data asynchronously by
 supplying an
 :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
 instance to either ``.options.chart.map`` or ``.map_data`` as described above.
+
 The
 :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
-instance contains a configuration that tells **Highcharts for Maps** how to have
+instance contains a configuration that tells **Highcharts Maps for Python** how to have
 your (JavaScript) client download (using JavaScript's ``fetch()``) your map data.
 
 The
 :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
-instance is configured essentially by supplying it with three pieces of
-information:
+instance is configured by supplying it with three pieces of information:
 
   * The ``url`` from where your map data should be downloaded. This should be
     the URL to a single file which contains either :term:`GeoJSON`,
@@ -23,7 +23,7 @@ information:
     request from the ``url`` (typically used to supply credentials against a
     backend API, for example).
 
-If you have configured an asynchronous map, **Highcharts for Maps** will
+If you have configured an asynchronous map, **Highcharts Maps for Python** will
 automatically serialize it to JavaScript (when calling
 :meth:`Chart.to_js_literal() <highcharts_maps.chart.Chart.to_js_literal>`)
 using (JavaScript) ``async/await`` and the ``fetch()`` API.

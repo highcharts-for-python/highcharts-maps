@@ -6,7 +6,7 @@ values. These default values are generally applied if a JavaScript property is
 ``undefined`` (missing or otherwise not specified), which is different from the JavaScript
 value of ``null``.
 
-While my Pythonic instinct is to:
+While our Pythonic instinct is to:
 
   * indicate those default values explicitly in the **Highcharts for Python** code as
     keyword argument defaults, and
@@ -24,7 +24,7 @@ the `Highcharts JS <https://www.highcharts.com/products/highcharts/>`__ and
 `Highcharts Maps <https://www.highcharts.com/products/maps/>`__ libraries, *nobody*
 wants to transmit or maintain thousands of property configurations if it can be avoided.
 
-For that reason, the **Highcharts for Python** toolkit explicitly breaks Pythonic
+For that reason, the **Highcharts for Python Toolkit** explicitly breaks Pythonic
 convention: when an object's property returns :obj:`None <python:None>`, that has the
 equivalent meaning of "Highcharts JS/Maps will apply the Highcharts default for this
 property". These properties will *not* be serialized, either to a JS literal, nor to a
@@ -36,5 +36,5 @@ internally consistent logic to follow.
 .. note::
 
   There's an item on the **Highcharts for Python** :doc:`roadmap <../toolkit>`
-  (:issue:`1`) to *optionally* surface defaults when explicitly requested. Not sure when
+  (:issue:`7`) to *optionally* surface defaults when explicitly requested. Not sure when
   it will be implemented, but we'll get there at some point.

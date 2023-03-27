@@ -7,9 +7,9 @@
                                     'value': 'value'
                                 })
 
-.. collapse:: Signature of the ``.load_from_geopandas()`` method.
+.. collapse:: Method Signature
 
-  .. method:: .load_from_pandas(self, gdf, property_map)
+  .. method:: .load_from_geopandas(self, gdf, property_map)
     :noindex:
 
     Replace the contents of the

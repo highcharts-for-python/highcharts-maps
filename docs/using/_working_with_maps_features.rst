@@ -132,7 +132,7 @@
       instance.
 
       **Highcharts for Maps** supports both a number of built-in projections as well as
-      providing the ability to apply a fully custom projection. The default projections
+      the ability to apply a fully custom projection. The default projections
       supported are:
 
         * ``'EqualEarth'``

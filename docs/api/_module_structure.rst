@@ -15,6 +15,8 @@ classes and modules.
   class definitions you can do fairly easily using the module organization and naming
   conventions used in the library.
 
+  *This is the recommended best practice to maximize performance*.
+
   In the root of the ``highcharts_maps`` library you can find universally-shared
   class definitions, like :mod:`.metaclasses <highcharts_maps.metaclasses>` which
   contains the :class:`HighchartsMeta <highcharts_maps.metaclasses.HighchartsMeta>`
@@ -33,27 +35,3 @@ classes and modules.
   module defines all of the different configuration options for different series types,
   while the :mod:`.options.series <highcharts_maps.options.series>` module defines all
   of the classes that represent :term:`series` of data in a given chart).
-
-.. tip::
-
-  While it is an anti-pattern to use a "flat" namespace for such large libraries,
-  importing the :mod:`highcharts_maps.highcharts` module can be a convient path to
-  accessing those resources you'll use most often. There are two paths to do so easily:
-
-  .. code-block:: python
-
-    # APPROACH #1: Import the highcharts module, and access its child classes directly.
-    #              for example by now calling highcharts.Chart().
-    from highcharts_core import highcharts
-
-    my_chart = highcharts.Chart()
-    my_shared_options = highcharts.SharedMapsOptions()
-
-    my_line_series = highcharts.options.series.area.LineSeries()
-
-    # APPROACH #2: Import a specific class or module by name from the "highcharts" module.
-    from highcharts_maps.highcharts import Chart, SharedMapsOptions, options
-
-    my_chart = Chart()
-    my_shared_options = SharedMapsOptions()
-    my_line_series = options.series.area.LineSeries()

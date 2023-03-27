@@ -5,17 +5,19 @@ Highcharts Maps for Python
 **High-end data and map visualizations for the Python ecosystem**
 
 **Highcharts Maps for Python** is an extension to the
-`Highcharts Core for Python <https://core-docs.highchartspython.com>`__ library, and provides
-a Python wrapper for the fantastic
+`Highcharts Core for Python <https://core-docs.highchartspython.com>`__ library, providing
+a Python wrapper for the 
 `Highcharts Maps <https://www.highcharts.com/products/maps/>`__
-JavaScript data visualization library. **Highcharts Maps for Python** also supports
+JavaScript data visualization library. 
+
+**Highcharts Maps for Python** also supports
 
   * **Highcharts Core (JS)** - the core Highcharts data visualization library
   * The **Highcharts Export Server** - enabling the programmatic creation of static
     (downloadable) data visualizations
 
-In order to integrate **Highcharts Maps for Python** into the Python ecosystem, the
-library features native integration with:
+**Highcharts Maps for Python** is fully integrated with the broader Python ecosystem,
+offerin gnative integrations with:
 
   * **Jupyter Labs/Notebook**. You can now produce high-end and interactive plots and
     renders using the full suite of Highcharts visualization capabilities.
@@ -29,6 +31,40 @@ library features native integration with:
 
 
 **COMPLETE DOCUMENTATION:** https://maps-docs.highchartspython.com/en/latest/index.html
+
+--------------------
+
+***************************************
+The Highcharts for Python Toolkit
+***************************************
+
+The **Highcharts Maps for Python** library is part of the broader 
+`Highcharts for Python Toolkit <https://www.highcharts.com/integrations/python>`__, 
+which together provides comprehensive support across the entire 
+`Highcharts <https://www.highcharts.com>`__ suite of data visualization libraries:
+
+.. list-table::
+  :widths: 30 30 40
+  :header-rows: 1
+
+  * - Python Library
+    - JavaScript Library
+    - Description
+  * - `Highcharts Core for Python <https://core-docs.highchartspython.com/>`__
+    - `Highcharts Core (JS) <https://www.highcharts.com/products/highcharts/>`__
+    - (this library) the core Highcharts data visualization library
+  * - **Highcharts Stock for Python**
+    - `Highcharts Stock (JS) <https://www.highcharts.com/products/stock/>`__
+    - the time series visualization extension to Highcharts Core
+  * - `Highcharts Maps for Python <https://maps-docs.highchartspython.com/>`__ 
+    - `Highcharts Maps (JS) <https://www.highcharts.com/products/maps/>`__
+    - the map visualization extension to Highcharts Core
+  * - `Highcharts Gantt for Python <https://gantt-docs.highchartspython.com/>`__
+    - `Highcharts Gantt (JS) <https://www.highcharts.com/products/gantt/>`__
+    - the Gantt charting extension to Highcharts Core
+  * - (all libraries in the Python toolkit)
+    - The **Highcharts Export Server** 
+    - enabling the programmatic creation of static (downloadable) data visualizations
 
 --------------------
 
@@ -48,50 +84,50 @@ To install **Highcharts Maps for Python**, just execute:
 Why Highcharts for Python?
 *********************************
 
-Odds are you are aware of
-`Highcharts Maps <https://www.highcharts.com/products/maps/>`__. If not, why not?
-It is the world's most popular, most powerful, category-defining JavaScript data
-visualization library and - in particular - for map/GIS data.
+`Highcharts <https://www.highcharts.com>`__ is the world's most popular, most powerful, 
+category-defining JavaScript data visualization library. If you are building a web or 
+mobile app/dashboard that will be visualizing data in some fashion, you should 
+absolutely take a look at the Highcharts suite of solutions. Take a peak at some 
+fantastic `demo visualizations <https://www.highcharts.com/demo/maps>`__.
 
-If you are building a web or mobile app/dashboard that will be
-visualizing data in a geographic context, you should absolutely take a
-look at the Highcharts suite of solutions. Just take a look at some of their fantastic
-`Highcharts Maps demo visualizations <https://www.highcharts.com/demo/maps>`__.
+As a suite of JavaScript libraries, `Highcharts <https://www.highcharts.com>`__ is 
+written in JavaScript, and is used to configure and render data visualizations in a
+web browser (or other JavaScript-executing) environment. As a set of JavaScript
+libraries, its audience is JavaScript developers. But what about the broader ecosystem of
+Python developers and data scientists?
 
-Highcharts Maps is a JavaScript library, and is an extension of the
-`Highcharts JS <https://www.highcharts.com/products/highcharts/>`__ JavaScript library. It
-is written in JavaScript, and is specifically used to configure and render data
-visualizations in a web browser (or other JavaScript-executing, like mobile app)
-environment. As a JavaScript library, its audience is JavaScript developers. But what
-about the broader ecosystem of Python developers and data scientists?
-
-Python is increasingly used as the technology of choice for data science and for
-the backends of leading enterprise-grade applications. In other words, Python is
-often the backend that delivers data and content to the front-end...which then renders it
-using JavaScript and HTML.
+Given Python's increasing adoption as the technology of choice for data science and for
+the backends of leading enterprise-grade applications, Python is often the backend that 
+delivers data and content to the front-end...which then renders it using JavaScript and 
+HTML.
 
 There are numerous Python frameworks (Django, Flask, Tornado, etc.) with specific
 capabilities to simplify integration with Javascript frontend frameworks (React, Angular,
 VueJS, etc.). But facilitating that with Highcharts has historically been very difficult.
-Part of this difficulty is because the Highcharts JavaScript suite - while supporting JSON
-as a serialization/deserialization format - leverages
-JavaScript object literals to expose the
+Part of this difficulty is because the Highcharts JavaScript suite - while supporting JSON as a
+serialization/deserialization format - leverages JavaScript object literals to expose the
 full power and interactivity of its data visualizations. And while it's easy to serialize
 JSON from Python, serializing and deserializing to/from JavaScript object literal notation
-is much more complicated. This means that Python developers looking to integrate with
-Highcharts typically had to either invest a lot of effort, or were only able to leverage
-a small portion of Highcharts' rich functionality.
+is much more complicated. 
 
-So I wrote the **Highcharts for Python** toolkit to bridge that gap, and
-**Highcharts Maps for Python** to provide full support for the
-`Highcharts Maps <https://www.highcharts.com/products/maps/>`__ library extension.
+This means that Python developers looking to integrate with Highcharts typically had to 
+either invest a lot of effort, or were only able to leverage a small portion of Highcharts' 
+rich functionality.
 
-**Highcharts Maps for Python** provides support for
+So we wrote the **Highcharts for Python Toolkit** to bridge that gap.
+
+**Highcharts for Python** provides Python object representation for *all* of the
+JavaScript objects defined in the
+`Highcharts (JavaScript) API <https://api.highcharts.com/highcharts/>`__. It provides automatic 
+data validation, and exposes simple and standardized methods for serializing those Python
+objects back-and-forth to JavaScript object literal notation.
+
+**Highcharts Maps for Python** in particular provides support for
 the `Highcharts Maps <https://www.highcharts.com/products/maps/>`__ extension, which is
-designed to provide extensive time series data visualization capabilities optimized for
-GIS (Geographic Information System) data visualization, with
+designed to provide extensive map and data visualization capabilities optimized for
+:iabbr:`GIS (Geographic Information System)` data visualization, with
 robust interactivity. For ease of use, it also includes the full functionality of
-**Highcharts Core for Python** as well.
+`Highcharts Core for Python <https://core-docs.highchartspython.com>`__ as well.
 
 Key Highcharts Maps for Python Features
 ==============================================
@@ -101,12 +137,13 @@ Key Highcharts Maps for Python Features
 * **Comprehensive Highcharts support**. Every single Highcharts chart type and every
   single configuration option is supported in **Highcharts Maps for Python**. This
   includes the over 70 data visualization types supported by
-  `Highcharts Core <https://www.highcharts.com/product/highcharts/>`__ and the
-  four core map visualizations available in
-  `Highcharts Maps <https://www.highcharts.com/product/maps/>`__, with full support for
-  the rich JavaScript formatter (JS callback functions)
-  capabilities that are often needed to get the most out of Highcharts' visualization and
-  interaction capabilities.
+  `Highcharts Core <https://www.highcharts.com/product/highcharts/>`__ and the four
+  core map visualizations available in 
+  `Highcharts Maps <https://www.highcharts.com/product/maps/>`__.
+  
+  Every Highcharts for Python library provides full support for the rich JavaScript 
+  formatter (JS callback functions) capabilities that are often needed to get the most 
+  out of Highcharts' visualization and interaction capabilities.
 
   .. note::
 
@@ -119,8 +156,8 @@ Key Highcharts Maps for Python Features
   capabilities.
 * **Easy Chart Download**. With one method call, produce high-end static
   visualizations that can be downloaded or shared as files with your audience. Produce
-  static charts using the Highsoft-provided **Highcharts Export Server**, or using your own private export
-  server as needed.
+  static charts using the Highsoft-provided **Highcharts Export Server**, or using your 
+  own private export server as needed.
 * **Asynchronous Map Data Retrieval**. To minimize the amount of data transferred over
   the wire, **Highcharts Maps for Python** has built-in support for the configuration of
   asynchronous client-side retrieval of your map data.
@@ -130,9 +167,9 @@ Key Highcharts Maps for Python Features
   still allowing you to work with GeoJSON data if you choose to.
 * **Integration with GeoPandas, Pandas, and PySpark**. With two lines of code, produce a
   high-end interactive visualization of your GeoPandas, Pandas, or PySpark dataframes.
-* **Consistent Code Style**. For Python developers, switching between Pythonic code
+* **Consistent code style**. For Python developers, switching between Pythonic code
   conventions and JavaScript code conventions can be...annoying. So
-  **Highcharts for Python** applies Pythonic syntax with automatic conversion between
+  the Highcharts for Python toolkit applies Pythonic syntax with automatic conversion between
   Pythonic ``snake_case`` notation and JavaScript ``camelCase`` styles.
 
 |
@@ -349,17 +386,19 @@ that will render the chart wherever it is you want it to go:
 Getting Help/Support
 ***********************
 
-The **Highcharts for Python** toolkit comes with all of the great support that you are used to from working with the 
-Highcharts JavaScript libraries. When you license the toolkit, you are welcome to use any of the following tools to get 
-help using the toolkit. In particular, you can:
+The **Highcharts for Python Toolkit** comes with all of the great support that 
+you are used to from working with the Highcharts JavaScript libraries. When you 
+license the toolkit, you are welcome to use any of the following channels to get 
+help using the toolkit:
 
   * Use the `Highcharts Forums <https://highcharts.com/forum>`__
-  * Use `Stack Overflow <https://stackoverflow.com/questions/tagged/highcharts-for-python>`__ with the 
-    ``highcharts-for-python`` tag
-  * `Report bugs or request features <https://github.com/highcharts-for-python/highcharts-maps/issues>`__  in the 
-    library's Github repository
+  * Use `Stack Overflow <https://stackoverflow.com/questions/tagged/highcharts-for-python>`__ 
+    with the ``highcharts-for-python`` tag
+  * `Report bugs or request features <https://github.com/highcharts-for-python/highcharts-maps/issues>`__  
+    in the library's Github repository
   * `File a support ticket <https://www.highchartspython.com/get-help>`__ with us
-  * `Schedule a live chat or video call <https://www.highchartspython.com/get-help>`__ with us
+  * `Schedule a live chat or video call <https://www.highchartspython.com/get-help>`__ 
+    with us
 
 **FOR MORE INFORMATION:** https://www.highchartspython.com/get-help
 
@@ -370,7 +409,8 @@ Contributing
 *********************
 
 We welcome contributions and pull requests! For more information, please see the
-`Contributor Guide <https://maps-docs.highchartspython.com/en/latest/contributing.html>`__. And thanks to all those who've already contributed!
+`Contributor Guide <https://maps-docs.highchartspython.com/en/latest/contributing.html>`__. 
+And thanks to all those who've already contributed!
 
 -------------------
 
@@ -378,8 +418,8 @@ We welcome contributions and pull requests! For more information, please see the
 Testing
 *********************
 
-We use `TravisCI <https://travisci.org>`_ for our build automation and
-`ReadTheDocs <https://readthedocs.org>`_ for our documentation.
+We use `TravisCI <https://travisci.com>`_ for our build automation and
+`ReadTheDocs <https://readthedocs.com>`_ for our documentation.
 
 Detailed information about our test suite and how to run tests locally can be
 found in our Testing Reference.

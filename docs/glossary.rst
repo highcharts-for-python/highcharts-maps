@@ -403,7 +403,7 @@ Glossary
     programming and to ensure a consistent interface (standard methods) across multiple
     classes in your code.
 
-    In the **Highcharts for Python** toolkit, metaclasses are defined in the
+    In the **Highcharts for Python Toolkit**, metaclasses are defined in the
     :mod:`.metaclasses <highcharts_maps.metaclasses>` module, and most inherit from the
     :class:`.metaclasses.HighchartsMeta <highcharts_maps.metaclasses.HighchartsMeta>`
     class.
@@ -592,7 +592,7 @@ Glossary
     are typically used to practice good :iabbr:`DRY (Don't Repeat Yourself)` programming
     and to minimize the amount of code rendered in the page itself.
 
-    In the **Highcharts for Python** toolkit, shared options are managed through the
+    In the **Highcharts for Python Toolkit**, shared options are managed through the
     :class:`SharedOptions <highcharts_maps.global_options.shared_options.SharedOptions>`
     and
     :class:`SharedStockOptions <highcharts_maps.global_options.shared_options.SharedStockOptions>`
@@ -641,7 +641,7 @@ Glossary
 
       **Highcharts for Python** does not currently support the configuration of CSS
       styles when operating in styled mode. It is, however, an item on our roadmap
-      (:issue:`7`).
+      (:issue:`8`).
 
     .. seealso::
 

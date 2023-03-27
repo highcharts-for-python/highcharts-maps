@@ -7,7 +7,7 @@ conventions is that variables and object properties (keys) are typically written
 ``camelCase``.
 
 A lot of (digital) ink has been spilled writing about the pros and cons of ``camelCase``
-vs ``snake_case``. While I have a scientific evidence-based opinion on the matter, in
+vs ``snake_case``. While we have a scientific evidence-based opinion on the matter, in
 practice it is simply a convention that developers adopt in a particular programming
 language. The issue, however, is that while JavaScript has adopted the ``camelCase``
 convention, Python generally skews towards the ``snake_case`` convention.
@@ -18,7 +18,7 @@ with Highcharts Maps forces us to context switch, increases cognitive load, and 
 easy place for us to overlook things and make a mistake that can be quite annoying to
 track down and fix later.
 
-Therefore, when designing the **Highcharts for Python** toolkit, we made several carefully
+Therefore, when designing the **Highcharts for Python Toolkit**, we made several carefully
 considered design choices when it comes to naming conventions:
 
 #. All **Highcharts for Python** classes follow the Pythonic ``PascalCase`` class-naming
@@ -28,7 +28,7 @@ considered design choices when it comes to naming conventions:
 #. All *inputs* to properties support *both* ``snake_case`` and
    ``camelCase`` (aka ``mixedCase``) convention by default. This means that you can take
    something directly from Highcharts JavaScript code and supply it to the
-   **Highcharts for Python** toolkit without having to convert case or conventions. But if
+   **Highcharts for Python Toolkit** without having to convert case or conventions. But if
    you are constructing and configuring something directly in Python using explicit
    :ref:`deserialization methods <deserialization_methods>`, you can use ``snake_case``
    if you prefer (and most Python developers will prefer).

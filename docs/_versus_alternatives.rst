@@ -10,7 +10,7 @@ compare it against some commonly-used alternatives:
 
     By far, this is the most common approach to integrating Highcharts into your Python
     code. As a developer, you know that your JavaScript front-end will be using Highcharts
-    (JS)). So you work in your Python backend to deliver the data to your front-end that your
+    (JS). So you work in your Python backend to deliver the data to your front-end that your
     front-end will need.
 
     There are many patterns for rolling your own Highcharts + Python implementation, but

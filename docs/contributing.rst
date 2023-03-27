@@ -216,8 +216,8 @@ Design Patterns and Standards
 ***************************************************
 
 `Highcharts (JS) <https://www.highcharts.com>`__ is a large, robust, and complicated
-JavaScript library. If in doubt, take a look at their extensive
-`documentation <https://www.highcharts.com/docs/index>`_ and in particular their
+JavaScript library. If in doubt, take a look at the extensive
+`documentation <https://www.highcharts.com/docs/index>`_ and in particular the
 `API reference <https://api.highcharts.com/highcharts>`_. Because
 **Highcharts for Python** wraps the Highcharts JS API, its design is heavily shaped by
 Highcharts JS' own design - as one should expect.

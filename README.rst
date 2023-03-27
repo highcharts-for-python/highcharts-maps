@@ -125,7 +125,7 @@ objects back-and-forth to JavaScript object literal notation.
 **Highcharts Maps for Python** in particular provides support for
 the `Highcharts Maps <https://www.highcharts.com/products/maps/>`__ extension, which is
 designed to provide extensive map and data visualization capabilities optimized for
-:iabbr:`GIS (Geographic Information System)` data visualization, with
+GIS (Geographic Information System) data visualization, with
 robust interactivity. For ease of use, it also includes the full functionality of
 `Highcharts Core for Python <https://core-docs.highchartspython.com>`__ as well.
 

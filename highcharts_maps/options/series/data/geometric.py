@@ -225,6 +225,11 @@ class GeometricData(GeometricDataBase):
     def from_array(cls, value):
         if not value:
             return []
+        elif checkers.is_string(value):
+            try:
+                value = validators.json(value)
+            except (ValueError, TypeError):
+                pass
         elif not checkers.is_iterable(value):
             value = [value]
 
@@ -343,6 +348,11 @@ class GeometricZData(GeometricDataBase):
     def from_array(cls, value):
         if not value:
             return []
+        elif checkers.is_string(value):
+            try:
+                value = validators.json(value)
+            except (ValueError, TypeError):
+                pass
         elif not checkers.is_iterable(value):
             value = [value]
 
@@ -521,6 +531,11 @@ class GeometricLatLonData(GeometricDataBase):
     def from_array(cls, value):
         if not value:
             return []
+        elif checkers.is_string(value):
+            try:
+                value = validators.json(value)
+            except (ValueError, TypeError):
+                pass
         elif not checkers.is_iterable(value):
             value = [value]
 

@@ -1,4 +1,9 @@
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 from typing import Optional
 
 from validator_collection import checkers
@@ -8,8 +13,6 @@ from highcharts_core.headless_export import ExportServer as ExportServerBase
 from highcharts_maps.decorators import validate_types
 from highcharts_maps.options import HighchartsOptions, HighchartsMapsOptions
 from highcharts_maps.global_options.shared_options import SharedOptions, SharedMapsOptions
-
-load_dotenv()
 
 
 class ExportServer(ExportServerBase):

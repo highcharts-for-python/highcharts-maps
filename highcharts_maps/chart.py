@@ -4,7 +4,7 @@ from validator_collection import validators, checkers
 
 from highcharts_core.chart import Chart as ChartBase
 
-from highcharts_maps import constants, errors
+from highcharts_maps import constants, errors, utility_functions
 from highcharts_maps.options import HighchartsOptions, HighchartsMapsOptions
 from highcharts_maps.decorators import validate_types
 from highcharts_maps.js_literal_functions import serialize_to_js_literal
@@ -218,6 +218,14 @@ class Chart(ChartBase):
         if self.is_async:
             urls = []
             topologies = []
+            if self.options.chart and self.options.chart.map:
+                url = self.options.chart.map.url
+                urls.append(url)
+                self.options.chart.map.fetch_counter = 1
+
+                map_data_as_str = self.options.chart.map.to_js_literal(encoding = encoding)
+                topologies.append(map_data_as_str)
+            
             for index, series in enumerate(self.options.series):
                 if series.is_async:
                     url = series.map_data.url
@@ -229,10 +237,7 @@ class Chart(ChartBase):
                     map_data_as_str = series.map_data.to_js_literal(encoding = encoding)
                     topologies.append(map_data_as_str)
 
-            fetch_as_str = ''
-            for topology in topologies:
-                fetch_request = topology.to_js_literal(encoding = encoding)
-                fetch_as_str += f"""{fetch_request}\n"""
+            fetch_as_str = '\n'.join(topologies)
 
         custom_projection_as_str = ''
         if self.uses_custom_projection:
@@ -249,6 +254,11 @@ class Chart(ChartBase):
         options_as_str = ''
         if self.options:
             options_as_str = self.options.to_js_literal(encoding = encoding)
+            if self.options.chart and self.options.chart.map and self.options.chart.is_async:
+                chart_map_str = self.options.chart.map.to_js_literal(encoding = encoding)
+                chart_map_str = f"""'{chart_map_str}'"""
+                fetch_counter = self.options.chart.map.fetch_counter
+                options_as_str = options_as_str.replace(chart_map_str, f'topology{fetch_counter}')
             options_as_str = f"""{options_as_str}"""
         else:
             options_as_str = """{}"""
@@ -285,7 +295,7 @@ class Chart(ChartBase):
             prefix = """document.addEventListener('DOMContentLoaded', function() {\n"""
             if custom_projection_as_str:
                 prefix += custom_projection_as_str
-            prefix += """(async () => """
+            prefix += """(async () => { """
             suffix = """})()});"""
             as_str = fetch_as_str + '\n' + as_str
         else:
@@ -1042,6 +1052,9 @@ class Chart(ChartBase):
         """
         if not self.options or not self.options.series:
             return False
+
+        if self.options.chart and self.options.chart.is_async:
+            return True
 
         for series in self.options.series:
             if hasattr(series, 'is_async') and series.is_async:

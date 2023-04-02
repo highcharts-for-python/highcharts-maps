@@ -231,3 +231,26 @@ class ChartOptions(ChartOptionsBase):
             untrimmed[key] = parent_as_dict[key]
 
         return untrimmed
+
+    @property
+    def is_async(self) -> bool:
+        """Read-only property which indicates whether the data visualization should be
+        rendered using asynchronous logic.
+
+        .. note::
+
+          This property will only return ``True`` if one or more series rely on
+          :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
+
+        :rtype: :class:`bool <python:bool>`
+        """
+        if checkers.is_iterable(self.map):
+            for item in self.map:
+                if isinstance(item, (AsyncMapData)):
+                    return True
+            return False
+
+        if isinstance(self.map, AsyncMapData):
+            return True
+
+        return False

@@ -678,7 +678,7 @@ class AsyncMapData(HighchartsMeta):
             fetch_config = self.fetch_config
         else:
             fetch_config = FetchConfiguration(self.url)
-
+            
         if self.selector:
             function = f"""const selector = {str(self.selector)};\n"""
             fetch = f"""const topology = await {str(fetch_config)}.then(response => selector(response.json()));"""

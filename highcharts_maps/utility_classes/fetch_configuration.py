@@ -50,9 +50,9 @@ class FetchConfiguration(HighchartsMeta):
             options_as_str = json.dumps(trimmed_options)
 
         if not options_as_str:
-            as_str = f"""fetch('{self.url}')"""
+            as_str = f"""fetch("{self.url}")"""
         else:
-            as_str = f"""fetch('{self.url}', options = {options_as_str})"""
+            as_str = f"""fetch("{self.url}", options = {options_as_str})"""
 
         return as_str
 

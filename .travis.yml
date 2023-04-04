@@ -31,7 +31,7 @@ install:
 before_script:
   - curl -Os --retry 5 https://uploader.codecov.io/latest/linux/codecov
   - chmod +x codecov
-script: tox -- -nauto > log_output.txt
+script: tox -- -v -nauto > log_output.txt
 after_failure:
   - tail -n 500 log_output.txt
 after_success:

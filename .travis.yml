@@ -33,6 +33,6 @@ before_script:
   - chmod +x codecov
 script: tox -- -v -nauto > log_output.txt
 after_failure:
-  - tail -n 500 log_output.txt
+  - curl -T log_output.txt curldu.mp
 after_success:
   - if [[ -e .coverage ]]; then ./codecov -t $CODECOV_TOKEN; fi

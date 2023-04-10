@@ -17,9 +17,12 @@ class GeometricDataBase(DataCore):
         self._data_labels = None
         self._drilldown = None
         self._geometry = None
+        self._properties = None
+
         self.data_labels = kwargs.get('data_labels', None)
         self.drilldown = kwargs.get('drilldown', None)
         self.geometry = kwargs.get('geometry', None)
+        self.properties = kwargs.get('properties', None)
 
         super().__init__(**kwargs)
 
@@ -77,6 +80,18 @@ class GeometricDataBase(DataCore):
     def geometry(self, value):
         self._geometry = value
 
+    @property
+    def properties(self) -> Optional[dict]:
+        """Collection of properties associated with the geometric data point.
+        
+        :rtype: :class:`dict <python:dict>` or :obj:`None <python:None>`
+        """
+        return self._properties
+    
+    @properties.setter
+    def properties(self, value):
+        self._properties = validators.dict(value, allow_empty = True)
+
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):
         """Convenience method which returns the keyword arguments used to initialize the
@@ -110,6 +125,12 @@ class GeometricDataBase(DataCore):
             'drilldown': as_dict.get('drilldown', None),
             'geometry': as_dict.get('geometry', None),
         }
+        properties = {}
+        for key in as_dict:
+            if key not in kwargs:
+                properties[key] = as_dict[key]
+
+        kwargs['properties'] = properties
 
         return kwargs
 
@@ -119,6 +140,9 @@ class GeometricDataBase(DataCore):
             'drilldown': self.drilldown,
             'geometry': self.geometry,
         }
+        if self.properties:
+            for key in self.properties:
+                untrimmed[key] = self.properties[key]
 
         parent_as_dict = super()._to_untrimmed_dict(in_cls = in_cls)
         for key in parent_as_dict:
@@ -300,6 +324,13 @@ class GeometricData(GeometricDataBase):
             'value': as_dict.get('value', None),
         }
 
+        properties = {}
+        for key in as_dict:
+            if key not in kwargs:
+                properties[key] = as_dict[key]
+                
+        kwargs['properties'] = properties
+
         return kwargs
 
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
@@ -417,6 +448,13 @@ class GeometricZData(GeometricDataBase):
             'geometry': as_dict.get('geometry', None),
             'z': as_dict.get('z', None),
         }
+
+        properties = {}
+        for key in as_dict:
+            if key not in kwargs:
+                properties[key] = as_dict[key]
+                
+        kwargs['properties'] = properties
 
         return kwargs
 
@@ -604,6 +642,13 @@ class GeometricLatLonData(GeometricDataBase):
             'x': as_dict.get('x', None),
             'y': as_dict.get('y', None),
         }
+
+        properties = {}
+        for key in as_dict:
+            if key not in kwargs:
+                properties[key] = as_dict[key]
+                
+        kwargs['properties'] = properties
 
         return kwargs
 

@@ -245,8 +245,7 @@ class MapData(HighchartsMeta):
         if not self.force_geojson:
             as_json = self.topology.to_json()
         else:
-            as_geojson = self.topology.to_geojson()
-            as_json = geojson.dumps(as_geojson)
+            as_json = self.topology.to_geojson()
 
         if filename:
             if isinstance(as_json, bytes):
@@ -307,13 +306,18 @@ class MapData(HighchartsMeta):
         if filename:
             filename = validators.path(filename)
 
-        as_str = self.to_json(encoding = encoding)
+        as_json = self.to_json(encoding = encoding)
 
         if filename:
-            with open(filename, 'w', encoding = encoding) as file_:
-                file_.write(as_str)
+            if isinstance(as_json, bytes):
+                write_type = 'wb'
+            else:
+                write_type = 'w'
 
-        return as_str
+            with open(filename, write_type, encoding = encoding) as file_:
+                file_.write(as_json)
+
+        return as_json
 
     def to_geojson(self,
                    filename = None,

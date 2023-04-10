@@ -62,6 +62,7 @@ class Chart(ChartBase):
     def _jupyter_javascript(self, 
                             global_options = None, 
                             container = None,
+                            random_slug = None,
                             retries = 3,
                             interval = 1000):
         """Return the JavaScript code which Jupyter Labs will need to render the chart.
@@ -76,6 +77,10 @@ class Chart(ChartBase):
           property if set, and ``'highcharts_target_div'`` if not set.
         :type container: :class:`str <python:str>` or :obj:`None <python:None>`
 
+        :param random_slug: The random sequence of characters to append to the container name to ensure uniqueness.
+          Defaults to :obj:`None <python:None>`
+        :type random_slug: :class:`str <python:str>` or :obj:`None <python:None>`
+        
         :param retries: The number of times to retry rendering the chart. Used to avoid race conditions with the 
           Highcharts script. Defaults to 3.
         :type retries: :class:`int <python:int>`
@@ -87,7 +92,11 @@ class Chart(ChartBase):
         :rtype: :class:`str <python:str>`
         """
         original_container = self.container
-        self.container = container or self.container or 'highcharts_target_div'
+        new_container = container or self.container or 'highcharts_target_div'
+        if not random_slug:
+            self.container = new_container
+        else:
+            self.container = f'{new_container}_{random_slug}'
         
         if global_options is not None:
             global_options = validate_types(global_options,
@@ -101,6 +110,7 @@ class Chart(ChartBase):
 
         js_str += utility_functions.prep_js_for_jupyter(self.to_js_literal(),
                                                         container = self.container,
+                                                        random_slug = random_slug,
                                                         retries = retries,
                                                         interval = interval)
 
@@ -254,7 +264,12 @@ class Chart(ChartBase):
         options_as_str = ''
         if self.options:
             options_as_str = self.options.to_js_literal(encoding = encoding)
-            if self.options.chart and self.options.chart.map and self.options.chart.is_async:
+            if (
+                self.is_maps_chart and 
+                hasattr(self.options.chart, 'map') and 
+                self.options.chart.map and 
+                self.options.chart.is_async
+            ):
                 chart_map_str = self.options.chart.map.to_js_literal(encoding = encoding)
                 chart_map_str = f"""'{chart_map_str}'"""
                 fetch_counter = self.options.chart.map.fetch_counter
@@ -454,38 +469,6 @@ class Chart(ChartBase):
         instance = cls(**kwargs)
 
         instance.add_series(series)
-
-    def display(self, global_options = None):
-        """Display the chart in `Jupyter Labs <https://jupyter.org/>`_ or
-        `Jupyter Notebooks <https://jupyter.org/>`_.
-
-        :raises HighchartsDependencyError: if
-          `ipython <https://ipython.readthedocs.io/en/stable/>`_ is not available in the
-          runtime environment
-        """
-        try:
-            from IPython import display
-        except ImportError:
-            raise errors.HighchartsDependencyError('Unable to import IPython.display. '
-                                                   'Make sure that it is available in '
-                                                   'your runtime environment. To install,'
-                                                   'use: pip install ipython')
-
-        if global_options is not None:
-            global_options = validate_types(global_options,
-                                            types = SharedMapsOptions)
-
-        if self.is_maps_chart:
-            include_str = constants.MAPS_INCLUDE_STR
-        else:
-            include_str = constants.INCLUDE_STR
-
-        html_str = include_str + '\n'
-        if global_options:
-            html_str += global_options._repr_html_() + '\n'
-        html_str += self._repr_html_()
-
-        display.display_html(html_str, raw = True)
 
     @staticmethod
     def _get_options_obj(series_type, options_kwargs):
@@ -1053,7 +1036,7 @@ class Chart(ChartBase):
         if not self.options or not self.options.series:
             return False
 
-        if self.options.chart and self.options.chart.is_async:
+        if self.options.chart and hasattr(self.options.chart, 'is_async') and self.options.chart.is_async:
             return True
 
         for series in self.options.series:

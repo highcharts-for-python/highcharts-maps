@@ -10,7 +10,7 @@ from highcharts_maps.utility_classes.javascript_functions import (CallbackFuncti
 from highcharts_maps.options.series.data.map_data import MapData, AsyncMapData
 
 from highcharts_core.options.chart import (PanningOptions,
-                                             ChartOptions as ChartOptionsBase)
+                                           ChartOptions as ChartOptionsBase)
 
 
 class ChartOptions(ChartOptionsBase):

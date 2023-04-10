@@ -1,4 +1,5 @@
 from typing import Optional, List
+from collections import UserDict
 
 from validator_collection import validators, checkers
 
@@ -79,15 +80,18 @@ class MapBaseOptions(HighchartsMeta):
             self._join_by = None
         elif isinstance(value, constants.EnforcedNullType):
             self._join_by = constants.EnforcedNull
-        elif checkers.is_iterable(value):
+        elif checkers.is_iterable(value, forbid_literals = (str, bytes, dict, UserDict)):
             if len(value) > 2:
                 raise errors.HighchartsValueError(f'join_by expects a 2-member iterable.'
                                                   f'Received a {len(value)}-member '
                                                   f'iterable.')
             elif len(value) == 2:
-                self._join_by = validators.string(value[0])
+                self._join_by = [
+                    validators.string(value[0]),
+                    validators.string(value[1])
+                ]
             else:
-                self._join_by = [validators.string(x) for x in value]
+                self._join_by = validators.string(value)
         else:
             self._join_by = validators.string(value)
 

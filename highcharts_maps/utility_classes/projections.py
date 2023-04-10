@@ -274,7 +274,8 @@ class ProjectionOptions(HighchartsMeta):
     @class_sensitive(CustomProjection)
     def custom(self, value):
         self._custom = value
-        self.name = self.custom.name
+        if value is not None:
+            self.name = self.custom.name
 
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):

@@ -4,6 +4,31 @@ from highcharts_core.utility_functions import *
 
 from highcharts_maps import errors
 
+def to_snake_case(camelCase):
+    """Convert ``camelCase`` to ``snake_case``.
+    
+    :param camelCase: A :class:`str <python:str>` which is likely to contain
+      ``camelCase``.
+    :type camelCase: :class:`str <python:str>`
+
+    :returns: A ``snake_case`` representation of ``camel_case``.
+    :rtype: :class:`str <python:str>`
+    """
+    camelCase = validators.string(camelCase)
+    if '_' in camelCase:
+        return camelCase
+    
+    snake_case = ''
+    for character in camelCase:
+        if character.isupper():
+            snake_case += '_'
+        snake_case += character
+        
+    snake_case = snake_case.lower()
+    
+    return snake_case
+
+
 def validate_bounding_array(value,
                             allow_singleton = True,
                             allow_percentage_strings = True,

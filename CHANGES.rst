@@ -7,6 +7,7 @@ Release 1.0.0-rc6
 * Fixed serialization bugs in options.series.data.map_data.MapData.
 * Added ``properties`` support to data point classes in ``options.series.data.geometric``.
 * Updated Jupyter display logic to align with **Highcharts Core for Python** signatures.
+* Added demos to documentation.
 
 ---------------
 

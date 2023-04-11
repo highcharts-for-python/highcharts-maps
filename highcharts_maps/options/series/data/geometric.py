@@ -1,10 +1,10 @@
-from typing import Optional
+from typing import Optional, List
 from decimal import Decimal
 
 from validator_collection import validators, checkers
 
-from highcharts_maps import constants, errors
-from highcharts_maps.decorators import class_sensitive
+from highcharts_maps import constants, errors, utility_functions
+from highcharts_maps.decorators import class_sensitive, validate_types
 from highcharts_maps.options.series.data.base import DataCore
 from highcharts_maps.utility_classes.data_labels import DataLabel
 from highcharts_maps.utility_classes.geojson import Feature
@@ -17,24 +17,43 @@ class GeometricDataBase(DataCore):
         self._data_labels = None
         self._drilldown = None
         self._geometry = None
+        self._properties = None
+
         self.data_labels = kwargs.get('data_labels', None)
         self.drilldown = kwargs.get('drilldown', None)
         self.geometry = kwargs.get('geometry', None)
+        self.properties = kwargs.get('properties', None)
 
         super().__init__(**kwargs)
 
     @property
-    def data_labels(self) -> Optional[DataLabel]:
+    def data_labels(self) -> Optional[DataLabel | List[DataLabel]]:
         """Individual data label for the data point.
 
-        :rtype: :class:`DataLabel` or :obj:`None <python:None>`
+        .. note::
+
+          To have multiple data labels per data point, you can also supply a collection of
+          :class:`DataLabel` configuration settings.
+
+        :rtype: :class:`DataLabel`, :class:`list <python:list>` of :class:`DataLabel`, or
+          :obj:`None <python:None>`
         """
         return self._data_labels
 
     @data_labels.setter
-    @class_sensitive(DataLabel)
     def data_labels(self, value):
-        self._data_labels = value
+        if not value:
+            self._data_labels = None
+        else:
+            if checkers.is_iterable(value):
+                self._data_labels = validate_types(value,
+                                                   types = DataLabel,
+                                                   allow_none = False,
+                                                   force_iterable = True)
+            else:
+                self._data_labels = validate_types(value,
+                                                   types = DataLabel,
+                                                   allow_none = False)
 
     @property
     def drilldown(self) -> Optional[str]:
@@ -77,6 +96,18 @@ class GeometricDataBase(DataCore):
     def geometry(self, value):
         self._geometry = value
 
+    @property
+    def properties(self) -> Optional[dict]:
+        """Collection of properties associated with the geometric data point.
+        
+        :rtype: :class:`dict <python:dict>` or :obj:`None <python:None>`
+        """
+        return self._properties
+    
+    @properties.setter
+    def properties(self, value):
+        self._properties = validators.dict(value, allow_empty = True)
+
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):
         """Convenience method which returns the keyword arguments used to initialize the
@@ -111,6 +142,16 @@ class GeometricDataBase(DataCore):
             'geometry': as_dict.get('geometry', None),
         }
 
+        properties = {}
+        if len(as_dict) > len(kwargs):
+            for key in as_dict:
+                if key not in kwargs:
+                    snake_key = utility_functions.to_snake_case(key)
+                    if snake_key not in kwargs:
+                        properties[snake_key] = as_dict[key]
+
+        kwargs['properties'] = properties
+
         return kwargs
 
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
@@ -119,6 +160,9 @@ class GeometricDataBase(DataCore):
             'drilldown': self.drilldown,
             'geometry': self.geometry,
         }
+        if self.properties:
+            for key in self.properties:
+                untrimmed[key] = self.properties[key]
 
         parent_as_dict = super()._to_untrimmed_dict(in_cls = in_cls)
         for key in parent_as_dict:
@@ -300,6 +344,16 @@ class GeometricData(GeometricDataBase):
             'value': as_dict.get('value', None),
         }
 
+        properties = {}
+        if len(as_dict) > len(kwargs):
+            for key in as_dict:
+                if key not in kwargs:
+                    snake_key = utility_functions.to_snake_case(key)
+                    if snake_key not in kwargs:
+                        properties[snake_key] = as_dict[key]
+                
+        kwargs['properties'] = properties
+
         return kwargs
 
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
@@ -417,6 +471,16 @@ class GeometricZData(GeometricDataBase):
             'geometry': as_dict.get('geometry', None),
             'z': as_dict.get('z', None),
         }
+
+        properties = {}
+        if len(as_dict) > len(kwargs):
+            for key in as_dict:
+                if key not in kwargs:
+                    snake_key = utility_functions.to_snake_case(key)
+                    if snake_key not in kwargs:
+                        properties[snake_key] = as_dict[key]
+                
+        kwargs['properties'] = properties
 
         return kwargs
 
@@ -604,6 +668,16 @@ class GeometricLatLonData(GeometricDataBase):
             'x': as_dict.get('x', None),
             'y': as_dict.get('y', None),
         }
+
+        properties = {}
+        if len(as_dict) > len(kwargs):
+            for key in as_dict:
+                if key not in kwargs:
+                    snake_key = utility_functions.to_snake_case(key)
+                    if snake_key not in kwargs:
+                        properties[snake_key] = as_dict[key]
+                
+        kwargs['properties'] = properties
 
         return kwargs
 

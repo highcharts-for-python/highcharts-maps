@@ -5,7 +5,7 @@
       lon: 12.345,
       x: 5,
       y: 10,
-      dataLabels:  {
+      dataLabels: {
         align: 'center',
         allowOverlap: true,
         animation: {

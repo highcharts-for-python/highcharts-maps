@@ -301,8 +301,8 @@ def compare_js_literals(original, new):
 
     counter = 0
     for char in original:
-        min_index = max(0, counter - 20)
-        max_index = min(counter + 20, len(original))
+        min_index = max(0, counter - 200)
+        max_index = min(counter + 200, len(original))
 
         if new[counter] != char:
             print(f'\nMISMATCH FOUND AT ORIGINAL CHARACTER: {counter}')

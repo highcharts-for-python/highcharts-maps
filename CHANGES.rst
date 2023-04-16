@@ -2,6 +2,8 @@ Release 1.0.1
 =========================================
 
 * Added documentation of "hard" dependencies to the README.
+* Fixed broken links in documentation to ``options.plot_options.heatmap.HeatmapOptions`` 
+  and ``options.plot_options.heatmap.TilemapOptions``.
 
 ---------------
 

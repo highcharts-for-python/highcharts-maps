@@ -146,9 +146,9 @@ Sub-components
       :class:`SolidGaugeOptions <highcharts_maps.options.plot_options.gauge.SolidGaugeOptions>`
   * - :mod:`.options.plot_options.generic <highcharts_maps.options.plot_options.generic>`
     - :class:`GenericTypeOptions <highcharts_maps.options.plot_options.generic.GenericTypeOptions>`
-  * - :mod:`.options.plot_options.Heatmap <highcharts_maps.options.plot_options.Heatmap>`
-    - :class:`HeatmapOptions <highcharts_maps.options.plot_options.Heatmap.HeatmapOptions>`
-      :class:`TilemapOptions <highcharts_maps.options.plot_options.Tilemap.TilemapOptions>`
+  * - :mod:`.options.plot_options.heatmap <highcharts_maps.options.plot_options.heatmap>`
+    - :class:`HeatmapOptions <highcharts_maps.options.plot_options.heatmap.HeatmapOptions>`
+      :class:`TilemapOptions <highcharts_maps.options.plot_options.heatmap.TilemapOptions>`
   * - :mod:`.options.plot_options.histogram <highcharts_maps.options.plot_options.histogram>`
     - :class:`HistogramOptions <highcharts_maps.options.plot_options.histogram.HistogramOptions>`
   * - :mod:`.options.plot_options.item <highcharts_maps.options.plot_options.item>`

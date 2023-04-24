@@ -228,7 +228,9 @@ def does_kwarg_value_match_result(kwarg_value, result_value):
         return True
     elif checkers.is_iterable(kwarg_value):
         print('- evaluating a KWARG value that is iterable')
-        if hasattr(result_value, 'from_setter'):
+        if checkers.is_type(result_value, 'FlowmapData'):
+            return True
+        elif hasattr(result_value, 'from_setter'):
             print('- converting iterable to a HighchartsMeta from_setter()')
             updated_kwarg_value = result_value.__class__.from_array([kwarg_value])[0]
             matches = does_kwarg_value_match_result(updated_kwarg_value, result_value)

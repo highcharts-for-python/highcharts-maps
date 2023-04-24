@@ -340,6 +340,8 @@ Core Components
   * - :mod:`.options.plot_options.dumbbell <highcharts_maps.options.plot_options.dumbbell>`
     - :class:`DumbbellOptions <highcharts_maps.options.plot_options.dumbbell.DumbbellOptions>`
       :class:`LollipopOptions <highcharts_maps.options.plot_options.dumbbell.LollipopOptions>`
+  * - :mod:`.options.plot_options.flowmap <highcharts_maps.options.plot_options.flowmap>`
+    - :class:`FlowmapOptions <highcharts_maps.options.plot_options.flowmap.FlowmapOptions>`
   * - :mod:`.options.plot_options.funnel <highcharts_maps.options.plot_options.funnel>`
     - :class:`FunnelOptions <highcharts_maps.options.plot_options.funnel.FunnelOptions>`
       :class:`Funnel3DOptions <highcharts_maps.options.plot_options.funnel.Funnel3DOptions>`
@@ -478,6 +480,7 @@ Core Components
       :class:`CartesianValueData <highcharts_maps.options.series.data.cartesian.CartesianValueData>`
   * - :mod:`.options.series.data.connections <highcharts_maps.options.series.data.connections>`
     - :class:`ConnectionData <highcharts_maps.options.series.data.connections.ConnectionData>`
+      :class:`FlowmapData <highcharts_maps.options.series.data.connections.FlowmapData>`
       :class:`WeightedConnectionData <highcharts_maps.options.series.data.connections.WeightedConnectionData>`
       :class:`OutgoingWeightedConnectionData <highcharts_maps.options.series.data.connections.OutgoingWeightedConnectionData>`
       :class:`ConnectionBase <highcharts_maps.options.series.data.connections.ConnectionBase>`
@@ -517,6 +520,8 @@ Core Components
   * - :mod:`.options.series.dumbbell <highcharts_maps.options.series.dumbbell>`
     - :class:`DumbbellSeries <highcharts_maps.options.series.dumbbell.DumbbellSeries>`
       :class:`LollipopSeries <highcharts_maps.options.series.dumbbell.LollipopSeries>`
+  * - :mod:`.options.series.flowmap <highcharts_maps.options.series.flowmap>`
+    - :class:`FlowmapSeries <highcharts_maps.options.series.flowmap.FlowmapSeries>`
   * - :mod:`.options.series.funnel <highcharts_maps.options.series.funnel>`
     - :class:`FunnelSeries <highcharts_maps.options.series.funnel.FunnelSeries>`
       :class:`Funnel3DSeries <highcharts_maps.options.series.funnel.Funnel3DSeries>`
@@ -641,6 +646,7 @@ Core Components
     - :class:`Jitter <highcharts_maps.utility_classes.jitter.Jitter>`
   * - :mod:`.utility_classes.markers <highcharts_maps.utility_classes.markers>`
     - :class:`Marker <highcharts_maps.utility_classes.markers.Marker>`
+      :class:`FlowmapMarker <highcharts_maps.utility_classes.markers.FlowmapMarker>`
   * - :mod:`.utility_classes.menus <highcharts_maps.utility_classes.menus>`
     - :class:`MenuObject <highcharts_maps.utility_classes.menus.MenuObject>`
       :class:`MenuItem <highcharts_maps.utility_classes.menus.MenuItem>`

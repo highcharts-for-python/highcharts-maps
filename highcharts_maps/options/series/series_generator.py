@@ -64,6 +64,7 @@ from highcharts_maps.options.series.map import MapSeries
 from highcharts_maps.options.series.mapbubble import MapBubbleSeries
 from highcharts_maps.options.series.mapline import MapLineSeries
 from highcharts_maps.options.series.mappoint import MapPointSeries
+from highcharts_maps.options.series.flowmap import FlowmapSeries
 
 SERIES_CLASSES = {
     'arcdiagram': ArcDiagramSeries,
@@ -122,6 +123,7 @@ SERIES_CLASSES = {
     'mapbubble': MapBubbleSeries,
     'mapline': MapLineSeries,
     'mappoint': MapPointSeries,
+    'flowmap': FlowmapSeries,
 }
 
 MAPS_SERIES_LIST = [
@@ -132,7 +134,8 @@ MAPS_SERIES_LIST = [
     'mappoint',
     'heatmap',
     'tilemap',
-    'pie'
+    'pie',
+    'flowmap',
 ]
 
 

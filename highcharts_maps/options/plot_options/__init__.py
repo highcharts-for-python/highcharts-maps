@@ -20,6 +20,7 @@ from highcharts_maps.options.plot_options.bar import CylinderOptions
 from highcharts_maps.options.plot_options.dependencywheel import DependencyWheelOptions
 from highcharts_maps.options.plot_options.dumbbell import DumbbellOptions
 from highcharts_maps.options.plot_options.boxplot import ErrorBarOptions
+from highcharts_maps.options.plot_options.flowmap import FlowmapOptions
 from highcharts_maps.options.plot_options.funnel import FunnelOptions
 from highcharts_maps.options.plot_options.funnel import Funnel3DOptions
 from highcharts_maps.options.plot_options.gauge import GaugeOptions
@@ -82,11 +83,13 @@ class PlotOptions(PlotOptionsBase):
     """
 
     def __init__(self, **kwargs):
+        self._flowmap = None
         self._map = None
         self._mapbubble = None
         self._mapline = None
         self._mappoint = None
 
+        self.flowmap = kwargs.get('flowmap', None)
         self.map = kwargs.get('map', None)
         self.mapbubble = kwargs.get('mapbubble', None)
         self.mapline = kwargs.get('mapline', None)
@@ -95,6 +98,23 @@ class PlotOptions(PlotOptionsBase):
         super().__init__(**kwargs)
 
     # Highcharts Maps Properties
+
+    @property
+    def flowmap(self) -> Optional[FlowmapOptions]:
+        """A :term:`flowmap` series is a series laid out on top of a map series that displays route paths (e.g. flight 
+        or naval routes), or directional flows on a map. It creates a link between two points on a map chart.
+        
+        .. figure:: ../../../_static/flowmap-example.png
+        :alt: Flowmap Example chart
+        :align: center
+
+        """
+        return self._flowmap
+    
+    @flowmap.setter
+    @class_sensitive(FlowmapOptions)
+    def flowmap(self, value):
+        self._flowmap = value
 
     @property
     def map(self) -> Optional[MapOptions]:
@@ -1492,12 +1512,14 @@ class PlotOptions(PlotOptionsBase):
             'mapbubble': as_dict.get('mapbubble', None),
             'mapline': as_dict.get('mapline', None),
             'mappoint': as_dict.get('mappoint', None),
+            'flowmap': as_dict.get('flowmap', None),
         }
 
         return kwargs
 
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
         untrimmed = {
+            'flowmap': self.flowmap,
             'map': self.map,
             'mapbubble': self.mapbubble,
             'mapline': self.mapline,

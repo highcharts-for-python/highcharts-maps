@@ -21,6 +21,7 @@
   data/index
   dependencywheel
   dumbbell
+  flowmap
   funnel
   gauge
   heatmap
@@ -120,6 +121,7 @@ Sub-components
       :class:`CartesianValueData <highcharts_maps.options.series.data.cartesian.CartesianValueData>`
   * - :mod:`.options.series.data.connections <highcharts_maps.options.series.data.connections>`
     - :class:`ConnectionData <highcharts_maps.options.series.data.connections.ConnectionData>`
+      :class:`FlowmapData <highcharts_maps.options.series.data.connections.FlowmapData>`
       :class:`WeightedConnectionData <highcharts_maps.options.series.data.connections.WeightedConnectionData>`
       :class:`OutgoingWeightedConnectionData <highcharts_maps.options.series.data.connections.OutgoingWeightedConnectionData>`
       :class:`ConnectionBase <highcharts_maps.options.series.data.connections.ConnectionBase>`
@@ -159,6 +161,8 @@ Sub-components
   * - :mod:`.options.series.dumbbell <highcharts_maps.options.series.dumbbell>`
     - :class:`DumbbellSeries <highcharts_maps.options.series.dumbbell.DumbbellSeries>`
       :class:`LollipopSeries <highcharts_maps.options.series.dumbbell.LollipopSeries>`
+  * - :mod:`.options.series.flowmap <highcharts_maps.options.series.flowmap>`
+    - :class:`FlowmapSeries <highcharts_maps.options.series.flowmap.FlowmapSeries>`
   * - :mod:`.options.series.funnel <highcharts_maps.options.series.funnel>`
     - :class:`FunnelSeries <highcharts_maps.options.series.funnel.FunnelSeries>`
       :class:`Funnel3DSeries <highcharts_maps.options.series.funnel.Funnel3DSeries>`

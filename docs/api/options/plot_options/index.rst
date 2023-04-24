@@ -23,6 +23,7 @@
   dependencywheel
   drag_drop
   dumbbell
+  flowmap
   funnel
   gauge
   generic
@@ -138,6 +139,8 @@ Sub-components
   * - :mod:`.options.plot_options.dumbbell <highcharts_maps.options.plot_options.dumbbell>`
     - :class:`DumbbellOptions <highcharts_maps.options.plot_options.dumbbell.DumbbellOptions>`
       :class:`LollipopOptions <highcharts_maps.options.plot_options.dumbbell.LollipopOptions>`
+  * - :mod:`.options.plot_options.flowmap <highcharts_maps.options.plot_options.flowmap>`
+    - :class:`FlowmapOptions <highcharts_maps.options.plot_options.flowmap.FlowmapOptions>`
   * - :mod:`.options.plot_options.funnel <highcharts_maps.options.plot_options.funnel>`
     - :class:`FunnelOptions <highcharts_maps.options.plot_options.funnel.FunnelOptions>`
       :class:`Funnel3DOptions <highcharts_maps.options.plot_options.funnel.Funnel3DOptions>`

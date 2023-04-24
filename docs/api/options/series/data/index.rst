@@ -65,6 +65,7 @@ Sub-components
       :class:`CartesianValueData <highcharts_maps.options.series.data.cartesian.CartesianValueData>`
   * - :mod:`.options.series.data.connections <highcharts_maps.options.series.data.connections>`
     - :class:`ConnectionData <highcharts_maps.options.series.data.connections.ConnectionData>`
+      :class:`FlowmapData <highcharts_maps.options.series.data.connections.FlowmapData>`
       :class:`WeightedConnectionData <highcharts_maps.options.series.data.connections.WeightedConnectionData>`
       :class:`OutgoingWeightedConnectionData <highcharts_maps.options.series.data.connections.OutgoingWeightedConnectionData>`
       :class:`ConnectionBase <highcharts_maps.options.series.data.connections.ConnectionBase>`

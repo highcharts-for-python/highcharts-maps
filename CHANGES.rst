@@ -6,6 +6,7 @@ Release 1.1.0
   * Changes inherited from **Highcharts Core for Python v.2.0.0**. See `here <https://core-docs.highchartspython.com/en/latest/history.html#release-2-0-0>`__.
   * Added ``options.drilldown.Drilldown.map_zooming`` property.
   * Added ``FlowmapOptions`` / ``FlowmapSeries`` support.
+  * Added ``GeoHeatmapOptions`` / ``GeoHeatmapSeries`` support.
 
 * **FIXED:** Fixed missing ``TreegraphOptions`` / ``TreegraphSeries`` series type.
 

@@ -20,7 +20,6 @@ from highcharts_maps.options.plot_options.bar import CylinderOptions
 from highcharts_maps.options.plot_options.dependencywheel import DependencyWheelOptions
 from highcharts_maps.options.plot_options.dumbbell import DumbbellOptions
 from highcharts_maps.options.plot_options.boxplot import ErrorBarOptions
-from highcharts_maps.options.plot_options.flowmap import FlowmapOptions
 from highcharts_maps.options.plot_options.funnel import FunnelOptions
 from highcharts_maps.options.plot_options.funnel import Funnel3DOptions
 from highcharts_maps.options.plot_options.gauge import GaugeOptions
@@ -58,6 +57,7 @@ from highcharts_maps.options.plot_options.wordcloud import WordcloudOptions
 from highcharts_maps.options.plot_options.bar import XRangeOptions
 
 # Highcharts Maps Plot Options
+from highcharts_maps.options.plot_options.flowmap import FlowmapOptions, GeoHeatmapOptions
 from highcharts_maps.options.plot_options.map import MapOptions
 from highcharts_maps.options.plot_options.mapbubble import MapBubbleOptions
 from highcharts_maps.options.plot_options.mapline import MapLineOptions
@@ -84,12 +84,14 @@ class PlotOptions(PlotOptionsBase):
 
     def __init__(self, **kwargs):
         self._flowmap = None
+        self._geoheatmap = None
         self._map = None
         self._mapbubble = None
         self._mapline = None
         self._mappoint = None
 
         self.flowmap = kwargs.get('flowmap', None)
+        self.geoheatmap = kwargs.get('geoheatmap', None)
         self.map = kwargs.get('map', None)
         self.mapbubble = kwargs.get('mapbubble', None)
         self.mapline = kwargs.get('mapline', None)
@@ -105,9 +107,11 @@ class PlotOptions(PlotOptionsBase):
         or naval routes), or directional flows on a map. It creates a link between two points on a map chart.
         
         .. figure:: ../../../_static/flowmap-example.png
-        :alt: Flowmap Example chart
-        :align: center
+          :alt: Flowmap Example chart
+          :align: center
 
+        :rtype: :class:`FlowmapOptions <highcharts_maps.options.plot_options.flowmap.FlowmapOptions>` or
+          :obj:`None <python:None>`
         """
         return self._flowmap
     
@@ -115,6 +119,31 @@ class PlotOptions(PlotOptionsBase):
     @class_sensitive(FlowmapOptions)
     def flowmap(self, value):
         self._flowmap = value
+        
+    @property
+    def geoheatmap(self) -> Optional[GeoHeatmapOptions]:
+        """A :term:`geoheatmap` series is a variety of heatmap series, composed into the map projection, where the
+        units are expressed in latitude and longitude, while individual values contained in a matrix are represented 
+        as colors.
+        
+        .. warning::
+
+          GeoHeatmaps require that ``modules/geoheatmap`` is loaded client-side.
+
+        .. figure:: ../../../_static/geoheatmap-example.png
+          :alt: GeoHeatmap Example Chart
+          :align: center
+
+        :rtype: :class:`GeoHeatmapOptions <highcharts_maps.options.plot_options.flowmap.GeoHeatmapOptions>` or
+          :obj:`None <python:None>`
+        """
+        return self._geoheatmap
+    
+    @geoheatmap.setter
+    @class_sensitive(GeoHeatmapOptions)
+    def geoheatmap(self, value):
+        self._geoheatmap = value
+
 
     @property
     def map(self) -> Optional[MapOptions]:
@@ -1513,6 +1542,7 @@ class PlotOptions(PlotOptionsBase):
             'mapline': as_dict.get('mapline', None),
             'mappoint': as_dict.get('mappoint', None),
             'flowmap': as_dict.get('flowmap', None),
+            'geoheatmap': as_dict.get('geoheatmap', None),
         }
 
         return kwargs
@@ -1520,6 +1550,7 @@ class PlotOptions(PlotOptionsBase):
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
         untrimmed = {
             'flowmap': self.flowmap,
+            'geoheatmap': self.geoheatmap,
             'map': self.map,
             'mapbubble': self.mapbubble,
             'mapline': self.mapline,

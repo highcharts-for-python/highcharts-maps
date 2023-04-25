@@ -5,6 +5,7 @@ from validator_collection import validators
 
 from highcharts_core.options.plot_options.heatmap import (HeatmapOptions as HeatmapBase,
                                                             TilemapOptions as TilemapBase)
+from highcharts_core.options.plot_options.generic import GenericTypeOptions
 
 from highcharts_maps.options.plot_options.base import MapBaseOptions
 from highcharts_maps.utility_functions import validate_color, mro__to_untrimmed_dict
@@ -156,6 +157,9 @@ class HeatmapOptions(MapBaseOptions, HeatmapBase):
             'point_padding': as_dict.get('pointPadding', None),
             'rowsize': as_dict.get('rowsize', None),
 
+            'all_areas': as_dict.get('allAreas', None),
+            'join_by': as_dict.get('joinBy', None),
+
             'border_color': as_dict.get('borderColor', None),
             'border_width': as_dict.get('borderWidth', None),
             'data_as_columns': as_dict.get('dataAsColumns', None),
@@ -176,7 +180,7 @@ class HeatmapOptions(MapBaseOptions, HeatmapBase):
 
         return untrimmed
 
-
+  
 class TilemapOptions(TilemapBase):
     """General options to apply to all Tilemap series types.
 

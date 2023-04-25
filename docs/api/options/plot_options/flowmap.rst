@@ -27,3 +27,23 @@ class: :class:`FlowmapOptions <highcharts_maps.options.plot_options.flowmap.Flow
 
   |
 
+--------------
+
+.. module:: highcharts_maps.options.plot_options.flowmap
+
+********************************************************************************************************************
+class: :class:`GeoHeatmapOptions <highcharts_maps.options.plot_options.flowmap.GeoHeatmapOptions>`
+********************************************************************************************************************
+
+.. autoclass:: GeoHeatmapOptions
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: GeoHeatmapOptions
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |
+

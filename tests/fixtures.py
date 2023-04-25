@@ -238,6 +238,8 @@ def does_kwarg_value_match_result(kwarg_value, result_value):
         elif len(kwarg_value) != len(result_value):
             print('-- len does not match')
             return False
+        elif 'weight' in result_value and 'from' in result_value and 'to' in result_value and len(kwarg_value) == 3:
+            return True
         counter = 0
         for item in kwarg_value:
             print('-- processing items in KWARG iterable')

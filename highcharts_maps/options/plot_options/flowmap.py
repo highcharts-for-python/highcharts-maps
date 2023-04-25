@@ -9,6 +9,7 @@ from highcharts_maps.options.plot_options.generic import GenericTypeOptions
 from highcharts_maps.utility_classes.gradients import Gradient
 from highcharts_maps.utility_classes.patterns import Pattern
 from highcharts_maps.utility_classes.markers import FlowmapMarker
+from highcharts_maps.options.plot_options.map import MapOptions
 
 
 class FlowmapOptions(GenericTypeOptions):
@@ -485,3 +486,200 @@ class FlowmapOptions(GenericTypeOptions):
             untrimmed[key] = parent_as_dict[key]
 
         return untrimmed
+
+
+class GeoHeatmapOptions(MapOptions, FlowmapOptions):
+    """A :term:`geoheatmap` series is a variety of heatmap series, composed into the map projection, where the
+    units are expressed in latitude and longitude, while individual values contained in a matrix are represented 
+    as colors.
+    
+    .. warning::
+
+      GeoHeatmaps require that ``modules/geoheatmap`` is loaded client-side.
+
+    .. figure:: ../../../_static/geoheatmap-example.png
+      :alt: GeoHeatmap Example Chart
+      :align: center
+
+    """
+
+    def __init__(self, **kwargs):
+        self._border_color = None
+        self._border_width = None
+        self._colsize = None
+        self._rowsize = None
+        
+        self.border_color = kwargs.get('border_color', None)
+        self.border_width = kwargs.get('border_width', None)
+        self.colsize = kwargs.get('colsize', None)
+        self.rowsize = kwargs.get('rowsize', None)
+
+        super().__init__(**kwargs)
+        
+    @property
+    def all_areas(self) -> Optional[bool]:
+        """If ``True``, all areas defined in the map's
+        :meth:`.map_data <highcharts_maps.options.series.base.MapSeriesBase.map_data>`
+        should be rendered, with areas that do not have a related data point rendered as
+        null values. If ``False``, areas of the map that do not have a related data point
+        are skipped and not rendered. Defaults to ``True``.
+
+        :rtype: :class:`bool <python:bool>` or :obj:`None <python:None>`
+        """
+        return self._all_areas
+
+    @all_areas.setter
+    def all_areas(self, value):
+        self._all_areas = None
+
+    @property
+    def colsize(self) -> Optional[int]:
+        """The column size - how many X axis units each column in the heatmap should span.
+        Defaults to ``1``.
+
+        :rtype: :class:`int <python:int>` or :obj:`None <python:None>`
+        """
+        return self._colsize
+
+    @colsize.setter
+    def colsize(self, value):
+        self._colsize = validators.integer(value,
+                                           allow_empty = True,
+                                           minimum = 1)
+
+    @property
+    def join_by(self) -> Optional[str | List[str] | constants.EnforcedNullType]:
+        """The property which should be used to join the series'
+        :meth:`.map_data <highcharts_maps.options.series.base.MapSeriesBase.map_data>` to
+        its ``.data``. When :obj:`None <python:None>`, defaults to ``'hc-key'``.
+
+        Accepts three possible types of value:
+
+          * a string, which joins on the same property in both the ``.mapData`` and
+            ``.data``
+
+            .. note::
+
+              For maps loaded from :term:`GeoJSON`, the keys may be held in each point's
+              ``properties`` object.
+
+          * a 2-member collection, where the first represents the key in ``.mapData`` and
+            the second represents a (different) key in ``.data``
+          * :obj:`highcharts_maps.constants.EnforcedNull`, where items are joined by their
+            positions in the ``.mapData`` and ``.data`` arrays
+
+        .. tip::
+
+          Using :obj:`highcharts_maps.constants.EnforcedNull` performs much faster than
+          the other two options. This is the recommended value when rendering more than a
+          thousand data points, assuming that you are using a backend that can preprocess
+          the data into parallel arrays.
+
+        :rtype: :obj:`highcharts_maps.constants.EnforcedNull` or :class:`str <python:str>`
+          or 2-member :class:`list <python:list>` of :class:`str <python:list>`, or
+          :obj:`None <python:None>`
+
+        :raises HighchartsValueError: if supplied an iterable that has more than 2 members
+        """
+        return self._join_by
+
+    @join_by.setter
+    def join_by(self, value):
+        self._join_by = None
+        
+    @property
+    def rowsize(self) -> Optional[int]:
+        """The row size - how many Y axis units each heatmap row should span. Defaults to
+        ``1``.
+
+        :rtype: :class:`int <python:int>` or :obj:`None <python:None>`
+        """
+        return self._rowsize
+
+    @rowsize.setter
+    def rowsize(self, value):
+        self._rowsize = validators.integer(value,
+                                           allow_empty = True,
+                                           minimum = 1)
+
+    @classmethod
+    def _get_kwargs_from_dict(cls, as_dict):
+        kwargs = {
+            'accessibility': as_dict.get('accessibility', None),
+            'allow_point_select': as_dict.get('allowPointSelect', None),
+            'animation': as_dict.get('animation', None),
+            'class_name': as_dict.get('className', None),
+            'clip': as_dict.get('clip', None),
+            'color': as_dict.get('color', None),
+            'cursor': as_dict.get('cursor', None),
+            'custom': as_dict.get('custom', None),
+            'dash_style': as_dict.get('dashStyle', None),
+            'data_labels': as_dict.get('dataLabels', None),
+            'description': as_dict.get('description', None),
+            'enable_mouse_tracking': as_dict.get('enableMouseTracking', None),
+            'events': as_dict.get('events', None),
+            'include_in_data_export': as_dict.get('includeInDataExport', None),
+            'keys': as_dict.get('keys', None),
+            'label': as_dict.get('label', None),
+            'linked_to': as_dict.get('linkedTo', None),
+            'marker': as_dict.get('marker', None),
+            'on_point': as_dict.get('onPoint', None),
+            'opacity': as_dict.get('opacity', None),
+            'point': as_dict.get('point', None),
+            'point_description_formatter': as_dict.get('pointDescriptionFormatter', None),
+            'selected': as_dict.get('selected', None),
+            'show_checkbox': as_dict.get('showCheckbox', None),
+            'show_in_legend': as_dict.get('showInLegend', None),
+            'skip_keyboard_navigation': as_dict.get('skipKeyboardNavigation', None),
+            'states': as_dict.get('states', None),
+            'sticky_tracking': as_dict.get('stickyTracking', None),
+            'threshold': as_dict.get('threshold', None),
+            'tooltip': as_dict.get('tooltip', None),
+            'turbo_threshold': as_dict.get('turboThreshold', None),
+            'visible': as_dict.get('visible', None),
+            
+            'animation_limit': as_dict.get('animationLimit', None),
+            'color_axis': as_dict.get('colorAxis', None),
+            'color_by_point': as_dict.get('colorByPoint', None),
+            'color_index': as_dict.get('colorIndex', None),
+            'color_key': as_dict.get('colorKey', None),
+            'colors': as_dict.get('colors', None),
+            'curve_factor': as_dict.get('curveFactor', None),
+            'fill_color': as_dict.get('fillColor', None),
+            'fill_opacity': as_dict.get('fillOpacity', None),
+            'find_nearest_point_by': as_dict.get('findNearestPointBy', None),
+            'line_width': as_dict.get('lineWidth', None),
+            'marker_end': as_dict.get('markerEnd', None),
+            'max_width': as_dict.get('maxWidth', None),
+            'min_width': as_dict.get('minWidth', None),
+            'null_color': as_dict.get('nullColor', None),
+            'null_interaction': as_dict.get('nullInteraction', None),
+            'weight': as_dict.get('weight', None),
+            'width': as_dict.get('width', None),
+            'z_index': as_dict.get('zIndex', None),
+
+            'affects_map_view': as_dict.get('affectsMapView', None),
+
+            'border_color': as_dict.get('borderColor', None),
+            'border_width': as_dict.get('borderWidth', None),
+            'colsize': as_dict.get('colsize', None),
+            'rowsize': as_dict.get('rowsize', None),
+
+        }
+
+        return kwargs
+
+    def _to_untrimmed_dict(self, in_cls = None) -> dict:
+        from highcharts_maps.utility_functions import mro__to_untrimmed_dict
+        
+        untrimmed = {
+            'colsize': self.colsize,
+            'rowsize': self.rowsize,
+        }
+        parent_as_dict = mro__to_untrimmed_dict(self, in_cls = in_cls)
+
+        for key in parent_as_dict:
+            untrimmed[key] = parent_as_dict[key]
+
+        return untrimmed
+

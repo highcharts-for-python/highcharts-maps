@@ -294,6 +294,7 @@ Sub-components
       :class:`LollipopOptions <highcharts_maps.options.plot_options.dumbbell.LollipopOptions>`
   * - :mod:`.options.plot_options.flowmap <highcharts_maps.options.plot_options.flowmap>`
     - :class:`FlowmapOptions <highcharts_maps.options.plot_options.flowmap.FlowmapOptions>`
+      :class:`GeoHeatmapOptions <highcharts_maps.options.series.flowmap.GeoHeatmapOptions>`
   * - :mod:`.options.plot_options.funnel <highcharts_maps.options.plot_options.funnel>`
     - :class:`FunnelOptions <highcharts_maps.options.plot_options.funnel.FunnelOptions>`
       :class:`Funnel3DOptions <highcharts_maps.options.plot_options.funnel.Funnel3DOptions>`
@@ -474,6 +475,7 @@ Sub-components
       :class:`LollipopSeries <highcharts_maps.options.series.dumbbell.LollipopSeries>`
   * - :mod:`.options.series.flowmap <highcharts_maps.options.series.flowmap>`
     - :class:`FlowmapSeries <highcharts_maps.options.series.flowmap.FlowmapSeries>`
+      :class:`GeoHeatmapSeries <highcharts_maps.options.series.flowmap.GeoHeatmapSeries>`
   * - :mod:`.options.series.funnel <highcharts_maps.options.series.funnel>`
     - :class:`FunnelSeries <highcharts_maps.options.series.funnel.FunnelSeries>`
       :class:`Funnel3DSeries <highcharts_maps.options.series.funnel.Funnel3DSeries>`

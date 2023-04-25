@@ -4,7 +4,8 @@ import pytest
 
 from json.decoder import JSONDecodeError
 
-from highcharts_maps.options.plot_options.flowmap import FlowmapOptions as cls
+from highcharts_maps.options.plot_options.flowmap import (FlowmapOptions as cls,
+                                                          GeoHeatmapOptions as cls2)
 from highcharts_maps import errors
 from tests.fixtures import input_files, check_input_file, to_camelCase, to_js_dict, \
     Class__init__, Class__to_untrimmed_dict, Class_from_dict, Class_to_dict, \
@@ -258,22 +259,22 @@ STANDARD_PARAMS = [
 
 
 @pytest.mark.parametrize('kwargs, error', STANDARD_PARAMS)
-def test__init__(kwargs, error):
+def test_FlowmapOptions__init__(kwargs, error):
     Class__init__(cls, kwargs, error)
 
 
 @pytest.mark.parametrize('kwargs, error', STANDARD_PARAMS)
-def test__to_untrimmed_dict(kwargs, error):
+def test_FlowmapOptions__to_untrimmed_dict(kwargs, error):
     Class__to_untrimmed_dict(cls, kwargs, error)
 
 
 @pytest.mark.parametrize('kwargs, error',  STANDARD_PARAMS)
-def test_from_dict(kwargs, error):
+def test_FlowmapOptions_from_dict(kwargs, error):
     Class_from_dict(cls, kwargs, error)
 
 
 @pytest.mark.parametrize('kwargs, error',  STANDARD_PARAMS)
-def test_to_dict(kwargs, error):
+def test_FlowmapOptions_to_dict(kwargs, error):
     Class_to_dict(cls, kwargs, error)
 
 
@@ -315,5 +316,68 @@ def test_to_dict(kwargs, error):
       ValueError)),
 
 ])
-def test_from_js_literal(input_files, filename, as_file, error):
+def test_FlowmapOptions_from_js_literal(input_files, filename, as_file, error):
     Class_from_js_literal(cls, input_files, filename, as_file, error)
+
+#### NEXT CLASS
+
+@pytest.mark.parametrize('kwargs, error', STANDARD_PARAMS)
+def test_GeoHeatmapOptions__init__(kwargs, error):
+    Class__init__(cls2, kwargs, error)
+
+
+@pytest.mark.parametrize('kwargs, error', STANDARD_PARAMS)
+def test_GeoHeatmapOptions__to_untrimmed_dict(kwargs, error):
+    Class__to_untrimmed_dict(cls2, kwargs, error)
+
+
+@pytest.mark.parametrize('kwargs, error',  STANDARD_PARAMS)
+def test_GeoHeatmapOptions_from_dict(kwargs, error):
+    Class_from_dict(cls2, kwargs, error)
+
+
+@pytest.mark.parametrize('kwargs, error',  STANDARD_PARAMS)
+def test_GeoHeatmapOptions_to_dict(kwargs, error):
+    Class_to_dict(cls2, kwargs, error)
+
+
+@pytest.mark.parametrize('filename, as_file, error', [
+    ('plot_options/flowmap/01.js', False, None),
+    ('plot_options/flowmap/02.js', False, None),
+
+    ('plot_options/flowmap/error-01.js',
+     False,
+     (errors.HighchartsValueError,
+      errors.HighchartsParseError,
+      JSONDecodeError,
+      TypeError,
+      ValueError)),
+    ('plot_options/flowmap/error-02.js',
+     False,
+     (errors.HighchartsValueError,
+      errors.HighchartsParseError,
+      JSONDecodeError,
+      TypeError,
+      ValueError)),
+
+    ('plot_options/flowmap/01.js', True, None),
+    ('plot_options/flowmap/02.js', True, None),
+
+    ('plot_options/flowmap/error-01.js',
+     True,
+     (errors.HighchartsValueError,
+      errors.HighchartsParseError,
+      JSONDecodeError,
+      TypeError,
+      ValueError)),
+    ('plot_options/flowmap/error-02.js',
+     True,
+     (errors.HighchartsValueError,
+      errors.HighchartsParseError,
+      JSONDecodeError,
+      TypeError,
+      ValueError)),
+
+])
+def test_GeoHeatmapOptions_from_js_literal(input_files, filename, as_file, error):
+    Class_from_js_literal(cls2, input_files, filename, as_file, error)

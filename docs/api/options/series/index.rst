@@ -163,6 +163,7 @@ Sub-components
       :class:`LollipopSeries <highcharts_maps.options.series.dumbbell.LollipopSeries>`
   * - :mod:`.options.series.flowmap <highcharts_maps.options.series.flowmap>`
     - :class:`FlowmapSeries <highcharts_maps.options.series.flowmap.FlowmapSeries>`
+      :class:`GeoHeatmapSeries <highcharts_maps.options.series.flowmap.GeoHeatmapSeries>`
   * - :mod:`.options.series.funnel <highcharts_maps.options.series.funnel>`
     - :class:`FunnelSeries <highcharts_maps.options.series.funnel.FunnelSeries>`
       :class:`Funnel3DSeries <highcharts_maps.options.series.funnel.Funnel3DSeries>`

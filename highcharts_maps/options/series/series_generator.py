@@ -44,6 +44,7 @@ from highcharts_maps.options.series.networkgraph import NetworkGraphSeries
 from highcharts_maps.options.series.organization import OrganizationSeries
 from highcharts_maps.options.series.packedbubble import PackedBubbleSeries
 from highcharts_maps.options.series.pareto import ParetoSeries
+from highcharts_maps.options.series.pictorial import PictorialSeries
 from highcharts_maps.options.series.pie import PieSeries
 from highcharts_maps.options.series.pie import VariablePieSeries
 from highcharts_maps.options.series.polygon import PolygonSeries
@@ -55,6 +56,7 @@ from highcharts_maps.options.series.scatter import Scatter3DSeries
 from highcharts_maps.options.series.spline import SplineSeries
 from highcharts_maps.options.series.sunburst import SunburstSeries
 from highcharts_maps.options.series.timeline import TimelineSeries
+from highcharts_maps.options.series.treegraph import TreegraphSeries
 from highcharts_maps.options.series.treemap import TreemapSeries
 from highcharts_maps.options.series.vector import VectorSeries
 from highcharts_maps.options.series.venn import VennSeries
@@ -64,6 +66,7 @@ from highcharts_maps.options.series.map import MapSeries
 from highcharts_maps.options.series.mapbubble import MapBubbleSeries
 from highcharts_maps.options.series.mapline import MapLineSeries
 from highcharts_maps.options.series.mappoint import MapPointSeries
+from highcharts_maps.options.series.flowmap import FlowmapSeries, GeoHeatmapSeries
 
 SERIES_CLASSES = {
     'arcdiagram': ArcDiagramSeries,
@@ -102,6 +105,7 @@ SERIES_CLASSES = {
     'organization': OrganizationSeries,
     'packedbubble': PackedBubbleSeries,
     'pareto': ParetoSeries,
+    'pictorial': PictorialSeries,
     'pie': PieSeries,
     'variablepie': VariablePieSeries,
     'polygon': PolygonSeries,
@@ -113,6 +117,7 @@ SERIES_CLASSES = {
     'spline': SplineSeries,
     'sunburst': SunburstSeries,
     'timeline': TimelineSeries,
+    'treegraph': TreegraphSeries,
     'treemap': TreemapSeries,
     'vector': VectorSeries,
     'venn': VennSeries,
@@ -122,6 +127,8 @@ SERIES_CLASSES = {
     'mapbubble': MapBubbleSeries,
     'mapline': MapLineSeries,
     'mappoint': MapPointSeries,
+    'flowmap': FlowmapSeries,
+    'geoheatmap': GeoHeatmapSeries,
 }
 
 MAPS_SERIES_LIST = [
@@ -132,7 +139,9 @@ MAPS_SERIES_LIST = [
     'mappoint',
     'heatmap',
     'tilemap',
-    'pie'
+    'pie',
+    'flowmap',
+    'geoheatmap',
 ]
 
 

@@ -23,6 +23,7 @@
   dependencywheel
   drag_drop
   dumbbell
+  flowmap
   funnel
   gauge
   generic
@@ -39,6 +40,7 @@
   organization
   packedbubble
   pareto
+  pictorial
   pie
   points
   polygon
@@ -46,9 +48,11 @@
   sankey
   scatter
   series
+  sonification
   spline
   sunburst
   timeline
+  treegraph
   treemap
   vector
   venn
@@ -138,6 +142,9 @@ Sub-components
   * - :mod:`.options.plot_options.dumbbell <highcharts_maps.options.plot_options.dumbbell>`
     - :class:`DumbbellOptions <highcharts_maps.options.plot_options.dumbbell.DumbbellOptions>`
       :class:`LollipopOptions <highcharts_maps.options.plot_options.dumbbell.LollipopOptions>`
+  * - :mod:`.options.plot_options.flowmap <highcharts_maps.options.plot_options.flowmap>`
+    - :class:`FlowmapOptions <highcharts_maps.options.plot_options.flowmap.FlowmapOptions>`
+      :class:`GeoHeatmapOptions <highcharts_maps.options.plot_options.flowmap.GeoHeatmapOptions>`
   * - :mod:`.options.plot_options.funnel <highcharts_maps.options.plot_options.funnel>`
     - :class:`FunnelOptions <highcharts_maps.options.plot_options.funnel.FunnelOptions>`
       :class:`Funnel3DOptions <highcharts_maps.options.plot_options.funnel.Funnel3DOptions>`
@@ -180,6 +187,8 @@ Sub-components
       :class:`ParentNodeOptions <highcharts_maps.options.plot_options.packedbubble.ParentNodeOptions>`
   * - :mod:`.options.plot_options.pareto <highcharts_maps.options.plot_options.pareto>`
     - :class:`ParetoOptions <highcharts_maps.options.plot_options.pareto.ParetoOptions>`
+  * - :mod:`.options.plot_options.pictorial <highcharts_maps.options.plot_options.pictorial>`
+    - :class:`PictorialOptions <highcharts_maps.options.plot_options.pictorial.PictorialOptions>`
   * - :mod:`.options.plot_options.pie <highcharts_maps.options.plot_options.pie>`
     - :class:`PieOptions <highcharts_maps.options.plot_options.pie.PieOptions>`
       :class:`VariablePieOptions <highcharts_maps.options.plot_options.pie.VariablePieOptions>`
@@ -199,12 +208,17 @@ Sub-components
       :class:`Scatter3DOptions <highcharts_maps.options.plot_options.scatter.Scatter3DOptions>`
   * - :mod:`.options.plot_options.series <highcharts_maps.options.plot_options.series>`
     - :class:`SeriesOptions <highcharts_maps.options.plot_options.series.SeriesOptions>`
+  * - :mod:`.options.plot_options.sonification <highcharts_maps.options.plot_options.sonification>`
+    - :class:`SeriesSonification <highcharts_maps.options.plot_options.sonification.SeriesSonification>`
   * - :mod:`.options.plot_options.spline <highcharts_maps.options.plot_options.spline>`
     - :class:`SplineOptions <highcharts_maps.options.plot_options.spline.SplineOptions>`
   * - :mod:`.options.plot_options.sunburst <highcharts_maps.options.plot_options.sunburst>`
     - :class:`SunburstOptions <highcharts_maps.options.plot_options.sunburst.SunburstOptions>`
   * - :mod:`.options.plot_options.timeline <highcharts_maps.options.plot_options.timeline>`
     - :class:`TimelineOptions <highcharts_maps.options.plot_options.timeline.TimelineOptions>`
+  * - :mod:`.options.plot_options.treegraph <highcharts_maps.options.plot_options.treegraph>`
+    - :class:`TreegraphOptions <highcharts_maps.options.plot_options.treegraph.TreegraphOptions>`
+      :class:`TreegraphEvents <highcharts_maps.options.plot_options.treegraph.TreegraphEvents>`
   * - :mod:`.options.plot_options.treemap <highcharts_maps.options.plot_options.treemap>`
     - :class:`TreemapOptions <highcharts_maps.options.plot_options.treemap.TreemapOptions>`
   * - :mod:`.options.plot_options.vector <highcharts_maps.options.plot_options.vector>`

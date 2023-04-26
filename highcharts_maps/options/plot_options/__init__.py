@@ -32,6 +32,7 @@ from highcharts_maps.options.plot_options.networkgraph import NetworkGraphOption
 from highcharts_maps.options.plot_options.organization import OrganizationOptions
 from highcharts_maps.options.plot_options.packedbubble import PackedBubbleOptions
 from highcharts_maps.options.plot_options.pareto import ParetoOptions
+from highcharts_maps.options.plot_options.pictorial import PictorialOptions
 from highcharts_maps.options.plot_options.pie import PieOptions
 from highcharts_maps.options.plot_options.polygon import PolygonOptions
 from highcharts_maps.options.plot_options.pyramid import PyramidOptions
@@ -46,6 +47,7 @@ from highcharts_maps.options.plot_options.area import StreamGraphOptions
 from highcharts_maps.options.plot_options.sunburst import SunburstOptions
 from highcharts_maps.options.plot_options.heatmap import TilemapOptions
 from highcharts_maps.options.plot_options.timeline import TimelineOptions
+from highcharts_maps.options.plot_options.treegraph import TreegraphOptions
 from highcharts_maps.options.plot_options.treemap import TreemapOptions
 from highcharts_maps.options.plot_options.pie import VariablePieOptions
 from highcharts_maps.options.plot_options.bar import VariwideOptions
@@ -57,6 +59,7 @@ from highcharts_maps.options.plot_options.wordcloud import WordcloudOptions
 from highcharts_maps.options.plot_options.bar import XRangeOptions
 
 # Highcharts Maps Plot Options
+from highcharts_maps.options.plot_options.flowmap import FlowmapOptions, GeoHeatmapOptions
 from highcharts_maps.options.plot_options.map import MapOptions
 from highcharts_maps.options.plot_options.mapbubble import MapBubbleOptions
 from highcharts_maps.options.plot_options.mapline import MapLineOptions
@@ -82,11 +85,15 @@ class PlotOptions(PlotOptionsBase):
     """
 
     def __init__(self, **kwargs):
+        self._flowmap = None
+        self._geoheatmap = None
         self._map = None
         self._mapbubble = None
         self._mapline = None
         self._mappoint = None
 
+        self.flowmap = kwargs.get('flowmap', None)
+        self.geoheatmap = kwargs.get('geoheatmap', None)
         self.map = kwargs.get('map', None)
         self.mapbubble = kwargs.get('mapbubble', None)
         self.mapline = kwargs.get('mapline', None)
@@ -95,6 +102,50 @@ class PlotOptions(PlotOptionsBase):
         super().__init__(**kwargs)
 
     # Highcharts Maps Properties
+
+    @property
+    def flowmap(self) -> Optional[FlowmapOptions]:
+        """A :term:`flowmap` series is a series laid out on top of a map series that displays route paths (e.g. flight 
+        or naval routes), or directional flows on a map. It creates a link between two points on a map chart.
+        
+        .. figure:: ../../../_static/flowmap-example.png
+          :alt: Flowmap Example chart
+          :align: center
+
+        :rtype: :class:`FlowmapOptions <highcharts_maps.options.plot_options.flowmap.FlowmapOptions>` or
+          :obj:`None <python:None>`
+        """
+        return self._flowmap
+    
+    @flowmap.setter
+    @class_sensitive(FlowmapOptions)
+    def flowmap(self, value):
+        self._flowmap = value
+        
+    @property
+    def geoheatmap(self) -> Optional[GeoHeatmapOptions]:
+        """A :term:`geoheatmap` series is a variety of heatmap series, composed into the map projection, where the
+        units are expressed in latitude and longitude, while individual values contained in a matrix are represented 
+        as colors.
+        
+        .. warning::
+
+          GeoHeatmaps require that ``modules/geoheatmap`` is loaded client-side.
+
+        .. figure:: ../../../_static/geoheatmap-example.png
+          :alt: GeoHeatmap Example Chart
+          :align: center
+
+        :rtype: :class:`GeoHeatmapOptions <highcharts_maps.options.plot_options.flowmap.GeoHeatmapOptions>` or
+          :obj:`None <python:None>`
+        """
+        return self._geoheatmap
+    
+    @geoheatmap.setter
+    @class_sensitive(GeoHeatmapOptions)
+    def geoheatmap(self, value):
+        self._geoheatmap = value
+
 
     @property
     def map(self) -> Optional[MapOptions]:
@@ -864,6 +915,28 @@ class PlotOptions(PlotOptionsBase):
         self._pareto = value
 
     @property
+    def pictorial(self) -> Optional[PictorialOptions]:
+        """General options to apply to all Pictorial series types.
+
+        A pictorial series uses vector images to represent the data, with the data's shape
+        determined by the ``path`` parameter.
+
+        .. figure:: ../../../_static/pictorial-example.png
+          :alt: Pictorial Example Chart
+          :align: center
+
+
+        :rtype: :class:`PictorialOptions <highcharts_maps.options.plot_options.pictorial.PictorialOptions>` or
+          :obj:`None <python:None>`
+        """
+        return self._pictorial
+
+    @pictorial.setter
+    @class_sensitive(PictorialOptions)
+    def pictorial(self, value):
+        self._pictorial = value
+
+    @property
     def pie(self) -> Optional[PieOptions]:
         """General options to apply to all Pie series types.
 
@@ -1196,6 +1269,27 @@ class PlotOptions(PlotOptionsBase):
         self._timeline = value
 
     @property
+    def treegraph(self) -> Optional[TreegraphOptions]:
+        """General options to apply to all :term:`Treegraph` series types.
+        
+        A treegraph visualizes a relationship between ancestors and descendants with a clear parent-child relationship,
+        e.g. a family tree or a directory structure.
+        
+        .. figure:: ../../../_static/treegraph-example.png
+          :alt: Treegraph Example Chart
+          :align: center
+        
+        :rtype: :class:`TreegraphOptions <highcharts_maps.options.plot_options.treegraph.TreegraphOptions>` or 
+          :obj:`None <python:None>`
+        """
+        return self._treegraph
+    
+    @treegraph.setter
+    @class_sensitive(TreegraphOptions)
+    def treegraph(self, value):
+        self._treegraph = value
+
+    @property
     def treemap(self) -> Optional[TreemapOptions]:
         """General options to apply to all Treemap series types.
 
@@ -1464,6 +1558,7 @@ class PlotOptions(PlotOptionsBase):
             'organization': as_dict.get('organization', None),
             'packedbubble': as_dict.get('packedbubble', None),
             'pareto': as_dict.get('pareto', None),
+            'pictorial': as_dict.get('pictorial', None),
             'pie': as_dict.get('pie', None),
             'polygon': as_dict.get('polygon', None),
             'pyramid': as_dict.get('pyramid', None),
@@ -1478,6 +1573,7 @@ class PlotOptions(PlotOptionsBase):
             'sunburst': as_dict.get('sunburst', None),
             'tilemap': as_dict.get('tilemap', None),
             'timeline': as_dict.get('timeline', None),
+            'treegraph': as_dict.get('treegraph', None),
             'treemap': as_dict.get('treemap', None),
             'variablepie': as_dict.get('variablepie', None),
             'variwide': as_dict.get('variwide', None),
@@ -1492,12 +1588,16 @@ class PlotOptions(PlotOptionsBase):
             'mapbubble': as_dict.get('mapbubble', None),
             'mapline': as_dict.get('mapline', None),
             'mappoint': as_dict.get('mappoint', None),
+            'flowmap': as_dict.get('flowmap', None),
+            'geoheatmap': as_dict.get('geoheatmap', None),
         }
 
         return kwargs
 
     def _to_untrimmed_dict(self, in_cls = None) -> dict:
         untrimmed = {
+            'flowmap': self.flowmap,
+            'geoheatmap': self.geoheatmap,
             'map': self.map,
             'mapbubble': self.mapbubble,
             'mapline': self.mapline,
@@ -1532,6 +1632,7 @@ class PlotOptions(PlotOptionsBase):
             'organization': self.organization,
             'packedbubble': self.packedbubble,
             'pareto': self.pareto,
+            'pictorial': self.pictorial,
             'pie': self.pie,
             'polygon': self.polygon,
             'pyramid': self.pyramid,
@@ -1546,6 +1647,7 @@ class PlotOptions(PlotOptionsBase):
             'sunburst': self.sunburst,
             'tilemap': self.tilemap,
             'timeline': self.timeline,
+            'treegraph': self.treegraph,
             'treemap': self.treemap,
             'variablepie': self.variablepie,
             'variwide': self.variwide,

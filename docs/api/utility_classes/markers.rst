@@ -26,3 +26,23 @@ class: :class:`Marker <highcharts_maps.utility_classes.markers.Marker>`
       :parts: -1
 
   |
+
+--------------
+
+.. module:: highcharts_maps.utility_classes.markers
+
+********************************************************************************************************************
+class: :class:`FlowmapMarker <highcharts_maps.utility_classes.markers.FlowmapMarker>`
+********************************************************************************************************************
+
+.. autoclass:: FlowmapMarker
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: FlowmapMarker
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |

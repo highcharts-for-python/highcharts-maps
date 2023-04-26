@@ -229,6 +229,7 @@ class HighchartsMapsOptions(HighchartsOptions):
             'plotOptions': self.plot_options,
             'responsive': self.responsive,
             'series': self.series,
+            'sonification': self.sonification,
             'subtitle': self.subtitle,
             'time': self.time,
             'title': self.title,

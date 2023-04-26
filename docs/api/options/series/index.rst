@@ -21,6 +21,7 @@
   data/index
   dependencywheel
   dumbbell
+  flowmap
   funnel
   gauge
   heatmap
@@ -35,6 +36,7 @@
   organization
   packedbubble
   pareto
+  pictorial
   pie
   points
   polygon
@@ -45,6 +47,7 @@
   spline
   sunburst
   timeline
+  treegraph
   treemap
   vector
   venn
@@ -120,6 +123,7 @@ Sub-components
       :class:`CartesianValueData <highcharts_maps.options.series.data.cartesian.CartesianValueData>`
   * - :mod:`.options.series.data.connections <highcharts_maps.options.series.data.connections>`
     - :class:`ConnectionData <highcharts_maps.options.series.data.connections.ConnectionData>`
+      :class:`FlowmapData <highcharts_maps.options.series.data.connections.FlowmapData>`
       :class:`WeightedConnectionData <highcharts_maps.options.series.data.connections.WeightedConnectionData>`
       :class:`OutgoingWeightedConnectionData <highcharts_maps.options.series.data.connections.OutgoingWeightedConnectionData>`
       :class:`ConnectionBase <highcharts_maps.options.series.data.connections.ConnectionBase>`
@@ -146,6 +150,8 @@ Sub-components
       :class:`SinglePointBase <highcharts_maps.options.series.data.single_point.SinglePointBase>`
   * - :mod:`.options.series.data.sunburst <highcharts_maps.options.series.data.sunburst>`
     - :class:`SunburstData <highcharts_maps.options.series.data.sunburst.SunburstData>`
+  * - :mod:`.options.series.data.treegraph <highcharts_maps.options.series.data.treegraph>`
+    - :class:`TreegraphData <highcharts_maps.options.series.data.treegraph.TreegraphData>`
   * - :mod:`.options.series.data.treemap <highcharts_maps.options.series.data.treemap>`
     - :class:`TreemapData <highcharts_maps.options.series.data.treemap.TreemapData>`
   * - :mod:`.options.series.data.vector <highcharts_maps.options.series.data.vector>`
@@ -159,6 +165,9 @@ Sub-components
   * - :mod:`.options.series.dumbbell <highcharts_maps.options.series.dumbbell>`
     - :class:`DumbbellSeries <highcharts_maps.options.series.dumbbell.DumbbellSeries>`
       :class:`LollipopSeries <highcharts_maps.options.series.dumbbell.LollipopSeries>`
+  * - :mod:`.options.series.flowmap <highcharts_maps.options.series.flowmap>`
+    - :class:`FlowmapSeries <highcharts_maps.options.series.flowmap.FlowmapSeries>`
+      :class:`GeoHeatmapSeries <highcharts_maps.options.series.flowmap.GeoHeatmapSeries>`
   * - :mod:`.options.series.funnel <highcharts_maps.options.series.funnel>`
     - :class:`FunnelSeries <highcharts_maps.options.series.funnel.FunnelSeries>`
       :class:`Funnel3DSeries <highcharts_maps.options.series.funnel.Funnel3DSeries>`
@@ -183,6 +192,9 @@ Sub-components
     - :class:`PackedBubbleSeries <highcharts_maps.options.series.packedbubble.PackedBubbleSeries>`
   * - :mod:`.options.series.pareto <highcharts_maps.options.series.pareto>`
     - :class:`ParetoSeries <highcharts_maps.options.series.pareto.ParetoSeries>`
+  * - :mod:`.options.series.pictorial <highcharts_maps.options.series.pictorial>`
+    - :class:`PictorialSeries <highcharts_maps.options.series.pictorial.PictorialSeries>`
+      :class:`PictorialPaths <highcharts_maps.options.series.pictorial.PictorialPaths>`
   * - :mod:`.options.series.pie <highcharts_maps.options.series.pie>`
     - :class:`PieSeries <highcharts_maps.options.series.pie.PieSeries>`
       :class:`VariablePieSeries <highcharts_maps.options.series.pie.VariablePieSeries>`
@@ -204,6 +216,8 @@ Sub-components
     - :class:`SunburstSeries <highcharts_maps.options.series.sunburst.SunburstSeries>`
   * - :mod:`.options.series.timeline <highcharts_maps.options.series.timeline>`
     - :class:`TimelineSeries <highcharts_maps.options.series.timeline.TimelineSeries>`
+  * - :mod:`.options.series.treegraph <highcharts_maps.options.series.treegraph>`
+    - :class:`TreegraphSeries <highcharts_maps.options.series.treegraph.TreegraphSeries>`
   * - :mod:`.options.series.treemap <highcharts_maps.options.series.treemap>`
     - :class:`TreemapSeries <highcharts_maps.options.series.treemap.TreemapSeries>`
   * - :mod:`.options.series.vector <highcharts_maps.options.series.vector>`

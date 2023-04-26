@@ -30,6 +30,24 @@ class: :class:`ConnectionData <highcharts_maps.options.series.data.connections.C
 ---------------
 
 ********************************************************************************************************************
+class: :class:`FlowmapData <highcharts_maps.options.series.data.connections.FlowmapData>`
+********************************************************************************************************************
+
+.. autoclass:: FlowmapData
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: FlowmapData
+      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |
+
+---------------
+
+********************************************************************************************************************
 class: :class:`WeightedConnectionData <highcharts_maps.options.series.data.connections.WeightedConnectionData>`
 ********************************************************************************************************************
 

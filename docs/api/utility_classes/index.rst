@@ -111,6 +111,7 @@ Sub-components
     - :class:`Jitter <highcharts_maps.utility_classes.jitter.Jitter>`
   * - :mod:`.utility_classes.markers <highcharts_maps.utility_classes.markers>`
     - :class:`Marker <highcharts_maps.utility_classes.markers.Marker>`
+      :class:`FlowmapMarker <highcharts_maps.utility_classes.markers.FlowmapMarker>`
   * - :mod:`.utility_classes.menus <highcharts_maps.utility_classes.menus>`
     - :class:`MenuObject <highcharts_maps.utility_classes.menus.MenuObject>`
       :class:`MenuItem <highcharts_maps.utility_classes.menus.MenuItem>`

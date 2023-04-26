@@ -24,6 +24,7 @@
   range
   single_point
   sunburst
+  treegraph
   treemap
   vector
   venn
@@ -65,6 +66,7 @@ Sub-components
       :class:`CartesianValueData <highcharts_maps.options.series.data.cartesian.CartesianValueData>`
   * - :mod:`.options.series.data.connections <highcharts_maps.options.series.data.connections>`
     - :class:`ConnectionData <highcharts_maps.options.series.data.connections.ConnectionData>`
+      :class:`FlowmapData <highcharts_maps.options.series.data.connections.FlowmapData>`
       :class:`WeightedConnectionData <highcharts_maps.options.series.data.connections.WeightedConnectionData>`
       :class:`OutgoingWeightedConnectionData <highcharts_maps.options.series.data.connections.OutgoingWeightedConnectionData>`
       :class:`ConnectionBase <highcharts_maps.options.series.data.connections.ConnectionBase>`
@@ -91,6 +93,8 @@ Sub-components
       :class:`SinglePointBase <highcharts_maps.options.series.data.single_point.SinglePointBase>`
   * - :mod:`.options.series.data.sunburst <highcharts_maps.options.series.data.sunburst>`
     - :class:`SunburstData <highcharts_maps.options.series.data.sunburst.SunburstData>`
+  * - :mod:`.options.series.data.treegraph <highcharts_maps.options.series.data.treegraph>`
+    - :class:`TreegraphData <highcharts_maps.options.series.data.treegraph.TreegraphData>`
   * - :mod:`.options.series.data.treemap <highcharts_maps.options.series.data.treemap>`
     - :class:`TreemapData <highcharts_maps.options.series.data.treemap.TreemapData>`
   * - :mod:`.options.series.data.vector <highcharts_maps.options.series.data.vector>`

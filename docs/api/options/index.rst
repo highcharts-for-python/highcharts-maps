@@ -29,6 +29,7 @@
   plot_options/index
   responsive
   series/index
+  sonification/index
   subtitle
   time
   title
@@ -356,6 +357,8 @@ Sub-components
       :class:`Scatter3DOptions <highcharts_maps.options.plot_options.scatter.Scatter3DOptions>`
   * - :mod:`.options.plot_options.series <highcharts_maps.options.plot_options.series>`
     - :class:`SeriesOptions <highcharts_maps.options.plot_options.series.SeriesOptions>`
+  * - :mod:`.options.plot_options.sonification <highcharts_maps.options.plot_options.sonification>`
+    - :class:`SeriesSonification <highcharts_maps.options.plot_options.sonification.SeriesSonification>`
   * - :mod:`.options.plot_options.spline <highcharts_maps.options.plot_options.spline>`
     - :class:`SplineOptions <highcharts_maps.options.plot_options.spline.SplineOptions>`
   * - :mod:`.options.plot_options.sunburst <highcharts_maps.options.plot_options.sunburst>`
@@ -529,6 +532,22 @@ Sub-components
     - :class:`VennSeries <highcharts_maps.options.series.venn.VennSeries>`
   * - :mod:`.options.series.wordcloud <highcharts_maps.options.series.wordcloud>`
     - :class:`WordcloudSeries <highcharts_maps.options.series.wordcloud.WordcloudSeries>`
+  * - :mod:`.options.sonification <highcharts_maps.options.sonification>`
+    - :class:`SonificationOptions <highcharts_maps.options.sonification.SonificationOptions>`
+  * - :mod:`.options.sonification.grouping <highcharts_maps.options.sonification.grouping>`
+    - :class:`PointGrouping <highcharts_maps.options.sonification.grouping.SonificationGrouping>`
+  * - :mod:`.options.sonification.mapping <highcharts_maps.options.sonification.mapping>`
+    - :class:`SonificationMapping <highcharts_maps.options.sonification.mapping.SonificationMapping>`
+      :class:`AudioParameter <highcahrts_core.options.sonification.mapping.AudioParameter>`
+      :class:`AudioFilter <highcharts_maps.options.sonification.mapping.AudioFilter>`
+      :class:`PitchParameter <highcharts_maps.options.sonification.mapping.PitchParameter>`
+      :class:`TremoloEffect <highcahrts_core.options.sonification.mapping.TremoloEffect>`
+  * - :mod:`.options.sonification.track_configurations <highcharts_maps.options.sonification.track_configurations>`
+    - :class:`InstrumentTrackConfiguration <highcharts_maps.options.sonification.track_configurations.InstrumentTrackConfiguration>`
+      :class:`SpeechTrackConfiguration <highcharts_maps.options.sonification.track_configurations.SpeechTrackConfiguration>`
+      :class:`ContextTrackConfiguration <highcharts_maps.options.sonification.track_configurations.ContextTrackConfiguration>`
+      :class:`TrackConfigurationBase <highcharts_maps.options.sonification.track_configurations.TrackConfigurationBase>`
+      :class:`ActiveWhen <highcharts_maps.options.sonification.track_configurations.ActiveWhen>`
   * - :mod:`.options.subtitle <highcharts_maps.options.subtitle>`
     - :class:`Subtitle <highcharts_maps.options.subtitle.Subtitle>`
   * - :mod:`.options.time <highcharts_maps.options.time>`

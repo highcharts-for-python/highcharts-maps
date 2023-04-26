@@ -3,7 +3,7 @@ Release 1.1.0
 
 * Align the API to **Highcharts (JS) v.11**. In particular, this includes:
 
-  * Changes inherited from **Highcharts Core for Python v.2.0.0**. See `here <https://core-docs.highchartspython.com/en/latest/history.html#release-2-0-0>`__.
+  * Changes inherited from **Highcharts Core for Python v.1.1.0**. See `here <https://core-docs.highchartspython.com/en/latest/history.html#release-2-0-0>`__.
   * Added ``options.drilldown.Drilldown.map_zooming`` property.
   * Added ``FlowmapOptions`` / ``FlowmapSeries`` support.
   * Added ``GeoHeatmapOptions`` / ``GeoHeatmapSeries`` support.

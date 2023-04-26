@@ -192,6 +192,7 @@ class HighchartsMapsOptions(HighchartsOptions):
             'plot_options': as_dict.get('plotOptions', None),
             'responsive': as_dict.get('responsive', None),
             'series': as_dict.get('series', None),
+            'sonification': as_dict.get('sonification', None),
             'subtitle': as_dict.get('subtitle', None),
             'time': as_dict.get('time', None),
             'title': as_dict.get('title', None),

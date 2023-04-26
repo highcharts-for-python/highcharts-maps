@@ -412,6 +412,9 @@ Core Components
     - :class:`SunburstOptions <highcharts_maps.options.plot_options.sunburst.SunburstOptions>`
   * - :mod:`.options.plot_options.timeline <highcharts_maps.options.plot_options.timeline>`
     - :class:`TimelineOptions <highcharts_maps.options.plot_options.timeline.TimelineOptions>`
+  * - :mod:`.options.plot_options.treegraph <highcharts_maps.options.plot_options.treegraph>`
+    - :class:`TreegraphOptions <highcharts_maps.options.plot_options.treegraph.TreegraphOptions>`
+      :class:`TreegraphEvents <highcharts_maps.options.plot_options.treegraph.TreegraphEvents>`
   * - :mod:`.options.plot_options.treemap <highcharts_maps.options.plot_options.treemap>`
     - :class:`TreemapOptions <highcharts_maps.options.plot_options.treemap.TreemapOptions>`
   * - :mod:`.options.plot_options.vector <highcharts_maps.options.plot_options.vector>`
@@ -510,6 +513,8 @@ Core Components
       :class:`SinglePointBase <highcharts_maps.options.series.data.single_point.SinglePointBase>`
   * - :mod:`.options.series.data.sunburst <highcharts_maps.options.series.data.sunburst>`
     - :class:`SunburstData <highcharts_maps.options.series.data.sunburst.SunburstData>`
+  * - :mod:`.options.series.data.treegraph <highcharts_maps.options.series.data.treegraph>`
+    - :class:`TreegraphData <highcharts_maps.options.series.data.treegraph.TreegraphData>`
   * - :mod:`.options.series.data.treemap <highcharts_maps.options.series.data.treemap>`
     - :class:`TreemapData <highcharts_maps.options.series.data.treemap.TreemapData>`
   * - :mod:`.options.series.data.vector <highcharts_maps.options.series.data.vector>`
@@ -571,6 +576,8 @@ Core Components
     - :class:`SunburstSeries <highcharts_maps.options.series.sunburst.SunburstSeries>`
   * - :mod:`.options.series.timeline <highcharts_maps.options.series.timeline>`
     - :class:`TimelineSeries <highcharts_maps.options.series.timeline.TimelineSeries>`
+  * - :mod:`.options.series.treegraph <highcharts_maps.options.series.treegraph>`
+    - :class:`TreegraphSeries <highcharts_maps.options.series.treegraph.TreegraphSeries>`
   * - :mod:`.options.series.treemap <highcharts_maps.options.series.treemap>`
     - :class:`TreemapSeries <highcharts_maps.options.series.treemap.TreemapSeries>`
   * - :mod:`.options.series.vector <highcharts_maps.options.series.vector>`

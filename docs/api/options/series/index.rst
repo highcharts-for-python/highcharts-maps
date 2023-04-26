@@ -46,6 +46,7 @@
   spline
   sunburst
   timeline
+  treegraph
   treemap
   vector
   venn
@@ -148,6 +149,8 @@ Sub-components
       :class:`SinglePointBase <highcharts_maps.options.series.data.single_point.SinglePointBase>`
   * - :mod:`.options.series.data.sunburst <highcharts_maps.options.series.data.sunburst>`
     - :class:`SunburstData <highcharts_maps.options.series.data.sunburst.SunburstData>`
+  * - :mod:`.options.series.data.treegraph <highcharts_maps.options.series.data.treegraph>`
+    - :class:`TreegraphData <highcharts_maps.options.series.data.treegraph.TreegraphData>`
   * - :mod:`.options.series.data.treemap <highcharts_maps.options.series.data.treemap>`
     - :class:`TreemapData <highcharts_maps.options.series.data.treemap.TreemapData>`
   * - :mod:`.options.series.data.vector <highcharts_maps.options.series.data.vector>`
@@ -209,6 +212,8 @@ Sub-components
     - :class:`SunburstSeries <highcharts_maps.options.series.sunburst.SunburstSeries>`
   * - :mod:`.options.series.timeline <highcharts_maps.options.series.timeline>`
     - :class:`TimelineSeries <highcharts_maps.options.series.timeline.TimelineSeries>`
+  * - :mod:`.options.series.treegraph <highcharts_maps.options.series.treegraph>`
+    - :class:`TreegraphSeries <highcharts_maps.options.series.treegraph.TreegraphSeries>`
   * - :mod:`.options.series.treemap <highcharts_maps.options.series.treemap>`
     - :class:`TreemapSeries <highcharts_maps.options.series.treemap.TreemapSeries>`
   * - :mod:`.options.series.vector <highcharts_maps.options.series.vector>`

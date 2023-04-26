@@ -55,6 +55,7 @@ from highcharts_maps.options.series.scatter import Scatter3DSeries
 from highcharts_maps.options.series.spline import SplineSeries
 from highcharts_maps.options.series.sunburst import SunburstSeries
 from highcharts_maps.options.series.timeline import TimelineSeries
+from highcharts_maps.options.series.treegraph import TreegraphSeries
 from highcharts_maps.options.series.treemap import TreemapSeries
 from highcharts_maps.options.series.vector import VectorSeries
 from highcharts_maps.options.series.venn import VennSeries
@@ -114,6 +115,7 @@ SERIES_CLASSES = {
     'spline': SplineSeries,
     'sunburst': SunburstSeries,
     'timeline': TimelineSeries,
+    'treegraph': TreegraphSeries,
     'treemap': TreemapSeries,
     'vector': VectorSeries,
     'venn': VennSeries,

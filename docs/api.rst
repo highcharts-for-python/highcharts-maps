@@ -385,6 +385,8 @@ Core Components
       :class:`ParentNodeOptions <highcharts_maps.options.plot_options.packedbubble.ParentNodeOptions>`
   * - :mod:`.options.plot_options.pareto <highcharts_maps.options.plot_options.pareto>`
     - :class:`ParetoOptions <highcharts_maps.options.plot_options.pareto.ParetoOptions>`
+  * - :mod:`.options.plot_options.pictorial <highcharts_maps.options.plot_options.pictorial>`
+    - :class:`PictorialOptions <highcharts_maps.options.plot_options.pictorial.PictorialOptions>`
   * - :mod:`.options.plot_options.pie <highcharts_maps.options.plot_options.pie>`
     - :class:`PieOptions <highcharts_maps.options.plot_options.pie.PieOptions>`
       :class:`VariablePieOptions <highcharts_maps.options.plot_options.pie.VariablePieOptions>`
@@ -555,6 +557,9 @@ Core Components
     - :class:`PackedBubbleSeries <highcharts_maps.options.series.packedbubble.PackedBubbleSeries>`
   * - :mod:`.options.series.pareto <highcharts_maps.options.series.pareto>`
     - :class:`ParetoSeries <highcharts_maps.options.series.pareto.ParetoSeries>`
+  * - :mod:`.options.series.pictorial <highcharts_maps.options.series.pictorial>`
+    - :class:`PictorialSeries <highcharts_maps.options.series.pictorial.PictorialSeries>`
+      :class:`PictorialPaths <highcharts_maps.options.series.pictorial.PictorialPaths>`
   * - :mod:`.options.series.pie <highcharts_maps.options.series.pie>`
     - :class:`PieSeries <highcharts_maps.options.series.pie.PieSeries>`
       :class:`VariablePieSeries <highcharts_maps.options.series.pie.VariablePieSeries>`

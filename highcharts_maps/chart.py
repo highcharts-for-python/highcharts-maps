@@ -285,9 +285,9 @@ class Chart(ChartBase):
             callback_as_str = f"""{callback_as_str}"""
             signature_elements += 1
 
-        signature = """new Highcharts.chart("""
+        signature = """Highcharts.chart("""
         if self.is_maps_chart:
-            signature = """new Highcharts.mapChart("""
+            signature = """Highcharts.mapChart("""
         if container_as_str:
             signature += container_as_str
             if signature_elements > 1:

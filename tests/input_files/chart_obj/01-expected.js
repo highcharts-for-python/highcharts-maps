@@ -1,4 +1,4 @@
-var someVariableName = new Highcharts.mapChart('some-div-id',
+var someVariableName = Highcharts.mapChart('some-div-id',
 {
   accessibility: {
       announceNewData: {

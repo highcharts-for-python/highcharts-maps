@@ -365,6 +365,9 @@ Sub-components
     - :class:`SplineOptions <highcharts_maps.options.plot_options.spline.SplineOptions>`
   * - :mod:`.options.plot_options.sunburst <highcharts_maps.options.plot_options.sunburst>`
     - :class:`SunburstOptions <highcharts_maps.options.plot_options.sunburst.SunburstOptions>`
+  * - :mod:`.options.plot_options.tiledwebmap <highcharts_maps.options.plot_options.tiledwebmap'>`
+    - :class:`TiledWebMapOptions <highcharts_maps.options.plot_options.tiledwebmap.TiledWebMapOptions>`
+      :class:`ProviderOptions <highcharts_maps.options.plot_options.tiledwebmap.ProviderOptions>`
   * - :mod:`.options.plot_options.timeline <highcharts_maps.options.plot_options.timeline>`
     - :class:`TimelineOptions <highcharts_maps.options.plot_options.timeline.TimelineOptions>`
   * - :mod:`.options.plot_options.treegraph <highcharts_maps.options.plot_options.treegraph>`
@@ -532,6 +535,8 @@ Sub-components
     - :class:`SplineSeries <highcharts_maps.options.series.spline.SplineSeries>`
   * - :mod:`.options.series.sunburst <highcharts_maps.options.series.sunburst>`
     - :class:`SunburstSeries <highcharts_maps.options.series.sunburst.SunburstSeries>`
+  * - :mod:`.options.series.tiledwebmap <highcharts_maps.options.series.tiledwebmap'>`
+    - :class:`TiledWebMapSeries <highcharts_maps.options.series.tiledwebmap.TiledWebMapSeries>`
   * - :mod:`.options.series.timeline <highcharts_maps.options.series.timeline>`
     - :class:`TimelineSeries <highcharts_maps.options.series.timeline.TimelineSeries>`
   * - :mod:`.options.series.treegraph <highcharts_maps.options.series.treegraph>`

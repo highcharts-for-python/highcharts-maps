@@ -662,7 +662,7 @@ def Class_to_dict(cls, kwargs, error):
 
     if not error:
         instance = cls(**kwargs)
-        if checkers.is_type(instance, 'GenericTypeOptions'):
+        if checkers.is_type(instance, ('GenericTypeOptions', 'TiledWebMapOptions', 'TiledWebMapSeries')):
             expected['type'] = instance.type
 
         result = instance.to_dict()
@@ -704,7 +704,7 @@ def append_plot_options_type(cls, as_str):
     class_parents = cls.mro()
     is_generic_type_options = False
     for parent in class_parents:
-        if 'GenericTypeOptions' in parent.__name__:
+        if 'GenericTypeOptions' in parent.__name__ or 'TiledWebMapOptions' in parent.__name__ or 'TiledWebMapSeries' in parent.__name__:
             is_generic_type_options = True
             break
     if not is_generic_type_options:
@@ -762,6 +762,7 @@ def Class_from_js_literal(cls, input_files, filename, as_file, error):
             assert str(parsed_output) == str(parsed_original)
         except AssertionError as error:
             print('\n')
+            print(as_js_literal)
             compare_js_literals(str(parsed_original), str(parsed_output))
             raise error
     else:

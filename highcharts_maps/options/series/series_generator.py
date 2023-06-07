@@ -2,8 +2,6 @@ from typing import Optional
 
 import json
 
-from validator_collection import validators, checkers
-
 from highcharts_maps import errors
 
 # Highcharts for Python series
@@ -67,6 +65,7 @@ from highcharts_maps.options.series.mapbubble import MapBubbleSeries
 from highcharts_maps.options.series.mapline import MapLineSeries
 from highcharts_maps.options.series.mappoint import MapPointSeries
 from highcharts_maps.options.series.flowmap import FlowmapSeries, GeoHeatmapSeries
+from highcharts_maps.options.series.tiledwebmap import TiledWebMapSeries
 
 SERIES_CLASSES = {
     'arcdiagram': ArcDiagramSeries,
@@ -129,6 +128,7 @@ SERIES_CLASSES = {
     'mappoint': MapPointSeries,
     'flowmap': FlowmapSeries,
     'geoheatmap': GeoHeatmapSeries,
+    'tiledwebmap': TiledWebMapSeries,
 }
 
 MAPS_SERIES_LIST = [
@@ -142,6 +142,7 @@ MAPS_SERIES_LIST = [
     'pie',
     'flowmap',
     'geoheatmap',
+    'tiledwebmap',
 ]
 
 

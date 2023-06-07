@@ -64,6 +64,7 @@ from highcharts_maps.options.plot_options.map import MapOptions
 from highcharts_maps.options.plot_options.mapbubble import MapBubbleOptions
 from highcharts_maps.options.plot_options.mapline import MapLineOptions
 from highcharts_maps.options.plot_options.mappoint import MapPointOptions
+from highcharts_maps.options.plot_options.tiledwebmap import TiledWebMapOptions
 
 
 class PlotOptions(PlotOptionsBase):
@@ -91,6 +92,7 @@ class PlotOptions(PlotOptionsBase):
         self._mapbubble = None
         self._mapline = None
         self._mappoint = None
+        self._tiledwebmap = None
 
         self.flowmap = kwargs.get('flowmap', None)
         self.geoheatmap = kwargs.get('geoheatmap', None)
@@ -98,6 +100,7 @@ class PlotOptions(PlotOptionsBase):
         self.mapbubble = kwargs.get('mapbubble', None)
         self.mapline = kwargs.get('mapline', None)
         self.mappoint = kwargs.get('mappoint', None)
+        self.tiledwebmap = kwargs.get('tiledwebmap', None)
 
         super().__init__(**kwargs)
 
@@ -231,6 +234,20 @@ class PlotOptions(PlotOptionsBase):
     @class_sensitive(MapPointOptions)
     def mappoint(self, value):
         self._mappoint = value
+
+    @property
+    def tiledwebmap(self) -> Optional[TiledWebMapOptions]:
+        """A tiled web map series allows you to display dynamically joined 
+        individual images (tiles) and join them together to create a map.
+
+        :rtype: :class:`TiledWebMapOptions` or :obj:`None <python:None>`
+        """
+        return self._tiledwebmap
+
+    @tiledwebmap.setter
+    @class_sensitive(TiledWebMapOptions)
+    def tiledwebmap(self, value):
+        self._tiledwebmap = value
 
     # Highcharts Properties
 
@@ -1590,6 +1607,7 @@ class PlotOptions(PlotOptionsBase):
             'mappoint': as_dict.get('mappoint', None),
             'flowmap': as_dict.get('flowmap', None),
             'geoheatmap': as_dict.get('geoheatmap', None),
+            'tiledwebmap': as_dict.get('tiledwebmap', None),
         }
 
         return kwargs
@@ -1602,6 +1620,7 @@ class PlotOptions(PlotOptionsBase):
             'mapbubble': self.mapbubble,
             'mapline': self.mapline,
             'mappoint': self.mappoint,
+            'tiledwebmap': self.tiledwebmap,
 
             'arcdiagram': self.arcdiagram,
             'area': self.area,

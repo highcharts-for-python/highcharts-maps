@@ -51,6 +51,7 @@
   sonification
   spline
   sunburst
+  tiledwebmap
   timeline
   treegraph
   treemap
@@ -214,6 +215,9 @@ Sub-components
     - :class:`SplineOptions <highcharts_maps.options.plot_options.spline.SplineOptions>`
   * - :mod:`.options.plot_options.sunburst <highcharts_maps.options.plot_options.sunburst>`
     - :class:`SunburstOptions <highcharts_maps.options.plot_options.sunburst.SunburstOptions>`
+  * - :mod:`.options.plot_options.tiledwebmap <highcharts_maps.options.plot_options.tiledwebmap'>`
+    - :class:`TiledWebMapOptions <highcharts_maps.options.plot_options.tiledwebmap.TiledWebMapOptions>`
+      :class:`ProviderOptions <highcharts_maps.options.plot_options.tiledwebmap.ProviderOptions>`
   * - :mod:`.options.plot_options.timeline <highcharts_maps.options.plot_options.timeline>`
     - :class:`TimelineOptions <highcharts_maps.options.plot_options.timeline.TimelineOptions>`
   * - :mod:`.options.plot_options.treegraph <highcharts_maps.options.plot_options.treegraph>`

@@ -61,7 +61,7 @@ dependencies = [
     "highcharts-core>=1.0.0-rc1",
     "esprima>=4.0.1",
     "validator-collection>=1.5.0",
-    "requests>=2.28.1",
+    "requests>=2.31.0",
     "topojson>=1.5",
     "geojson>=3.0"
 ]
@@ -77,7 +77,7 @@ path = "highcharts_maps/__version__.py"
 "History" = "https://github.com/highcharts-for-python/highcharts-maps/blob/master/CHANGES.rst"
 "Bug Tracker" = "https://github.com/highcharts-for-python/highcharts-maps/issues"
 "Demo" = "https://github.com/highcharts-for-python/highcharts-for-python-demos"
-#"Sponsor" = "https://github.com/sponsors/highcharts-for-python"
+"Sponsor" = "https://github.com/sponsors/highcharts-for-python"
 
 [project.optional-dependencies]
 dev = [

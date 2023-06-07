@@ -46,6 +46,7 @@
   series_generator
   spline
   sunburst
+  tiledwebmap
   timeline
   treegraph
   treemap
@@ -214,6 +215,8 @@ Sub-components
     - :class:`SplineSeries <highcharts_maps.options.series.spline.SplineSeries>`
   * - :mod:`.options.series.sunburst <highcharts_maps.options.series.sunburst>`
     - :class:`SunburstSeries <highcharts_maps.options.series.sunburst.SunburstSeries>`
+  * - :mod:`.options.series.tiledwebmap <highcharts_maps.options.series.tiledwebmap'>`
+    - :class:`TiledWebMapSeries <highcharts_maps.options.series.tiledwebmap.TiledWebMapSeries>`
   * - :mod:`.options.series.timeline <highcharts_maps.options.series.timeline>`
     - :class:`TimelineSeries <highcharts_maps.options.series.timeline.TimelineSeries>`
   * - :mod:`.options.series.treegraph <highcharts_maps.options.series.treegraph>`

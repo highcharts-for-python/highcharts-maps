@@ -1,3 +1,20 @@
+Release 1.2.0
+=========================================
+
+* **ENHANCEMENT:** Align the API to **Highcharts (JS) v.11.1** (#21). In particular, this includes:
+
+  * Changes inherited from **Highcharts Core for Python v.1.2.0**. See `here <https://core-docs.highchartspython.com/en/latest/history.html#release-1-2-0>`__.
+  * Added ``TiledWebMapOptions`` / ``TiledWebMapSeries`` support.
+  
+* **ENHANCEMENT:** Added support for the inclusion of scripts based on features used in the chart (#6).
+* **ENHANCEMENT:** Added ``dict`` support to ``options.series.labels.SeriesLabel.style`` and ``utility_classes.data_labels.DataLabel.style``.
+* **BUGFIX:** Fixed de-serialization error in ``options.series.data.geometric.GeometricZData`` which
+  prevented the population of ``.properties``.
+* **DOCS:** Several documentation fixes.
+* **DEPENDENCY:** Bumped ``requests`` version for security patch.
+
+---------------------
+
 Release 1.1.1
 =========================================
 

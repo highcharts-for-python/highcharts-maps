@@ -700,6 +700,14 @@ to visualize your data.
           :class:`highcharts_maps.options.plot_options.mappoint.MapPointOptions`
 
           :class:`highcharts_maps.options.series.mappoint.MapPointSeries`
+      * - **Tiled Web Map**
+        - .. figure:: _static/tiledwebmap-example.png
+            :alt: Tiled Web Map Example Chart
+            :width: 100%
+
+          :class:`highcharts_maps.options.plot_options.tiledwebmap.TiledWebMapOptions`
+
+          :class:`highcharts_maps.options.series.tiledwebmap.TiledWebMapSeries`
 
   .. tab:: Gantt
 

@@ -345,12 +345,12 @@ class GeometricData(GeometricDataBase):
         }
 
         properties = {}
-        if len(as_dict) > len(kwargs):
-            for key in as_dict:
-                if key not in kwargs:
-                    snake_key = utility_functions.to_snake_case(key)
-                    if snake_key not in kwargs:
-                        properties[snake_key] = as_dict[key]
+        for key in as_dict:
+            if key in kwargs:
+                continue
+            snake_key = utility_functions.to_snake_case(key)
+            if snake_key not in kwargs:
+                properties[snake_key] = as_dict[key]
                 
         kwargs['properties'] = properties
 
@@ -473,12 +473,12 @@ class GeometricZData(GeometricDataBase):
         }
 
         properties = {}
-        if len(as_dict) > len(kwargs):
-            for key in as_dict:
-                if key not in kwargs:
-                    snake_key = utility_functions.to_snake_case(key)
-                    if snake_key not in kwargs:
-                        properties[snake_key] = as_dict[key]
+        for key in as_dict:
+            if key in kwargs:
+                continue
+            snake_key = utility_functions.to_snake_case(key)
+            if snake_key not in kwargs:
+                properties[snake_key] = as_dict[key]
                 
         kwargs['properties'] = properties
 

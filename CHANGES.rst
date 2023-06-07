@@ -11,6 +11,7 @@ Release 1.2.0
 * **BUGFIX:** Fixed de-serialization error in ``options.series.data.geometric.GeometricZData`` which
   prevented the population of ``.properties``.
 * **DOCS:** Several documentation fixes.
+* **DEPENDENCY:** Bumped ``requests`` version for security patch.
 
 ---------------------
 

@@ -36,6 +36,42 @@ class MapData(HighchartsMeta):
         self.force_geojson = kwargs.get('force_geojsons', None)
         self.topology = kwargs.get('topology', None)
 
+    def __str__(self):
+        """Return a human-readable :class:`str <python:str>` representation of the map 
+        data.
+
+        .. warning::
+        
+          To ensure that the result is human-readable, the result will be rendered
+          *without* its 
+          :meth:`.topology <highcharts_maps.options.series.data.map_data.MapData.topology>`
+          property.
+        
+          .. tip::
+        
+            If you would like a *complete* and *unambiguous* :class:`str <python:str>` 
+            representation, then you can:
+            
+            * use the 
+              :meth:`__repr__() <highcharts_maps.options.series.data.map_data.MapData.__repr__>` method,
+            * call ``repr(my_map_data)``, or
+            * serialize the chart to TopoJSON using 
+              :meth:`.to_topojson() <highcharts_maps.options.series.data.map_data.MapData.to_topojson>`
+            * serialize the chart to GeoJSON using 
+              :meth:`.to_geojson() <highcharts_maps.options.series.data.map_data.MapData.to_geojson>`
+            
+        :returns: A :class:`str <python:str>` representation of the map data.
+        :rtype: :class:`str <python:str>`
+        """
+        as_dict = self.to_dict()
+
+        kwargs = {utility_functions.to_snake_case(key): as_dict[key]
+                  for key in as_dict if key not in ['topology']}
+        kwargs_as_str = ', '.join([f'{key} = {repr(kwargs[key])}'
+                                   for key in kwargs])
+
+        return f'{self.__class__.__name__}({kwargs_as_str})'
+
     @property
     def force_geojson(self) -> Optional[bool]:
         """If ``True``, will serialize as :term:`GeoJSON`. If ``False``, will serialize

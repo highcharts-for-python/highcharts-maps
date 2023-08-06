@@ -322,6 +322,17 @@ class FlowmapData(WeightedConnectionData):
 
         return collection
 
+    def _get_props_from_array(self) -> List[str]:
+        """Returns a list of the property names that can be set using the
+        :meth:`.from_array() <highcharts_core.options.series.data.base.DataBase.from_array>`
+        method.
+        
+        :rtype: :class:`list <python:list>` of :class:`str <python:str>`
+        """
+        return ['from_',
+                'to',
+                'weight']
+
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):
         """Convenience method which returns the keyword arguments used to initialize the

@@ -1,3 +1,13 @@
+Release 1.3.0
+=========================================
+
+* **ENHANCEMENT:** Modified the way that data points are serialized to JavaScript literal objects. Now, they are serialized to a JavaScript array if their configured properties are those that Highcharts (JS) supports in JavaScript array notation. Otherwise, the code falls back to serialize the data point as a JavaScript object literal. This change is intended to improve performance and reduce the size of the serialized data. (#25)
+* **ENHANCEMENT:** Added ``__repr__()`` method for Highcharts Core for Python classes.
+* **ENHANCEMENT:** Added ``__str__()`` method with special handling for difficult-to-read classes.
+
+
+---------------------
+
 Release 1.2.0
 =========================================
 

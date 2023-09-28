@@ -174,7 +174,8 @@ class Chart(ChartBase):
 
     def to_js_literal(self,
                       filename = None,
-                      encoding = 'utf-8') -> Optional[str]:
+                      encoding = 'utf-8',
+                      careful_validation = False) -> Optional[str]:
         """Return the object represented as a :class:`str <python:str>` containing the
         JavaScript object literal.
 
@@ -185,6 +186,18 @@ class Chart(ChartBase):
         :param encoding: The character encoding to apply to the resulting object. Defaults
           to ``'utf-8'``.
         :type encoding: :class:`str <python:str>`
+
+        :param careful_validation: if ``True``, will carefully validate JavaScript values
+        along the way using the
+        `esprima-python <https://github.com/Kronuz/esprima-python>`__ library. Defaults
+        to ``False``.
+        
+        .. warning::
+        
+            Setting this value to ``True`` will significantly degrade serialization
+            performance, though it may prove useful for debugging purposes.
+
+        :type careful_validation: :class:`bool <python:bool>`
 
         .. note::
 
@@ -207,7 +220,9 @@ class Chart(ChartBase):
         as_dict = {}
         for key in untrimmed:
             item = untrimmed[key]
-            serialized = serialize_to_js_literal(item, encoding = encoding)
+            serialized = serialize_to_js_literal(item,
+                                                 encoding = encoding,
+                                                 careful_validation = careful_validation)
             if serialized is not None:
                 as_dict[key] = serialized
 
@@ -222,7 +237,10 @@ class Chart(ChartBase):
                 urls.append(url)
                 self.options.chart.map.fetch_counter = 1
 
-                map_data_as_str = self.options.chart.map.to_js_literal(encoding = encoding)
+                map_data_as_str = self.options.chart.map.to_js_literal(
+                    encoding = encoding,
+                    careful_validation = careful_validation
+                )
                 topologies.append(map_data_as_str)
             
             for index, series in enumerate(self.options.series):
@@ -233,14 +251,20 @@ class Chart(ChartBase):
                     urls.append(url)
                     if len(urls) > 1:
                         self.options.series[index].map_data.fetch_counter += 1
-                    map_data_as_str = series.map_data.to_js_literal(encoding = encoding)
+                    map_data_as_str = series.map_data.to_js_literal(
+                        encoding = encoding,
+                        careful_validation = careful_validation
+                    )
                     topologies.append(map_data_as_str)
 
             fetch_as_str = '\n'.join(topologies)
 
         custom_projection_as_str = ''
         if self.uses_custom_projection:
-            custom_projection_as_str = self.options.map_view.projection.custom.to_js_literal(encoding = encoding)
+            custom_projection_as_str = self.options.map_view.projection.custom.to_js_literal(
+                encoding = encoding,
+                careful_validation = careful_validation
+            )
             custom_projection_as_str += f"""\nHighcharts.Projection.add('{self.options.map_view.projection.custom.name}', {self.options.map_view.projection.custom.class_name})\n"""
 
         container_as_str = ''
@@ -252,14 +276,16 @@ class Chart(ChartBase):
 
         options_as_str = ''
         if self.options:
-            options_as_str = self.options.to_js_literal(encoding = encoding)
+            options_as_str = self.options.to_js_literal(encoding = encoding,
+                                                        careful_validation = careful_validation)
             if (
                 self.is_maps_chart and 
                 hasattr(self.options.chart, 'map') and 
                 self.options.chart.map and 
                 self.options.chart.is_async
             ):
-                chart_map_str = self.options.chart.map.to_js_literal(encoding = encoding)
+                chart_map_str = self.options.chart.map.to_js_literal(encoding = encoding,
+                                                                     careful_validation = careful_validation)
                 chart_map_str = f"""'{chart_map_str}'"""
                 fetch_counter = self.options.chart.map.fetch_counter
                 options_as_str = options_as_str.replace(chart_map_str, f'topology{fetch_counter}')
@@ -270,7 +296,8 @@ class Chart(ChartBase):
 
         callback_as_str = ''
         if self.callback:
-            callback_as_str = self.callback.to_js_literal(encoding = encoding)
+            callback_as_str = self.callback.to_js_literal(encoding = encoding,
+                                                          careful_validation = careful_validation)
             callback_as_str = f"""{callback_as_str}"""
             signature_elements += 1
 

@@ -335,6 +335,43 @@ def compare_js_literals(original, new):
         counter += 1
 
 
+
+@pytest.fixture
+def run_pandas_tests(request):
+    """Return the ``--pandas`` command-line option."""
+    value = request.config.getoption("--pandas")
+    value = value.lower()
+    if value in ['false', False, 0, 'no', 'no']:
+        return False
+    else:
+        return True
+
+
+@pytest.fixture
+def openai_api_key(request):
+    """Return the ``--openai`` command-line option."""
+    api_key = request.config.getoption("--openai")
+    if api_key == 'none':
+        api_key = None
+        
+    if not api_key:
+        api_key = os.getenv('OPENAI_API_KEY', None)
+    
+    return api_key
+
+
+@pytest.fixture
+def disable_ai(request):
+    """Return the ``--disable-ai`` command-line option."""
+    disable_ai = request.config.getoption("--disable-ai")
+    if disable_ai in ['false', False, 0, 'no', 'no', 'f', 'F']:
+        disable_ai = False
+    else:
+        disable_ai = True
+        
+    return disable_ai
+
+
 def Class__init__(cls, kwargs, error):
     kwargs_copy = deepcopy(kwargs)
     if not error:

@@ -7,6 +7,7 @@ from validator_collection import validators, checkers
 from highcharts_core.options.series.data.connections import *
 
 from highcharts_maps import constants, errors
+from highcharts_core.options.series.data.collections import DataPointCollection
 from highcharts_maps.decorators import class_sensitive
 from highcharts_maps.utility_classes.gradients import Gradient
 from highcharts_maps.utility_classes.patterns import Pattern
@@ -277,7 +278,7 @@ class FlowmapData(WeightedConnectionData):
         self._weight = validators.numeric(value, allow_empty = True)
 
     @classmethod
-    def from_array(cls, value):
+    def from_list(cls, value):
         """Generator method which produces a collection of :class:`FlowmapData`
         instances derived from ``value``. Generally consumed by the setter methods in
         series-type specific data classes.
@@ -322,16 +323,42 @@ class FlowmapData(WeightedConnectionData):
 
         return collection
 
-    def _get_props_from_array(self) -> List[str]:
+    @classmethod
+    def from_ndarray(cls, value):
+        """Creates a collection of data points from a `NumPy <https://numpy.org>`__ 
+        :class:`ndarray <numpy:ndarray>` instance.
+        
+        :returns: A collection of data point values.
+        :rtype: :class:`DataPointCollection <highcharts_core.options.series.data.collections.DataPointCollection>`
+        """
+        return FlowmapDataCollection.from_ndarray(value)
+    
+    @classmethod
+    def _get_supported_dimensions(cls) -> List[int]:
+        """Returns a list of the supported dimensions for the data point.
+        
+        :rtype: :class:`list <python:list>` of :class:`int <python:int>`
+        """
+        return [3]
+
+    @classmethod
+    def _get_props_from_array(cls, length = None) -> List[str]:
         """Returns a list of the property names that can be set using the
         :meth:`.from_array() <highcharts_core.options.series.data.base.DataBase.from_array>`
         method.
         
+        :param length: The length of the array, which may determine the properties to 
+          parse. Defaults to :obj:`None <python:None>`, which returns the full list of 
+          properties.
+        :type length: :class:`int <python:int>` or :obj:`None <python:None>`
+        
         :rtype: :class:`list <python:list>` of :class:`str <python:str>`
         """
-        return ['from_',
-                'to',
-                'weight']
+        prop_list = {
+            None: ['from_', 'to', 'weight'],
+            3: ['from_', 'to', 'weight'],
+        }
+        return prop_list[length]
 
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):
@@ -411,3 +438,13 @@ class FlowmapData(WeightedConnectionData):
         }
 
         return untrimmed
+
+
+class FlowmapDataCollection(DataPointCollection):
+    @classmethod
+    def _get_data_point_class(cls):
+        """The Python class to use as the underlying data point within the Collection.
+        
+        :rtype: class object
+        """
+        return FlowmapData

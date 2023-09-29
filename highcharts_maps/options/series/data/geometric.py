@@ -1,11 +1,18 @@
 from typing import Optional, List, Dict
+from collections import UserDict
 from decimal import Decimal
 
 from validator_collection import validators, checkers
+try:
+    import numpy as np
+    HAS_NUMPY = True
+except ImportError:
+    HAS_NUMPY = False
 
 from highcharts_maps import constants, errors, utility_functions
 from highcharts_maps.decorators import class_sensitive, validate_types
 from highcharts_maps.options.series.data.base import DataCore
+from highcharts_maps.options.series.data.collections import DataPointCollection
 from highcharts_maps.utility_classes.data_labels import DataLabel
 from highcharts_maps.utility_classes.geojson import Feature
 
@@ -107,6 +114,103 @@ class GeometricDataBase(DataCore):
     @properties.setter
     def properties(self, value):
         self._properties = validators.dict(value, allow_empty = True)
+
+    @classmethod
+    def from_array(cls, value):
+        """Creates a collection of data point instances, parsing the contents of ``value``
+        as an array (iterable). This method is specifically used to parse data that is
+        input to **Highcharts for Python** without property names, in an array-organized
+        structure as described in the `Highcharts JS <https://www.highcharts.com>`__
+        documentation.
+
+          .. seealso::
+
+            The specific structure of the expected array is highly dependent on the type
+            of data point that the series needs, which itself is dependent on the series
+            type itself.
+
+            Please review the detailed :ref:`series documentation <series_documentation>`
+            for series type-specific details of relevant array structures.
+
+          .. note::
+
+            An example of how this works for a simple
+            :class:`LineSeries <highcharts_core.options.series.area.LineSeries>` (which
+            uses
+            :class:`CartesianData <highcharts_core.options.series.data.cartesian.CartesianData>`
+            data points) would be:
+
+            .. code-block:: python
+
+              my_series = LineSeries()
+
+              # A simple array of numerical values which correspond to the Y value of the
+              # data point
+              my_series.data = [0, 5, 3, 5]
+
+              # An array containing 2-member arrays (corresponding to the X and Y values
+              # of the data point)
+              my_series.data = [
+                  [0, 0],
+                  [1, 5],
+                  [2, 3],
+                  [3, 5]
+              ]
+
+              # An array of dict with named values
+              my_series.data = [
+                {
+                    'x': 0,
+                    'y': 0,
+                    'name': 'Point1',
+                    'color': '#00FF00'
+                },
+                {
+                    'x': 1,
+                    'y': 5,
+                    'name': 'Point2',
+                    'color': '#CCC'
+                },
+                {
+                    'x': 2,
+                    'y': 3,
+                    'name': 'Point3',
+                    'color': '#999'
+                },
+                {
+                    'x': 3,
+                    'y': 5,
+                    'name': 'Point4',
+                    'color': '#000'
+                }
+              ]
+
+        :param value: The value that should contain the data which will be converted into
+          data point instances.
+
+          .. note::
+
+            If ``value`` is not an iterable, it will be converted into an iterable to be
+            further de-serialized correctly.
+
+        :type value: iterable
+
+        :returns: Collection of :term:`data point` instances (descended from
+          :class:`DataBase <highcharts_core.options.series.data.base.DataBase>`)
+        :rtype: :class:`list <python:list>` of
+          :class:`GeometricDataBase <highcharts_maps.options.series.data.geometric.GeometricDataBase>`
+          descendant instances or 
+          :class:`GeometricDataCollection <highcharts_maps.options.series.data.geometric.GeometricDataCollection>`
+        """
+        if not utility_functions.is_ndarray(value) and not value:
+            return []
+        elif utility_functions.is_ndarray(value):
+            return cls.from_ndarray(value)
+
+        if checkers.is_type(value, 'DataPointCollection'):
+            return value
+
+        return cls.from_list(value)
 
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):
@@ -265,8 +369,199 @@ class GeometricData(GeometricDataBase):
         else:
             self._value = validators.numeric(value_)
 
+    def populate_from_array(self, value):
+        """Update the data point's properties with values provided by an array (iterable).
+        
+        This method is used to parse data that is input to **Highcharts for Python** 
+        without property names, in an array-organized
+        structure as described in the `Highcharts JS <https://www.highcharts.com>`__
+        documentation.
+        
+          .. seealso::
+
+            The specific structure of the expected array is highly dependent on the type
+            of data point that the series needs, which itself is dependent on the series
+            type itself.
+
+            Please review the detailed :ref:`series documentation <series_documentation>`
+            for series type-specific details of relevant array structures.
+
+          .. note::
+
+            An example of how this works for a simple
+            :class:`LineSeries <highcharts_core.options.series.area.LineSeries>` (which
+            uses
+            :class:`CartesianData <highcharts_core.options.series.data.cartesian.CartesianData>`
+            data points) would be:
+
+            .. code-block:: python
+
+              my_data_point = CartesianData()
+
+              # A simple array of numerical values which correspond to the Y value of the
+              # data point
+              my_data_point.populate_from_array([0, 0])
+              my_data_point.populate_from_array([1, 5])
+              my_data_point.populate_from_array([2, 3])
+              my_data_point.populate_from_array([3, 5])
+
+        :param value: The value that should contain the data which will be converted into
+          data point property values.
+
+          .. note::
+
+            If ``value`` is not an iterable, it will be converted into an iterable to be
+            further de-serialized correctly.
+
+        :type value: iterable
+
+        """
+        if HAS_NUMPY:
+            is_ndarray = isinstance(value, np.ndarray)
+        else:
+            is_ndarray = False
+            
+        if not is_ndarray and not checkers.is_iterable(value,
+                                                       forbid_literals = (
+                                                           str,
+                                                           bytes,
+                                                           dict,
+                                                           UserDict
+                                                       )):
+            value = [value]
+
+        try:
+            properties = self._get_props_from_array(len(value))
+        except KeyError:
+            full_properties = self._get_props_from_array()
+            if len(full_properties) == len(value):
+                properties = full_properties
+            else:
+                properties = []
+
+        if len(value) == 0:
+            value = [None for x in properties]
+
+        if len(value) < len(properties):
+            value = value[:len(properties)]
+
+        processed_x = False
+        processed_name = False
+        for index, prop in enumerate(properties):
+            if hasattr(value[index], 'item'):
+                item = value[index].item()
+            else:
+                item = value[index]
+            setattr(self, prop, item)
+            if prop == 'name' and item is not None:
+                processed_name = True
+            if prop == 'x':
+                processed_x = True
+
+        if processed_x and not processed_name and hasattr(self, 'x'):
+            if not self.name and checkers.is_string(self.x):
+                self.name = self.x
+                self.x = None
+        
     @classmethod
     def from_array(cls, value):
+        """Creates a collection of data point instances, parsing the contents of ``value``
+        as an array (iterable). This method is specifically used to parse data that is
+        input to **Highcharts for Python** without property names, in an array-organized
+        structure as described in the `Highcharts JS <https://www.highcharts.com>`__
+        documentation.
+
+          .. seealso::
+
+            The specific structure of the expected array is highly dependent on the type
+            of data point that the series needs, which itself is dependent on the series
+            type itself.
+
+            Please review the detailed :ref:`series documentation <series_documentation>`
+            for series type-specific details of relevant array structures.
+
+          .. note::
+
+            An example of how this works for a simple
+            :class:`LineSeries <highcharts_core.options.series.area.LineSeries>` (which
+            uses
+            :class:`CartesianData <highcharts_core.options.series.data.cartesian.CartesianData>`
+            data points) would be:
+
+            .. code-block:: python
+
+              my_series = LineSeries()
+
+              # A simple array of numerical values which correspond to the Y value of the
+              # data point
+              my_series.data = [0, 5, 3, 5]
+
+              # An array containing 2-member arrays (corresponding to the X and Y values
+              # of the data point)
+              my_series.data = [
+                  [0, 0],
+                  [1, 5],
+                  [2, 3],
+                  [3, 5]
+              ]
+
+              # An array of dict with named values
+              my_series.data = [
+                {
+                    'x': 0,
+                    'y': 0,
+                    'name': 'Point1',
+                    'color': '#00FF00'
+                },
+                {
+                    'x': 1,
+                    'y': 5,
+                    'name': 'Point2',
+                    'color': '#CCC'
+                },
+                {
+                    'x': 2,
+                    'y': 3,
+                    'name': 'Point3',
+                    'color': '#999'
+                },
+                {
+                    'x': 3,
+                    'y': 5,
+                    'name': 'Point4',
+                    'color': '#000'
+                }
+              ]
+
+        :param value: The value that should contain the data which will be converted into
+          data point instances.
+
+          .. note::
+
+            If ``value`` is not an iterable, it will be converted into an iterable to be
+            further de-serialized correctly.
+
+        :type value: iterable
+
+        :returns: Collection of :term:`data point` instances (descended from
+          :class:`DataBase <highcharts_core.options.series.data.base.DataBase>`)
+        :rtype: :class:`list <python:list>` of
+          :class:`GeometricDataBase <highcharts_maps.options.series.data.geometric.GeometricDataBase>`
+          descendant instances or 
+          :class:`GeometricDataCollection <highcharts_maps.options.series.data.geometric.GeometricDataCollection>`
+        """
+        if not utility_functions.is_ndarray(value) and not value:
+            return []
+        elif utility_functions.is_ndarray(value):
+            return cls.from_ndarray(value)
+
+        if checkers.is_type(value, 'DataPointCollection'):
+            return value
+
+        return cls.from_list(value)
+
+    @classmethod
+    def from_list(cls, value):
         if not value:
             return []
         elif checkers.is_string(value):
@@ -305,10 +600,33 @@ class GeometricData(GeometricDataBase):
 
         return collection
 
-    def _get_props_from_array(self) -> List[str]:
+    @classmethod
+    def from_ndarray(cls, value):
+        """Creates a collection of data points from a `NumPy <https://numpy.org>`__ 
+        :class:`ndarray <numpy:ndarray>` instance.
+        
+        :returns: A collection of data point values.
+        :rtype: :class:`DataPointCollection <highcharts_core.options.series.data.collections.DataPointCollection>`
+        """
+        return GeometricDataCollection.from_ndarray(value)
+
+    @classmethod
+    def _get_supported_dimensions(cls) -> List[int]:
+        """Returns a list of the supported dimensions for the data point.
+        
+        :rtype: :class:`list <python:list>` of :class:`int <python:int>`
+        """
+        return [2]
+
+    def _get_props_from_array(self, length = None) -> List[str]:
         """Returns a list of the property names that can be set using the
         :meth:`.from_array() <highcharts_maps.options.series.data.geometric.GeometricData.from_array>`
         method.
+        
+        :param length: The length of the array, which may determine the properties to 
+          parse. Defaults to :obj:`None <python:None>`, which returns the full list of 
+          properties.
+        :type length: :class:`int <python:int>` or :obj:`None <python:None>`
         
         :rtype: :class:`list <python:list>` of :class:`str <python:str>`
         """
@@ -427,6 +745,16 @@ class GeometricData(GeometricDataBase):
         return untrimmed
 
 
+class GeometricDataCollection(DataPointCollection):
+    @classmethod
+    def _get_data_point_class(cls):
+        """The Python class to use as the underlying data point within the Collection.
+        
+        :rtype: class object
+        """
+        return GeometricData
+
+
 class GeometricZData(GeometricDataBase):
     """Data point that can be represented on a
     :class:`MapBubbleSeries <highcharts_maps.options.series.mapbubble.MapBubbleSeries>`
@@ -455,7 +783,7 @@ class GeometricZData(GeometricDataBase):
             self._z = validators.numeric(value)
 
     @classmethod
-    def from_array(cls, value):
+    def from_list(cls, value):
         if not value:
             return []
         elif checkers.is_string(value):
@@ -493,10 +821,33 @@ class GeometricZData(GeometricDataBase):
 
         return collection
 
-    def _get_props_from_array(self) -> List[str]:
+    @classmethod
+    def from_ndarray(cls, value):
+        """Creates a collection of data points from a `NumPy <https://numpy.org>`__ 
+        :class:`ndarray <numpy:ndarray>` instance.
+        
+        :returns: A collection of data point values.
+        :rtype: :class:`DataPointCollection <highcharts_core.options.series.data.collections.DataPointCollection>`
+        """
+        return GeometricZDataCollection.from_ndarray(value)
+
+    @classmethod
+    def _get_supported_dimensions(cls) -> List[int]:
+        """Returns a list of the supported dimensions for the data point.
+        
+        :rtype: :class:`list <python:list>` of :class:`int <python:int>`
+        """
+        return [1]
+
+    def _get_props_from_array(self, length = None) -> List[str]:
         """Returns a list of the property names that can be set using the
         :meth:`.from_array() <highcharts_maps.options.series.data.geometric.GeometricData.from_array>`
         method.
+        
+        :param length: The length of the array, which may determine the properties to 
+          parse. Defaults to :obj:`None <python:None>`, which returns the full list of 
+          properties.
+        :type length: :class:`int <python:int>` or :obj:`None <python:None>`
         
         :rtype: :class:`list <python:list>` of :class:`str <python:str>`
         """
@@ -559,6 +910,16 @@ class GeometricZData(GeometricDataBase):
             untrimmed[key] = parent_as_dict[key]
 
         return untrimmed
+
+
+class GeometricZDataCollection(DataPointCollection):
+    @classmethod
+    def _get_data_point_class(cls):
+        """The Python class to use as the underlying data point within the Collection.
+        
+        :rtype: class object
+        """
+        return GeometricZData
 
 
 class GeometricLatLonData(GeometricDataBase):
@@ -657,7 +1018,7 @@ class GeometricLatLonData(GeometricDataBase):
             self._y = validators.numeric(value)
 
     @classmethod
-    def from_array(cls, value):
+    def from_list(cls, value):
         if not value:
             return []
         elif checkers.is_string(value):
@@ -696,10 +1057,33 @@ class GeometricLatLonData(GeometricDataBase):
 
         return collection
 
-    def _get_props_from_array(self) -> List[str]:
+    @classmethod
+    def from_ndarray(cls, value):
+        """Creates a collection of data points from a `NumPy <https://numpy.org>`__ 
+        :class:`ndarray <numpy:ndarray>` instance.
+        
+        :returns: A collection of data point values.
+        :rtype: :class:`DataPointCollection <highcharts_core.options.series.data.collections.DataPointCollection>`
+        """
+        return GeometricLatLonDataCollection.from_ndarray(value)
+
+    @classmethod
+    def _get_supported_dimensions(cls) -> List[int]:
+        """Returns a list of the supported dimensions for the data point.
+        
+        :rtype: :class:`list <python:list>` of :class:`int <python:int>`
+        """
+        return [2]
+
+    def _get_props_from_array(self, length = None) -> List[str]:
         """Returns a list of the property names that can be set using the
-        :meth:`.from_array() <highcharts_maps.options.series.data.geometric.GeometricData.from_array>`
+        :meth:`.from_array() <highcharts_maps.options.series.data.geometric.GeometricLatLonData.from_array>`
         method.
+        
+        :param length: The length of the array, which may determine the properties to 
+          parse. Defaults to :obj:`None <python:None>`, which returns the full list of 
+          properties.
+        :type length: :class:`int <python:int>` or :obj:`None <python:None>`
         
         :rtype: :class:`list <python:list>` of :class:`str <python:str>`
         """
@@ -768,3 +1152,13 @@ class GeometricLatLonData(GeometricDataBase):
             untrimmed[key] = parent_as_dict[key]
 
         return untrimmed
+
+
+class GeometricLatLonDataCollection(DataPointCollection):
+    @classmethod
+    def _get_data_point_class(cls):
+        """The Python class to use as the underlying data point within the Collection.
+        
+        :rtype: class object
+        """
+        return GeometricLatLonData

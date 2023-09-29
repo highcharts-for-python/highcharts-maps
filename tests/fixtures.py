@@ -16,6 +16,11 @@ from collections import UserDict
 
 
 import pytest
+try:
+    import numpy as np
+    HAS_NUMPY = True
+except ImportError:
+    HAS_NUMPY = False
 
 from validator_collection import checkers, validators
 from highcharts_maps import constants, errors
@@ -226,6 +231,8 @@ def does_kwarg_value_match_result(kwarg_value, result_value):
                 return False
 
         return True
+    elif HAS_NUMPY and isinstance(kwarg_value, np.ndarray):
+        return np.array_equal(kwarg_value, result_value)
     elif checkers.is_iterable(kwarg_value):
         print('- evaluating a KWARG value that is iterable')
         if checkers.is_type(result_value, 'FlowmapData'):
@@ -282,6 +289,8 @@ def trim_expected(expected):
             trimmed_value = trim_expected(expected[key])
             if trimmed_value:
                 new_dict[key] = trimmed_value
+        elif HAS_NUMPY and isinstance(expected[key], np.ndarray):
+            new_dict[key] = expected[key]
         elif checkers.is_iterable(expected[key]):
             trimmed_value = []
             for item in expected[key]:
@@ -384,8 +393,10 @@ def Class__init__(cls, kwargs, error):
             #kwargs['type'] = result.type
         for key in kwargs_copy:
             print(f'CHECKING: {key}')
-            if kwargs.get(key) and isinstance(kwargs_copy[key],
-                                              str) and kwargs[key].startswith('function'):
+            if HAS_NUMPY and isinstance(kwargs.get(key, None), np.ndarray):
+                continue
+            elif kwargs.get(key) and isinstance(kwargs_copy[key],
+                                                str) and kwargs[key].startswith('function'):
                 continue
             if kwargs.get(key) and isinstance(kwargs_copy[key],
                                               str) and kwargs[key].startswith('class'):
@@ -448,6 +459,9 @@ def Class__to_untrimmed_dict(cls, kwargs, error):
             kwarg_value = kwargs_copy[key]
             result_value = result.get(key)
 
+            if HAS_NUMPY and isinstance(kwarg_value, np.ndarray):
+                assert np.array_equal(kwarg_value, result_value)
+                continue
             if kwargs.get(key) and isinstance(kwargs_copy[key],
                                               str) and kwargs[key].startswith('function'):
                 continue

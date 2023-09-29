@@ -1,9 +1,9 @@
 from typing import Optional, List
 
 from highcharts_maps.options.series.base import MapSeriesBase
-from highcharts_maps.options.series.data.cartesian import CartesianValueData
+from highcharts_maps.options.series.data.cartesian import CartesianValueData, CartesianValueDataCollection
 from highcharts_maps.options.plot_options.heatmap import HeatmapOptions, TilemapOptions
-from highcharts_maps.utility_functions import mro__to_untrimmed_dict
+from highcharts_maps.utility_functions import mro__to_untrimmed_dict, is_ndarray
 
 
 class HeatmapSeries(MapSeriesBase, HeatmapOptions):
@@ -26,7 +26,7 @@ class HeatmapSeries(MapSeriesBase, HeatmapOptions):
         super().__init__(**kwargs)
 
     @property
-    def data(self) -> Optional[List[CartesianValueData]]:
+    def data(self) -> Optional[List[CartesianValueData] | CartesianValueDataCollection]:
         """Collection of data that represents the series. Defaults to
         :obj:`None <python:None>`.
 
@@ -94,13 +94,14 @@ class HeatmapSeries(MapSeriesBase, HeatmapOptions):
             A one-dimensional collection of :class:`CartesianValueData` objects.
 
         :rtype: :class:`list <python:list>` of :class:`CartesianValueData` or
+          :class:`CartesianValueDataCollection` or
           :obj:`None <python:None>`
         """
         return self._data
 
     @data.setter
     def data(self, value):
-        if not value:
+        if not is_ndarray(value) and not value:
             self._data = None
         else:
             self._data = CartesianValueData.from_array(value)
@@ -206,6 +207,24 @@ class HeatmapSeries(MapSeriesBase, HeatmapOptions):
         untrimmed = mro__to_untrimmed_dict(self, in_cls = in_cls)
 
         return untrimmed
+
+    @classmethod
+    def _data_collection_class(cls):
+        """Returns the class object used for the data collection.
+        
+        :rtype: :class:`DataPointCollection <highcharts_core.options.series.data.collections.DataPointCollection>`
+          descendent
+        """
+        return CartesianValueDataCollection
+    
+    @classmethod
+    def _data_point_class(cls):
+        """Returns the class object used for individual data points.
+        
+        :rtype: :class:`DataBase <highcharts_core.options.series.data.base.DataBase>` 
+          descendent
+        """
+        return CartesianValueData
 
 
 class TilemapSeries(HeatmapSeries, TilemapOptions):

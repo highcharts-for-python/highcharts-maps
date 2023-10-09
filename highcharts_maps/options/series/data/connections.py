@@ -358,7 +358,7 @@ class FlowmapData(WeightedConnectionData):
             None: ['from_', 'to', 'weight'],
             3: ['from_', 'to', 'weight'],
         }
-        return prop_list[length]
+        return cls._get_props_from_array_helper(prop_list, length)
 
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):

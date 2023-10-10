@@ -21,7 +21,7 @@
     :noindex:
     :classmethod:
 
-    Create a :class:`Chart <highcharts_core.chart.Chart>` instance whose
+    Create a :class:`Chart <highcharts_maps.chart.Chart>` instance whose
     data is populated from a `geopandas <https://geopandas.org/>`__
     :class:`GeoDataFrame <geopandas:GeoDataFrame>`.
 
@@ -74,9 +74,9 @@
 
     :type chart_kwargs: :class:`dict <python:dict>` or :obj:`None <python:None>`
 
-    :returns: A :class:`Chart <highcharts_core.chart.Chart>` instance with its
+    :returns: A :class:`Chart <highcharts_maps.chart.Chart>` instance with its
       data populated from the data in ``gdf``.
-    :rtype: :class:`Chart <highcharts_core.chart.Chart>`
+    :rtype: :class:`Chart <highcharts_maps.chart.Chart>`
 
     :raises HighchartsPandasDeserializationError: if ``property_map`` references
       a column that does not exist in the data frame

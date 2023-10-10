@@ -25,8 +25,8 @@
 
       This method of importing **Highcharts Maps for Python** classes has relatively slow
       performance because it imports hundreds of different classes from across the entire
-      library. This is also a known anti-pattern, as it obscures the namespace within the
-      library. Both may be acceptable to you in your use-case, but do use at your own risk.
+      library. This performance impact may be acceptable to you in your use-case, but
+      do use at your own risk.
 
     .. code-block:: python
 

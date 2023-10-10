@@ -473,27 +473,40 @@ Core Components
     - :class:`DataPointAccessibility <highcharts_maps.options.series.data.accessibility.DataPointAccessibility>`
   * - :mod:`.options.series.data.arcdiagram <highcharts_maps.options.series.data.arcdiagram>`
     - :class:`ArcDiagramData <highcharts_maps.options.series.data.arcdiagram.ArcDiagramData>`
+      :class:`ArcDiagramDataCollection <highcharts_maps.options.series.data.arcidagram.ArcDiagramDataCollection>`
   * - :mod:`.options.series.data.bar <highcharts_maps.options.series.data.bar>`
     - :class:`BarData <highcharts_maps.options.series.data.bar.BarData>`
+      :class:`BarDataCollection <highcharts_maps.options.series.data.bar.BarDataCollection>`
       :class:`WaterfallData <highcharts_maps.options.series.data.bar.WaterfallData>`
+      :class:`WaterfallDataCollection <highcharts_maps.options.series.data.bar.WaterfallDataCollection>`
       :class:`WindBarbData <highcharts_maps.options.series.data.bar.WindBarbData>`
+      :class:`WindBarbDataCollection <highcharts_maps.options.series.data.bar.WindBarbDataCollection>`
       :class:`XRangeData <highcharts_maps.options.series.data.bar.XRangeData>`
+      :class:`XRangeDataCollection <highcharts_maps.options.series.data.bar.XRangeDataCollection>`
   * - :mod:`.options.series.data.base <highcharts_maps.options.series.data.base>`
     - :class:`DataBase <highcharts_maps.options.series.data.base.DataBase>`
-      :class:`DataCore <highcharts_maps.options.series.data.base.DataCore>`
   * - :mod:`.options.series.data.boxplot <highcharts_maps.options.series.data.boxplot>`
     - :class:`BoxPlotData <highcharts_maps.options.series.data.boxplot.BoxPlotData>`
+      :class:`BoxPlotDataCollection <highcharts_maps.options.series.data.boxplot.BoxPlotDataCollection>`
   * - :mod:`.options.series.data.bullet <highcharts_maps.options.series.data.bullet>`
     - :class:`BulletData <highcharts_maps.options.series.data.bullet.BulletData>`
+      :class:`BulletDataCollection <highcharts_maps.options.series.data.bullet.BulletDataCollection>`
   * - :mod:`.options.series.data.cartesian <highcharts_maps.options.series.data.cartesian>`
     - :class:`CartesianData <highcharts_maps.options.series.data.cartesian.CartesianData>`
+      :class:`CartesianDataCollection <highcharts_maps.options.series.data.cartesian.CartesianDataCollection>`
       :class:`Cartesian3DData <highcharts_maps.options.series.data.cartesian.Cartesian3DData>`
+      :class:`Cartesian3DDataCollection <highcharts_maps.options.series.data.cartesian.Cartesian3DDataCollection>`
       :class:`CartesianValueData <highcharts_maps.options.series.data.cartesian.CartesianValueData>`
+      :class:`CartesianValueDataCollection <highcharts_maps.options.series.data.cartesian.CartesianValueDataCollection>`
+  * - :mod:`.options.series.data.collections <highcharts_maps.options.series.data.collections>`
+    - :class:`DataPointCollection <highcharts_maps.options.series.data.collections.DataPointCollection>`
   * - :mod:`.options.series.data.connections <highcharts_maps.options.series.data.connections>`
     - :class:`ConnectionData <highcharts_maps.options.series.data.connections.ConnectionData>`
-      :class:`FlowmapData <highcharts_maps.options.series.data.connections.FlowmapData>`
+      :class:`ConnectionDataCollection <highcharts_maps.options.series.data.connections.ConnectionDataCollection>`
       :class:`WeightedConnectionData <highcharts_maps.options.series.data.connections.WeightedConnectionData>`
+      :class:`WeightedConnectionDataCollection <highcharts_maps.options.series.data.connections.WeightedConnectionDataCollection>`
       :class:`OutgoingWeightedConnectionData <highcharts_maps.options.series.data.connections.OutgoingWeightedConnectionData>`
+      :class:`OutgoingWeightedConnectionDataCollection <highcharts_maps.options.series.data.connections.OutgoingWeightedConnectionDataCollection>`
       :class:`ConnectionBase <highcharts_maps.options.series.data.connections.ConnectionBase>`
   * - :mod:`.options.series.data.geometric <highcharts_maps.options.series.data.geometric>`
     - :class:`GeometricData <highcharts_maps.options.series.data.GeometricData`
@@ -505,29 +518,44 @@ Core Components
       :class:`AsyncMapData <highcharts_maps.options.series.data.map_data.AsyncMapData>`
   * - :mod:`.options.series.data.pie <highcharts_maps.options.series.data.pie>`
     - :class:`PieData <highcharts_maps.options.series.data.pie.PieData>`
+      :class:`PieDataCollection <highcharts_maps.options.series.data.pie.PieDataCollection>`
       :class:`VariablePieData <highcharts_maps.options.series.data.pie.VariablePieData>`
+      :class:`VariablePieDataCollection <highcharts_maps.options.series.data.pie.VariablePieDataCollection>`
   * - :mod:`.options.series.data.range <highcharts_maps.options.series.data.range>`
     - :class:`RangeData <highcharts_maps.options.series.data.range.RangeData>`
+      :class:`RangeDataCollection <highcharts_maps.options.series.data.range.RangeDataCollection>`
       :class:`ConnectedRangeData <highcharts_maps.options.series.data.range.ConnectedRangeData>`
+      :class:`ConnectedRangeDataCollection <highcharts_maps.options.series.data.range.ConnectedRangeDataCollection>`
   * - :mod:`.options.series.data.single_point <highcharts_maps.options.series.data.single_point>`
     - :class:`SinglePointData <highcharts_maps.options.series.data.single_point.SinglePointData>`
+      :class:`SinglePointDataCollection <highcharts_maps.options.series.data.single_point.SinglePointDataCollection>`
       :class:`SingleValueData <highcharts_maps.options.series.data.single_point.SingleValueData>`
+      :class:`SingleValueDataCollection <highcharts_maps.options.series.data.single_point.SingleValueDataCollection>`
       :class:`SingleXData <highcharts_maps.options.series.data.single_point.SingleXData>`
+      :class:`SingleXDataCollection <highcharts_maps.options.series.data.single_point.SingleXDataCollection>`
       :class:`LabeledSingleXData <highcharts_maps.options.series.data.single_point.LabeledSingleXData>`
+      :class:`LabeledSingleXDataCollection <highcharts_maps.options.series.data.single_point.LabeledSingleXDataCollection>`
       :class:`ConnectedSingleXData <highcharts_maps.options.series.data.single_point.ConnectedSingleXData>`
+      :class:`ConnectedSingleXDataCollection <highcharts_maps.options.series.data.single_point.ConnectedSingleXDataCollection>`
       :class:`SinglePointBase <highcharts_maps.options.series.data.single_point.SinglePointBase>`
   * - :mod:`.options.series.data.sunburst <highcharts_maps.options.series.data.sunburst>`
     - :class:`SunburstData <highcharts_maps.options.series.data.sunburst.SunburstData>`
+      :class:`SunburstDataCollection <highcharts_maps.options.series.data.sunburst.SunburstDataCollection>`
   * - :mod:`.options.series.data.treegraph <highcharts_maps.options.series.data.treegraph>`
     - :class:`TreegraphData <highcharts_maps.options.series.data.treegraph.TreegraphData>`
+      :class:`TreegraphDataCollection <highcharts_maps.options.series.data.treegraph.TreegraphDataCollection>`
   * - :mod:`.options.series.data.treemap <highcharts_maps.options.series.data.treemap>`
     - :class:`TreemapData <highcharts_maps.options.series.data.treemap.TreemapData>`
+      :class:`TreemapDataCollection <highcharts_maps.options.series.data.treemap.TreemapDataCollection>`
   * - :mod:`.options.series.data.vector <highcharts_maps.options.series.data.vector>`
     - :class:`VectorData <highcharts_maps.options.series.data.vector.VectorData>`
+      :class:`VectorDataCollection <highcharts_maps.options.series.data.vector.VectorDataCollection>`
   * - :mod:`.options.series.data.venn <highcharts_maps.options.series.data.venn>`
     - :class:`VennData <highcharts_maps.options.series.data.venn.VennData>`
+      :class:`VennDataCollection <highcharts_maps.options.series.data.venn.VennDataCollection>`
   * - :mod:`.options.series.data.wordcloud <highcharts_maps.options.series.data.wordcloud>`
     - :class:`WordcloudData <highcharts_maps.options.series.data.wordcloud.WordcloudData>`
+      :class:`WordcloudDataCollection <highcharts_maps.options.series.data.wordcloud.WordcloudDataCollection>`
   * - :mod:`.options.series.dependencywheel <highcharts_maps.options.series.dependencywheel>`
     - :class:`DependencyWheelSeries <highcharts_maps.options.series.dependencywheel.DependencyWheelSeries>`
   * - :mod:`.options.series.dumbbell <highcharts_maps.options.series.dumbbell>`
@@ -769,6 +797,12 @@ need to familiarize yourself with these internals.
       :func:`validate_color() <highcharts_maps.utility_functions.validate_color>`
       :func:`to_camelCase() <highcharts_maps.utility_functions.to_camelCase>`
       :func:`parse_csv() <highcharts_maps.utility_functions.parse_csv>`
+  * - :mod:`.ai <highcharts_maps.ai>`
+    - :func:`convert_to_js() <highcharts_maps.ai.convert_to_js>`
+      :func:`openai_moderate() <highcharts_maps.ai.openai_moderate>`
+      :func:`openai_conversion() <highcharts_maps.ai.openai_conversion>`
+      :func:`anthropic_conversion() <highcharts_maps.ai.anthropic_conversion>`
+      :func:`get_source() <highcharts_maps.ai.get_source>`
 
 .. target-notes::
 

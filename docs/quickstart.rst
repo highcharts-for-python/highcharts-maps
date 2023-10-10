@@ -98,9 +98,18 @@ Populating the Series Data
 
     .. include:: using/populating_series_data/_with_data_property.rst
 
-  .. tab:: w/ ``.from_array()``
+  .. tab:: from Array
 
-    .. include:: using/populating_series_data/_with_from_array.rst
+    .. tabs::
+      
+      .. tab:: Create a New Series
+
+        .. include:: using/populating_series_data/_new_from_array.rst
+
+      .. tab:: Update an Existing Series
+
+        .. include:: using/populating_series_data/_load_from_array.rst
+
 
   .. tab:: from GeoPandas
 
@@ -157,6 +166,10 @@ Assembling Your Chart and Options
 ************************************
 
 .. tabs::
+
+  .. tabs:: Using Keyword Arguments
+
+    .. include:: using/assembling_your_chart/_using_kwargs.rst
 
   .. tab:: Using ``.add_series()``
 

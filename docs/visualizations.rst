@@ -51,89 +51,89 @@ to visualize your data.
             :alt: Arc Diagram Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.arcdiagram.ArcDiagramOptions`
+          :class:`highcharts_maps.options.plot_options.arcdiagram.ArcDiagramOptions`
 
-          :class:`highcharts_core.options.series.arcdiagram.ArcDiagramSeries`
+          :class:`highcharts_maps.options.series.arcdiagram.ArcDiagramSeries`
       * - **Area**
         - .. figure:: _static/area-example.png
             :alt: Area Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.area.AreaOptions`
+          :class:`highcharts_maps.options.plot_options.area.AreaOptions`
 
-          :class:`highcharts_core.options.series.area.AreaSeries`
+          :class:`highcharts_maps.options.series.area.AreaSeries`
       * - **Area Range**
         - .. figure:: _static/arearange-example.png
             :alt: Area Range Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.area.AreaRangeOptions`
+          :class:`highcharts_maps.options.plot_options.area.AreaRangeOptions`
 
-          :class:`highcharts_core.options.series.area.AreaRangeSeries`
+          :class:`highcharts_maps.options.series.area.AreaRangeSeries`
       * - **Area Spline**
         - .. figure:: _static/areaspline-example.png
             :alt: Area Spline Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.area.AreaSplineOptions`
+          :class:`highcharts_maps.options.plot_options.area.AreaSplineOptions`
 
-          :class:`highcharts_core.options.series.area.AreaSplineSeries`
+          :class:`highcharts_maps.options.series.area.AreaSplineSeries`
       * - **Area Spline Range**
         - .. figure:: _static/areasplinerange-example.png
             :alt: Area Spline Range Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.area.AreaSplineRangeOptions`
+          :class:`highcharts_maps.options.plot_options.area.AreaSplineRangeOptions`
 
-          :class:`highcharts_core.options.series.area.AreaSplineRangeSeries`
+          :class:`highcharts_maps.options.series.area.AreaSplineRangeSeries`
       * - **Bar**
         - .. figure:: _static/bar-example.png
             :alt: Bar Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.bar.BarOptions`
+          :class:`highcharts_maps.options.plot_options.bar.BarOptions`
 
-          :class:`highcharts_core.options.series.bar.BarSeries`
+          :class:`highcharts_maps.options.series.bar.BarSeries`
       * - **Bell Curve**
         - .. figure:: _static/bellcurve-example.png
             :alt: BellCurve Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.bellcurve.BellCurveOptions`
+          :class:`highcharts_maps.options.plot_options.bellcurve.BellCurveOptions`
 
-          :class:`highcharts_core.options.series.bellcurve.BellCurveSeries`
+          :class:`highcharts_maps.options.series.bellcurve.BellCurveSeries`
       * - **Box Plot**
         - .. figure:: _static/boxplot-example.png
             :alt: BoxPlot Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.boxplot.BoxPlotOptions`
+          :class:`highcharts_maps.options.plot_options.boxplot.BoxPlotOptions`
 
-          :class:`highcharts_core.options.series.boxplot.BoxPlotSeries`
+          :class:`highcharts_maps.options.series.boxplot.BoxPlotSeries`
       * - **Bubble**
         - .. figure:: _static/bubble-example.png
             :alt: Bubble Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.bubble.BubbleOptions`
+          :class:`highcharts_maps.options.plot_options.bubble.BubbleOptions`
 
-          :class:`highcharts_core.options.series.bubble.BubbleSeries`
+          :class:`highcharts_maps.options.series.bubble.BubbleSeries`
       * - **Bullet**
         - .. figure:: _static/bullet-example.png
             :alt: Bullet Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.bullet.BulletOptions`
+          :class:`highcharts_maps.options.plot_options.bullet.BulletOptions`
 
-          :class:`highcharts_core.options.series.bullet.BulletSeries`
+          :class:`highcharts_maps.options.series.bullet.BulletSeries`
       * - **Column**
         - .. figure:: _static/column-example.png
             :alt: Column Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.bar.ColumnOptions`
+          :class:`highcharts_maps.options.plot_options.bar.ColumnOptions`
 
-          :class:`highcharts_core.options.series.bar.ColumnSeries`
+          :class:`highcharts_maps.options.series.bar.ColumnSeries`
       * - **Column Pyramid**
         - .. tabs::
 
@@ -155,9 +155,9 @@ to visualize your data.
                 :alt: Stacked and Inverted Column Pyramid Example Chart
                 :width: 100%
 
-          :class:`highcharts_core.options.plot_options.bar.ColumnPyramidOptions`
+          :class:`highcharts_maps.options.plot_options.bar.ColumnPyramidOptions`
 
-          :class:`highcharts_core.options.series.bar.ColumnPyramidSeries`
+          :class:`highcharts_maps.options.series.bar.ColumnPyramidSeries`
       * - **Column Range**
         - .. tabs::
 
@@ -173,73 +173,73 @@ to visualize your data.
                 :alt: Inverted Column Range Example Chart
                 :width: 100%
 
-          :class:`highcharts_core.options.plot_options.bar.ColumnRangeOptions`
+          :class:`highcharts_maps.options.plot_options.bar.ColumnRangeOptions`
 
-          :class:`highcharts_core.options.series.bar.ColumnRangeSeries`
+          :class:`highcharts_maps.options.series.bar.ColumnRangeSeries`
       * - **Dependency Wheel**
         - .. figure:: _static/dependencywheel-example.png
             :alt: DependencyWheel Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.dependencywheel.DependencyWheelOptions`
+          :class:`highcharts_maps.options.plot_options.dependencywheel.DependencyWheelOptions`
 
-          :class:`highcharts_core.options.series.dependencywheel.DependencyWheelSeries`
+          :class:`highcharts_maps.options.series.dependencywheel.DependencyWheelSeries`
       * - **Dumbbell**
         - .. figure:: _static/dumbbell-example.png
             :alt: Dumbbell Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.dumbbell.DumbbellOptions`
+          :class:`highcharts_maps.options.plot_options.dumbbell.DumbbellOptions`
 
-          :class:`highcharts_core.options.series.dumbbell.DumbbellSeries`
+          :class:`highcharts_maps.options.series.dumbbell.DumbbellSeries`
       * - **Error Bar**
         - .. figure:: _static/errorbar-example.png
             :alt: ErrorBar Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.boxplot.ErrorBarOptions`
+          :class:`highcharts_maps.options.plot_options.boxplot.ErrorBarOptions`
 
-          :class:`highcharts_core.options.series.boxplot.ErrorBarSeries`
+          :class:`highcharts_maps.options.series.boxplot.ErrorBarSeries`
       * - **Funnel**
         - .. figure:: _static/funnel-example.png
             :alt: Funnel Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.funnel.FunnelOptions`
+          :class:`highcharts_maps.options.plot_options.funnel.FunnelOptions`
 
-          :class:`highcharts_core.options.series.funnel.FunnelSeries`
+          :class:`highcharts_maps.options.series.funnel.FunnelSeries`
       * - **Funnel 3D**
         - .. figure:: _static/funnel_3d-example.png
             :alt: Funnel3D Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.funnel.Funnel3DOptions`
+          :class:`highcharts_maps.options.plot_options.funnel.Funnel3DOptions`
 
-          :class:`highcharts_core.options.series.funnel.Funnel3DSeries`
+          :class:`highcharts_maps.options.series.funnel.Funnel3DSeries`
       * - **Gauge**
         - .. figure:: _static/gauge-example.png
             :alt: Gauge Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.gauge.GaugeOptions`
+          :class:`highcharts_maps.options.plot_options.gauge.GaugeOptions`
 
-          :class:`highcharts_core.options.series.gauge.GaugeSeries`
+          :class:`highcharts_maps.options.series.gauge.GaugeSeries`
       * - **Heatmap**
         - .. figure:: _static/heatmap-example.png
             :alt: Heatmap Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.heatmap.HeatmapOptions`
+          :class:`highcharts_maps.options.plot_options.heatmap.HeatmapOptions`
 
-          :class:`highcharts_core.options.series.heatmap.HeatmapSeries`
+          :class:`highcharts_maps.options.series.heatmap.HeatmapSeries`
       * - **Histogram**
         - .. figure:: _static/histogram-example.png
             :alt: Histogram Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.histogram.HistogramOptions`
+          :class:`highcharts_maps.options.plot_options.histogram.HistogramOptions`
 
-          :class:`highcharts_core.options.series.histogram.HistogramSeries`
+          :class:`highcharts_maps.options.series.histogram.HistogramSeries`
       * - **Item**
         - .. tabs::
 
@@ -261,33 +261,33 @@ to visualize your data.
                 :alt: Item Example Chart with Symbols
                 :width: 100%
 
-          :class:`highcharts_core.options.plot_options.item.ItemOptions`
+          :class:`highcharts_maps.options.plot_options.item.ItemOptions`
 
-          :class:`highcharts_core.options.series.item.ItemSeries`
+          :class:`highcharts_maps.options.series.item.ItemSeries`
       * - **Line**
         - .. figure:: _static/line-example.png
             :alt: Line Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.area.LineOptions`
+          :class:`highcharts_maps.options.plot_options.area.LineOptions`
 
-          :class:`highcharts_core.options.series.area.LineSeries`
+          :class:`highcharts_maps.options.series.area.LineSeries`
       * - **Lollipop**
         - .. figure:: _static/lollipop-example.png
             :alt: Lollipop Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.dumbbell.LollipopOptions`
+          :class:`highcharts_maps.options.plot_options.dumbbell.LollipopOptions`
 
-          :class:`highcharts_core.options.series.dumbbell.LollipopSeries`
+          :class:`highcharts_maps.options.series.dumbbell.LollipopSeries`
       * - **Network Graph**
         - .. figure:: _static/networkgraph-example.png
             :alt: Network Graph Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.networkgraph.NetworkGraphOptions`
+          :class:`highcharts_maps.options.plot_options.networkgraph.NetworkGraphOptions`
 
-          :class:`highcharts_core.options.series.networkgraph.NetworkGraphSeries`
+          :class:`highcharts_maps.options.series.networkgraph.NetworkGraphSeries`
       * - **Organization**
         - .. tabs::
 
@@ -303,9 +303,9 @@ to visualize your data.
                 :alt: Horizontal Organization Example Chart
                 :width: 100%
 
-          :class:`highcharts_core.options.plot_options.organization.OrganizationOptions`
+          :class:`highcharts_maps.options.plot_options.organization.OrganizationOptions`
 
-          :class:`highcharts_core.options.series.organization.OrganizationSeries`
+          :class:`highcharts_maps.options.series.organization.OrganizationSeries`
       * - **Packed Bubble**
         - .. tabs::
 
@@ -321,25 +321,25 @@ to visualize your data.
                 :alt: Split Packed Bubble Example Chart
                 :width: 100%
 
-          :class:`highcharts_core.options.plot_options.packedbubble.PackedBubbleOptions`
+          :class:`highcharts_maps.options.plot_options.packedbubble.PackedBubbleOptions`
 
-          :class:`highcharts_core.options.series.packedbubble.PackedBubbleSeries`
+          :class:`highcharts_maps.options.series.packedbubble.PackedBubbleSeries`
       * - **Pareto**
         - .. figure:: _static/pareto-example.png
             :alt: Pareto Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.pareto.ParetoOptions`
+          :class:`highcharts_maps.options.plot_options.pareto.ParetoOptions`
 
-          :class:`highcharts_core.options.series.pareto.ParetoSeries`
+          :class:`highcharts_maps.options.series.pareto.ParetoSeries`
       * - **Pictorial**
         - .. figure:: _static/pictorial-example.png
             :alt: Pictorial Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.pictorial.PictorialOptions`
+          :class:`highcharts_maps.options.plot_options.pictorial.PictorialOptions`
 
-          :class:`highcharts_core.options.series.pictorial.PictorialSeries`
+          :class:`highcharts_maps.options.series.pictorial.PictorialSeries`
       * - **Pie**
         - .. tabs::
 
@@ -355,33 +355,33 @@ to visualize your data.
                 :alt: Donut Example Chart
                 :align: center
 
-          :class:`highcharts_core.options.plot_options.pie.PieOptions`
+          :class:`highcharts_maps.options.plot_options.pie.PieOptions`
 
-          :class:`highcharts_core.options.series.pie.PieSeries`
+          :class:`highcharts_maps.options.series.pie.PieSeries`
       * - **Polygon**
         - .. figure:: _static/polygon-example.png
             :alt: Polygon Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.polygon.PolygonOptions`
+          :class:`highcharts_maps.options.plot_options.polygon.PolygonOptions`
 
-          :class:`highcharts_core.options.series.polygon.PolygonSeries`
+          :class:`highcharts_maps.options.series.polygon.PolygonSeries`
       * - **Pyramid**
         - .. figure:: _static/pyramid-example.png
             :alt: Pyramid Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.pyramid.PyramidOptions`
+          :class:`highcharts_maps.options.plot_options.pyramid.PyramidOptions`
 
-          :class:`highcharts_core.options.series.pyramid.PyramidSeries`
+          :class:`highcharts_maps.options.series.pyramid.PyramidSeries`
       * - **Pyramid 3D**
         - .. figure:: _static/pyramid_3d-example.png
             :alt: Pyramid 3D Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.pyramid.Pyramid3DOptions`
+          :class:`highcharts_maps.options.plot_options.pyramid.Pyramid3DOptions`
 
-          :class:`highcharts_core.options.series.pyramid.Pyramid3DSeries`
+          :class:`highcharts_maps.options.series.pyramid.Pyramid3DSeries`
       * - **Sankey**
         - .. tabs::
 
@@ -403,65 +403,65 @@ to visualize your data.
                 :alt: Sankey Example Chart with Outgoing Links
                 :align: center
 
-          :class:`highcharts_core.options.plot_options.sankey.SankeyOptions`
+          :class:`highcharts_maps.options.plot_options.sankey.SankeyOptions`
 
-          :class:`highcharts_core.options.series.sankey.SankeySeries`
+          :class:`highcharts_maps.options.series.sankey.SankeySeries`
       * - **Scatter**
         - .. figure:: _static/scatter-example.png
             :alt: Scatter Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.scatter.ScatterOptions`
+          :class:`highcharts_maps.options.plot_options.scatter.ScatterOptions`
 
-          :class:`highcharts_core.options.series.scatter.ScatterSeries`
+          :class:`highcharts_maps.options.series.scatter.ScatterSeries`
       * - **Scatter 3D**
         - .. figure:: _static/scatter_3d-example.png
             :alt: Scatter 3D Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.scatter.Scatter3DOptions`
+          :class:`highcharts_maps.options.plot_options.scatter.Scatter3DOptions`
 
-          :class:`highcharts_core.options.series.scatter.Scatter3DSeries`
+          :class:`highcharts_maps.options.series.scatter.Scatter3DSeries`
       * - **Solid Gauge**
         - .. figure:: _static/solidgauge-example.png
             :alt: SolidGauge Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.gauge.SolidGaugeOptions`
+          :class:`highcharts_maps.options.plot_options.gauge.SolidGaugeOptions`
 
-          :class:`highcharts_core.options.series.gauge.SolidGaugeSeries`
+          :class:`highcharts_maps.options.series.gauge.SolidGaugeSeries`
       * - **Spline**
         - .. figure:: _static/spline-example.png
             :alt: Spline Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.spline.SplineOptions`
+          :class:`highcharts_maps.options.plot_options.spline.SplineOptions`
 
-          :class:`highcharts_core.options.series.spline.SplineSeries`
+          :class:`highcharts_maps.options.series.spline.SplineSeries`
       * - **Stream Graph**
         - .. figure:: _static/streamgraph-example.png
             :alt: StreamGraph Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.area.StreamGraphOptions`
+          :class:`highcharts_maps.options.plot_options.area.StreamGraphOptions`
 
-          :class:`highcharts_core.options.series.area.StreamGraphSeries`
+          :class:`highcharts_maps.options.series.area.StreamGraphSeries`
       * - **Sunburst**
         - .. figure:: _static/sunburst-example.png
             :alt: Sunburst Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.sunburst.SunburstOptions`
+          :class:`highcharts_maps.options.plot_options.sunburst.SunburstOptions`
 
-          :class:`highcharts_core.options.series.sunburst.SunburstSeries`
+          :class:`highcharts_maps.options.series.sunburst.SunburstSeries`
       * - **Tilemap**
         - .. figure:: _static/tilemap-example.png
             :alt: Tilemap Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.heatmap.TilemapOptions`
+          :class:`highcharts_maps.options.plot_options.heatmap.TilemapOptions`
 
-          :class:`highcharts_core.options.series.heatmap.TilemapSeries`
+          :class:`highcharts_maps.options.series.heatmap.TilemapSeries`
       * - **Timeline**
         - .. tabs::
 
@@ -483,41 +483,41 @@ to visualize your data.
                 :alt: Timeline Example Chart with Datetime Axis
                 :align: center
 
-          :class:`highcharts_core.options.plot_options.timeline.TimelineOptions`
+          :class:`highcharts_maps.options.plot_options.timeline.TimelineOptions`
 
-          :class:`highcharts_core.options.series.timeline.TimelineSeries`
+          :class:`highcharts_maps.options.series.timeline.TimelineSeries`
       * - **Treegraph**
         - .. figure:: _static/treegraph-example.png
             :alt: Treegraph Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.treegraph.TreegraphOptions`
+          :class:`highcharts_maps.options.plot_options.treegraph.TreegraphOptions`
 
-          :class:`highcharts_core.options.series.treegraph.TreegraphSeries`
+          :class:`highcharts_maps.options.series.treegraph.TreegraphSeries`
       * - **Treemap**
         - .. figure:: _static/treemap-example.png
             :alt: Treemap Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.treemap.TreemapOptions`
+          :class:`highcharts_maps.options.plot_options.treemap.TreemapOptions`
 
-          :class:`highcharts_core.options.series.treemap.TreemapSeries`
+          :class:`highcharts_maps.options.series.treemap.TreemapSeries`
       * - **Variable Pie**
         - .. figure:: _static/variablepie-example.png
             :alt: VariablePie Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.pie.VariablePieOptions`
+          :class:`highcharts_maps.options.plot_options.pie.VariablePieOptions`
 
-          :class:`highcharts_core.options.series.pie.VariablePieSeries`
+          :class:`highcharts_maps.options.series.pie.VariablePieSeries`
       * - **Vector**
         - .. figure:: _static/vector-example.png
             :alt: Vector Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.vector.VectorOptions`
+          :class:`highcharts_maps.options.plot_options.vector.VectorOptions`
 
-          :class:`highcharts_core.options.series.vector.VectorSeries`
+          :class:`highcharts_maps.options.series.vector.VectorSeries`
       * - **Venn**
         - .. tabs::
 
@@ -533,9 +533,9 @@ to visualize your data.
                 :alt: Euler Example Chart
                 :align: center
 
-          :class:`highcharts_core.options.plot_options.venn.VennOptions`
+          :class:`highcharts_maps.options.plot_options.venn.VennOptions`
 
-          :class:`highcharts_core.options.series.venn.VennSeries`
+          :class:`highcharts_maps.options.series.venn.VennSeries`
       * - **Waterfall**
         - .. tabs::
 
@@ -557,25 +557,25 @@ to visualize your data.
                 :alt: Waterfall Example Chart
                 :width: 100%
 
-          :class:`highcharts_core.options.plot_options.bar.WaterfallOptions`
+          :class:`highcharts_maps.options.plot_options.bar.WaterfallOptions`
 
-          :class:`highcharts_core.options.series.bar.WaterfallSeries`
+          :class:`highcharts_maps.options.series.bar.WaterfallSeries`
       * - **Wind Barb**
         - .. figure:: _static/windbarb-example.png
             :alt: WindBarb Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.bar.WindBarbOptions`
+          :class:`highcharts_maps.options.plot_options.bar.WindBarbOptions`
 
-          :class:`highcharts_core.options.series.bar.WindBarbSeries`
+          :class:`highcharts_maps.options.series.bar.WindBarbSeries`
       * - **Wordcloud**
         - .. figure:: _static/wordcloud-example.png
             :alt: Wordcloud Example Chart
             :width: 100%
 
-          :class:`highcharts_core.options.plot_options.wordcloud.WordcloudOptions`
+          :class:`highcharts_maps.options.plot_options.wordcloud.WordcloudOptions`
 
-          :class:`highcharts_core.options.series.wordcloud.WordcloudSeries`
+          :class:`highcharts_maps.options.series.wordcloud.WordcloudSeries`
       * - **X-Range**
         - .. tabs::
 
@@ -591,9 +591,9 @@ to visualize your data.
                 :alt: Inverted X-Range Example Chart
                 :width: 100%
 
-          :class:`highcharts_core.options.plot_options.bar.XRangeOptions`
+          :class:`highcharts_maps.options.plot_options.bar.XRangeOptions`
 
-          :class:`highcharts_core.options.series.bar.XRangeSeries`
+          :class:`highcharts_maps.options.series.bar.XRangeSeries`
 
   .. tab:: Stock
 

@@ -9,7 +9,7 @@
 
 --------------
 
-.. module:: highcharts_maps.options.series.data.bar
+.. module:: highcharts_core.options.series.data.bar
 
 ********************************************************************************************************************
 class: :class:`BarData <highcharts_maps.options.series.data.bar.BarData>`
@@ -22,7 +22,25 @@ class: :class:`BarData <highcharts_maps.options.series.data.bar.BarData>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: BarData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |
+
+--------------
+
+********************************************************************************************************************
+class: :class:`BarDataCollection <highcharts_maps.options.series.data.bar.BarDataCollection>`
+********************************************************************************************************************
+
+.. autoclass:: BarDataCollection
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: BarDataCollection
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -40,7 +58,25 @@ class: :class:`WaterfallData <highcharts_maps.options.series.data.bar.WaterfallD
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: WaterfallData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |
+
+-----------------
+
+********************************************************************************************************************
+class: :class:`WaterfallDataCollection <highcharts_maps.options.series.data.bar.WaterfallDataCollection>`
+********************************************************************************************************************
+
+.. autoclass:: WaterfallDataCollection
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: WaterfallDataCollection
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +94,25 @@ class: :class:`WindBarbData <highcharts_maps.options.series.data.bar.WindBarbDat
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: WindBarbData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |
+
+-----------------
+
+********************************************************************************************************************
+class: :class:`WindBarbDataCollection <highcharts_maps.options.series.data.bar.WindBarbDataCollection>`
+********************************************************************************************************************
+
+.. autoclass:: WindBarbDataCollection
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: WindBarbDataCollection
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -76,7 +130,25 @@ class: :class:`XRangeData <highcharts_maps.options.series.data.bar.XRangeData>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: XRangeData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |
+
+-----------------
+
+********************************************************************************************************************
+class: :class:`XRangeDataCollection <highcharts_maps.options.series.data.bar.XRangeDataCollection>`
+********************************************************************************************************************
+
+.. autoclass:: XRangeDataCollection
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: XRangeDataCollection
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

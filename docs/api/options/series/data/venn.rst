@@ -9,7 +9,7 @@
 
 --------------
 
-.. module:: highcharts_maps.options.series.data.venn
+.. module:: highcharts_core.options.series.data.venn
 
 ********************************************************************************************************************
 class: :class:`VennData <highcharts_maps.options.series.data.venn.VennData>`
@@ -22,7 +22,25 @@ class: :class:`VennData <highcharts_maps.options.series.data.venn.VennData>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: VennData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |
+
+--------------
+
+********************************************************************************************************************
+class: :class:`VennDataCollection <highcharts_maps.options.series.data.venn.VennDataCollection>`
+********************************************************************************************************************
+
+.. autoclass:: VennDataCollection
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: VennDataCollection
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

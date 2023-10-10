@@ -4,9 +4,9 @@ from decimal import Decimal
 from validator_collection import validators
 
 from highcharts_core.utility_classes.buttons import (ButtonTheme,
-                                                       ButtonConfiguration,
-                                                       ContextButtonConfiguration,
-                                                       ExportingButtons)
+                                                     ButtonConfiguration,
+                                                     ContextButtonConfiguration,
+                                                     ExportingButtons)
 
 from highcharts_maps import errors
 

@@ -2,7 +2,7 @@ from typing import Optional, List
 
 from validator_collection import validators, checkers
 
-from highcharts_core.options.series.base import SeriesBase
+from highcharts_core.options.series.base import SeriesBase as CoreSeriesBase
 
 from highcharts_maps import errors
 from highcharts_maps.decorators import validate_types
@@ -11,6 +11,68 @@ from highcharts_maps.utility_classes.javascript_functions import VariableName
 from highcharts_maps.utility_functions import mro__to_untrimmed_dict
 from highcharts_maps.js_literal_functions import (serialize_to_js_literal,
                                                   assemble_js_literal)
+
+
+class SeriesBase(CoreSeriesBase):
+    def convert_to(self, series_type):
+        """Creates a new series of ``series_type`` from the current series.
+        
+        :param series_type: The series type that should be returned.
+        :type series_type: :class:`str <python:str>` or
+          :class:`SeriesBase <highcharts_core.options.series.base.SeriesBase>`-descended
+          
+        .. warning::
+        
+          This operation is *not* guaranteed to work converting between all series 
+          types. This is because some series types have different properties, different
+          logic / functionality for their properties, and may have entirely different
+          data requirements.
+          
+          In general, this method is expected to be *lossy* in nature, meaning that when
+          the series can be converted "close enough" the series will be converted. 
+          However, if the target ``series_type`` does not support certain properties set
+          on the original instance, then those settings will *not* be propagated to the 
+          new series.
+          
+          In certain cases, this method may raise an 
+          :exc:`HighchartsSeriesConversionError <highcharts_core.errors.HighchartsSeriesConversionError>`
+          if the method is unable to convert (even losing some data) the original into 
+          ``series_type``.
+        
+        :returns: A new series of ``series_type``, maintaining relevant properties and
+          data from the original instance.
+        :rtype: ``series_type``
+          :class:`SeriesBase <highcharts_core.options.series.base.SeriesBase>` descendant
+          
+        :raises HighchartsSeriesConversionError: if unable to convert (even after losing 
+          some data) the original instance into an instance of ``series_type``.
+        :raises HighchartsValueError: if ``series_type`` is not a recognized series type
+
+        """
+        from highcharts_maps.options.series.series_generator import SERIES_CLASSES
+
+        if isinstance(series_type, str):
+            series_type = series_type.lower()
+            if series_type not in SERIES_CLASSES:
+                raise errors.HighchartsValueError(f'series_type expects a valid Highcharts '
+                                                  f'series type. Received: {series_type}')
+            series_type_name = series_type
+            series_type = SERIES_CLASSES.get(series_type)
+        elif not issubclass(series_type, CoreSeriesBase):
+            raise errors.HighchartsValueError(f'series_type expects a valid Highcharts '
+                                              f'series type. Received: {series_type}')
+        else:
+            series_type_name = series_type.__name__
+
+        as_js_literal = self.to_js_literal()
+        try:
+            target = series_type.from_js_literal(as_js_literal)
+        except (ValueError, TypeError):
+            raise errors.HighchartsSeriesConversionError(f'Unable to convert '
+                                                         f'{self.__class__.__name__} instance '
+                                                         f'to {series_type_name}')
+        
+        return target
 
 
 class MapSeriesBase(SeriesBase):
@@ -278,7 +340,8 @@ class MapSeriesBase(SeriesBase):
 
     def to_js_literal(self,
                       filename = None,
-                      encoding = 'utf-8') -> Optional[str]:
+                      encoding = 'utf-8',
+                      careful_validation = False) -> Optional[str]:
         """Return the object represented as a :class:`str <python:str>` containing the
         JavaScript object literal.
 
@@ -289,6 +352,18 @@ class MapSeriesBase(SeriesBase):
         :param encoding: The character encoding to apply to the resulting object. Defaults
           to ``'utf-8'``.
         :type encoding: :class:`str <python:str>`
+
+        :param careful_validation: if ``True``, will carefully validate JavaScript values
+        along the way using the
+        `esprima-python <https://github.com/Kronuz/esprima-python>`__ library. Defaults
+        to ``False``.
+        
+        .. warning::
+        
+            Setting this value to ``True`` will significantly degrade serialization
+            performance, though it may prove useful for debugging purposes.
+
+        :type careful_validation: :class:`bool <python:bool>`
 
         :rtype: :class:`str <python:str>` or :obj:`None <python:None>`
         """
@@ -307,11 +382,14 @@ class MapSeriesBase(SeriesBase):
                 if fetch_counter > 0:
                     item = f'{item}{fetch_counter}'
 
-            serialized = serialize_to_js_literal(item, encoding = encoding)
+            serialized = serialize_to_js_literal(item,
+                                                 encoding = encoding,
+                                                 careful_validation = careful_validation)
             if serialized is not None:
                 as_dict[key] = serialized
 
-        as_str = assemble_js_literal(as_dict)
+        as_str = assemble_js_literal(as_dict,
+                                     careful_validation = careful_validation)
 
         if filename:
             with open(filename, 'w', encoding = encoding) as file_:
@@ -415,3 +493,63 @@ class MapSeriesBase(SeriesBase):
         instance.load_from_geopandas(gdf, property_map)
 
         return instance
+
+    def convert_to(self, series_type):
+        """Creates a new series of ``series_type`` from the current series.
+        
+        :param series_type: The series type that should be returned.
+        :type series_type: :class:`str <python:str>` or
+          :class:`SeriesBase <highcharts_core.options.series.base.SeriesBase>`-descended
+          
+        .. warning::
+        
+          This operation is *not* guaranteed to work converting between all series 
+          types. This is because some series types have different properties, different
+          logic / functionality for their properties, and may have entirely different
+          data requirements.
+          
+          In general, this method is expected to be *lossy* in nature, meaning that when
+          the series can be converted "close enough" the series will be converted. 
+          However, if the target ``series_type`` does not support certain properties set
+          on the original instance, then those settings will *not* be propagated to the 
+          new series.
+          
+          In certain cases, this method may raise an 
+          :exc:`HighchartsSeriesConversionError <highcharts_core.errors.HighchartsSeriesConversionError>`
+          if the method is unable to convert (even losing some data) the original into 
+          ``series_type``.
+        
+        :returns: A new series of ``series_type``, maintaining relevant properties and
+          data from the original instance.
+        :rtype: ``series_type``
+          :class:`SeriesBase <highcharts_core.options.series.base.SeriesBase>` descendant
+          
+        :raises HighchartsSeriesConversionError: if unable to convert (even after losing 
+          some data) the original instance into an instance of ``series_type``.
+        :raises HighchartsValueError: if ``series_type`` is not a recognized series type
+
+        """
+        from highcharts_maps.options.series.series_generator import SERIES_CLASSES
+
+        if isinstance(series_type, str):
+            series_type = series_type.lower()
+            if series_type not in SERIES_CLASSES:
+                raise errors.HighchartsValueError(f'series_type expects a valid Highcharts '
+                                                  f'series type. Received: {series_type}')
+            series_type_name = series_type
+            series_type = SERIES_CLASSES.get(series_type)
+        elif not issubclass(series_type, CoreSeriesBase):
+            raise errors.HighchartsValueError(f'series_type expects a valid Highcharts '
+                                              f'series type. Received: {series_type}')
+        else:
+            series_type_name = series_type.__name__
+
+        as_js_literal = self.to_js_literal()
+        try:
+            target = series_type.from_js_literal(as_js_literal)
+        except (ValueError, TypeError):
+            raise errors.HighchartsSeriesConversionError(f'Unable to convert '
+                                                         f'{self.__class__.__name__} instance '
+                                                         f'to {series_type_name}')
+        
+        return target

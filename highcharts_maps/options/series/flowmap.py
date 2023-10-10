@@ -3,9 +3,9 @@ from typing import Optional, List
 from highcharts_maps.decorators import class_sensitive
 from highcharts_maps.options.plot_options.flowmap import FlowmapOptions, GeoHeatmapOptions
 from highcharts_maps.options.series.base import SeriesBase
-from highcharts_maps.options.series.data.connections import FlowmapData
+from highcharts_maps.options.series.data.connections import FlowmapData, FlowmapDataCollection
 from highcharts_maps.options.series.data.geometric import GeometricLatLonData
-from highcharts_maps.utility_functions import mro__to_untrimmed_dict
+from highcharts_maps.utility_functions import mro__to_untrimmed_dict, is_ndarray
 
 
 class FlowmapSeries(SeriesBase, FlowmapOptions):
@@ -22,7 +22,7 @@ class FlowmapSeries(SeriesBase, FlowmapOptions):
         super().__init__(**kwargs)
 
     @property
-    def data(self) -> Optional[List[FlowmapData]]:
+    def data(self) -> Optional[List[FlowmapData] | FlowmapDataCollection]:
         """Collection of data that represents the series. Defaults to
         :obj:`None <python:None>`.
 
@@ -50,14 +50,17 @@ class FlowmapSeries(SeriesBase, FlowmapOptions):
 
         :rtype: :class:`list <python:list>` of
           :class:`FlowmapData <highcharts_maps.options.series.data.connections.FlowmapData>`
+          or :class:`FlowmapDataCollection`
           or :obj:`None <python:None>`
         """
         return self._data
 
     @data.setter
-    @class_sensitive(FlowmapData, force_iterable = True)
     def data(self, value):
-        self._data = value
+        if not is_ndarray(value) and not value:
+            self._data = None
+        else:
+            self._data = FlowmapData.from_array(value)
 
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):
@@ -131,6 +134,24 @@ class FlowmapSeries(SeriesBase, FlowmapOptions):
         untrimmed = mro__to_untrimmed_dict(self, in_cls = in_cls)
 
         return untrimmed
+
+    @classmethod
+    def _data_collection_class(cls):
+        """Returns the class object used for the data collection.
+        
+        :rtype: :class:`DataPointCollection <highcharts_core.options.series.data.collections.DataPointCollection>`
+          descendent
+        """
+        return FlowmapDataCollection
+    
+    @classmethod
+    def _data_point_class(cls):
+        """Returns the class object used for individual data points.
+        
+        :rtype: :class:`DataBase <highcharts_core.options.series.data.base.DataBase>` 
+          descendent
+        """
+        return FlowmapData
 
 
 class GeoHeatmapSeries(FlowmapSeries, GeoHeatmapOptions):

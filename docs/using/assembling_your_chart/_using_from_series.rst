@@ -2,7 +2,7 @@
 
     ``.from_series()`` is supported by both the
     :class:`Chart <highcharts_maps.chart.Chart>` and
-    :class:`HighchartsStockOptions <highcharts_maps.options.HighchartsStockOptions>`
+    :class:`HighchartsMapsOptions <highcharts_maps.options.HighchartsMapsOptions>`
     classes
 
 .. code-block:: python

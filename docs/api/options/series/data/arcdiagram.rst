@@ -9,7 +9,7 @@
 
 --------------
 
-.. module:: highcharts_maps.options.series.data.arcdiagram
+.. module:: highcharts_core.options.series.data.arcdiagram
 
 ********************************************************************************************************************
 class: :class:`ArcDiagramData <highcharts_maps.options.series.data.arcdiagram.ArcDiagramData>`
@@ -22,7 +22,27 @@ class: :class:`ArcDiagramData <highcharts_maps.options.series.data.arcdiagram.Ar
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ArcDiagramData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |
+
+--------------
+
+.. module:: highcharts_core.options.series.data.arcdiagram
+
+********************************************************************************************************************
+class: :class:`ArcDiagramDataCollection <highcharts_maps.options.series.data.arcdiagram.ArcDiagramDataCollection>`
+********************************************************************************************************************
+
+.. autoclass:: ArcDiagramDataCollection
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: ArcDiagramDataCollection
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

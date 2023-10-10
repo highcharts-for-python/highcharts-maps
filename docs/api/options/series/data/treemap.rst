@@ -9,7 +9,7 @@
 
 --------------
 
-.. module:: highcharts_maps.options.series.data.treemap
+.. module:: highcharts_core.options.series.data.treemap
 
 ********************************************************************************************************************
 class: :class:`TreemapData <highcharts_maps.options.series.data.treemap.TreemapData>`
@@ -22,7 +22,25 @@ class: :class:`TreemapData <highcharts_maps.options.series.data.treemap.TreemapD
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: TreemapData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |
+
+--------------
+
+********************************************************************************************************************
+class: :class:`TreemapDataCollection <highcharts_maps.options.series.data.treemap.TreemapDataCollection>`
+********************************************************************************************************************
+
+.. autoclass:: TreemapDataCollection
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: TreemapDataCollection
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -1,10 +1,9 @@
 from typing import Optional, List
 
-from highcharts_maps.decorators import class_sensitive
 from highcharts_maps.options.plot_options.mapbubble import MapBubbleOptions
 from highcharts_maps.options.series.base import MapSeriesBase
-from highcharts_maps.utility_functions import mro__to_untrimmed_dict
-from highcharts_maps.options.series.data.geometric import GeometricZData
+from highcharts_maps.utility_functions import mro__to_untrimmed_dict, is_ndarray
+from highcharts_maps.options.series.data.geometric import GeometricZData, GeometricZDataCollection
 
 
 class MapBubbleSeries(MapSeriesBase, MapBubbleOptions):
@@ -22,7 +21,7 @@ class MapBubbleSeries(MapSeriesBase, MapBubbleOptions):
         super().__init__(**kwargs)
 
     @property
-    def data(self) -> Optional[List[GeometricZData]]:
+    def data(self) -> Optional[List[GeometricZData] | GeometricZDataCollection]:
         """Collection of data that represents the series. Defaults to
         :obj:`None <python:None>`.
 
@@ -76,14 +75,17 @@ class MapBubbleSeries(MapSeriesBase, MapBubbleOptions):
 
         :rtype: :class:`list <python:list>` of
           :class:`GeometricZData <highcharts_maps.options.series.data.geometric.GeometricZData>`
+          or :class:`GeometricZDataCollection`
           or :obj:`None <python:None>`
         """
         return self._data
 
     @data.setter
-    @class_sensitive(GeometricZData, force_iterable = True)
     def data(self, value):
-        self._data = value
+        if not is_ndarray(value) and not value:
+            self._data = None
+        else:
+            self._data = GeometricZData.from_array(value)
 
     @classmethod
     def _get_kwargs_from_dict(cls, as_dict):
@@ -190,3 +192,21 @@ class MapBubbleSeries(MapSeriesBase, MapBubbleOptions):
         untrimmed = mro__to_untrimmed_dict(self, in_cls = in_cls)
 
         return untrimmed
+
+    @classmethod
+    def _data_collection_class(cls):
+        """Returns the class object used for the data collection.
+        
+        :rtype: :class:`DataPointCollection <highcharts_core.options.series.data.collections.DataPointCollection>`
+          descendent
+        """
+        return GeometricZDataCollection
+    
+    @classmethod
+    def _data_point_class(cls):
+        """Returns the class object used for individual data points.
+        
+        :rtype: :class:`DataBase <highcharts_core.options.series.data.base.DataBase>` 
+          descendent
+        """
+        return GeometricZData

@@ -9,7 +9,7 @@
 
 --------------
 
-.. module:: highcharts_maps.options.series.data.connections
+.. module:: highcharts_core.options.series.data.connections
 
 ********************************************************************************************************************
 class: :class:`ConnectionData <highcharts_maps.options.series.data.connections.ConnectionData>`
@@ -22,7 +22,7 @@ class: :class:`ConnectionData <highcharts_maps.options.series.data.connections.C
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ConnectionData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -30,17 +30,17 @@ class: :class:`ConnectionData <highcharts_maps.options.series.data.connections.C
 ---------------
 
 ********************************************************************************************************************
-class: :class:`FlowmapData <highcharts_maps.options.series.data.connections.FlowmapData>`
+class: :class:`ConnectionDataCollection <highcharts_maps.options.series.data.connections.ConnectionDataCollection>`
 ********************************************************************************************************************
 
-.. autoclass:: FlowmapData
+.. autoclass:: ConnectionDataCollection
   :members:
   :inherited-members:
 
   .. collapse:: Class Inheritance
 
-    .. inheritance-diagram:: FlowmapData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+    .. inheritance-diagram:: ConnectionDataCollection
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -58,7 +58,25 @@ class: :class:`WeightedConnectionData <highcharts_maps.options.series.data.conne
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: WeightedConnectionData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |
+
+----------------------
+
+********************************************************************************************************************
+class: :class:`WeightedConnectionDataCollection <highcharts_maps.options.series.data.connections.WeightedConnectionDataCollection>`
+********************************************************************************************************************
+
+.. autoclass:: WeightedConnectionDataCollection
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: WeightedConnectionDataCollection
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -76,7 +94,25 @@ class: :class:`OutgoingWeightedConnectionData <highcharts_maps.options.series.da
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: OutgoingWeightedConnectionData
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
+      :parts: -1
+
+  |
+
+---------------------------
+
+*************************************************************************************************************************************
+class: :class:`OutgoingWeightedConnectionDataCollection <highcharts_maps.options.series.data.connections.OutgoingWeightedConnectionDataCollection>`
+*************************************************************************************************************************************
+
+.. autoclass:: OutgoingWeightedConnectionDataCollection
+  :members:
+  :inherited-members:
+
+  .. collapse:: Class Inheritance
+
+    .. inheritance-diagram:: OutgoingWeightedConnectionDataCollection
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |
@@ -94,7 +130,7 @@ class: :class:`ConnectionBase <highcharts_maps.options.series.data.connections.C
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: ConnectionBase
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -9,7 +9,7 @@
 
 --------------
 
-.. module:: highcharts_maps.options.series.data.base
+.. module:: highcharts_core.options.series.data.base
 
 ********************************************************************************************************************
 class: :class:`DataBase <highcharts_maps.options.series.data.base.DataBase>`
@@ -22,25 +22,7 @@ class: :class:`DataBase <highcharts_maps.options.series.data.base.DataBase>`
   .. collapse:: Class Inheritance
 
     .. inheritance-diagram:: DataBase
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
-      :parts: -1
-
-  |
-
-------------------
-
-********************************************************************************************************************
-class: :class:`DataCore <highcharts_maps.options.series.data.base.DataCore>`
-********************************************************************************************************************
-
-.. autoclass:: DataCore
-  :members:
-  :inherited-members:
-
-  .. collapse:: Class Inheritance
-
-    .. inheritance-diagram:: DataCore
-      :top-classes: highcharts_maps.metaclasses.HighchartsMeta, highcharts_core.metaclasses.HighchartsMeta
+      :top-classes: highcharts_core.metaclasses.HighchartsMeta
       :parts: -1
 
   |

@@ -3,9 +3,9 @@ from typing import Optional, List
 from highcharts_core.options.series.pie import VariablePieSeries
 
 from highcharts_maps.options.series.base import MapSeriesBase
-from highcharts_maps.options.series.data.pie import PieData
+from highcharts_maps.options.series.data.pie import PieData, PieDataCollection
 from highcharts_maps.options.plot_options.pie import PieOptions
-from highcharts_maps.utility_functions import mro__to_untrimmed_dict
+from highcharts_maps.utility_functions import mro__to_untrimmed_dict, is_ndarray
 
 
 class PieSeries(MapSeriesBase, PieOptions):
@@ -33,8 +33,26 @@ class PieSeries(MapSeriesBase, PieOptions):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+    @classmethod
+    def _data_collection_class(cls):
+        """Returns the class object used for the data collection.
+        
+        :rtype: :class:`DataPointCollection <highcharts_core.options.series.data.collections.DataPointCollection>`
+          descendent
+        """
+        return PieDataCollection
+    
+    @classmethod
+    def _data_point_class(cls):
+        """Returns the class object used for individual data points.
+        
+        :rtype: :class:`DataBase <highcharts_core.options.series.data.base.DataBase>` 
+          descendent
+        """
+        return PieData
+
     @property
-    def data(self) -> Optional[List[PieData]]:
+    def data(self) -> Optional[List[PieData] | PieDataCollection]:
         """Collection of data that represents the series. Defaults to
         :obj:`None <python:None>`.
 
@@ -58,13 +76,14 @@ class PieSeries(MapSeriesBase, PieOptions):
             A one-dimensional collection of :class:`PieData` objects.
 
         :rtype: :class:`list <python:list>` of :class:`PieData` or
+          :class:`PieDataCollection` or
           :obj:`None <python:None>`
         """
         return self._data
 
     @data.setter
     def data(self, value):
-        if not value:
+        if not is_ndarray(value) and not value:
             self._data = None
         else:
             self._data = PieData.from_array(value)

@@ -1,4 +1,13 @@
 
+Release 1.4.1
+=========================================
+
+* **BUGFIX**: Fixed incorrect cross-dependency inheritance in 
+  ``options/series_generator.create_series_obj()`` (#36)
+
+---------------------
+
+
 Release 1.4.0
 =========================================
 

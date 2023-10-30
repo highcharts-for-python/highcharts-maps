@@ -4,8 +4,9 @@ import json
 
 from highcharts_maps import errors
 
+from highcharts_core.options.series.base import SeriesBase
+
 # Highcharts for Python series
-from highcharts_maps.options.series.base import SeriesBase
 from highcharts_maps.options.series.arcdiagram import ArcDiagramSeries
 from highcharts_maps.options.series.area import AreaSeries
 from highcharts_maps.options.series.area import AreaRangeSeries

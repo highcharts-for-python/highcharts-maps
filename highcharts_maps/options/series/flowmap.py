@@ -268,6 +268,7 @@ class GeoHeatmapSeries(FlowmapSeries, GeoHeatmapOptions):
             'border_color': as_dict.get('borderColor', None),
             'border_width': as_dict.get('borderWidth', None),
             'colsize': as_dict.get('colsize', None),
+            'interpolation': as_dict.get('interpolation', None),
             'rowsize': as_dict.get('rowsize', None),
 
         }

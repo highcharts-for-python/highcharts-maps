@@ -4,12 +4,79 @@ from typing import Optional, List
 from validator_collection import validators
 
 from highcharts_maps import constants
-from highcharts_maps.decorators import class_sensitive
+from highcharts_maps.metaclasses import HighchartsMeta
+from highcharts_maps.decorators import class_sensitive, validate_types
 from highcharts_maps.options.plot_options.generic import GenericTypeOptions
 from highcharts_maps.utility_classes.gradients import Gradient
 from highcharts_maps.utility_classes.patterns import Pattern
 from highcharts_maps.utility_classes.markers import FlowmapMarker
 from highcharts_maps.options.plot_options.map import MapOptions
+
+
+class InterpolationOptions(HighchartsMeta):
+    """Options to configure map interpolation."""
+    
+    def __init__(self, **kwargs):
+        self._blur = None
+        self._enabled = None
+        
+        self.blur = kwargs.get('blur', None)
+        self.enabled = kwargs.get('enabled', None)
+        
+    @property
+    def blur(self) -> Optional[int | float | Decimal]:
+        """Represents how much blur should be added to the interpolated
+        image. Defaults to ``1``.
+        
+        .. tip::
+        
+          Works best in the range of ``0 - 1``, all higher values would need 
+          higher perfomance to calculate more detailed interpolation.
+          
+        .. note::
+        
+          This is useful, if the data is spread into wide range of\n longitue and 
+          latitude values.
+          
+        :rtype: numeric or :obj:`None <python:None>`
+        """
+        return self._blur
+    
+    @blur.setter
+    def blur(self, value):
+        self._blur = validators.numeric(value, allow_empty = True)
+        
+    @property
+    def enabled(self) -> Optional[bool]:
+        """Enables or disables interpolation. Defaults to ``False``.
+        
+        :rtype: :class:`bool <python:bool>` or :obj:`None <python:None>`
+        """
+        return self._enabled
+    
+    @enabled.setter
+    def enabled(self, value):
+        if value is None:
+            self._enabled = None
+        else:
+            self._enabled = bool(value)
+
+    @classmethod
+    def _get_kwargs_from_dict(cls, as_dict):
+        kwargs = {
+            'blur': as_dict.get('blur', None),
+            'enabled': as_dict.get('enabled', None),
+        }
+
+        return kwargs
+
+    def _to_untrimmed_dict(self, in_cls = None) -> dict:
+        untrimmed = {
+            'blur': self.blur,
+            'enabled': self.enabled,
+        }
+
+        return untrimmed
 
 
 class FlowmapOptions(GenericTypeOptions):
@@ -509,11 +576,13 @@ class GeoHeatmapOptions(MapOptions, FlowmapOptions):
         self._border_color = None
         self._border_width = None
         self._colsize = None
+        self._interpolation = None
         self._rowsize = None
         
         self.border_color = kwargs.get('border_color', None)
         self.border_width = kwargs.get('border_width', None)
         self.colsize = kwargs.get('colsize', None)
+        self.interpolation = kwargs.get('interpolation', None)
         self.rowsize = kwargs.get('rowsize', None)
 
         super().__init__(**kwargs)
@@ -548,6 +617,26 @@ class GeoHeatmapOptions(MapOptions, FlowmapOptions):
         self._colsize = validators.integer(value,
                                            allow_empty = True,
                                            minimum = 1)
+
+    @property
+    def interpolation(self) -> Optional[bool | InterpolationOptions]:
+        """If enabled, render data points as an interpolated image. It can be used to 
+        show temperature map-like charts. Defaults to ``False``.
+        
+        :rtype: :class:`bool <python:bool>` or 
+          :class:`InterpolationOptions <highcharts_maps.options.plot_options.flowmap.InterpolationOptions>`
+          or :obj:`None <python:None>`
+        """
+        return self._interpolation
+    
+    @interpolation.setter
+    def interpolation(self, value):
+        if value is None:
+            self._interpolation = None
+        elif isinstance(value, bool):
+            self._interpolation = value
+        else:
+            self._interpolation = validate_types(value, InterpolationOptions)
 
     @property
     def join_by(self) -> Optional[str | List[str] | constants.EnforcedNullType]:
@@ -667,6 +756,7 @@ class GeoHeatmapOptions(MapOptions, FlowmapOptions):
             'border_color': as_dict.get('borderColor', None),
             'border_width': as_dict.get('borderWidth', None),
             'colsize': as_dict.get('colsize', None),
+            'interpolation': as_dict.get('interpolation', None),
             'rowsize': as_dict.get('rowsize', None),
 
         }
@@ -678,6 +768,7 @@ class GeoHeatmapOptions(MapOptions, FlowmapOptions):
         
         untrimmed = {
             'colsize': self.colsize,
+            'interpolation': self.interpolation,
             'rowsize': self.rowsize,
         }
         parent_as_dict = mro__to_untrimmed_dict(self, in_cls = in_cls)

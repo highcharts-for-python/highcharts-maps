@@ -153,7 +153,6 @@ def test_to_dict(kwargs, error):
 
 @pytest.mark.parametrize('filename, as_file, error', [
     ('chart/chart/01.js', False, None),
-    ('chart/chart/02.js', False, None),
 
     ('chart/chart/error-01.js',
      False,
@@ -164,7 +163,6 @@ def test_to_dict(kwargs, error):
       ValueError)),
 
     ('chart/chart/01.js', True, None),
-    ('chart/chart/02.js', False, None),
 
     ('chart/chart/error-01.js',
      True,

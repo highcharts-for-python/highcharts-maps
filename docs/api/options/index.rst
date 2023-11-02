@@ -295,7 +295,8 @@ Sub-components
       :class:`LollipopOptions <highcharts_maps.options.plot_options.dumbbell.LollipopOptions>`
   * - :mod:`.options.plot_options.flowmap <highcharts_maps.options.plot_options.flowmap>`
     - :class:`FlowmapOptions <highcharts_maps.options.plot_options.flowmap.FlowmapOptions>`
-      :class:`GeoHeatmapOptions <highcharts_maps.options.series.flowmap.GeoHeatmapOptions>`
+      :class:`GeoHeatmapOptions <highcharts_maps.options.plot_options.flowmap.GeoHeatmapOptions>`
+      :class:`InterpolationOptions <highcharts_maps.options.plot_options.flowmap.InterpolationOptions>`
   * - :mod:`.options.plot_options.funnel <highcharts_maps.options.plot_options.funnel>`
     - :class:`FunnelOptions <highcharts_maps.options.plot_options.funnel.FunnelOptions>`
       :class:`Funnel3DOptions <highcharts_maps.options.plot_options.funnel.Funnel3DOptions>`

@@ -56,7 +56,7 @@ class ChartOptions(ChartOptionsBase):
     @map.setter
     def map(self, value):
         if not value:
-            self._map_data = None
+            self._map = None
         elif checkers.is_iterable(value, forbid_literals = (str, bytes, dict)):
             cleaned_value = []
             for item in value:

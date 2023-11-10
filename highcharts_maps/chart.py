@@ -1154,7 +1154,7 @@ class Chart(ChartBase):
         if not options.chart:
             options.chart = ChartOptions()
 
-        options.chart.map_data = MapData.from_geodataframe(as_gdf = gdf)
+        options.chart.map = MapData.from_geodataframe(as_gdf = gdf)
 
         instance = cls(**chart_kwargs)
         instance.options = options
@@ -1428,7 +1428,7 @@ class Chart(ChartBase):
         if not options.chart:
             options.chart = ChartOptions()
 
-        options.chart.map_data = map_data
+        options.chart.map = map_data
 
         instance = cls(**chart_kwargs)
         instance.options = options

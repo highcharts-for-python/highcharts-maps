@@ -1,4 +1,20 @@
 
+Release 1.7.0
+=========================================
+
+* **ENHANCEMENT:** Align the API to **Highcharts Maps (JS) v.11.4** (#48). In particular, this includes:
+
+  * Updated requirements to depend on Highcharts Core for Python v.1.7.
+  * Added ``Accessibility.high_contrast_mode`` support.
+  * Added ``OrganizationOptions.hanging_side`` support.
+  * Added ``SankeyOptions.node_distance`` support.
+  * Added ``TreegraphOptions.node_distance`` support.
+  * Adjusted diagram (``ArcDiagramOptions``, ``TreegraphOptions``, ``DependencyWheelOptions``, and 
+    ``SankeyOptions``) ``.node_width`` support and documentation.
+  * Added ``NodeOptions.height`` support.
+
+--------------------
+
 Release 1.6.0
 =========================================
 

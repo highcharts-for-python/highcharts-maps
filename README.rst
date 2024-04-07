@@ -16,7 +16,7 @@ JavaScript data visualization library.
   * The **Highcharts Export Server** - enabling the programmatic creation of static
     (downloadable) data visualizations
 
-The library supports Highcharts (JS) v.10.2 and higher, including Highcharts (JS) v.11.3.0.
+The library supports Highcharts (JS) v.10.2 and higher, including Highcharts (JS) v.11.4.0.
 
 **Highcharts Maps for Python** is fully integrated with the broader Python ecosystem,
 offering native integrations with:
@@ -85,7 +85,7 @@ Before you install, please be aware of the following "hard" dependencies:
   * Python 3.10 or higher
   * Highcharts Maps (JS) v.10.2 or higher (not technically a Python dependency, but 
     it won't work with earlier versions of Highcharts)
-  * `Highcharts Core for Python <https://core-docs.highchartspython.com/en/latest/>`__ v.1.6 or higher
+  * `Highcharts Core for Python <https://core-docs.highchartspython.com/en/latest/>`__ v.1.7 or higher
   * `esprima-python <https://github.com/Kronuz/esprima-python>`__ v.4.0 or higher
   * `requests <https://requests.readthedocs.io/en/latest/>`__ v.2.31 or higher
   * `validator-collection <https://validator-collection.readthedocs.io/en/latest/>`__

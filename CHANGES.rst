@@ -1,4 +1,21 @@
 
+Release 1.6.0
+=========================================
+
+* **ENHANCEMENT:** Align the API to **Highcharts (JS) v.11.3** (#45). In particular, this includes:
+
+  * Updated requirements to depend on Highcharts Core for Python v.1.6.
+  * Added ``ChartOptions.axis_layout_runs`` property.
+  * Added ``ColorAxis.height`` property.
+  * Added ``ColorAxis.width`` property.
+  * Added ``Data.column_types`` property.
+  * Added ``Exporting.fetch_options`` property.
+  * Implemented support for verbose axis date-time unit labelling configuration (see: ``DateTimeLabelFormats``).
+
+* **DOCUMENTATION:** Fixed typos in **Getting Started** tutorial.
+
+------------------
+
 Release 1.5.1
 =========================================
 

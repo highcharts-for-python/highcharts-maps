@@ -391,7 +391,7 @@ class Chart(ChartBase):
         :rtype: :class:`bytes <python:bytes>` or :class:`str <python:str>`
         """
         if self.is_maps_chart:
-            constructor = 'Stock'
+            constructor = 'Map'
         else:
             constructor = 'Chart'
 

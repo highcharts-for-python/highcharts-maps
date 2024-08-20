@@ -249,9 +249,48 @@ class MapData(HighchartsMeta):
 
         return untrimmed
 
+    @staticmethod
+    def trim_dict(untrimmed: dict,
+                  to_json: bool = False,
+                  context: str = None,
+                  for_export: bool = False) -> dict:
+        """Remove keys from ``untrimmed`` whose values are :obj:`None <python:None>` and
+        convert values that have ``.to_dict()`` methods.
+
+        :param untrimmed: The :class:`dict <python:dict>` whose values may still be
+          :obj:`None <python:None>` or Python objects.
+        :type untrimmed: :class:`dict <python:dict>`
+
+        :param to_json: If ``True``, will remove all keys from ``untrimmed`` that are not
+          serializable to JSON. Defaults to ``False``.
+        :type to_json: :class:`bool <python:bool>`
+        
+        :param context: If provided, will inform the method of the context in which it is
+          being run which may inform special handling cases (e.g. where empty strings may
+          be important / allowable). Defaults to :obj:`None <python:None>`.
+        :type context: :class:`str <python:str>` or :obj:`None <python:None>`
+        
+        :param for_export: If ``True``, indicates that the method is being run to
+          produce a JSON for consumption by the export server. Defaults to ``False``.
+        :type for_export: :class:`bool <python:bool>`
+
+        :returns: Trimmed :class:`dict <python:dict>`
+        :rtype: :class:`dict <python:dict>`
+        """
+        if not for_export:
+            return HighchartsMeta.trim_dict(untrimmed = untrimmed,
+                                            to_json = to_json,
+                                            context = context,
+                                            for_export = for_export)
+        
+        topology = untrimmed.get('topology', None)
+        
+        return topology
+
     def to_json(self,
                 filename = None,
-                encoding = 'utf-8'):
+                encoding = 'utf-8',
+                for_export: bool = False):
         """Generate a JSON string/byte string representation of the object compatible with
         the Highcharts JavaScript library.
 
@@ -270,6 +309,10 @@ class MapData(HighchartsMeta):
         :param encoding: The character encoding to apply to the resulting object. Defaults
           to ``'utf-8'``.
         :type encoding: :class:`str <python:str>`
+
+        :param for_export: If ``True``, indicates that the method is being run to
+          produce a JSON for consumption by the export server. Defaults to ``False``.
+        :type for_export: :class:`bool <python:bool>`
 
         :returns: A JSON representation of the object compatible with the Highcharts
           library.

@@ -1,4 +1,14 @@
 
+Release 1.7.1
+=========================================
+
+* **BUGFIX:** Fixed the use of an improper constructor when exporting Map charts.
+* **ENHANCEMENT:** Bumped requirement to use latest version of Highcharts Core for Python, which
+  also fixes an export-related serialization error.
+* **ENHANCEMENT:** Bumped ``requests`` version number for security patch.
+
+--------------------
+
 Release 1.7.0
 =========================================
 
